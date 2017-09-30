@@ -13,6 +13,13 @@
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
 		5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095E1F8015F70026152E /* LaunchScreen.storyboard */; };
 		5B73096B1F8015F70026152E /* FlightRecordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73096A1F8015F70026152E /* FlightRecordsTests.swift */; };
+		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
+		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
+		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
+		5B7309801F8023100026152E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097E1F80230F0026152E /* Realm.framework */; };
+		5B7309811F8023100026152E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097E1F80230F0026152E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B7309821F8023100026152E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; };
+		5B7309831F8023100026152E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +32,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5B7309841F8023100026152E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5B7309831F8023100026152E /* RealmSwift.framework in Embed Frameworks */,
+				5B7309811F8023100026152E /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +58,11 @@
 		5B7309661F8015F70026152E /* FlightRecordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightRecordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B73096A1F8015F70026152E /* FlightRecordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRecordsTests.swift; sourceTree = "<group>"; };
 		5B73096C1F8015F70026152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B7309771F80219A0026152E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		5B7309781F80219A0026152E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		5B7309791F80219A0026152E /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		5B73097E1F80230F0026152E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Realm/Realm.framework; sourceTree = "<group>"; };
+		5B73097F1F8023100026152E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Realm/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +70,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7309801F8023100026152E /* Realm.framework in Frameworks */,
+				5B7309821F8023100026152E /* RealmSwift.framework in Frameworks */,
+				5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */,
+				5B73097B1F80219A0026152E /* Result.framework in Frameworks */,
+				5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,9 +91,12 @@
 		5B7309491F8015F70026152E = {
 			isa = PBXGroup;
 			children = (
+				5B73097E1F80230F0026152E /* Realm.framework */,
+				5B73097F1F8023100026152E /* RealmSwift.framework */,
 				5B7309541F8015F70026152E /* FlightRecords */,
 				5B7309691F8015F70026152E /* FlightRecordsTests */,
 				5B7309531F8015F70026152E /* Products */,
+				5B7309761F80219A0026152E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,11 +112,9 @@
 		5B7309541F8015F70026152E /* FlightRecords */ = {
 			isa = PBXGroup;
 			children = (
-				5B7309551F8015F70026152E /* AppDelegate.swift */,
+				5B7309751F8016180026152E /* Supporting Files */,
 				5B7309571F8015F70026152E /* ViewController.swift */,
 				5B7309591F8015F70026152E /* Main.storyboard */,
-				5B73095C1F8015F70026152E /* Assets.xcassets */,
-				5B73095E1F8015F70026152E /* LaunchScreen.storyboard */,
 				5B7309611F8015F70026152E /* Info.plist */,
 			);
 			path = FlightRecords;
@@ -96,6 +129,26 @@
 			path = FlightRecordsTests;
 			sourceTree = "<group>";
 		};
+		5B7309751F8016180026152E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B7309551F8015F70026152E /* AppDelegate.swift */,
+				5B73095C1F8015F70026152E /* Assets.xcassets */,
+				5B73095E1F8015F70026152E /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B7309761F80219A0026152E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B7309771F80219A0026152E /* ReactiveCocoa.framework */,
+				5B7309791F80219A0026152E /* ReactiveSwift.framework */,
+				5B7309781F80219A0026152E /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +159,9 @@
 				5B73094E1F8015F70026152E /* Sources */,
 				5B73094F1F8015F70026152E /* Frameworks */,
 				5B7309501F8015F70026152E /* Resources */,
+				5B73097D1F8021B60026152E /* ShellScript */,
+				5B7309841F8023100026152E /* Embed Frameworks */,
+				5B7309851F8023850026152E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -193,6 +249,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B73097D1F8021B60026152E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveSwift.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		5B7309851F8023850026152E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B73094E1F8015F70026152E /* Sources */ = {
@@ -355,6 +446,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGNFHN2T6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Realm",
+				);
 				INFOPLIST_FILE = FlightRecords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = personal.FlightRecords;
@@ -370,6 +466,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGNFHN2T6J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Realm",
+				);
 				INFOPLIST_FILE = FlightRecords/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = personal.FlightRecords;

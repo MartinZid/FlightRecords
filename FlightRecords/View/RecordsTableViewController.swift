@@ -11,6 +11,7 @@ import UIKit
 class RecordsTableViewController: UITableViewController {
 
     private let recordCellIdentifier = "RecordCell"
+    /// viewModel handles logic of *RecordsTableViewController*
     private let viewModel = RecordsViewModel()
     
     override func viewDidLoad() {
@@ -18,6 +19,9 @@ class RecordsTableViewController: UITableViewController {
         bindViewModel()
     }
     
+    /**
+         This function binds *viewModel* to *View* ...
+     */
     private func bindViewModel() {
         viewModel.contentChangedSignal.observeValues {
             self.tableView.reloadData()

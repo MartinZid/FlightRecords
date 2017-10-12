@@ -10,9 +10,14 @@ import Foundation
 import RealmSwift
 
 class RealmHandler {
+    /// notificationToken is *Realm*'s object which is notified everytime Realm is changed.
     internal var notificationToken: NotificationToken!
+    /// realm is a instance of *Realm* class
     internal var realm: Realm!
     
+    /**
+     Init function sets up Realm instance, logins user to Realm, sets up notifications and informs when all is set.
+     */
     init() {
         let username = "TestUser"
         let password = "test"
@@ -34,10 +39,21 @@ class RealmHandler {
         }
     }
     
+    /**
+     Abstract function which is called after Realm instance is set.
+     */
     internal func realmInitCompleted() {}
     
+    /**
+     Abstract function which handles *Realm*'s notifications.
+     - Parameter notification: Instance of Realm.Notification, which is passed by Realm itself.
+     - Parameter realm: Instance of Realm.
+     */
     internal func notificationHandler(notification: Realm.Notification, realm: Realm) {}
     
+    /**
+     This function is a destructor, which stop *Realm*'s notifications.
+     */
     deinit {
         notificationToken.stop()
     }

@@ -8,14 +8,27 @@
 
 import Foundation
 
+/**
+ *RecordViewModel* is *RecordCell*'s viewModel. It prepares data to be show in each cell.
+ */
 class RecordViewModel {
     
+    /// *Record* model object
     private let record: Record
     
+    /**
+     Init function initializes *RecordViewModel* with given *Record*.
+     - Parameter record: *Record* object.
+     */
     init(with record: Record) {
         self.record = record
     }
     
+    /**
+     This function converts *Record*'s date to *String*.
+     Format dd.MM.yyyy.
+     - Returns: dd.MM.yyyy *String* of *Record*'s date, if the date is set. Or empty string if is not set.
+     */
     func getDate() -> String {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "dd.MM.yyyy"
@@ -27,14 +40,23 @@ class RecordViewModel {
         return ""
     }
     
+    /**
+     This function takes *Record*'s destinations (from and to) and combines them.
+     - Returns: *String* in format: from-to.
+     */
     func getDestinations() -> String {
         return record.from + "-" + record.to
     }
-    
+    /**
+     getTime function converts *Record*'s time to *String* and appends "h" (hours) to the end.
+     - Returns: Time *String* eg.: 8 h.
+     */
     func getTime() -> String {
         return String(record.time) + " h"
     }
-    
+    /**
+     - Returns: *Record*'s plane.
+     */
     func getPlane() -> Plane? {
         return record.plane
     }

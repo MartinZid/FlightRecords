@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */; };
+		5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */; };
+		5B189CC11F8F53EF000B25FB /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC01F8F53EF000B25FB /* Record.swift */; };
+		5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC51F8F54E0000B25FB /* RecordCell.swift */; };
+		5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */; };
+		5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC91F8F5BB4000B25FB /* Plane.swift */; };
+		5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmHandler.swift */; };
 		5B7309561F8015F70026152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309551F8015F70026152E /* AppDelegate.swift */; };
-		5B7309581F8015F70026152E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309571F8015F70026152E /* ViewController.swift */; };
 		5B73095B1F8015F70026152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7309591F8015F70026152E /* Main.storyboard */; };
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
 		5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095E1F8015F70026152E /* LaunchScreen.storyboard */; };
@@ -48,9 +54,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewController.swift; sourceTree = "<group>"; };
+		5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModel.swift; sourceTree = "<group>"; };
+		5B189CC01F8F53EF000B25FB /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		5B189CC51F8F54E0000B25FB /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		5B189CC91F8F5BB4000B25FB /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightRecords.entitlements; sourceTree = "<group>"; };
+		5B189CCC1F8F678E000B25FB /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B7309571F8015F70026152E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5B73095A1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B73095C1F8015F70026152E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B73095F1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +101,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B189CC21F8F5491000B25FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B189CC01F8F53EF000B25FB /* Record.swift */,
+				5B189CC91F8F5BB4000B25FB /* Plane.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B189CC31F8F549D000B25FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */,
+				5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */,
+				5B189CCC1F8F678E000B25FB /* RealmHandler.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B189CC41F8F54A4000B25FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */,
+				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5B7309491F8015F70026152E = {
 			isa = PBXGroup;
 			children = (
@@ -112,8 +153,11 @@
 		5B7309541F8015F70026152E /* FlightRecords */ = {
 			isa = PBXGroup;
 			children = (
+				5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */,
+				5B189CC41F8F54A4000B25FB /* View */,
+				5B189CC31F8F549D000B25FB /* ViewModel */,
+				5B189CC21F8F5491000B25FB /* Model */,
 				5B7309751F8016180026152E /* Supporting Files */,
-				5B7309571F8015F70026152E /* ViewController.swift */,
 				5B7309591F8015F70026152E /* Main.storyboard */,
 				5B7309611F8015F70026152E /* Info.plist */,
 			);
@@ -203,6 +247,11 @@
 					5B7309511F8015F70026152E = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					5B7309651F8015F70026152E = {
 						CreatedOnToolsVersion = 9.0;
@@ -290,8 +339,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7309581F8015F70026152E /* ViewController.swift in Sources */,
+				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
+				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
+				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
+				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
+				5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */,
 				5B7309561F8015F70026152E /* AppDelegate.swift in Sources */,
+				5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */,
+				5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlightRecords/FlightRecords.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGNFHN2T6J;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -464,6 +520,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlightRecords/FlightRecords.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGNFHN2T6J;
 				FRAMEWORK_SEARCH_PATHS = (

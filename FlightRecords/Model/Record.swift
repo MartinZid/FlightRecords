@@ -13,14 +13,14 @@ import RealmSwift
  *Record* a Realm object class.
  */
 final class Record: Object {
-    /// Date of this *Record*'s flight.
+    /// Date of *Record*'s flight.
     @objc dynamic var date: Date?
-    /// Place of this *Record*'s flight take off.
+    /// Place of *Record*'s flight take off.
     @objc dynamic var from = ""
-    /// Place of this *Record*'s flight landing.
+    /// Place of *Record*'s flight landing.
     @objc dynamic var to = ""
-    /// Total time of this *Record*'s flight.
+    /// Total time of *Record*'s flight.
     @objc dynamic var time: Int = 0
-    /// Plane which was used in this *Record*'s flight.
+    /// Plane which was used in *Record*'s flight.
     @objc dynamic var plane: Plane?
 }

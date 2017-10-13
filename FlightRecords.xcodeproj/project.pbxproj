@@ -28,6 +28,9 @@
 		5B7309821F8023100026152E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; };
 		5B7309831F8023100026152E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */; };
+		5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
+		5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
+		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */,
+				5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */,
+				5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

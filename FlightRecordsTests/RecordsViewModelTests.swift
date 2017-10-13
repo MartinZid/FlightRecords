@@ -7,7 +7,10 @@
 //
 
 import XCTest
-
+import RealmSwift
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 @testable import FlightRecords
 
 class RecordsViewModelTests: XCTestCase {
@@ -16,6 +19,8 @@ class RecordsViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        //Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
+        //let (_, _) = Signal<Void, NoError>.pipe()
         viewModelUnderTest = RecordsViewModel()
         
     }

@@ -21,6 +21,8 @@ class RecordViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
+        viewModelUnderTest = nil
+        recordUnderTest = nil
         super.tearDown()
     }
     

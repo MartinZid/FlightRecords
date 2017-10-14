@@ -21,17 +21,18 @@ class RealmHandler {
     init() {
         let username = "TestUser"
         let password = "test"
-        
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
                 fatalError(String(describing: error))
             }
-            
             DispatchQueue.main.async {
+                print("preparing Realm...")
                 let configuration = Realm.Configuration(
                     syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords")!)
                 )
                 self.realm = try! Realm(configuration: configuration)
+                
+                print("Realm instance set up")
                 
                 self.notificationToken = self.realm.addNotificationBlock(self.notificationHandler)
                 self.realmInitCompleted()

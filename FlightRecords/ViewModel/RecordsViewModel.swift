@@ -25,6 +25,7 @@ class RecordsViewModel: RealmHandler {
      Initialize all class variables.
      */
     override init() {
+        print("initializing...")
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
         self.contentChangedSignal = contentChangedSignal
         self.contentChangedObserver = contentChangedObserver
@@ -32,13 +33,29 @@ class RecordsViewModel: RealmHandler {
     }
     
     /**
-     This function is called, when *Realm* is intialized. It gets all *Record*s from *Realm* and notifies observers about it.
+     This function updates Record's list with Records from Realm and notifies observers about it.
      */
-    override func realmInitCompleted() {
+    private func updateList() {
         if self.records.realm == nil {
+            self.records.removeAll()
             self.records.append(objectsIn: self.realm.objects(Record.self))
         }
         contentChangedObserver.send(value: ())
+    }
+    
+    /**
+     This function is called, when *Realm* is intialized and calls updateList method.
+     */
+    override func realmInitCompleted() {
+        updateList()
+    }
+    
+    /**
+     This function handles notifications from Realm. In this class it only calls updateList method.
+     */
+    override func notificationHandler(notification: Realm.Notification, realm: Realm) {
+        print("new notification")
+        updateList()
     }
     
     /**

@@ -17,6 +17,7 @@ class RecordsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        print("view did load")
     }
     
     /**
@@ -24,6 +25,7 @@ class RecordsTableViewController: UITableViewController {
      */
     private func bindViewModel() {
         viewModel.contentChangedSignal.observeValues {
+            print("Reloading data")
             self.tableView.reloadData()
         }
     }

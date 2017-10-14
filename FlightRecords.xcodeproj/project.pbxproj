@@ -31,6 +31,8 @@
 		5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
 		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
+		5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */; };
+		5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		5B73097E1F80230F0026152E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Realm/Realm.framework; sourceTree = "<group>"; };
 		5B73097F1F8023100026152E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Realm/RealmSwift.framework; sourceTree = "<group>"; };
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
+		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
+		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 		5B7309691F8015F70026152E /* FlightRecordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */,
+				5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */,
 				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
 				5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */,
 				5B73096A1F8015F70026152E /* FlightRecordsTests.swift */,
@@ -366,7 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */,
 				5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */,
+				5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */,
 				5B73096B1F8015F70026152E /* FlightRecordsTests.swift in Sources */,
 				5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */,
 			);

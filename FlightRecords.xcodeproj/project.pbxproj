@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B001F021F97510F0055870A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B001F001F97510F0055870A /* Localizable.strings */; };
+		5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B001F051F9758150055870A /* AddFlightRecordViewController.swift */; };
+		5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B001F071F975E710055870A /* AddFlightViewModel.swift */; };
 		5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */; };
 		5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */; };
 		5B189CC11F8F53EF000B25FB /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC01F8F53EF000B25FB /* Record.swift */; };
@@ -61,6 +64,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B001EFA1F9749AB0055870A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5B001F011F97510F0055870A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B001F031F9751160055870A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B001F051F9758150055870A /* AddFlightRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewController.swift; sourceTree = "<group>"; };
+		5B001F071F975E710055870A /* AddFlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightViewModel.swift; sourceTree = "<group>"; };
+		5B001F0D1F9768A40055870A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewController.swift; sourceTree = "<group>"; };
 		5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModel.swift; sourceTree = "<group>"; };
 		5B189CC01F8F53EF000B25FB /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -115,6 +124,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B001F041F9751240055870A /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				5B001F001F97510F0055870A /* Localizable.strings */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
+		5B001F091F97609A0055870A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		5B189CC21F8F5491000B25FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +154,7 @@
 				5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */,
 				5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */,
 				5B189CCC1F8F678E000B25FB /* RealmHandler.swift */,
+				5B001F071F975E710055870A /* AddFlightViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -139,6 +164,7 @@
 			children = (
 				5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */,
 				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
+				5B001F051F9758150055870A /* AddFlightRecordViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +193,8 @@
 		5B7309541F8015F70026152E /* FlightRecords */ = {
 			isa = PBXGroup;
 			children = (
+				5B001F091F97609A0055870A /* Extension */,
+				5B001F041F9751240055870A /* Translations */,
 				5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */,
 				5B7309751F8016180026152E /* Supporting Files */,
 				5B189CC41F8F54A4000B25FB /* View */,
@@ -285,6 +313,7 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = 5B7309491F8015F70026152E;
 			productRefGroup = 5B7309531F8015F70026152E /* Products */;
@@ -302,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
 				5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */,
 				5B73095D1F8015F70026152E /* Assets.xcassets in Resources */,
 				5B73095B1F8015F70026152E /* Main.storyboard in Resources */,
@@ -359,9 +389,11 @@
 			files = (
 				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
 				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
+				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
 				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
 				5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */,
+				5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */,
 				5B7309561F8015F70026152E /* AppDelegate.swift in Sources */,
 				5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */,
 				5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */,
@@ -391,10 +423,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5B001F001F97510F0055870A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B001F011F97510F0055870A /* Base */,
+				5B001F031F9751160055870A /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5B7309591F8015F70026152E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5B73095A1F8015F70026152E /* Base */,
+				5B001F0D1F9768A40055870A /* cs */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -403,6 +445,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B73095F1F8015F70026152E /* Base */,
+				5B001EFA1F9749AB0055870A /* cs */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -414,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -471,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

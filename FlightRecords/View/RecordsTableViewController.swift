@@ -17,7 +17,6 @@ class RecordsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        print("view did load")
     }
     
     /**

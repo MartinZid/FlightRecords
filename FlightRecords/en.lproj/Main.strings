@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Záznam ze simulátoru"; ObjectID = "L2i-Pl-PxL"; */
+"L2i-Pl-PxL.text" = "Záznam ze simulátoru";
+
+/* Class = "UILabel"; text = "Záznam letu"; ObjectID = "YKJ-sT-3sB"; */
+"YKJ-sT-3sB.text" = "Záznam letu";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "d7X-gQ-SjI"; */
+"d7X-gQ-SjI.text" = "Time";
+
+/* Class = "UILabel"; text = "Reg. No"; ObjectID = "hcH-R7-jg3"; */
+"hcH-R7-jg3.text" = "Reg. No";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "t2x-aO-Eyq"; */
+"t2x-aO-Eyq.title" = "Item";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "uzo-fB-afS"; */
+"uzo-fB-afS.text" = "Date";
+
+/* Class = "UILabel"; text = "From - To"; ObjectID = "y8k-at-i5M"; */
+"y8k-at-i5M.text" = "From - To";

@@ -24,6 +24,16 @@ class AddFlightRecordViewModel {
     let totalTime = MutableProperty<String>("")
     let pic = MutableProperty<String>("")
     
+    let tkoDay = MutableProperty<Double>(0)
+    let tkoDayString = MutableProperty<String>("")
+    let tkoNight = MutableProperty<Double>(0)
+    let tkoNightString = MutableProperty<String>("")
+    
+    let ldgDay = MutableProperty<Double>(0)
+    let ldgDayString = MutableProperty<String>("")
+    let ldgNight = MutableProperty<Double>(0)
+    let ldgNightString = MutableProperty<String>("")
+    
     private let dateFormatter = DateFormatter()
     
     init() {
@@ -34,7 +44,17 @@ class AddFlightRecordViewModel {
         dateString <~ date.producer.map(dateFormatter.dateToString)
         timeTKOString <~ timeTKO.producer.map(dateFormatter.timeToString)
         timeLDGString <~ timeLDG.producer.map(dateFormatter.timeToString)
-        totalTime <~ Signal.combineLatest(timeTKO.signal, timeLDG.signal).map(countTotalTime).map(dateFormatter.timeToString)
+        totalTime <~ SignalProducer.combineLatest(timeTKO.signal, timeLDG.signal)
+            .map(countTotalTime).map(dateFormatter.timeToString)
+        
+        // start with values...
+        timeTKO.value = Date()
+        timeLDG.value = Date()
+        
+        tkoDayString <~ tkoDay.producer.map(doubleToString)
+        tkoNightString <~ tkoNight.producer.map(doubleToString)
+        ldgDayString <~ ldgDay.producer.map(doubleToString)
+        ldgNightString <~ ldgNight.producer.map(doubleToString)
     }
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
@@ -42,19 +62,23 @@ class AddFlightRecordViewModel {
         dateFormatter.dateFormat = "HH:mm"
         var dateTmp: Date
         
-        if(timeTKO.compare(timeLDG).rawValue == 1) {
+        if(timeTKO.compare(timeLDG).rawValue == 1) { // the flight took place in two days
             dateTmp = dateFormatter.date(from: "00:00")!
             interval = Int(timeLDG.timeIntervalSince(dateTmp))
             
             dateTmp.addTimeInterval(TimeInterval(3600*24))
             interval += Int(dateTmp.timeIntervalSince(timeTKO))
-        } else {
+        } else { // simple one day flight
             interval = Int(timeLDG.timeIntervalSince(timeTKO))
         }
         
-        let hours: Int = interval/3600
+        let hours: Int = (interval/3600) % 24
         let minutes: Int = (interval % 3600) / 60
         let date = dateFormatter.date(from: "\(String(hours)):\(String(minutes))")
         return date!
+    }
+    
+    private func doubleToString(value: Double) -> String {
+        return "\(Int(value))"
     }
 }

@@ -1,0 +1,60 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Základní informace"; ObjectID = "43i-Al-UYv"; */
+"43i-Al-UYv.headerTitle" = "Základní informace";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EdC-cv-eh5"; */
+"EdC-cv-eh5.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "PRG"; ObjectID = "KzX-e7-lFG"; */
+"KzX-e7-lFG.placeholder" = "PRG";
+
+/* Class = "UILabel"; text = "Čas letu"; ObjectID = "NSW-OD-nga"; */
+"NSW-OD-nga.text" = "Čas letu";
+
+/* Class = "UITableViewController"; title = "Přidat záznam letu"; ObjectID = "Pbt-cA-dG7"; */
+"Pbt-cA-dG7.title" = "Přidat záznam letu";
+
+/* Class = "UILabel"; text = "Čas příletu"; ObjectID = "UQu-CK-Pya"; */
+"UQu-CK-Pya.text" = "Čas příletu";
+
+/* Class = "UILabel"; text = "Čas odletu"; ObjectID = "XyU-sK-BD2"; */
+"XyU-sK-BD2.text" = "Čas odletu";
+
+/* Class = "UILabel"; text = "Místo příletu"; ObjectID = "adL-bz-yoB"; */
+"adL-bz-yoB.text" = "Místo příletu";
+
+/* Class = "UILabel"; text = "Datum"; ObjectID = "bPZ-q2-xLN"; */
+"bPZ-q2-xLN.text" = "Datum";
+
+/* Class = "UITextField"; placeholder = "12.10.2017"; ObjectID = "bVJ-to-ey5"; */
+"bVJ-to-ey5.placeholder" = "12.10.2017";
+
+/* Class = "UITableViewSection"; headerTitle = "Základní informace"; ObjectID = "cTJ-mF-P8a"; */
+"cTJ-mF-P8a.headerTitle" = "Základní informace";
+
+/* Class = "UITableViewSection"; headerTitle = "Základní informace"; ObjectID = "dZh-ia-xFT"; */
+"dZh-ia-xFT.headerTitle" = "Základní informace";
+
+/* Class = "UITextField"; placeholder = "11:00"; ObjectID = "fHm-cS-Q5a"; */
+"fHm-cS-Q5a.placeholder" = "11:00";
+
+/* Class = "UITextField"; placeholder = "17:30"; ObjectID = "gMU-Rb-Tpz"; */
+"gMU-Rb-Tpz.placeholder" = "17:30";
+
+/* Class = "UILabel"; text = "Místo odletu"; ObjectID = "idq-lD-UOQ"; */
+"idq-lD-UOQ.text" = "Místo odletu";
+
+/* Class = "UITextField"; placeholder = "PRG"; ObjectID = "jar-VI-QZD"; */
+"jar-VI-QZD.placeholder" = "PRG";
+
+/* Class = "UILabel"; text = "Jméno PIC"; ObjectID = "jwK-Wa-gXK"; */
+"jwK-Wa-gXK.text" = "Jméno PIC";
+
+/* Class = "UILabel"; text = "Letadlo"; ObjectID = "my0-xg-BSE"; */
+"my0-xg-BSE.text" = "Letadlo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qXi-Xk-Lb4"; */
+"qXi-Xk-Lb4.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "P. Večeřa"; ObjectID = "tP9-sZ-Kwy"; */
+"tP9-sZ-Kwy.placeholder" = "P. Večeřa";

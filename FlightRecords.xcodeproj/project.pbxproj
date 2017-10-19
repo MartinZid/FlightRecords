@@ -39,6 +39,7 @@
 		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */; };
 		5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */; };
+		5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		5BECAE031F98BEE600A3EA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addFlightRecord.storyboard; sourceTree = "<group>"; };
+		5BECAE061F98BF5800A3EA49 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,7 @@
 		5B7309541F8015F70026152E /* FlightRecords */ = {
 			isa = PBXGroup;
 			children = (
+				5BECADFF1F98BDE400A3EA49 /* Storyboards */,
 				5B001F091F97609A0055870A /* Extension */,
 				5B001F041F9751240055870A /* Translations */,
 				5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */,
@@ -208,7 +212,6 @@
 				5B189CC41F8F54A4000B25FB /* View */,
 				5B189CC31F8F549D000B25FB /* ViewModel */,
 				5B189CC21F8F5491000B25FB /* Model */,
-				5B7309591F8015F70026152E /* Main.storyboard */,
 				5B7309611F8015F70026152E /* Info.plist */,
 			);
 			path = FlightRecords;
@@ -246,6 +249,15 @@
 				5B7309781F80219A0026152E /* Result.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BECADFF1F98BDE400A3EA49 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */,
+				5B7309591F8015F70026152E /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
+				5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */,
 				5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */,
 				5B73095D1F8015F70026152E /* Assets.xcassets in Resources */,
 				5B73095B1F8015F70026152E /* Main.storyboard in Resources */,
@@ -460,6 +473,15 @@
 				5B001EFA1F9749AB0055870A /* cs */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BECAE031F98BEE600A3EA49 /* Base */,
+				5BECAE061F98BF5800A3EA49 /* cs */,
+			);
+			name = addFlightRecord.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

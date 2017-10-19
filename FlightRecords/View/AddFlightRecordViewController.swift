@@ -19,7 +19,17 @@ class AddFlightRecordTableViewController: UITableViewController {
     @IBOutlet weak var timeLDGField: UITextField!
     @IBOutlet weak var planeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
-    @IBOutlet weak var PICTextField: UITextField!
+    @IBOutlet weak var picTextField: UITextField!
+    
+    @IBOutlet weak var tkoDayStepper: UIStepper!
+    @IBOutlet weak var tkoDayLabel: UILabel!
+    @IBOutlet weak var tkoNightStepper: UIStepper!
+    @IBOutlet weak var tkoNightLabel: UILabel!
+    
+    @IBOutlet weak var ldgDayStepper: UIStepper!
+    @IBOutlet weak var ldgDayLabel: UILabel!
+    @IBOutlet weak var ldgNightStepper: UIStepper!
+    @IBOutlet weak var ldgNightLabel: UILabel!
     
     private let viewModel = AddFlightRecordViewModel()
     
@@ -36,7 +46,17 @@ class AddFlightRecordTableViewController: UITableViewController {
         timeLDGField.reactive.text <~ viewModel.timeLDGString
         planeLabel.reactive.text <~ viewModel.plane
         totalTimeLabel.reactive.text <~ viewModel.totalTime
-        PICTextField.reactive.text <~ viewModel.pic
+        picTextField.reactive.text <~ viewModel.pic
+        
+        viewModel.tkoDay <~ tkoDayStepper.reactive.values
+        viewModel.tkoNight <~ tkoNightStepper.reactive.values
+        viewModel.ldgDay <~ ldgDayStepper.reactive.values
+        viewModel.ldgNight <~ ldgNightStepper.reactive.values
+        
+        tkoDayLabel.reactive.text <~ viewModel.tkoDayString
+        tkoNightLabel.reactive.text <~ viewModel.tkoNightString
+        ldgDayLabel.reactive.text <~ viewModel.ldgDayString
+        ldgNightLabel.reactive.text <~ viewModel.ldgNightString
     }
     
     private func createUIDatePicker() -> UIDatePicker {

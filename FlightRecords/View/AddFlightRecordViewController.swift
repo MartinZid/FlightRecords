@@ -13,6 +13,13 @@ import ReactiveSwift
 class AddFlightRecordTableViewController: UITableViewController {
     
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var fromTextField: UITextField!
+    @IBOutlet weak var timeTKOField: UITextField!    
+    @IBOutlet weak var toTextField: UITextField!
+    @IBOutlet weak var timeLDGField: UITextField!
+    @IBOutlet weak var planeLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var PICTextField: UITextField!
     
     private let viewModel = AddFlightRecordViewModel()
     
@@ -23,14 +30,44 @@ class AddFlightRecordTableViewController: UITableViewController {
     
     func bindViewModel() {
         dateTextField.reactive.text <~ viewModel.dateString
+        fromTextField.reactive.text <~ viewModel.from
+        timeTKOField.reactive.text <~ viewModel.timeTKOString
+        toTextField.reactive.text <~ viewModel.to
+        timeLDGField.reactive.text <~ viewModel.timeLDGString
+        planeLabel.reactive.text <~ viewModel.plane
+        totalTimeLabel.reactive.text <~ viewModel.totalTime
+        PICTextField.reactive.text <~ viewModel.pic
+    }
+    
+    private func createUIDatePicker() -> UIDatePicker {
+        let datePickerView: UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.date
+        return datePickerView
+    }
+    
+    private func bind(datepicker: UIDatePicker, to property: MutableProperty<Date>) {
+        property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
     }
     
     @IBAction func dateFieldEditing(_ sender: UITextField) {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.date
-        sender.inputView = datePickerView
-        
-        viewModel.date <~ datePickerView.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
+        let datePicker: UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePickerMode.date
+        sender.inputView = datePicker
+        bind(datepicker: datePicker, to: viewModel.date)
+    }
+    
+    @IBAction func timeTKOFieldEditing(_ sender: UITextField) {
+        let datePicker: UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePickerMode.time
+        sender.inputView = datePicker
+        bind(datepicker: datePicker, to: viewModel.timeTKO)
+    }
+    
+    @IBAction func timeLDGFieldEditing(_ sender: UITextField) {
+        let datePicker: UIDatePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePickerMode.time
+        sender.inputView = datePicker
+        bind(datepicker: datePicker, to: viewModel.timeLDG)
     }
     
     /*

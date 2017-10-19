@@ -31,10 +31,9 @@ class RecordViewModel {
      */
     func getDate() -> String {
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "dd.MM.yyyy"
         
         if let date = record.date {
-            let dateString = dateformatter.string(from: date)
+            let dateString = dateformatter.dateToString(from: date)
             return dateString
         }
         return ""

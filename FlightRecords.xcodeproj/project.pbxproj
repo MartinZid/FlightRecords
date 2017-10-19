@@ -18,6 +18,9 @@
 		5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC91F8F5BB4000B25FB /* Plane.swift */; };
 		5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmHandler.swift */; };
 		5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */; };
+		5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */; };
+		5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */; };
+		5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F71F98A966004B1E65 /* Extension.swift */; };
 		5B7309561F8015F70026152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309551F8015F70026152E /* AppDelegate.swift */; };
 		5B73095B1F8015F70026152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7309591F8015F70026152E /* Main.storyboard */; };
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
@@ -79,6 +82,9 @@
 		5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightRecords.entitlements; sourceTree = "<group>"; };
 		5B189CCC1F8F678E000B25FB /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
+		5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewModelTests.swift; sourceTree = "<group>"; };
+		5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvertor.swift; sourceTree = "<group>"; };
+		5B44B3F71F98A966004B1E65 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B73095A1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		5B001F091F97609A0055870A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5B44B3F71F98A966004B1E65 /* Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 			children = (
 				5B189CC01F8F53EF000B25FB /* Record.swift */,
 				5B189CC91F8F5BB4000B25FB /* Plane.swift */,
+				5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 		5B7309691F8015F70026152E /* FlightRecordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */,
 				5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */,
 				5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */,
 				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
@@ -390,7 +399,9 @@
 				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
 				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
 				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
+				5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */,
 				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
+				5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */,
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
 				5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */,
 				5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */,
@@ -407,6 +418,7 @@
 				5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */,
 				5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */,
 				5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */,
+				5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */,
 				5B73096B1F8015F70026152E /* FlightRecordsTests.swift in Sources */,
 				5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */,
 			);

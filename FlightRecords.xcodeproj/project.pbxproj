@@ -39,6 +39,8 @@
 		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */; };
 		5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */; };
+		5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69021FA9C89700F19577 /* NoteViewController.swift */; };
+		5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */; };
 		5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		5BCF69021FA9C89700F19577 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		5BECAE031F98BEE600A3EA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addFlightRecord.storyboard; sourceTree = "<group>"; };
 		5BECAE061F98BF5800A3EA49 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +170,7 @@
 				5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */,
 				5B189CCC1F8F678E000B25FB /* RealmHandler.swift */,
 				5B001F071F975E710055870A /* AddFlightViewModel.swift */,
+				5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */,
 				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
 				5B001F051F9758150055870A /* AddFlightRecordViewController.swift */,
+				5BCF69021FA9C89700F19577 /* NoteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,9 +415,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */,
 				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
 				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
 				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
+				5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */,
 				5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */,
 				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
 				5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */,

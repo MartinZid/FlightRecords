@@ -10,7 +10,7 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
-class AddFlightRecordTableViewController: UITableViewController {
+class AddFlightRecordTableViewController: UITableViewController, NoteViewControllerDelegate {
     
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var fromTextField: UITextField!
@@ -31,7 +31,17 @@ class AddFlightRecordTableViewController: UITableViewController {
     @IBOutlet weak var ldgNightStepper: UIStepper!
     @IBOutlet weak var ldgNightLabel: UILabel!
     
+    @IBOutlet weak var timeNightField: UITextField!
+    @IBOutlet weak var timeIFRField: UITextField!
+    @IBOutlet weak var timePICField: UITextField!
+    @IBOutlet weak var timeCOField: UITextField!
+    @IBOutlet weak var timeDualField: UITextField!
+    @IBOutlet weak var timeInstructorField: UITextField!
+    
+    @IBOutlet weak var noteLabel: UILabel!
+    
     private let viewModel = AddFlightRecordViewModel()
+    private let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +67,23 @@ class AddFlightRecordTableViewController: UITableViewController {
         tkoNightLabel.reactive.text <~ viewModel.tkoNightString
         ldgDayLabel.reactive.text <~ viewModel.ldgDayString
         ldgNightLabel.reactive.text <~ viewModel.ldgNightString
+        
+        timeNightField.reactive.text <~ viewModel.timeNightString
+        timeIFRField.reactive.text <~ viewModel.timeIFRString
+        timePICField.reactive.text <~ viewModel.timePICString
+        timeCOField.reactive.text <~ viewModel.timeCOString
+        timeDualField.reactive.text <~ viewModel.timeDualString
+        timeInstructorField.reactive.text <~ viewModel.timeInstructorString
+        
+        noteLabel.reactive.text <~ viewModel.note
     }
     
-    private func createUIDatePicker() -> UIDatePicker {
+    // MARK: - UIDatePickers initialization
+    
+    private func assingUIDatePicker(to textField: UITextField, with mode: UIDatePickerMode) -> UIDatePicker {
         let datePickerView: UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.date
+        datePickerView.datePickerMode = mode
+        textField.inputView = datePickerView
         return datePickerView
     }
     
@@ -69,35 +91,73 @@ class AddFlightRecordTableViewController: UITableViewController {
         property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
     }
     
+    private func setZeroTime(to datePicker: UIDatePicker) {
+        datePicker.date = dateFormatter.createDate(hours: 0, minutes: 0)
+    }
+    
     @IBAction func dateFieldEditing(_ sender: UITextField) {
-        let datePicker: UIDatePicker = UIDatePicker()
-        datePicker.datePickerMode = UIDatePickerMode.date
-        sender.inputView = datePicker
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.date)
         bind(datepicker: datePicker, to: viewModel.date)
     }
     
     @IBAction func timeTKOFieldEditing(_ sender: UITextField) {
-        let datePicker: UIDatePicker = UIDatePicker()
-        datePicker.datePickerMode = UIDatePickerMode.time
-        sender.inputView = datePicker
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         bind(datepicker: datePicker, to: viewModel.timeTKO)
     }
     
     @IBAction func timeLDGFieldEditing(_ sender: UITextField) {
-        let datePicker: UIDatePicker = UIDatePicker()
-        datePicker.datePickerMode = UIDatePickerMode.time
-        sender.inputView = datePicker
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         bind(datepicker: datePicker, to: viewModel.timeLDG)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func timeNightFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timeNight)
     }
-    */
+    
+    @IBAction func timeIFRFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timeIFR)
+    }
+    
+    @IBAction func timePICFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timePIC)
+    }
+    
+    @IBAction func timeCOFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timeCO)
+    }
+    
+    @IBAction func timeDUALFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timeDual)
+    }
+    
+    @IBAction func timeInstructorFieldEditing(_ sender: UITextField) {
+        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
+        setZeroTime(to: datePicker)
+        bind(datepicker: datePicker, to: viewModel.timeInstructor)
+    }
+    
+    func save(note: String) {
+        viewModel.note.value = note
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "note" {
+            if let noteVC = segue.destination.contentViewController as? NoteViewController {
+                noteVC.delegate = self
+                noteVC.note = viewModel.note.value
+            }
+        }
+    }
 
 }

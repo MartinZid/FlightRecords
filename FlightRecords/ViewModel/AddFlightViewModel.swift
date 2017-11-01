@@ -11,9 +11,12 @@ import ReactiveSwift
 import Result
 
 class AddFlightRecordViewModel {
-    let date: MutableProperty<Date>
-    let timeTKO: MutableProperty<Date>
-    let timeLDG: MutableProperty<Date>
+    
+    private let dateFormatter = DateFormatter()
+    
+    let date = MutableProperty(Date())
+    let timeTKO = MutableProperty(Date())
+    let timeLDG = MutableProperty(Date())
     
     let dateString = MutableProperty<String>("")
     let from = MutableProperty<String>("")
@@ -34,12 +37,28 @@ class AddFlightRecordViewModel {
     let ldgNight = MutableProperty<Double>(0)
     let ldgNightString = MutableProperty<String>("")
     
-    private let dateFormatter = DateFormatter()
+    let timeNight: MutableProperty<Date>
+    let timeNightString = MutableProperty<String>("")
+    let timeIFR: MutableProperty<Date>
+    let timeIFRString = MutableProperty<String>("")
+    let timePIC: MutableProperty<Date>
+    let timePICString = MutableProperty<String>("")
+    let timeCO: MutableProperty<Date>
+    let timeCOString = MutableProperty<String>("")
+    let timeDual: MutableProperty<Date>
+    let timeDualString = MutableProperty<String>("")
+    let timeInstructor: MutableProperty<Date>
+    let timeInstructorString = MutableProperty<String>("")
+    
+    let note = MutableProperty<String>("")
     
     init() {
-        date = MutableProperty(Date())
-        timeTKO = MutableProperty(Date())
-        timeLDG = MutableProperty(Date())
+        timeNight = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timeIFR = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timePIC = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timeCO = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timeDual = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timeInstructor = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
         
         dateString <~ date.producer.map(dateFormatter.dateToString)
         timeTKOString <~ timeTKO.producer.map(dateFormatter.timeToString)
@@ -55,15 +74,21 @@ class AddFlightRecordViewModel {
         tkoNightString <~ tkoNight.producer.map(doubleToString)
         ldgDayString <~ ldgDay.producer.map(doubleToString)
         ldgNightString <~ ldgNight.producer.map(doubleToString)
+        
+        timeNightString <~ timeNight.producer.map(dateFormatter.timeToString)
+        timeIFRString <~ timeIFR.producer.map(dateFormatter.timeToString)
+        timePICString <~ timePIC.producer.map(dateFormatter.timeToString)
+        timeCOString <~ timeCO.producer.map(dateFormatter.timeToString)
+        timeDualString <~ timeDual.producer.map(dateFormatter.timeToString)
+        timeInstructorString <~ timeInstructor.producer.map(dateFormatter.timeToString)
     }
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
         var interval: Int
-        dateFormatter.dateFormat = "HH:mm"
         var dateTmp: Date
         
         if(timeTKO.compare(timeLDG).rawValue == 1) { // the flight took place in two days
-            dateTmp = dateFormatter.date(from: "00:00")!
+            dateTmp = dateFormatter.createDate(hours: 0, minutes: 0)
             interval = Int(timeLDG.timeIntervalSince(dateTmp))
             
             dateTmp.addTimeInterval(TimeInterval(3600*24))

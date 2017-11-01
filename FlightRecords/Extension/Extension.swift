@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 extension DateFormatter {
-    private struct Format{
+    struct Format{
         static let time = "HH:mm"
         static let date = "dd.MM.yyyy"
     }
@@ -22,5 +23,24 @@ extension DateFormatter {
     func timeToString(from date: Date) -> String {
         dateFormat = Format.time
         return string(from: date)
+    }
+    
+    func createDate(hours: Int, minutes: Int) -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        let now = Date()
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        components.hour = hours
+        components.minute = minutes
+        return calendar.date(from: components)!
+    }
+}
+
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? self
+        } else {
+            return self
+        }
     }
 }

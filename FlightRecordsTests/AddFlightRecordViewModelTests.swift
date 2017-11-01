@@ -28,18 +28,18 @@ class AddFlightRecordViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func createDate(hours: Int, minutes: Int) -> Date {
-        let calendar = Calendar(identifier: .gregorian)
-        let now = Date()
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-        components.hour = hours
-        components.minute = minutes
-        return calendar.date(from: components)!
-    }
+//    func createDate(hours: Int, minutes: Int) -> Date {
+//        let calendar = Calendar(identifier: .gregorian)
+//        let now = Date()
+//        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+//        components.hour = hours
+//        components.minute = minutes
+//        return calendar.date(from: components)!
+//    }
     
     func testCountTotalTime1() {
-        let date1 = createDate(hours: 11, minutes: 00)
-        let date2 = createDate(hours: 17, minutes: 00)
+        let date1 = dateFormatter.createDate(hours: 11, minutes: 00)
+        let date2 = dateFormatter.createDate(hours: 17, minutes: 00)
         viewModelUnderTest.timeTKO.value = date1
         viewModelUnderTest.timeLDG.value = date2
         
@@ -47,8 +47,8 @@ class AddFlightRecordViewModelTests: XCTestCase {
     }
     
     func testCountTotalTime2() {
-        let date1 = createDate(hours: 18, minutes: 00)
-        let date2 = createDate(hours: 2, minutes: 00)
+        let date1 = dateFormatter.createDate(hours: 18, minutes: 00)
+        let date2 = dateFormatter.createDate(hours: 2, minutes: 00)
         viewModelUnderTest.timeTKO.value = date1
         viewModelUnderTest.timeLDG.value = date2
         
@@ -65,7 +65,7 @@ class AddFlightRecordViewModelTests: XCTestCase {
     
     func testTimeTKOConnection() {
         dateFormatter.dateFormat = "HH:mm"
-        let date = createDate(hours: 18, minutes: 0)
+        let date = dateFormatter.createDate(hours: 18, minutes: 0)
         viewModelUnderTest.timeTKO.value = date
         
         XCTAssertEqual(viewModelUnderTest.timeTKOString.value, "18:00", "Connection between timeTKO and timeTKOString is not correct.")
@@ -73,7 +73,7 @@ class AddFlightRecordViewModelTests: XCTestCase {
     
     func testTimeLDGConnection() {
         dateFormatter.dateFormat = "HH:mm"
-        let date = createDate(hours: 2, minutes: 15)
+        let date = dateFormatter.createDate(hours: 2, minutes: 15)
         viewModelUnderTest.timeLDG.value = date
         
         XCTAssertEqual(viewModelUnderTest.timeLDGString.value, "02:15", "Connection between timeLDG and timeLDGString is not correct.")
@@ -97,6 +97,54 @@ class AddFlightRecordViewModelTests: XCTestCase {
     func testLDGNightConnection() {
         viewModelUnderTest.ldgNight.value = 1
         XCTAssertEqual(viewModelUnderTest.ldgNightString.value, "1", "Connection between ldgNight and ldgNightString is not correct.")
+    }
+    
+    func testTimeNightConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 3, minutes: 15)
+        viewModelUnderTest.timeNight.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timeNightString.value, "03:15", "Connection between timeNight and timeNightString is not correct.")
+    }
+    
+    func testTimeIFRConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 10, minutes: 00)
+        viewModelUnderTest.timeIFR.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timeIFRString.value, "10:00", "Connection between timeIFR and timeIFRString is not correct.")
+    }
+    
+    func testTimePICConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 10, minutes: 30)
+        viewModelUnderTest.timePIC.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timePICString.value, "10:30", "Connection between timePIC and timePICString is not correct.")
+    }
+    
+    func testTimeCOConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 00, minutes: 30)
+        viewModelUnderTest.timeCO.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timeCOString.value, "00:30", "Connection between timeCO and timeCOString is not correct.")
+    }
+    
+    func testTimeDUALConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 1, minutes: 30)
+        viewModelUnderTest.timeDual.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timeDualString.value, "01:30", "Connection between timeDual and timeDualString is not correct.")
+    }
+    
+    func testTimeInstructorConnection() {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.createDate(hours: 14, minutes: 00)
+        viewModelUnderTest.timeInstructor.value = date
+        
+        XCTAssertEqual(viewModelUnderTest.timeInstructorString.value, "14:00", "Connection between timeInstructor and timeInstructorString is not correct.")
     }
     
 }

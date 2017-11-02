@@ -21,7 +21,7 @@ class RealmHandler {
     init() {
         let username = "TestUser"
         let password = "test"
-        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: true), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
                 fatalError(String(describing: error))
             }
@@ -34,7 +34,7 @@ class RealmHandler {
                 
                 print("Realm instance set up")
                 
-                self.notificationToken = self.realm.addNotificationBlock(self.notificationHandler)
+                self.notificationToken = self.realm.observe(self.notificationHandler)
                 self.realmInitCompleted()
             }
         }
@@ -56,6 +56,6 @@ class RealmHandler {
      This function is a destructor, which stop *Realm*'s notifications.
      */
     deinit {
-        notificationToken.stop()
+        notificationToken.invalidate()
     }
 }

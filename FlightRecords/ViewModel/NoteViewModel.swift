@@ -16,7 +16,7 @@ class NoteViewModel {
     
     init(note: String) {
         self.note = MutableProperty(note)
-        saveAction = Action<(), String, NoError>(state: self.note, enabledIf: {$0.characters.count > 0}) { note, _ in
+        saveAction = Action<(), String, NoError>(state: self.note, enabledIf: {$0.count > 0}) { note, _ in
             return SignalProducer<String, NoError> { observer, _ in
                 observer.send(value: note)
             }

@@ -18,6 +18,10 @@
 		5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC91F8F5BB4000B25FB /* Plane.swift */; };
 		5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmHandler.swift */; };
 		5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */; };
+		5B279BAB1FAB17A700090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
+		5B279BAC1FAB17A700090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
+		5B279BAD1FAB1BBF00090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
+		5B279BAE1FAB1BBF00090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
 		5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */; };
 		5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */; };
 		5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F71F98A966004B1E65 /* Extension.swift */; };
@@ -29,10 +33,6 @@
 		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
-		5B7309801F8023100026152E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097E1F80230F0026152E /* Realm.framework */; };
-		5B7309811F8023100026152E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097E1F80230F0026152E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5B7309821F8023100026152E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; };
-		5B7309831F8023100026152E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73097F1F8023100026152E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */; };
 		5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
@@ -54,21 +54,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5B7309841F8023100026152E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5B7309831F8023100026152E /* RealmSwift.framework in Embed Frameworks */,
-				5B7309811F8023100026152E /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		5B001EFA1F9749AB0055870A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5B001F011F97510F0055870A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -85,6 +70,8 @@
 		5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightRecords.entitlements; sourceTree = "<group>"; };
 		5B189CCC1F8F678E000B25FB /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
+		5B279BA91FAB17A700090D7B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		5B279BAA1FAB17A700090D7B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvertor.swift; sourceTree = "<group>"; };
 		5B44B3F71F98A966004B1E65 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -100,8 +87,6 @@
 		5B7309771F80219A0026152E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		5B7309781F80219A0026152E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		5B7309791F80219A0026152E /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
-		5B73097E1F80230F0026152E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Realm/Realm.framework; sourceTree = "<group>"; };
-		5B73097F1F8023100026152E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Realm/RealmSwift.framework; sourceTree = "<group>"; };
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
@@ -116,11 +101,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B7309801F8023100026152E /* Realm.framework in Frameworks */,
-				5B7309821F8023100026152E /* RealmSwift.framework in Frameworks */,
 				5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */,
 				5B73097B1F80219A0026152E /* Result.framework in Frameworks */,
 				5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */,
+				5B279BAB1FAB17A700090D7B /* Realm.framework in Frameworks */,
+				5B279BAC1FAB17A700090D7B /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +116,8 @@
 				5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */,
 				5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */,
 				5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */,
+				5B279BAD1FAB1BBF00090D7B /* Realm.framework in Frameworks */,
+				5B279BAE1FAB1BBF00090D7B /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +176,6 @@
 		5B7309491F8015F70026152E = {
 			isa = PBXGroup;
 			children = (
-				5B73097E1F80230F0026152E /* Realm.framework */,
-				5B73097F1F8023100026152E /* RealmSwift.framework */,
 				5B7309541F8015F70026152E /* FlightRecords */,
 				5B7309691F8015F70026152E /* FlightRecordsTests */,
 				5B7309531F8015F70026152E /* Products */,
@@ -250,6 +235,8 @@
 		5B7309761F80219A0026152E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B279BA91FAB17A700090D7B /* Realm.framework */,
+				5B279BAA1FAB17A700090D7B /* RealmSwift.framework */,
 				5B7309771F80219A0026152E /* ReactiveCocoa.framework */,
 				5B7309791F80219A0026152E /* ReactiveSwift.framework */,
 				5B7309781F80219A0026152E /* Result.framework */,
@@ -277,8 +264,6 @@
 				5B73094F1F8015F70026152E /* Frameworks */,
 				5B7309501F8015F70026152E /* Resources */,
 				5B73097D1F8021B60026152E /* ShellScript */,
-				5B7309841F8023100026152E /* Embed Frameworks */,
-				5B7309851F8023850026152E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,6 +370,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
@@ -394,19 +381,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		5B7309851F8023850026152E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

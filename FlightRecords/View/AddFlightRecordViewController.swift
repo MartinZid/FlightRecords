@@ -95,6 +95,10 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
         datePicker.date = dateFormatter.createDate(hours: 0, minutes: 0)
     }
     
+    private func changeMaxTimeOnSignal(to datePicker: UIDatePicker) {
+        //viewModel.totalTime
+    }
+    
     @IBAction func dateFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.date)
         bind(datepicker: datePicker, to: viewModel.date)

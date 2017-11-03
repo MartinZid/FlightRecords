@@ -1,21 +1,21 @@
 //
-//  RecordsTableViewController.swift
+//  PlanesTableViewController.swift
 //  FlightRecords
 //
-//  Created by Martin Zid on 12/10/2017.
+//  Created by Martin Zid on 02/11/2017.
 //  Copyright © 2017 Martin Zid. All rights reserved.
 //
 
 import UIKit
 
 /**
-    RecordsTableViewController displays all flight records in table.
+    PlanesTableViewController displays all user's planes in table.
  */
-class RecordsTableViewController: UITableViewController {
+class PlanesTableViewController: UITableViewController {
     /// constant cell indentifier
-    private let recordCellIdentifier = "RecordCell"
-    /// viewModel handles logic of RecordsTableViewController
-    private let viewModel = RecordsViewModel()
+    private let planeCellIdentifier = "PlaneCell"
+    /// viewModel handles logic of PlanesTableViewController
+    private let viewModel = PlanesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class RecordsTableViewController: UITableViewController {
     }
     
     /**
-         This function binds viewModel to View.
+     This function binds viewModel to View.
      */
     private func bindViewModel() {
         viewModel.contentChangedSignal.observeValues {
@@ -33,34 +33,22 @@ class RecordsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRecordsInSection()
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: recordCellIdentifier, for: indexPath) as! RecordCell
-
-        cell.viewModel = viewModel.getCellViewModel(for: indexPath)
-
-        return cell
+        return viewModel.numberOfPlanesInSection()
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: planeCellIdentifier, for: indexPath) as! PlaneCell
+        
+        cell.viewModel = viewModel.getCellViewModel(for: indexPath)
+        
+        return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
     /*
     // Override to support editing the table view.
@@ -73,7 +61,6 @@ class RecordsTableViewController: UITableViewController {
         }    
     }
     */
-
 
     /*
     // MARK: - Navigation

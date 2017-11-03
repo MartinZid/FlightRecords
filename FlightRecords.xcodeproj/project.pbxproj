@@ -16,20 +16,24 @@
 		5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC51F8F54E0000B25FB /* RecordCell.swift */; };
 		5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */; };
 		5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC91F8F5BB4000B25FB /* Plane.swift */; };
-		5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmHandler.swift */; };
+		5B189CCD1F8F678E000B25FB /* RealmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmViewModel.swift */; };
 		5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */; };
 		5B279BAB1FAB17A700090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
 		5B279BAC1FAB17A700090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
 		5B279BAD1FAB1BBF00090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
 		5B279BAE1FAB1BBF00090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
+		5B279BB11FAB441500090D7B /* planes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B279BAF1FAB441500090D7B /* planes.storyboard */; };
+		5B279BB31FAB46BF00090D7B /* PlanesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BB21FAB46BF00090D7B /* PlanesTableViewController.swift */; };
+		5B279BB51FAB46D700090D7B /* PlaneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BB41FAB46D700090D7B /* PlaneCell.swift */; };
+		5B279BB71FAB46F000090D7B /* PlaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BB61FAB46F000090D7B /* PlaneViewModel.swift */; };
+		5B279BB91FAB46F900090D7B /* PlanesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BB81FAB46F900090D7B /* PlanesViewModel.swift */; };
+		5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */; };
 		5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */; };
-		5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */; };
 		5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F71F98A966004B1E65 /* Extension.swift */; };
 		5B7309561F8015F70026152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309551F8015F70026152E /* AppDelegate.swift */; };
 		5B73095B1F8015F70026152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7309591F8015F70026152E /* Main.storyboard */; };
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
 		5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095E1F8015F70026152E /* LaunchScreen.storyboard */; };
-		5B73096B1F8015F70026152E /* FlightRecordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B73096A1F8015F70026152E /* FlightRecordsTests.swift */; };
 		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
@@ -39,6 +43,9 @@
 		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */; };
 		5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */; };
+		5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */; };
+		5BB958441FAC78B10073AF55 /* NoteViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */; };
+		5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */; };
 		5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69021FA9C89700F19577 /* NoteViewController.swift */; };
 		5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */; };
 		5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */; };
@@ -68,12 +75,17 @@
 		5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		5B189CC91F8F5BB4000B25FB /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		5B189CCB1F8F66D5000B25FB /* FlightRecords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlightRecords.entitlements; sourceTree = "<group>"; };
-		5B189CCC1F8F678E000B25FB /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
+		5B189CCC1F8F678E000B25FB /* RealmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmViewModel.swift; sourceTree = "<group>"; };
 		5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
 		5B279BA91FAB17A700090D7B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		5B279BAA1FAB17A700090D7B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		5B279BB01FAB441500090D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/planes.storyboard; sourceTree = "<group>"; };
+		5B279BB21FAB46BF00090D7B /* PlanesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesTableViewController.swift; sourceTree = "<group>"; };
+		5B279BB41FAB46D700090D7B /* PlaneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneCell.swift; sourceTree = "<group>"; };
+		5B279BB61FAB46F000090D7B /* PlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneViewModel.swift; sourceTree = "<group>"; };
+		5B279BB81FAB46F900090D7B /* PlanesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesViewModel.swift; sourceTree = "<group>"; };
+		5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewModelTests.swift; sourceTree = "<group>"; };
-		5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvertor.swift; sourceTree = "<group>"; };
 		5B44B3F71F98A966004B1E65 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +94,6 @@
 		5B73095F1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B7309611F8015F70026152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B7309661F8015F70026152E /* FlightRecordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightRecordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B73096A1F8015F70026152E /* FlightRecordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRecordsTests.swift; sourceTree = "<group>"; };
 		5B73096C1F8015F70026152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B7309771F80219A0026152E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		5B7309781F80219A0026152E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -90,6 +101,9 @@
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesTableViewControllerTests.swift; sourceTree = "<group>"; };
+		5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteViewControllerTests.swift; path = FlightRecordsTests/View/NoteViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
+		5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesViewModelTests.swift; sourceTree = "<group>"; };
 		5BCF69021FA9C89700F19577 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		5BECAE031F98BEE600A3EA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addFlightRecord.storyboard; sourceTree = "<group>"; };
@@ -145,7 +159,6 @@
 			children = (
 				5B189CC01F8F53EF000B25FB /* Record.swift */,
 				5B189CC91F8F5BB4000B25FB /* Plane.swift */,
-				5B44B3F51F98A79C004B1E65 /* DateConvertor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,9 +168,11 @@
 			children = (
 				5B189CBE1F8F53D4000B25FB /* RecordsViewModel.swift */,
 				5B189CC71F8F54F3000B25FB /* RecordViewModel.swift */,
-				5B189CCC1F8F678E000B25FB /* RealmHandler.swift */,
+				5B189CCC1F8F678E000B25FB /* RealmViewModel.swift */,
 				5B001F071F975E710055870A /* AddFlightViewModel.swift */,
 				5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */,
+				5B279BB81FAB46F900090D7B /* PlanesViewModel.swift */,
+				5B279BB61FAB46F000090D7B /* PlaneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +184,8 @@
 				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
 				5B001F051F9758150055870A /* AddFlightRecordViewController.swift */,
 				5BCF69021FA9C89700F19577 /* NoteViewController.swift */,
+				5B279BB21FAB46BF00090D7B /* PlanesTableViewController.swift */,
+				5B279BB41FAB46D700090D7B /* PlaneCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,12 +228,9 @@
 		5B7309691F8015F70026152E /* FlightRecordsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */,
-				5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */,
 				5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */,
-				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
-				5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */,
-				5B73096A1F8015F70026152E /* FlightRecordsTests.swift */,
+				5BB958401FAC6F520073AF55 /* ViewModel */,
+				5BB9583F1FAC6F280073AF55 /* View */,
 				5B73096C1F8015F70026152E /* Info.plist */,
 			);
 			path = FlightRecordsTests;
@@ -244,9 +258,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5BB9583F1FAC6F280073AF55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */,
+				5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BB958401FAC6F520073AF55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
+				5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */,
+				5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */,
+				5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */,
+				5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */,
+				5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5BECADFF1F98BDE400A3EA49 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5B279BAF1FAB441500090D7B /* planes.storyboard */,
 				5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */,
 				5B7309591F8015F70026152E /* Main.storyboard */,
 			);
@@ -344,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
+				5B279BB11FAB441500090D7B /* planes.storyboard in Resources */,
 				5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */,
 				5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */,
 				5B73095D1F8015F70026152E /* Assets.xcassets in Resources */,
@@ -393,13 +431,16 @@
 				5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */,
 				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
 				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
+				5B279BB31FAB46BF00090D7B /* PlanesTableViewController.swift in Sources */,
+				5B279BB71FAB46F000090D7B /* PlaneViewModel.swift in Sources */,
 				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
 				5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */,
 				5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */,
 				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
-				5B44B3F61F98A79C004B1E65 /* DateConvertor.swift in Sources */,
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
-				5B189CCD1F8F678E000B25FB /* RealmHandler.swift in Sources */,
+				5B279BB51FAB46D700090D7B /* PlaneCell.swift in Sources */,
+				5B279BB91FAB46F900090D7B /* PlanesViewModel.swift in Sources */,
+				5B189CCD1F8F678E000B25FB /* RealmViewModel.swift in Sources */,
 				5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */,
 				5B7309561F8015F70026152E /* AppDelegate.swift in Sources */,
 				5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */,
@@ -411,11 +452,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB958441FAC78B10073AF55 /* NoteViewControllerTests.swift in Sources */,
 				5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */,
+				5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */,
+				5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */,
+				5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */,
 				5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */,
 				5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */,
 				5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */,
-				5B73096B1F8015F70026152E /* FlightRecordsTests.swift in Sources */,
 				5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +482,14 @@
 				5B001F031F9751160055870A /* cs */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5B279BAF1FAB441500090D7B /* planes.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B279BB01FAB441500090D7B /* Base */,
+			);
+			name = planes.storyboard;
 			sourceTree = "<group>";
 		};
 		5B7309591F8015F70026152E /* Main.storyboard */ = {

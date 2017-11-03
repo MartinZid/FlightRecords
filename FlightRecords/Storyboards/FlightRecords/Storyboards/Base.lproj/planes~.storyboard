@@ -173,7 +173,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="e6B-ca-Tp2" kind="show" id="P1h-BX-lXA"/>
+                                            <segue destination="Kh0-iU-xL5" kind="show" id="P1h-BX-lXA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qeM-Q2-ZKp">
@@ -572,10 +572,38 @@
             </objects>
             <point key="canvasLocation" x="2061.5999999999999" y="-1030.4347826086957"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="f2o-Sq-UgT">
+            <objects>
+                <tableViewController id="Kh0-iU-xL5" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Koh-I9-Azb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d2D-JF-8nY">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2D-JF-8nY" id="Tph-bi-z8w">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Kh0-iU-xL5" id="0jV-dk-Kx8"/>
+                            <outlet property="delegate" destination="Kh0-iU-xL5" id="uYw-lZ-4U5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACv-Cx-tG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2873" y="-1303"/>
+        </scene>
         <!--Poznámka-->
         <scene sceneID="AVk-Kr-SJt">
             <objects>
-                <viewController storyboardIdentifier="Note" id="j3u-VH-8yD" customClass="NoteViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j3u-VH-8yD" customClass="NoteViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q8O-zt-xVX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -625,14 +653,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzZ-oS-Gto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2817" y="-564"/>
-        </scene>
-        <!--planes-->
-        <scene sceneID="veZ-Y8-meG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="planes" id="e6B-ca-Tp2" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zAf-97-u6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2873" y="-1303"/>
         </scene>
     </scenes>
 </document>

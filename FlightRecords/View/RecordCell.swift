@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-     *RecordCell* is *UITableCell*, which is used for each record in *RecordsTableView*.
+     RecordCell is UITableCell, which is used for each record in RecordsTableView.
  */
 class RecordCell: UITableViewCell {
     
@@ -22,7 +22,7 @@ class RecordCell: UITableViewCell {
     /// RegistrationNumber label displays plane's registration number
     @IBOutlet weak var registrationNumber: UILabel!
     
-    /// viewModel prepares data (date, destinations, time and reg. no.) for each label of *RecordCell*
+    /// viewModel prepares data (date, destinations, time and reg. no.) for each label of RecordCell.
     var viewModel: RecordViewModel! {
         didSet {
             date.text = viewModel.getDate()

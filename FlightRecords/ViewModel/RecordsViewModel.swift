@@ -12,23 +12,18 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
-class RecordsViewModel: RealmHandler {
+/**
+    RecordsViewModel is viewModel for RecordsTableViewController.
+ */
+class RecordsViewModel: RealmViewModel {
     
-    /// This variable can be observed for notifications about change in records list.
-    let contentChangedSignal: Signal<Void, NoError>
-    /// To *contentChangedObserver* is send a value, everytime records list is updated.
-    private let contentChangedObserver: Signal<Void, NoError>.Observer
-    /// List of all *Record*s
+    /// List of all Records
     private var records = List<Record>()
     
     /**
-     Initialize all class variables.
+     Creates new RecordsViewModel.
      */
     override init() {
-        print("initializing...")
-        let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
-        self.contentChangedSignal = contentChangedSignal
-        self.contentChangedObserver = contentChangedObserver
         super.init()
     }
     
@@ -44,7 +39,7 @@ class RecordsViewModel: RealmHandler {
     }
     
     /**
-     This function is called, when *Realm* is intialized and calls updateList method.
+     This function is called, when Realm is intialized and calls updateList method.
      */
     override func realmInitCompleted() {
         updateList()
@@ -59,8 +54,8 @@ class RecordsViewModel: RealmHandler {
     }
     
     /**
-     - Parameter indexPath: IndexPath which identifies which *Record* should be used for new *RecordViewModel*.
-     - Returns: *RecordViewModel* intialized with *Record* at *indexPath*.
+     - Parameter indexPath: IndexPath which identifies which Record should be used for new RecordViewModel.
+     - Returns: RecordViewModel intialized with Record at indexPath.
      */
     func getCellViewModel(for indexPath: IndexPath) -> RecordViewModel {
         return RecordViewModel(with: records[indexPath.row])
@@ -76,7 +71,7 @@ class RecordsViewModel: RealmHandler {
     
     /**
      This function return number of rows for RecordsTableView.
-     - Returns: number of *Records*.
+     - Returns: number of Records.
      */
     func numberOfRecordsInSection() -> Int {
         return records.count

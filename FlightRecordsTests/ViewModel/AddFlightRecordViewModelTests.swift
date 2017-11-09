@@ -28,15 +28,6 @@ class AddFlightRecordViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-//    func createDate(hours: Int, minutes: Int) -> Date {
-//        let calendar = Calendar(identifier: .gregorian)
-//        let now = Date()
-//        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-//        components.hour = hours
-//        components.minute = minutes
-//        return calendar.date(from: components)!
-//    }
-    
     func testCountTotalTime1() {
         let date1 = dateFormatter.createDate(hours: 11, minutes: 00)
         let date2 = dateFormatter.createDate(hours: 17, minutes: 00)

@@ -30,10 +30,10 @@ class AddPlaneViewModel: RealmViewModel {
         engineString = MutableProperty(engines[engine.value.rawValue])
         super.init()
         
-        engine <~ engineString.producer.filterMap(engineIndex)
+        engine <~ engineString.producer.filterMap(engine)
     }
     
-    private func engineIndex(of value: String) -> Plane.Engine {
+    private func engine(for value: String) -> Plane.Engine {
         let index = engines.index(where: {$0 == value})!
         let engine = Plane.Engine(rawValue: index)!
         print(engine.rawValue)
@@ -55,10 +55,8 @@ class AddPlaneViewModel: RealmViewModel {
         plane.variant = variant.value
         plane.registrationNumber = registrationNumber.value
         plane.engine = engine.value
-        print("saving...")
         try! realm.write {
             realm.add(plane)
-            print("saved!")
         }
     }
     

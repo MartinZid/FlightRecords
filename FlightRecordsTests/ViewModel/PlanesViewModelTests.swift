@@ -68,7 +68,7 @@ class PlanesViewModelTests: TestCaseBase {
         let indexPath = IndexPath(row: 0, section: 0)
         let recievedVM = viewModelUnderTest.getCellViewModel(for: indexPath)
         
-        XCTAssertEqual(recievedVM.getType(), "Boeing 737", "Plane in recieved VM is not correct.")
+        XCTAssertEqual(recievedVM.getPlaneInfo(), "Boeing 737 ", "Plane in recieved VM is not correct.")
     }
     
 }

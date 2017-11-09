@@ -7,8 +7,6 @@
 //
 
 import XCTest
-
-import XCTest
 @testable import FlightRecords
 
 class PlaneViewModelTests: XCTestCase {
@@ -36,12 +34,44 @@ class PlaneViewModelTests: XCTestCase {
         XCTAssertEqual(regNo, "N1Q24Y", "PlaneViewModel return wrong registration number.")
     }
     
-    func testGetType() {
-        planeUnderTest.type = "Boeing 747-800"
+    func testGetRegistrationNumberEmpty() {
+        let regNo = viewModelUnderTest.getRegistrationNumber()
         
-        let type = viewModelUnderTest.getType()
+        XCTAssertEqual(regNo, NSLocalizedString("N/A", comment: ""), "PlaneViewModel return wrong registration number.")
+    }
+    
+    func testGetPlaneInfo() {
+        planeUnderTest.type = "Boeing"
+        planeUnderTest.model = "737"
+        planeUnderTest.variant = "800"
         
-        XCTAssertEqual(type, "Boeing 747-800", "PlaneViewModel return wrong plane type.")
+        let info = viewModelUnderTest.getPlaneInfo()
+        
+        XCTAssertEqual(info, "Boeing 737-800", "PlaneViewModel return wrong plane info.")
+    }
+    
+    func testGetPlaneInfoWithoutModel() {
+        planeUnderTest.type = "Boeing"
+        planeUnderTest.variant = "800"
+        
+        let info = viewModelUnderTest.getPlaneInfo()
+        
+        XCTAssertEqual(info, "Boeing 800", "PlaneViewModel return wrong plane info.")
+    }
+    
+    func testGetPlaneInfoWithoutVariant() {
+        planeUnderTest.type = "Boeing"
+        planeUnderTest.model = "737"
+        
+        let info = viewModelUnderTest.getPlaneInfo()
+        
+        XCTAssertEqual(info, "Boeing 737", "PlaneViewModel return wrong plane info.")
+    }
+    
+    func testGetPlaneInfoWithoutEverthing() {
+        let info = viewModelUnderTest.getPlaneInfo()
+        
+        XCTAssertEqual(info, NSLocalizedString("N/A", comment: ""), "PlaneViewModel return wrong plane info.")
     }
     
 }

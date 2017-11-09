@@ -22,7 +22,7 @@ class PlaneCell: UITableViewCell {
     var viewModel: PlaneViewModel! {
         didSet {
             registrationLabel.text = viewModel.getRegistrationNumber()
-            typeLabel.text = viewModel.getType()
+            typeLabel.text = viewModel.getPlaneInfo()
         }
     }
 }

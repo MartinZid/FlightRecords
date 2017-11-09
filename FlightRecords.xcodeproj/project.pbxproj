@@ -45,6 +45,7 @@
 		5B9A17D51F90F075003589B5 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */; };
 		5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */; };
+		5BA8DE051FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */; };
 		5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */; };
 		5BB958441FAC78B10073AF55 /* NoteViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */; };
 		5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */; };
@@ -105,6 +106,7 @@
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModelTests.swift; sourceTree = "<group>"; };
 		5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesTableViewControllerTests.swift; sourceTree = "<group>"; };
 		5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteViewControllerTests.swift; path = FlightRecordsTests/View/NoteViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesViewModelTests.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				5BB958431FAC78B10073AF55 /* NoteViewControllerTests.swift */,
 				5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */,
 				5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */,
+				5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				5BB958441FAC78B10073AF55 /* NoteViewControllerTests.swift in Sources */,
 				5B9A17D71F9234AC003589B5 /* TestCaseBase.swift in Sources */,
 				5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */,
+				5BA8DE051FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift in Sources */,
 				5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */,
 				5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */,
 				5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */,

@@ -26,14 +26,14 @@ class PlaneViewModel {
     /**
      - Returns: Plane's registrationNumber.
      */
-    func getRegistrationNumber() -> String {
+    func getRegistrationNumber() -> String? {
         return plane.registrationNumber
     }
     
     /**
      - Returns: Plane's type.
      */
-    func getType() -> String {
+    func getType() -> String? {
         return plane.type
     }
     

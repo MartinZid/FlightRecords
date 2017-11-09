@@ -1,0 +1,2 @@
+export NVM_DIR="/Users/martin/.nvm"
+. "/Users/martin/.nvm/nvm.sh"

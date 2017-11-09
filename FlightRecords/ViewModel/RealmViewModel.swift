@@ -41,7 +41,7 @@ class RealmViewModel {
             DispatchQueue.main.async {
                 print("preparing Realm...")
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords")!)
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords02")!)
                 )
                 self.realm = try! Realm(configuration: configuration)
                 

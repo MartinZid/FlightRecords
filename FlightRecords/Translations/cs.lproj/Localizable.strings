@@ -6,4 +6,5 @@
   Copyright © 2017 Martin Zid. All rights reserved.
 */
 
-"Test" = "Zkouška";
+"SE" = "Jednomotorové";
+"ME" = "Vícemotorové";

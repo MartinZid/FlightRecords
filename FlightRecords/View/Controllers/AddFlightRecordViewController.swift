@@ -43,6 +43,8 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
     private let viewModel = AddFlightRecordViewModel()
     private let dateFormatter = DateFormatter()
     
+    private let noteSegueIdentifier = "note"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -152,7 +154,7 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "note" {
+        if segue.identifier == noteSegueIdentifier {
             if let noteVC = segue.destination.contentViewController as? NoteViewController {
                 noteVC.delegate = self
                 noteVC.note = viewModel.note.value

@@ -30,6 +30,8 @@
 		5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */; };
 		5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */; };
 		5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F71F98A966004B1E65 /* Extension.swift */; };
+		5B678F1E1FB44D15000C09E4 /* AddPlaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */; };
+		5B678F201FB44EA0000C09E4 /* AddPlaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */; };
 		5B7309561F8015F70026152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309551F8015F70026152E /* AppDelegate.swift */; };
 		5B73095B1F8015F70026152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7309591F8015F70026152E /* Main.storyboard */; };
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
@@ -87,6 +89,8 @@
 		5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F71F98A966004B1E65 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewController.swift; sourceTree = "<group>"; };
+		5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModel.swift; sourceTree = "<group>"; };
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B73095A1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */,
 				5B279BB81FAB46F900090D7B /* PlanesViewModel.swift */,
 				5B279BB61FAB46F000090D7B /* PlaneViewModel.swift */,
+				5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -180,14 +185,31 @@
 		5B189CC41F8F54A4000B25FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B678F1B1FB44C8D000C09E4 /* Controllers */,
+				5B678F1C1FB44CA4000C09E4 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B678F1B1FB44C8D000C09E4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				5B189CBC1F8F5368000B25FB /* RecordsTableViewController.swift */,
-				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
 				5B001F051F9758150055870A /* AddFlightRecordViewController.swift */,
 				5BCF69021FA9C89700F19577 /* NoteViewController.swift */,
 				5B279BB21FAB46BF00090D7B /* PlanesTableViewController.swift */,
+				5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5B678F1C1FB44CA4000C09E4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5B189CC51F8F54E0000B25FB /* RecordCell.swift */,
 				5B279BB41FAB46D700090D7B /* PlaneCell.swift */,
 			);
-			path = View;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5B7309491F8015F70026152E = {
@@ -437,6 +459,8 @@
 				5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */,
 				5B44B3F81F98A966004B1E65 /* Extension.swift in Sources */,
 				5B189CC11F8F53EF000B25FB /* Record.swift in Sources */,
+				5B678F201FB44EA0000C09E4 /* AddPlaneViewModel.swift in Sources */,
+				5B678F1E1FB44D15000C09E4 /* AddPlaneViewController.swift in Sources */,
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
 				5B279BB51FAB46D700090D7B /* PlaneCell.swift in Sources */,
 				5B279BB91FAB46F900090D7B /* PlanesViewModel.swift in Sources */,

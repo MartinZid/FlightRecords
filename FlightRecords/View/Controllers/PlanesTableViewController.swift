@@ -12,19 +12,19 @@ import UIKit
     PlanesTableViewController displays all user's planes in table.
  */
 class PlanesTableViewController: UITableViewController {
-    /// constant cell indentifier
+    
     private let planeCellIdentifier = "PlaneCell"
-    /// viewModel handles logic of PlanesTableViewController
     private let viewModel = PlanesViewModel()
+    
+    private struct Identifiers {
+        static let addPlane = "add plane"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
     }
     
-    /**
-     This function binds viewModel to View.
-     */
     private func bindViewModel() {
         viewModel.contentChangedSignal.observeValues {
             print("Reloading data")
@@ -49,6 +49,10 @@ class PlanesTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
 
     /*
     // Override to support editing the table view.
@@ -62,14 +66,15 @@ class PlanesTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Identifiers.addPlane {
+            if let addPlaneVC = segue.destination.contentViewController as? AddPlaneViewController {
+                addPlaneVC.viewModel = viewModel.addPlaneViewModelForNewPlane()
+            }
+        }
     }
-    */
 
 }

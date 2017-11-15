@@ -44,14 +44,19 @@ class RecordViewModel {
      - Returns: String in format: from-to.
      */
     func getDestinations() -> String {
-        return record.from + "-" + record.to
+        let from = record.from ?? "N/A"
+        let to = record.to ?? "N/A"
+        return from + "-" + to
     }
     /**
      getTime function converts Record's time to String and appends "h" (hours) to the end.
      - Returns: Time String eg.: 8 h.
      */
     func getTime() -> String {
-        return String(record.time) + " h"
+        if let time = record.time {
+            return time + " h"
+        }
+        return ""
     }
     /**
      - Returns: Record's plane.

@@ -39,6 +39,7 @@
 		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
+		5B9963551FB5C56C00DA104B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9963541FB5C56C00DA104B /* Protocols.swift */; };
 		5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */; };
 		5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B9A17D41F90F075003589B5 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
@@ -103,6 +104,7 @@
 		5B7309771F80219A0026152E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		5B7309781F80219A0026152E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		5B7309791F80219A0026152E /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		5B9963541FB5C56C00DA104B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
 		5B9A17D81F924AC1003589B5 /* RecordsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewControllerTests.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		5B189CC41F8F54A4000B25FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B9963541FB5C56C00DA104B /* Protocols.swift */,
 				5B678F1B1FB44C8D000C09E4 /* Controllers */,
 				5B678F1C1FB44CA4000C09E4 /* Cells */,
 			);
@@ -469,6 +472,7 @@
 				5B279BB91FAB46F900090D7B /* PlanesViewModel.swift in Sources */,
 				5B189CCD1F8F678E000B25FB /* RealmViewModel.swift in Sources */,
 				5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */,
+				5B9963551FB5C56C00DA104B /* Protocols.swift in Sources */,
 				5B7309561F8015F70026152E /* AppDelegate.swift in Sources */,
 				5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */,
 				5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */,

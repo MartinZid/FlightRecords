@@ -57,7 +57,7 @@ class RecordViewModelTests: XCTestCase {
     
     // getTime
     func testgetTimeGeneratesCorrectString() {
-        recordUnderTest.time = 2
+        recordUnderTest.time = "2"
         
         let time = viewModelUnderTest.getTime()
         

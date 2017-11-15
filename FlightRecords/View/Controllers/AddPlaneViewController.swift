@@ -24,7 +24,6 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AddPlaneViewModel(with: nil)
         picker.delegate = self
         bindViewModel()
     }

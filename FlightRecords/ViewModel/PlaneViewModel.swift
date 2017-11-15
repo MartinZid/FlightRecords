@@ -51,4 +51,7 @@ class PlaneViewModel {
         return info
     }
     
+    func getPlane() -> Plane {
+        return plane
+    }
 }

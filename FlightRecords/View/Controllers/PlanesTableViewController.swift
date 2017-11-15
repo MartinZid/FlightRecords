@@ -16,8 +16,13 @@ class PlanesTableViewController: UITableViewController {
     private let planeCellIdentifier = "PlaneCell"
     private let viewModel = PlanesViewModel()
     
+    var delegate: PlanesTableViewControllerDelegate? = nil
+    
+    private var selectedPlaneViewModel: PlaneViewModel!
+    
     private struct Identifiers {
-        static let addPlane = "add plane"
+        static let addPlane = "addPlane"
+        static let selectPlane = "planeSelected"
     }
     
     override func viewDidLoad() {
@@ -53,21 +58,14 @@ class PlanesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-
+    
     // MARK: - Navigation
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlaneViewModel = viewModel.getCellViewModel(for: indexPath)
+        delegate?.userDidSelect(planeViewModel: selectedPlaneViewModel)
+        self.navigationController?.popViewController(animated: true)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.addPlane {

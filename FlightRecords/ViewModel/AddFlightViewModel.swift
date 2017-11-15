@@ -10,31 +10,31 @@ import Foundation
 import ReactiveSwift
 import Result
 
-class AddFlightRecordViewModel {
+class AddFlightRecordViewModel: RealmViewModel {
     
     private let dateFormatter = DateFormatter()
     
-    let date = MutableProperty(Date())
-    let timeTKO = MutableProperty(Date())
-    let timeLDG = MutableProperty(Date())
+    let date: MutableProperty<Date>
+    let timeTKO: MutableProperty<Date>
+    let timeLDG: MutableProperty<Date>
     
     let dateString = MutableProperty<String>("")
-    let from = MutableProperty<String>("")
-    let to = MutableProperty<String>("")
+    let from: MutableProperty<String?>
+    let to: MutableProperty<String?>
     let timeTKOString = MutableProperty<String>("")
     let timeLDGString = MutableProperty<String>("")
-    let plane = MutableProperty<String>("")
+    let planeString = MutableProperty<String>("")
     let totalTime = MutableProperty<String>("")
-    let pic = MutableProperty<String>("")
+    let pic: MutableProperty<String?>
     
-    let tkoDay = MutableProperty<Double>(0)
+    let tkoDay: MutableProperty<Double>
     let tkoDayString = MutableProperty<String>("")
-    let tkoNight = MutableProperty<Double>(0)
+    let tkoNight: MutableProperty<Double>
     let tkoNightString = MutableProperty<String>("")
     
-    let ldgDay = MutableProperty<Double>(0)
+    let ldgDay: MutableProperty<Double>
     let ldgDayString = MutableProperty<String>("")
-    let ldgNight = MutableProperty<Double>(0)
+    let ldgNight: MutableProperty<Double>
     let ldgNightString = MutableProperty<String>("")
     
     let timeNight: MutableProperty<Date>
@@ -50,9 +50,24 @@ class AddFlightRecordViewModel {
     let timeInstructor: MutableProperty<Date>
     let timeInstructorString = MutableProperty<String>("")
     
-    let note = MutableProperty<String>("")
+    let note: MutableProperty<String?>
+    let plane: MutableProperty<Plane?>
     
-    init() {
+    init(with record: Record?) {
+        
+        date = MutableProperty(record?.date ?? Date())
+        timeTKO = MutableProperty(record?.timeTKO ?? Date())
+        timeLDG = MutableProperty(record?.timeLDG ?? Date())
+        
+        from = MutableProperty(record?.from ?? nil)
+        to = MutableProperty(record?.to ?? nil)
+        pic = MutableProperty(record?.pilot ?? nil)
+        
+        tkoDay = MutableProperty(record?.tkoDay ?? 0)
+        tkoNight = MutableProperty(record?.tkoNight ?? 0)
+        ldgDay = MutableProperty(record?.ldgDay ?? 0)
+        ldgNight = MutableProperty(record?.ldgNight ?? 0)
+        
         timeNight = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
         timeIFR = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
         timePIC = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
@@ -60,6 +75,14 @@ class AddFlightRecordViewModel {
         timeDual = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
         timeInstructor = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
         
+        note = MutableProperty(record?.note ?? nil)
+        plane = MutableProperty(record?.plane ?? nil)
+        
+        super.init()
+        bindProperties(record: record)
+    }
+    
+    private func bindProperties(record: Record?) {
         dateString <~ date.producer.map(dateFormatter.dateToString)
         timeTKOString <~ timeTKO.producer.map(dateFormatter.timeToString)
         timeLDGString <~ timeLDG.producer.map(dateFormatter.timeToString)
@@ -67,8 +90,8 @@ class AddFlightRecordViewModel {
             .map(countTotalTime).map(dateFormatter.timeToString)
         
         // start with values...
-        timeTKO.value = Date()
-        timeLDG.value = Date()
+        timeTKO.value = record?.timeTKO ?? Date()
+        timeLDG.value = record?.timeLDG ?? Date()
         
         tkoDayString <~ tkoDay.producer.map(doubleToString)
         tkoNightString <~ tkoNight.producer.map(doubleToString)
@@ -81,6 +104,9 @@ class AddFlightRecordViewModel {
         timeCOString <~ timeCO.producer.map(dateFormatter.timeToString)
         timeDualString <~ timeDual.producer.map(dateFormatter.timeToString)
         timeInstructorString <~ timeInstructor.producer.map(dateFormatter.timeToString)
+        
+        planeString <~ plane.producer.filterMap(setPlaneLabel)
+        //planeString <~ plane.signal.filterMap{ $0?.registrationNumber ?? NSLocalizedString("N/A", comment: "") }
     }
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
@@ -106,4 +132,54 @@ class AddFlightRecordViewModel {
     private func doubleToString(value: Double) -> String {
         return "\(Int(value))"
     }
+    
+    private func setPlaneLabel(plane: Plane?) -> String {
+        var label = plane?.registrationNumber ?? NSLocalizedString("N/A", comment: "")
+        if plane == nil {
+            label = ""
+        }
+        return label
+    }
+    
+    func setPlane(from planeViewModel: PlaneViewModel) {
+        plane.value = planeViewModel.getPlane()
+    }
+    
+    func saveRecordToRealm() {
+        let record = Record()
+        record.type = .flight
+        record.date = date.value
+        record.from = from.value
+        record.timeTKO = timeTKO.value
+        record.to = to.value
+        record.timeLDG = timeLDG.value
+        record.plane = plane.value
+        record.time = totalTime.value
+        record.pilot = pic.value
+        
+        record.tkoDay = tkoDay.value
+        record.tkoNight = tkoNight.value
+        record.ldgDay = ldgDay.value
+        record.ldgNight = ldgNight.value
+        
+        record.timeNight = timeNight.value
+        record.timeIFR = timeIFR.value
+        record.timePIC = timePIC.value
+        record.timeCO = timeCO.value
+        record.timeDUAL = timeDual.value
+        record.timeInstructor = timeInstructor.value
+        
+        record.note = note.value
+        
+        try! realm.write {
+            realm.add(record)
+        }
+    }
 }
+
+
+
+
+
+
+

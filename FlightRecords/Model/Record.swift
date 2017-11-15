@@ -9,18 +9,37 @@
 import Foundation
 import RealmSwift
 
-/**
- *Record* a Realm object class.
- */
+
 final class Record: Object {
-    /// Date of *Record*'s flight.
+    @objc dynamic var type: RecordType = .flight
+    
     @objc dynamic var date: Date?
-    /// Place of *Record*'s flight take off.
-    @objc dynamic var from = ""
-    /// Place of *Record*'s flight landing.
-    @objc dynamic var to = ""
-    /// Total time of *Record*'s flight.
-    @objc dynamic var time: Int = 0
-    /// Plane which was used in *Record*'s flight.
+    @objc dynamic var from: String? = nil
+    @objc dynamic var timeTKO: Date?
+    @objc dynamic var to: String? = nil
+    @objc dynamic var timeLDG: Date?
     @objc dynamic var plane: Plane?
+    @objc dynamic var time: String! = nil
+    @objc dynamic var pilot: String? = nil
+    
+    @objc dynamic var tkoDay: Double = 0
+    @objc dynamic var tkoNight: Double = 0
+    @objc dynamic var ldgDay: Double = 0
+    @objc dynamic var ldgNight: Double = 0
+    
+    @objc dynamic var timeNight: Date?
+    @objc dynamic var timeIFR: Date?
+    @objc dynamic var timePIC: Date?
+    @objc dynamic var timeCO: Date?
+    @objc dynamic var timeDUAL: Date?
+    @objc dynamic var timeInstructor: Date?
+    
+    @objc dynamic var note: String?
+    
+    @objc dynamic var simulator: String?
+    
+    @objc enum RecordType: Int {
+        case flight
+        case simulator
+    }
 }

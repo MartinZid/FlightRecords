@@ -12,12 +12,6 @@ import ReactiveCocoa
 import Result
 
 /**
- To NoteViewControllerDelegate is delegated save action of the note.
- */
-protocol NoteViewControllerDelegate {
-    func save(note: String)
-}
-/**
  NoteViewController is used for creating/editing flight note.
  */
 class NoteViewController: UIViewController {
@@ -25,12 +19,12 @@ class NoteViewController: UIViewController {
     /// UIBarButton which saves user's note
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     /// UITextField contains the note
-    @IBOutlet weak var noteField: UITextField!
+    @IBOutlet weak var noteField: UITextView!
     
     /// delegate who is saves the note
     var delegate: NoteViewControllerDelegate? = nil
     /// note variable
-    var note: String!
+    var note: String? = nil
 
     /// NoteViewModel handles save action and note value
     private var viewModel: NoteViewModel!

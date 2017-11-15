@@ -10,7 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
-class AddFlightRecordTableViewController: UITableViewController, NoteViewControllerDelegate {
+class AddFlightRecordTableViewController: UITableViewController,
+    NoteViewControllerDelegate,
+    PlanesTableViewControllerDelegate {
     
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var fromTextField: UITextField!
@@ -40,25 +42,31 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
     
     @IBOutlet weak var noteLabel: UILabel!
     
-    private let viewModel = AddFlightRecordViewModel()
+    var viewModel: AddFlightRecordViewModel!
     private let dateFormatter = DateFormatter()
     
-    private let noteSegueIdentifier = "note"
+    private struct Identifiers {
+        static let noteSegueIdentifier = "note"
+        static let planesSegueIdentifier = "plane"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if viewModel == nil {
+            viewModel = AddFlightRecordViewModel(with: nil)
+        }
         bindViewModel()
     }
     
     func bindViewModel() {
         dateTextField.reactive.text <~ viewModel.dateString
-        fromTextField.reactive.text <~ viewModel.from
+        viewModel.from <~ toTextField.reactive.continuousTextValues.filterMap{ $0 }
         timeTKOField.reactive.text <~ viewModel.timeTKOString
-        toTextField.reactive.text <~ viewModel.to
+        viewModel.to <~ fromTextField.reactive.continuousTextValues.filterMap{ $0 }
         timeLDGField.reactive.text <~ viewModel.timeLDGString
-        planeLabel.reactive.text <~ viewModel.plane
+        planeLabel.reactive.text <~ viewModel.planeString
         totalTimeLabel.reactive.text <~ viewModel.totalTime
-        picTextField.reactive.text <~ viewModel.pic
+        viewModel.pic <~ picTextField.reactive.continuousTextValues.filterMap{ $0 }
         
         viewModel.tkoDay <~ tkoDayStepper.reactive.values
         viewModel.tkoNight <~ tkoNightStepper.reactive.values
@@ -97,6 +105,22 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
         datePicker.date = dateFormatter.createDate(hours: 0, minutes: 0)
     }
     
+    /**
+     - Parameter time: String in format HH:mm
+     - Parameter datePicker: UIDatePicker
+    */
+    private func setMax(time: String, to datePicker: UIDatePicker) {
+        let timeArray = time.components(separatedBy: ":")
+        datePicker.maximumDate = self.dateFormatter.createDate(hours: Int(timeArray[0])!, minutes: Int(timeArray[1])!)
+    }
+    
+    private func setMaxTimeOnSignal(to datePicker: UIDatePicker) {
+        setMax(time: viewModel.totalTime.value, to: datePicker)
+        viewModel.totalTime.signal.observeValues{time in
+            self.setMax(time: time, to: datePicker)
+        }
+    }
+    
     @IBAction func dateFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.date)
         bind(datepicker: datePicker, to: viewModel.date)
@@ -115,49 +139,68 @@ class AddFlightRecordTableViewController: UITableViewController, NoteViewControl
     @IBAction func timeNightFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timeNight)
     }
     
     @IBAction func timeIFRFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timeIFR)
     }
     
     @IBAction func timePICFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timePIC)
     }
     
     @IBAction func timeCOFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timeCO)
     }
     
     @IBAction func timeDUALFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timeDual)
     }
     
     @IBAction func timeInstructorFieldEditing(_ sender: UITextField) {
         let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
         setZeroTime(to: datePicker)
+        setMaxTimeOnSignal(to: datePicker)
         bind(datepicker: datePicker, to: viewModel.timeInstructor)
+    }
+    @IBAction func saveRecordToRealm(_ sender: Any) {
+        viewModel.saveRecordToRealm()
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func save(note: String) {
         viewModel.note.value = note
     }
     
+    func userDidSelect(planeViewModel: PlaneViewModel) {
+        viewModel.setPlane(from: planeViewModel)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == noteSegueIdentifier {
+        if segue.identifier == Identifiers.noteSegueIdentifier {
             if let noteVC = segue.destination.contentViewController as? NoteViewController {
                 noteVC.delegate = self
                 noteVC.note = viewModel.note.value
+            }
+        }
+        if segue.identifier == Identifiers.planesSegueIdentifier {
+            if let planesVC = segue.destination.contentViewController as? PlanesTableViewController {
+                planesVC.delegate = self
             }
         }
     }

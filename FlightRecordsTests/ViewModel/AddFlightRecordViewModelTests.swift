@@ -18,7 +18,7 @@ class AddFlightRecordViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewModelUnderTest = AddFlightRecordViewModel()
+        viewModelUnderTest = AddFlightRecordViewModel(with: nil)
         dateFormatter = DateFormatter()
     }
     
@@ -137,5 +137,14 @@ class AddFlightRecordViewModelTests: XCTestCase {
         
         XCTAssertEqual(viewModelUnderTest.timeInstructorString.value, "14:00", "Connection between timeInstructor and timeInstructorString is not correct.")
     }
+    
+//    func testSaveRecordToRealm() {
+//        viewModelUnderTest.realm = setUpRealm()
+//        viewModelUnderTest.savePlaneToRealm()
+//        
+//        let planes = viewModelUnderTest.realm.objects(Plane.self)
+//        
+//        XCTAssertEqual(planes.count, 1, "Plane was not saved to realm.")
+//    }
     
 }

@@ -58,7 +58,7 @@ class RecordsViewModelTests: TestCaseBase {
     
     func testGetCellViewModel() {
         let record = Record()
-        record.time = 2
+        record.time = "2"
         viewModelUnderTest.realm = setUpRealm()
         try! viewModelUnderTest.realm.write {
             viewModelUnderTest.realm.add(record)

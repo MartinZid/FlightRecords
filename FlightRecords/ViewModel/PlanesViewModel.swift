@@ -48,5 +48,4 @@ class PlanesViewModel: RealmViewModel {
     func addPlaneViewModelForNewPlane() -> AddPlaneViewModel {
         return AddPlaneViewModel(with: nil)
     }
-    
 }

@@ -19,7 +19,7 @@ final class Record: Object {
     @objc dynamic var to: String? = nil
     @objc dynamic var timeLDG: Date?
     @objc dynamic var plane: Plane?
-    @objc dynamic var time: String! = nil
+    @objc dynamic var time: String? = nil
     @objc dynamic var pilot: String? = nil
     
     @objc dynamic var tkoDay: Double = 0

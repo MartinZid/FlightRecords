@@ -11,7 +11,7 @@ import ReactiveCocoa
 import ReactiveSwift
 @testable import FlightRecords
 
-class AddFlightRecordViewModelTests: XCTestCase {
+class AddFlightRecordViewModelTests: TestCaseBase {
     
     var viewModelUnderTest: AddFlightRecordViewModel!
     var dateFormatter: DateFormatter!
@@ -55,7 +55,6 @@ class AddFlightRecordViewModelTests: XCTestCase {
     }
     
     func testTimeTKOConnection() {
-        dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.createDate(hours: 18, minutes: 0)
         viewModelUnderTest.timeTKO.value = date
         
@@ -63,7 +62,6 @@ class AddFlightRecordViewModelTests: XCTestCase {
     }
     
     func testTimeLDGConnection() {
-        dateFormatter.dateFormat = "HH:mm"
         let date = dateFormatter.createDate(hours: 2, minutes: 15)
         viewModelUnderTest.timeLDG.value = date
         
@@ -138,13 +136,13 @@ class AddFlightRecordViewModelTests: XCTestCase {
         XCTAssertEqual(viewModelUnderTest.timeInstructorString.value, "14:00", "Connection between timeInstructor and timeInstructorString is not correct.")
     }
     
-//    func testSaveRecordToRealm() {
-//        viewModelUnderTest.realm = setUpRealm()
-//        viewModelUnderTest.savePlaneToRealm()
-//        
-//        let planes = viewModelUnderTest.realm.objects(Plane.self)
-//        
-//        XCTAssertEqual(planes.count, 1, "Plane was not saved to realm.")
-//    }
+    func testSaveRecordToRealm() {
+        viewModelUnderTest.realm = setUpRealm()
+        viewModelUnderTest.saveRecordToRealm()
+        
+        let records = viewModelUnderTest.realm.objects(Record.self)
+        
+        XCTAssertEqual(records.count, 1, "Plane was not saved to realm.")
+    }
     
 }

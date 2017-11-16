@@ -28,7 +28,7 @@ class RecordCell: UITableViewCell {
             date.text = viewModel.getDate()
             destination.text = viewModel.getDestinations()
             time.text = viewModel.getTime()
-            registrationNumber.text = viewModel.getPlane()?.registrationNumber ?? NSLocalizedString("N/A", comment: "")
+            registrationNumber.text = viewModel.getRegistrationNumber()
         }
     }
 }

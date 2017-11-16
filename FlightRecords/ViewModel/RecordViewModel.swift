@@ -15,6 +15,7 @@ class RecordViewModel {
     
     /// Record model object
     private let record: Record
+    private let simulator = "Simulator"
     
     /**
      Init function initializes RecordViewModel with given Record.
@@ -44,9 +45,13 @@ class RecordViewModel {
      - Returns: String in format: from-to.
      */
     func getDestinations() -> String {
-        let from = record.from ?? "N/A"
-        let to = record.to ?? "N/A"
-        return from + "-" + to
+        if record.type == .flight {
+            let from = record.from ?? "N/A"
+            let to = record.to ?? "N/A"
+            return from + "-" + to
+        } else {
+            return simulator
+        }
     }
     /**
      getTime function converts Record's time to String and appends "h" (hours) to the end.
@@ -61,8 +66,12 @@ class RecordViewModel {
     /**
      - Returns: Record's plane.
      */
-    func getPlane() -> Plane? {
-        return record.plane
+    func getRegistrationNumber() -> String {
+        if record.type == .flight {
+            return record.plane?.registrationNumber ?? NSLocalizedString("N/A", comment: "")
+        } else {
+            return record.simulator ?? NSLocalizedString("N/A", comment: "")
+        }
     }
     
 }

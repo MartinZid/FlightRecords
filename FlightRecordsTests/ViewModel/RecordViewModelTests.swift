@@ -46,12 +46,22 @@ class RecordViewModelTests: XCTestCase {
     
     //getDestinations
     func testgetDestinationsCreatesCorrectString() {
+        recordUnderTest.type = .flight
         recordUnderTest.from = "PRG"
         recordUnderTest.to = "PRG"
         
         let destinations = viewModelUnderTest.getDestinations()
         
-        XCTAssertEqual(destinations, "PRG-PRG", "Destinations are not in correct format.")
+        XCTAssertEqual(destinations, "PRG-PRG", "Destinations are not in correct format for flight record.")
+        
+    }
+    
+    func testgetDestinationsCreatesCorrectString2() {
+        recordUnderTest.type = .simulator
+        
+        let destinations = viewModelUnderTest.getDestinations()
+        
+        XCTAssertEqual(destinations, "Simulator", "Destinations are not in correct format for fstd record.")
         
     }
     
@@ -70,9 +80,34 @@ class RecordViewModelTests: XCTestCase {
         plane.registrationNumber = "N123Q0"
         recordUnderTest.plane = plane
         
-        let testPlane = viewModelUnderTest.getPlane()
+        let testPlane = viewModelUnderTest.getRegistrationNumber()
         
-        XCTAssertEqual(testPlane, plane, "Returned plane adn given plane differs.")
+        XCTAssertEqual(testPlane, "N123Q0", "Returned plane reg. no is not corrent.")
+    }
+    
+    func testgetPlaneShouldReturnRecordsPlane2() {
+        recordUnderTest.type = .simulator
+        recordUnderTest.simulator = "FNTP II"
+        
+        let testPlane = viewModelUnderTest.getRegistrationNumber()
+        
+        XCTAssertEqual(testPlane, "FNTP II", "Returned simulator reg. no is not corrent.")
+    }
+    
+    func testgetPlaneShouldReturnRecordsPlane3() {
+        recordUnderTest.type = .simulator
+        
+        let testPlane = viewModelUnderTest.getRegistrationNumber()
+        
+        XCTAssertEqual(testPlane, NSLocalizedString("N/A", comment: ""), "Returned string is not correct.")
+    }
+    
+    func testgetPlaneShouldReturnRecordsPlane4() {
+        recordUnderTest.type = .simulator
+        
+        let testPlane = viewModelUnderTest.getRegistrationNumber()
+        
+        XCTAssertEqual(testPlane, NSLocalizedString("N/A", comment: ""), "Returned string is not correct.")
     }
     
 }

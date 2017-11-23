@@ -22,9 +22,12 @@ class AddSimulatorRecordViewModel: RealmViewModel {
     let timeString = MutableProperty<String>("")
     
     let record: Record?
+    let title: String
     
     init(with record: Record?) {
         self.record = record
+        title = (record == nil ? NSLocalizedString("Add new simulator record", comment: "") : NSLocalizedString("Edit simulator record", comment: ""))
+        
         date = MutableProperty(record?.date ?? Date())
         var timeDate: Date!
         if let time = record?.time {

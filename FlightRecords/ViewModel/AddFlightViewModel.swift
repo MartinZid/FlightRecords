@@ -55,8 +55,11 @@ class AddFlightRecordViewModel: RealmViewModel {
     
     let record: Record?
     
+    let title: String
+    
     init(with record: Record?) {
         self.record = record
+        title = (record == nil ? NSLocalizedString("Add new flight record", comment: "") : NSLocalizedString("Edit flight record", comment: ""))
         
         date = MutableProperty(record?.date ?? Date())
         timeTKO = MutableProperty(record?.timeTKO ?? Date())

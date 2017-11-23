@@ -59,6 +59,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     }
     
     func bindViewModel() {
+        self.title = viewModel.title
+        
         fromTextField.text = viewModel.from.value
         toTextField.text = viewModel.to.value
         picTextField.text = viewModel.pic.value

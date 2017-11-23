@@ -10,3 +10,8 @@
 "ME" = "Vícemotorové";
 "N/A" = "Neznámé";
 "Plane" = "Letadlo";
+"Add new flight record" = "Přidat záznam letu";
+"Edit flight record" = "Upravit záznam letu";
+"Add new simulator record" = "Přidat záznam ze simulátoru";
+"Edit simulator record" = "Upravit záznam ze simulátoru";
+

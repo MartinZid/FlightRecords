@@ -15,8 +15,15 @@ import Result
 class RecordsViewModel: RealmViewModel {
     
     private var records = List<Record>()
+//    var recordNotifications: NotificationToken? = nil
+//
+//    let recordsChangedSignal: Signal<RealmCollectionChange<List<Record>>, NoError>
+//    private let recordsChangedObserver: Signal<RealmCollectionChange<List<Record>>, NoError>.Observer
     
     override init() {
+//        let (recordsChangedSignal, recordsChangedObserver) = Signal<RealmCollectionChange<List<Record>>, NoError>.pipe()
+//        self.recordsChangedSignal = recordsChangedSignal
+//        self.recordsChangedObserver = recordsChangedObserver
         super.init()
     }
     
@@ -26,14 +33,21 @@ class RecordsViewModel: RealmViewModel {
             self.records.append(objectsIn: self.realm.objects(Record.self))
         }
         contentChangedObserver.send(value: ())
+//        records = realm.objects(Record.self)
+//        recordNotifications = records.observe{ [weak self] (changes: RealmCollectionChange<List<Record>>) in
+//            self?.recordsChangedObserver.send(value: changes)
+//        }
     }
+    
+//    deinit {
+//        recordNotifications?.invalidate()
+//    }
     
     override func realmInitCompleted() {
         updateList()
     }
     
     override func notificationHandler(notification: Realm.Notification, realm: Realm) {
-        print("new notification")
         updateList()
     }
     
@@ -50,6 +64,9 @@ class RecordsViewModel: RealmViewModel {
     }
     
     func deleteRecord(at indexPath: IndexPath) {
+//        realm.beginWrite()
+//        realm.delete(records[indexPath.row])
+//        try! realm.commitWrite(withoutNotifying: [notificationToken])
         try! realm.write {
             realm.delete(records[indexPath.row])
         }

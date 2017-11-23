@@ -59,6 +59,10 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     }
     
     func bindViewModel() {
+        fromTextField.text = viewModel.from.value
+        toTextField.text = viewModel.to.value
+        picTextField.text = viewModel.pic.value
+        
         dateTextField.reactive.text <~ viewModel.dateString
         viewModel.from <~ toTextField.reactive.continuousTextValues.filterMap{ $0 }
         timeTKOField.reactive.text <~ viewModel.timeTKOString

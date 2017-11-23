@@ -32,6 +32,8 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
     }
     
     func bindViewModel() {
+        typeTextField.text = viewModel.type.value
+        
         dateTextField.reactive.text <~ viewModel.dateString
         timeTextField.reactive.text <~ viewModel.timeString
         viewModel.type <~ typeTextField.reactive.continuousTextValues.filterMap{ $0 }

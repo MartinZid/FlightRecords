@@ -21,7 +21,10 @@ class AddSimulatorRecordViewModel: RealmViewModel {
     let dateString = MutableProperty<String>("")
     let timeString = MutableProperty<String>("")
     
+    let record: Record?
+    
     init(with record: Record?) {
+        self.record = record
         date = MutableProperty(record?.date ?? Date())
         var timeDate: Date!
         if let time = record?.time {
@@ -39,14 +42,14 @@ class AddSimulatorRecordViewModel: RealmViewModel {
     }
     
     func saveRecordToRealm() {
-        let record = Record()
-        record.type = .simulator
-        record.date = date.value
-        record.time = timeString.value
-        record.simulator = type.value
-        record.note = note.value
-        
+        let record = self.record ?? Record()
         try! realm.write {
+            record.type = .simulator
+            record.date = date.value
+            record.time = timeString.value
+            record.simulator = type.value
+            record.note = note.value
+        
             realm.add(record)
         }
     }

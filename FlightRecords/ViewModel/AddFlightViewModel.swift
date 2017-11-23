@@ -53,7 +53,10 @@ class AddFlightRecordViewModel: RealmViewModel {
     let note: MutableProperty<String?>
     let plane: MutableProperty<Plane?>
     
+    let record: Record?
+    
     init(with record: Record?) {
+        self.record = record
         
         date = MutableProperty(record?.date ?? Date())
         timeTKO = MutableProperty(record?.timeTKO ?? Date())
@@ -146,32 +149,32 @@ class AddFlightRecordViewModel: RealmViewModel {
     }
     
     func saveRecordToRealm() {
-        let record = Record()
-        record.type = .flight
-        record.date = date.value
-        record.from = from.value
-        record.timeTKO = timeTKO.value
-        record.to = to.value
-        record.timeLDG = timeLDG.value
-        record.plane = plane.value
-        record.time = totalTime.value
-        record.pilot = pic.value
-        
-        record.tkoDay = tkoDay.value
-        record.tkoNight = tkoNight.value
-        record.ldgDay = ldgDay.value
-        record.ldgNight = ldgNight.value
-        
-        record.timeNight = timeNight.value
-        record.timeIFR = timeIFR.value
-        record.timePIC = timePIC.value
-        record.timeCO = timeCO.value
-        record.timeDUAL = timeDual.value
-        record.timeInstructor = timeInstructor.value
-        
-        record.note = note.value
-        
+        let record = self.record ?? Record()
         try! realm.write {
+            record.type = .flight
+            record.date = date.value
+            record.from = from.value
+            record.timeTKO = timeTKO.value
+            record.to = to.value
+            record.timeLDG = timeLDG.value
+            record.plane = plane.value
+            record.time = totalTime.value
+            record.pilot = pic.value
+            
+            record.tkoDay = tkoDay.value
+            record.tkoNight = tkoNight.value
+            record.ldgDay = ldgDay.value
+            record.ldgNight = ldgNight.value
+            
+            record.timeNight = timeNight.value
+            record.timeIFR = timeIFR.value
+            record.timePIC = timePIC.value
+            record.timeCO = timeCO.value
+            record.timeDUAL = timeDual.value
+            record.timeInstructor = timeInstructor.value
+            
+            record.note = note.value
+        
             realm.add(record)
         }
     }

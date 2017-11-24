@@ -15,10 +15,12 @@ import Result
 class RecordsViewModel: RealmViewModel {
     
     private var records: Results<Record>?
+    
     var recordsNotificationsToken: NotificationToken? = nil
-
     let recordsChangedSignal: Signal<RealmCollectionChange<Results<Record>>, NoError>
     private let recordsChangedObserver: Signal<RealmCollectionChange<Results<Record>>, NoError>.Observer
+    
+    var searchConfiguration: SearchConfiguration?
     
     override init() {
         let (recordsChangedSignal, recordsChangedObserver) = Signal<RealmCollectionChange<Results<Record>>, NoError>.pipe()
@@ -75,6 +77,19 @@ class RecordsViewModel: RealmViewModel {
     func getAddSimulatorViewModel(for indexPath: IndexPath) -> AddSimulatorRecordViewModel {
         let record = records![indexPath.row]
         return AddSimulatorRecordViewModel(with: record)
+    }
+    
+    func getSearchViewModel() -> SearchViewModel {
+        return SearchViewModel(with: searchConfiguration)
+    }
+    
+    func apply(searchViewModel: SearchViewModel) {
+        self.searchConfiguration = searchViewModel.getConfiguration()
+        filterRecords()
+    }
+    
+    private func filterRecords() {
+        
     }
     
 }

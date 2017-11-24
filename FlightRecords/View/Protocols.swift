@@ -15,3 +15,7 @@ protocol NoteViewControllerDelegate {
 protocol PlanesTableViewControllerDelegate {
     func userDidSelect(planeViewModel: PlaneViewModel)
 }
+
+protocol SearchViewControllerDelegate {
+    func apply(searchViewModel: SearchViewModel)
+}

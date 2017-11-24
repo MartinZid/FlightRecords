@@ -11,10 +11,14 @@ import UIKit
 /**
     RecordsTableViewController displays all flight records in table.
  */
-class RecordsTableViewController: UITableViewController {
+class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
     
     private let recordCellIdentifier = "RecordCell"
     private let viewModel = RecordsViewModel()
+    
+    private struct Identifiers {
+        static let searchSegueIdentifier = "search"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,10 @@ class RecordsTableViewController: UITableViewController {
                 fatalError("\(error)")
             }
         }
+    }
+    
+    func apply(searchViewModel viewModel: SearchViewModel) {
+        self.viewModel.apply(searchViewModel: viewModel)
     }
 
     // MARK: - Table view data source
@@ -87,15 +95,15 @@ class RecordsTableViewController: UITableViewController {
         }
     }
 
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Identifiers.searchSegueIdentifier {
+            if let searchVC = segue.destination.contentViewController as? SearchViewController {
+                searchVC.delegate = self
+                searchVC.viewModel = viewModel.getSearchViewModel()
+            }
+        }
     }
-    */
 
 }

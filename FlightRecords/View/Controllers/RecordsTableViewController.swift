@@ -22,29 +22,24 @@ class RecordsTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.contentChangedSignal.observeValues {
-            print("Reloading data")
-            self.tableView.reloadData()
+        viewModel.recordsChangedSignal.observeValues{ [weak self] changes in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.endUpdates()
+            case .error(let error):
+                fatalError("\(error)")
+            }
         }
-//        viewModel.recordsChangedSignal.observeValues{ [weak self] changes in
-//            print("records changed...")
-//            guard let tableView = self?.tableView else { return }
-//            switch changes {
-//            case .initial:
-//                tableView.reloadData()
-//            case .update(_, let deletions, let insertions, let modifications):
-//                tableView.beginUpdates()
-//                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-//                                     with: .automatic)
-//                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-//                                     with: .automatic)
-//                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-//                                     with: .automatic)
-//                tableView.endUpdates()
-//            case .error(let error):
-//                fatalError("\(error)")
-//            }
-//        }
     }
 
     // MARK: - Table view data source
@@ -75,10 +70,7 @@ class RecordsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.tableView.beginUpdates()
             viewModel.deleteRecord(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.endUpdates()
         }
     }
     

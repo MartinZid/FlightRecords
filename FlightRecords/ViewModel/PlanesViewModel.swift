@@ -8,41 +8,48 @@
 
 import Foundation
 import RealmSwift
+import ReactiveSwift
+import Result
 
 class PlanesViewModel: RealmViewModel {
-    private var planes = List<Plane>()
+    
+    private var planes: Results<Plane>?
+    var planesNotificationsToken: NotificationToken? = nil
+    
+    let planesChangedSignal: Signal<RealmCollectionChange<Results<Plane>>, NoError>
+    private let planesChangedObserver: Signal<RealmCollectionChange<Results<Plane>>, NoError>.Observer
     
     override init() {
+        let (planesChangedSignal, planesChangedObserver) = Signal<RealmCollectionChange<Results<Plane>>, NoError>.pipe()
+        self.planesChangedSignal = planesChangedSignal
+        self.planesChangedObserver = planesChangedObserver
         super.init()
     }
     
     private func updateList() {
-        if self.planes.realm == nil {
-            self.planes.removeAll()
-            self.planes.append(objectsIn: self.realm.objects(Plane.self))
+        planes = realm.objects(Plane.self)
+        planesNotificationsToken = planes?.observe{ [weak self] (changes: RealmCollectionChange<Results<Plane>>) in
+            self?.planesChangedObserver.send(value: changes)
         }
-        contentChangedObserver.send(value: ())
     }
     
     override func realmInitCompleted() {
         updateList()
     }
-    
-    override func notificationHandler(notification: Realm.Notification, realm: Realm) {
-        updateList()
-    }
-    
 
     func numberOfSections() -> Int {
         return 1
     }
     
     func numberOfPlanesInSection() -> Int {
-        return planes.count
+        if let list = planes {
+            return list.count
+        }
+        return 0
     }
     
     func getCellViewModel(for indexPath: IndexPath) -> PlaneViewModel {
-        return PlaneViewModel(with: planes[indexPath.row])
+        return PlaneViewModel(with: planes![indexPath.row])
     }
     
     func addPlaneViewModelForNewPlane() -> AddPlaneViewModel {

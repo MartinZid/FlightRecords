@@ -14,45 +14,36 @@ import Result
 
 class RecordsViewModel: RealmViewModel {
     
-    private var records = List<Record>()
-//    var recordNotifications: NotificationToken? = nil
-//
-//    let recordsChangedSignal: Signal<RealmCollectionChange<List<Record>>, NoError>
-//    private let recordsChangedObserver: Signal<RealmCollectionChange<List<Record>>, NoError>.Observer
+    private var records: Results<Record>?
+    var recordsNotificationsToken: NotificationToken? = nil
+
+    let recordsChangedSignal: Signal<RealmCollectionChange<Results<Record>>, NoError>
+    private let recordsChangedObserver: Signal<RealmCollectionChange<Results<Record>>, NoError>.Observer
     
     override init() {
-//        let (recordsChangedSignal, recordsChangedObserver) = Signal<RealmCollectionChange<List<Record>>, NoError>.pipe()
-//        self.recordsChangedSignal = recordsChangedSignal
-//        self.recordsChangedObserver = recordsChangedObserver
+        let (recordsChangedSignal, recordsChangedObserver) = Signal<RealmCollectionChange<Results<Record>>, NoError>.pipe()
+        self.recordsChangedSignal = recordsChangedSignal
+        self.recordsChangedObserver = recordsChangedObserver
         super.init()
     }
     
     private func updateList() {
-        if self.records.realm == nil {
-            self.records.removeAll()
-            self.records.append(objectsIn: self.realm.objects(Record.self))
+        records = realm.objects(Record.self)
+        recordsNotificationsToken = records?.observe{ [weak self] (changes: RealmCollectionChange<Results<Record>>) in
+            self?.recordsChangedObserver.send(value: changes)
         }
-        contentChangedObserver.send(value: ())
-//        records = realm.objects(Record.self)
-//        recordNotifications = records.observe{ [weak self] (changes: RealmCollectionChange<List<Record>>) in
-//            self?.recordsChangedObserver.send(value: changes)
-//        }
     }
     
-//    deinit {
-//        recordNotifications?.invalidate()
-//    }
+    deinit {
+        recordsNotificationsToken?.invalidate()
+    }
     
     override func realmInitCompleted() {
         updateList()
     }
     
-    override func notificationHandler(notification: Realm.Notification, realm: Realm) {
-        updateList()
-    }
-    
     func getCellViewModel(for indexPath: IndexPath) -> RecordViewModel {
-        return RecordViewModel(with: records[indexPath.row])
+        return RecordViewModel(with: records![indexPath.row])
     }
     
     func numberOfSections() -> Int {
@@ -60,29 +51,29 @@ class RecordsViewModel: RealmViewModel {
     }
     
     func numberOfRecordsInSection() -> Int {
-        return records.count
+        if let list = records {
+            return list.count
+        }
+        return 0
     }
     
     func deleteRecord(at indexPath: IndexPath) {
-//        realm.beginWrite()
-//        realm.delete(records[indexPath.row])
-//        try! realm.commitWrite(withoutNotifying: [notificationToken])
         try! realm.write {
-            realm.delete(records[indexPath.row])
+            realm.delete(records![indexPath.row])
         }
     }
     
     func getTypeOfRecord(at indexPath: IndexPath) -> Record.RecordType {
-        return records[indexPath.row].type
+        return records![indexPath.row].type
     }
     
     func getAddFlightViewModel(for indexPath: IndexPath) -> AddFlightRecordViewModel {
-        let record = records[indexPath.row]
+        let record = records![indexPath.row]
         return AddFlightRecordViewModel(with: record)
     }
     
     func getAddSimulatorViewModel(for indexPath: IndexPath) -> AddSimulatorRecordViewModel {
-        let record = records[indexPath.row]
+        let record = records![indexPath.row]
         return AddSimulatorRecordViewModel(with: record)
     }
     

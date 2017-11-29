@@ -77,15 +77,17 @@ class SearchViewModel {
         plane.value = planeViewModel.getPlane()
     }
     
-    func setDefaultToDate() {
-        if let fromDate = fromDate.value {
-            if Date().timeIntervalSince(fromDate) < 0 {
-                toDate.value = fromDate
+    func setDefaultToDateValue() {
+        if toDate.value == nil {
+            if let fromDate = fromDate.value {
+                if Date().timeIntervalSince(fromDate) < 0 {
+                    toDate.value = fromDate
+                } else {
+                    toDate.value = Date()
+                }
             } else {
                 toDate.value = Date()
             }
-        } else {
-            toDate.value = Date()
         }
     }
     
@@ -98,6 +100,16 @@ class SearchViewModel {
         searchConfiguration?.fromDate = fromDate.value
         searchConfiguration?.toDate = toDate.value
         return searchConfiguration!
+    }
+    
+    func clearSearchParameters() {
+        searchText.value = nil
+        flightsSwitch.value = true
+        fstdSwitch.value = true
+        planeType.value = nil
+        plane.value = nil
+        fromDate.value = nil
+        toDate.value = nil
     }
 }
 

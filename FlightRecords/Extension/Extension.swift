@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
 
 extension DateFormatter {
     struct Format{
@@ -42,5 +44,13 @@ extension UIViewController {
         } else {
             return self
         }
+    }
+}
+
+extension UITableViewController {
+    internal func setEndEditingOnTap() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
     }
 }

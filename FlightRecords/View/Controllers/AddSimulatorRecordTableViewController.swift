@@ -29,6 +29,7 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
             viewModel = AddSimulatorRecordViewModel(with: nil)
         }
         bindViewModel()
+        setEndEditingOnTap()
     }
     
     func bindViewModel() {

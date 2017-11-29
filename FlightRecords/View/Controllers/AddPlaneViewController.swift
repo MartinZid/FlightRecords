@@ -26,6 +26,7 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         picker.delegate = self
         bindViewModel()
+        setEndEditingOnTap()
     }
     
     private func bindViewModel() {

@@ -89,7 +89,33 @@ class RecordsViewModel: RealmViewModel {
     }
     
     private func filterRecords() {
-        
+        records = realm.objects(Record.self)
+        if let text = searchConfiguration?.searchText {
+            if text.count > 0 {
+                records = records?.filter("(from contains[c] %@) or (to contains[c] %@)", text, text)
+            }
+        }
+        if searchConfiguration?.flightsSwitch == false {
+            records = records?.filter("type == 1")
+        }
+        if searchConfiguration?.fstdSwitch == false {
+            records = records?.filter("type == 0")
+        }
+        if let type = searchConfiguration?.planeType {
+            if type.count > 0 {
+                print(type)
+                records = records?.filter("plane.type contains[c] %@", type)
+            }
+        }
+        if let plane = searchConfiguration?.plane {
+            records = records?.filter("plane == %@", plane)
+        }
+        if let fromDate = searchConfiguration?.fromDate {
+            records = records?.filter("date >= %@", fromDate)
+        }
+        if let toDate = searchConfiguration?.toDate {
+            records = records?.filter("date <= %@", toDate)
+        }
     }
     
 }

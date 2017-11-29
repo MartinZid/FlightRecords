@@ -32,15 +32,14 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        setEndEditingOnTap()
+        print("view did load")
     }
     
     // MARK: - Binding
     
     private func bindViewModel() {
-        searchTextField.text = viewModel.searchText.value
-        flightsSwitch.isOn = viewModel.flightsSwitch.value
-        fstdSwitch.isOn = viewModel.fstdSwitch.value
-        planeTypeTextField.text = viewModel.planeType.value
+        setDefaultValues()
         
         viewModel.searchText <~ searchTextField.reactive.continuousTextValues.filterMap{ $0 }
         viewModel.flightsSwitch <~ flightsSwitch.reactive.isOnValues
@@ -53,11 +52,22 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         
     }
     
+    private func setDefaultValues() {
+        searchTextField.text = viewModel.searchText.value
+        flightsSwitch.isOn = viewModel.flightsSwitch.value
+        fstdSwitch.isOn = viewModel.fstdSwitch.value
+        planeTypeTextField.text = viewModel.planeType.value
+    }
+    
     @IBAction func fromTextFieldEditing(_ sender: UITextField) {
         if sender.inputView == nil {
             let datepicker = assingUIDatePicker(to: sender, with: .date)
             viewModel.fromDate <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
-            viewModel.fromDate.value = Date()
+            if let date = viewModel.fromDate.value {
+                datepicker.date = date
+            } else {
+                viewModel.fromDate.value = Date()
+            }
         }
     }
     
@@ -67,7 +77,7 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         }
     }
     
-    private func setMaxDateOnSignal(to datePicker: UIDatePicker) {
+    private func setMinDateOnSignal(to datePicker: UIDatePicker) {
         setMinimum(date: viewModel.fromDate.value, to: datePicker)
         viewModel.fromDate.signal.observeValues{ [weak self] date in
             self?.setMinimum(date: date, to: datePicker)
@@ -78,9 +88,24 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         if sender.inputView == nil {
             let datepicker = assingUIDatePicker(to: sender, with: .date)
             viewModel.toDate <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
-            setMaxDateOnSignal(to: datepicker)
-            viewModel.setDefaultToDate()
+            setMinDateOnSignal(to: datepicker)
+            if let date = viewModel.toDate.value {
+                datepicker.date = date
+            } else {
+                viewModel.setDefaultToDateValue()
+            }
         }
+    }
+    
+    private func resetDateInputTextFields() {
+        fromDateTextField.inputView = nil
+        toDateTextField.inputView = nil
+    }
+    
+    @IBAction func clearSearchParameters(_ sender: Any) {
+        viewModel.clearSearchParameters()
+        setDefaultValues()
+        resetDateInputTextFields()
     }
     
     // MARK: - Delegate functions

@@ -56,6 +56,7 @@ class AddFlightRecordTableViewController: RecordTableViewController,
             viewModel = AddFlightRecordViewModel(with: nil)
         }
         bindViewModel()
+        setEndEditingOnTap()
     }
     
     func bindViewModel() {

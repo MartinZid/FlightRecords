@@ -48,6 +48,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     
     func apply(searchViewModel viewModel: SearchViewModel) {
         self.viewModel.apply(searchViewModel: viewModel)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source

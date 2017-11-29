@@ -31,9 +31,11 @@ class RecordsViewModel: RealmViewModel {
     
     private func updateList() {
         records = realm.objects(Record.self)
-        recordsNotificationsToken = records?.observe{ [weak self] (changes: RealmCollectionChange<Results<Record>>) in
-            self?.recordsChangedObserver.send(value: changes)
-        }
+        recordsNotificationsToken = records?.observe(recordsChangedNotificationBlock)
+    }
+    
+    private func recordsChangedNotificationBlock(changes: RealmCollectionChange<Results<Record>>) {
+        recordsChangedObserver.send(value: changes)
     }
     
     deinit {
@@ -116,6 +118,8 @@ class RecordsViewModel: RealmViewModel {
         if let toDate = searchConfiguration?.toDate {
             records = records?.filter("date <= %@", toDate)
         }
+        recordsNotificationsToken?.invalidate()
+        recordsNotificationsToken = records?.observe(recordsChangedNotificationBlock)
     }
     
 }

@@ -40,11 +40,27 @@ class RecordTableViewController: UITableViewController {
         datePicker.maximumDate = dateFormatter.createTime(from: string)
     }
     
-    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode, and property: MutableProperty<Date>) -> UIDatePicker {
+    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
+                                   and property: MutableProperty<Date>) -> UIDatePicker {
         if sender.inputView == nil {
             let datePicker = assingUIDatePicker(to: sender, with: mode)
             bind(datepicker: datePicker, to: property)
             datePicker.date = property.value
+            return datePicker
+        }
+        return sender.inputView as! UIDatePicker
+    }
+    
+    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
+                                   and property: MutableProperty<Date?>, default defaultValue: Date? ) -> UIDatePicker {
+        if sender.inputView == nil {
+            let datePicker = assingUIDatePicker(to: sender, with: mode)
+            bind(datepicker: datePicker, to: property)
+            if let value = property.value {
+                datePicker.date = value
+            } else if let value = defaultValue {
+                property.value = value
+            }
             return datePicker
         }
         return sender.inputView as! UIDatePicker

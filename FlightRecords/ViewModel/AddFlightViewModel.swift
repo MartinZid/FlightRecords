@@ -37,18 +37,18 @@ class AddFlightRecordViewModel: RealmViewModel {
     let ldgNight: MutableProperty<Double>
     let ldgNightString = MutableProperty<String>("")
     
-    let timeNight: MutableProperty<Date>
-    let timeNightString = MutableProperty<String>("")
-    let timeIFR: MutableProperty<Date>
-    let timeIFRString = MutableProperty<String>("")
-    let timePIC: MutableProperty<Date>
-    let timePICString = MutableProperty<String>("")
-    let timeCO: MutableProperty<Date>
-    let timeCOString = MutableProperty<String>("")
-    let timeDual: MutableProperty<Date>
-    let timeDualString = MutableProperty<String>("")
-    let timeInstructor: MutableProperty<Date>
-    let timeInstructorString = MutableProperty<String>("")
+    let timeNight: MutableProperty<Date?>
+    let timeNightString = MutableProperty<String?>(nil)
+    let timeIFR: MutableProperty<Date?>
+    let timeIFRString = MutableProperty<String?>(nil)
+    let timePIC: MutableProperty<Date?>
+    let timePICString = MutableProperty<String?>(nil)
+    let timeCO: MutableProperty<Date?>
+    let timeCOString = MutableProperty<String?>(nil)
+    let timeDual: MutableProperty<Date?>
+    let timeDualString = MutableProperty<String?>(nil)
+    let timeInstructor: MutableProperty<Date?>
+    let timeInstructorString = MutableProperty<String?>(nil)
     
     let note: MutableProperty<String?>
     let plane: MutableProperty<Plane?>
@@ -62,8 +62,9 @@ class AddFlightRecordViewModel: RealmViewModel {
         title = (record == nil ? NSLocalizedString("Add new flight record", comment: "") : NSLocalizedString("Edit flight record", comment: ""))
         
         date = MutableProperty(record?.date ?? Date())
-        timeTKO = MutableProperty(record?.timeTKO ?? Date())
-        timeLDG = MutableProperty(record?.timeLDG ?? Date())
+        let tmpDate = Date()
+        timeTKO = MutableProperty(record?.timeTKO ?? tmpDate)
+        timeLDG = MutableProperty(record?.timeLDG ?? tmpDate)
         
         from = MutableProperty(record?.from ?? nil)
         to = MutableProperty(record?.to ?? nil)
@@ -74,12 +75,12 @@ class AddFlightRecordViewModel: RealmViewModel {
         ldgDay = MutableProperty(record?.ldgDay ?? 0)
         ldgNight = MutableProperty(record?.ldgNight ?? 0)
         
-        timeNight = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
-        timeIFR = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
-        timePIC = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
-        timeCO = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
-        timeDual = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
-        timeInstructor = MutableProperty(dateFormatter.createDate(hours: 0, minutes: 0))
+        timeNight = MutableProperty(record?.timeNight)
+        timeIFR = MutableProperty(record?.timeIFR)
+        timePIC = MutableProperty(record?.timePIC)
+        timeCO = MutableProperty(record?.timeCO)
+        timeDual = MutableProperty(record?.timeDUAL)
+        timeInstructor = MutableProperty(record?.timeInstructor)
         
         note = MutableProperty(record?.note ?? nil)
         plane = MutableProperty(record?.plane ?? nil)
@@ -104,12 +105,12 @@ class AddFlightRecordViewModel: RealmViewModel {
         ldgDayString <~ ldgDay.producer.map(doubleToString)
         ldgNightString <~ ldgNight.producer.map(doubleToString)
         
-        timeNightString <~ timeNight.producer.map(dateFormatter.timeToString)
-        timeIFRString <~ timeIFR.producer.map(dateFormatter.timeToString)
-        timePICString <~ timePIC.producer.map(dateFormatter.timeToString)
-        timeCOString <~ timeCO.producer.map(dateFormatter.timeToString)
-        timeDualString <~ timeDual.producer.map(dateFormatter.timeToString)
-        timeInstructorString <~ timeInstructor.producer.map(dateFormatter.timeToString)
+        timeNightString <~ timeNight.producer.map(dateFormatter.optinalTimeToString)
+        timeIFRString <~ timeIFR.producer.map(dateFormatter.optinalTimeToString)
+        timePICString <~ timePIC.producer.map(dateFormatter.optinalTimeToString)
+        timeCOString <~ timeCO.producer.map(dateFormatter.optinalTimeToString)
+        timeDualString <~ timeDual.producer.map(dateFormatter.optinalTimeToString)
+        timeInstructorString <~ timeInstructor.producer.map(dateFormatter.optinalTimeToString)
         
         planeString <~ plane.producer.filterMap(setPlaneLabel)
         totalTime.signal.observeValues(checkAllTimeProperties)
@@ -126,7 +127,7 @@ class AddFlightRecordViewModel: RealmViewModel {
             dateTmp.addTimeInterval(TimeInterval(3600*24))
             interval += Int(dateTmp.timeIntervalSince(timeTKO))
         } else { // simple one day flight
-            interval = Int(timeLDG.timeIntervalSince(timeTKO))
+            interval = Int(timeLDG.timeIntervalSince(timeTKO).rounded())
         }
         
         let hours: Int = (interval/3600) % 24
@@ -149,22 +150,22 @@ class AddFlightRecordViewModel: RealmViewModel {
     
     private func checkAllTimeProperties(for string: String) {
         let date = dateFormatter.createTime(from: string)
-        if timeNight.value.timeIntervalSince(date) > 0 {
+        if let value = timeNight.value, value.timeIntervalSince(date) > 0 {
             timeNight.value = date
         }
-        if timeIFR.value.timeIntervalSince(date) > 0 {
+        if let value = timeIFR.value, value.timeIntervalSince(date) > 0 {
             timeIFR.value = date
         }
-        if timePIC.value.timeIntervalSince(date) > 0 {
+        if let value = timePIC.value, value.timeIntervalSince(date) > 0 {
             timePIC.value = date
         }
-        if timeCO.value.timeIntervalSince(date) > 0 {
+        if let value = timeCO.value, value.timeIntervalSince(date) > 0 {
             timeCO.value = date
         }
-        if timeDual.value.timeIntervalSince(date) > 0 {
+        if let value = timeDual.value, value.timeIntervalSince(date) > 0 {
             timeDual.value = date
         }
-        if timeInstructor.value.timeIntervalSince(date) > 0 {
+        if let value = timeInstructor.value, value.timeIntervalSince(date) > 0 {
             timeInstructor.value = date
         }
     }

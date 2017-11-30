@@ -44,13 +44,7 @@ class PersonalInformationsViewController: RecordTableViewController {
     }
     
     @IBAction func birthDayTextFieldEditing(_ sender: UITextField) {
-        if sender.inputView == nil {
-            let datePicker = assingUIDatePicker(to: sender, with: .date)
-            bind(datepicker: datePicker, to: viewModel.birthDay)
-            if let date = viewModel.birthDay.value {
-                datePicker.date = date
-            }
-        }
+        _ = handleDatePicker(for: sender, with: .date, and: viewModel.birthDay, default: nil)
     }
     
 }

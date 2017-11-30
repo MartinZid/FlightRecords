@@ -38,8 +38,15 @@ extension DateFormatter {
         return createDate(hours: Int(timeArray[0])!, minutes: Int(timeArray[1])!)
     }
     
+    func optinalTimeToString(from time: Date?) -> String? {
+        if let value = time {
+            return timeToString(from: value)
+        }
+        return nil
+    }
+    
     func optinalDateToString(from date: Date?) -> String? {
-        if let value = date{
+        if let value = date {
             return dateToString(from: value)
         }
         return nil

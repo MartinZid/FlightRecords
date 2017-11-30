@@ -121,32 +121,38 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     }
     
     @IBAction func timeNightFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeNight)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeNight, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     
     @IBAction func timeIFRFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeIFR)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeIFR, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     
     @IBAction func timePICFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timePIC)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timePIC, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     
     @IBAction func timeCOFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeCO)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeCO, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     
     @IBAction func timeDUALFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeDual)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeDual, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     
     @IBAction func timeInstructorFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeInstructor)
+        let value = dateFormatter.createDate(hours: 0, minutes: 0)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeInstructor, default: value)
         setMaxTimeOnSignal(to: datePicker)
     }
     

@@ -40,8 +40,8 @@ class SearchViewModel {
         toDate = MutableProperty(searchConfiguration?.toDate)
         
         planeLabel <~ plane.producer.filterMap(setPlaneLabel)
-        fromDateString <~ fromDate.producer.map(optinalDateToString)
-        toDateString <~ toDate.producer.map(optinalDateToString)
+        fromDateString <~ fromDate.producer.map(dateFormatter.optinalDateToString)
+        toDateString <~ toDate.producer.map(dateFormatter.optinalDateToString)
         
         fromDate.signal.observeValues{ [weak self] value in
             if let fromDate = value {
@@ -56,13 +56,6 @@ class SearchViewModel {
         if searchConfiguration == nil {
             searchConfiguration = SearchConfiguration()
         }
-    }
-    
-    private func optinalDateToString(from date: Date?) -> String? {
-        if let value = date{
-            return dateFormatter.dateToString(from: value)
-        }
-        return nil
     }
     
     private func setPlaneLabel(plane: Plane?) -> String {

@@ -28,17 +28,26 @@ class RecordTableViewController: UITableViewController {
         property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
     }
     
+    internal func bind(datepicker: UIDatePicker, to property: MutableProperty<Date?>) {
+        property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
+    }
+    
     internal func setZeroTime(to datePicker: UIDatePicker) {
         datePicker.date = dateFormatter.createDate(hours: 0, minutes: 0)
     }
     
-    /**
-     - Parameter time: String in format HH:mm
-     - Parameter datePicker: UIDatePicker
-     */
-    internal func setMax(time: String, to datePicker: UIDatePicker) {
-        let timeArray = time.components(separatedBy: ":")
-        datePicker.maximumDate = dateFormatter.createDate(hours: Int(timeArray[0])!, minutes: Int(timeArray[1])!)
+    internal func setMax(time string: String, to datePicker: UIDatePicker) {
+        datePicker.maximumDate = dateFormatter.createTime(from: string)
+    }
+    
+    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode, and property: MutableProperty<Date>) -> UIDatePicker {
+        if sender.inputView == nil {
+            let datePicker = assingUIDatePicker(to: sender, with: mode)
+            bind(datepicker: datePicker, to: property)
+            datePicker.date = property.value
+            return datePicker
+        }
+        return sender.inputView as! UIDatePicker
     }
 
 }

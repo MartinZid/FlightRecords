@@ -65,6 +65,10 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         fromTextField.text = viewModel.from.value
         toTextField.text = viewModel.to.value
         picTextField.text = viewModel.pic.value
+        tkoDayStepper.value = viewModel.tkoDay.value
+        tkoNightStepper.value = viewModel.tkoNight.value
+        ldgDayStepper.value = viewModel.ldgDay.value
+        ldgNightStepper.value = viewModel.ldgNight.value
         
         dateTextField.reactive.text <~ viewModel.dateString
         viewModel.from <~ toTextField.reactive.continuousTextValues.filterMap{ $0 }
@@ -99,67 +103,53 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     
     private func setMaxTimeOnSignal(to datePicker: UIDatePicker) {
         setMax(time: viewModel.totalTime.value, to: datePicker)
-        viewModel.totalTime.signal.observeValues{time in
+        viewModel.totalTime.signal.observeValues{ time in
             self.setMax(time: time, to: datePicker)
         }
     }
     
     @IBAction func dateFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.date)
-        bind(datepicker: datePicker, to: viewModel.date)
+        _ = handleDatePicker(for: sender, with: .date, and: viewModel.date)
     }
     
     @IBAction func timeTKOFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        bind(datepicker: datePicker, to: viewModel.timeTKO)
+        _ = handleDatePicker(for: sender, with: .time, and: viewModel.timeTKO)
     }
     
     @IBAction func timeLDGFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        bind(datepicker: datePicker, to: viewModel.timeLDG)
+        _ = handleDatePicker(for: sender, with: .time, and: viewModel.timeLDG)
     }
     
     @IBAction func timeNightFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeNight)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timeNight)
     }
     
     @IBAction func timeIFRFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeIFR)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timeIFR)
     }
     
     @IBAction func timePICFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timePIC)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timePIC)
     }
     
     @IBAction func timeCOFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeCO)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timeCO)
     }
     
     @IBAction func timeDUALFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeDual)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timeDual)
     }
     
     @IBAction func timeInstructorFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: UIDatePickerMode.time)
-        setZeroTime(to: datePicker)
+        let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeInstructor)
         setMaxTimeOnSignal(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.timeInstructor)
     }
+    
     @IBAction func saveRecordToRealm(_ sender: Any) {
         viewModel.saveRecordToRealm()
         self.navigationController?.popToRootViewController(animated: true)

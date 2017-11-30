@@ -1,15 +1,12 @@
 //
-//  Extension.swift
+//  DateFormatterExtension.swift
 //  FlightRecords
 //
-//  Created by Martin Zid on 19/10/2017.
+//  Created by Martin Zid on 30/11/2017.
 //  Copyright © 2017 Martin Zid. All rights reserved.
 //
 
 import Foundation
-import UIKit
-import ReactiveCocoa
-import ReactiveSwift
 
 extension DateFormatter {
     struct Format{
@@ -35,22 +32,16 @@ extension DateFormatter {
         components.minute = minutes
         return calendar.date(from: components)!
     }
-}
-
-extension UIViewController {
-    var contentViewController: UIViewController {
-        if let navcon = self as? UINavigationController {
-            return navcon.visibleViewController ?? self
-        } else {
-            return self
-        }
+    
+    func createTime(from time: String) -> Date {
+        let timeArray = time.components(separatedBy: ":")
+        return createDate(hours: Int(timeArray[0])!, minutes: Int(timeArray[1])!)
     }
-}
-
-extension UITableViewController {
-    internal func setEndEditingOnTap() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        tap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tap)
+    
+    func optinalDateToString(from date: Date?) -> String? {
+        if let value = date{
+            return dateToString(from: value)
+        }
+        return nil
     }
 }

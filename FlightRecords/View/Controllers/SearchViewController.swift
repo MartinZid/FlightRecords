@@ -61,10 +61,10 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     
     @IBAction func fromTextFieldEditing(_ sender: UITextField) {
         if sender.inputView == nil {
-            let datepicker = assingUIDatePicker(to: sender, with: .date)
-            viewModel.fromDate <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
+            let datePicker = assingUIDatePicker(to: sender, with: .date)
+            bind(datepicker: datePicker, to: viewModel.fromDate)
             if let date = viewModel.fromDate.value {
-                datepicker.date = date
+                datePicker.date = date
             } else {
                 viewModel.fromDate.value = Date()
             }
@@ -86,11 +86,11 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     
     @IBAction func toTextFieldEditing(_ sender: UITextField) {
         if sender.inputView == nil {
-            let datepicker = assingUIDatePicker(to: sender, with: .date)
-            viewModel.toDate <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
-            setMinDateOnSignal(to: datepicker)
+            let datePicker = assingUIDatePicker(to: sender, with: .date)
+            bind(datepicker: datePicker, to: viewModel.toDate)
+            setMinDateOnSignal(to: datePicker)
             if let date = viewModel.toDate.value {
-                datepicker.date = date
+                datePicker.date = date
             } else {
                 viewModel.setDefaultToDateValue()
             }

@@ -44,14 +44,11 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
     }
     
     @IBAction func dateFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: .date)
-        bind(datepicker: datePicker, to: viewModel.date)
+        _ = handleDatePicker(for: sender, with: .date, and: viewModel.date)
     }
     
     @IBAction func timeFieldEditing(_ sender: UITextField) {
-        let datePicker = assingUIDatePicker(to: sender, with: .time)
-        setZeroTime(to: datePicker)
-        bind(datepicker: datePicker, to: viewModel.time)
+        _ = handleDatePicker(for: sender, with: .time, and: viewModel.time)
     }
     
     

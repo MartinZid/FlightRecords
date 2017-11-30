@@ -112,7 +112,7 @@ class AddFlightRecordViewModel: RealmViewModel {
         timeInstructorString <~ timeInstructor.producer.map(dateFormatter.timeToString)
         
         planeString <~ plane.producer.filterMap(setPlaneLabel)
-        //planeString <~ plane.signal.filterMap{ $0?.registrationNumber ?? NSLocalizedString("N/A", comment: "") }
+        totalTime.signal.observeValues(checkAllTimeProperties)
     }
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
@@ -145,6 +145,28 @@ class AddFlightRecordViewModel: RealmViewModel {
             label = ""
         }
         return label
+    }
+    
+    private func checkAllTimeProperties(for string: String) {
+        let date = dateFormatter.createTime(from: string)
+        if timeNight.value.timeIntervalSince(date) > 0 {
+            timeNight.value = date
+        }
+        if timeIFR.value.timeIntervalSince(date) > 0 {
+            timeIFR.value = date
+        }
+        if timePIC.value.timeIntervalSince(date) > 0 {
+            timePIC.value = date
+        }
+        if timeCO.value.timeIntervalSince(date) > 0 {
+            timeCO.value = date
+        }
+        if timeDual.value.timeIntervalSince(date) > 0 {
+            timeDual.value = date
+        }
+        if timeInstructor.value.timeIntervalSince(date) > 0 {
+            timeInstructor.value = date
+        }
     }
     
     func setPlane(from planeViewModel: PlaneViewModel) {

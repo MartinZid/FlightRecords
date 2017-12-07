@@ -252,12 +252,13 @@
             </objects>
             <point key="canvasLocation" x="310" y="-396"/>
         </scene>
-        <!--Item-->
+        <!--Profil-->
         <scene sceneID="09l-rU-usC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Jq-Hx-ujm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZJ1-VW-LC6"/>
+                    <tabBarItem key="tabBarItem" title="Profil" id="w6L-fX-Hwz"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="16F-1A-6xd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

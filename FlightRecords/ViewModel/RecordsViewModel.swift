@@ -31,6 +31,7 @@ class RecordsViewModel: RealmViewModel {
     
     private func updateList() {
         records = realm.objects(Record.self)
+        records = records?.sorted(byKeyPath: "date", ascending: true)
         recordsNotificationsToken = records?.observe(recordsChangedNotificationBlock)
     }
     
@@ -113,12 +114,13 @@ class RecordsViewModel: RealmViewModel {
             records = records?.filter("plane == %@", plane)
         }
         if let fromDate = searchConfiguration?.fromDate {
-            records = records?.filter("date >= %@", fromDate)
+            records = records?.filter("date > %@", Calendar.current.startOfDay(for: fromDate))
         }
         if let toDate = searchConfiguration?.toDate {
-            records = records?.filter("date <= %@", toDate)
+            records = records?.filter("date < %@", Calendar.current.startOfDay(for: toDate.addingTimeInterval(60 * 60 * 24)))
         }
         recordsNotificationsToken?.invalidate()
+        records = records?.sorted(byKeyPath: "date", ascending: true)
         recordsNotificationsToken = records?.observe(recordsChangedNotificationBlock)
     }
     

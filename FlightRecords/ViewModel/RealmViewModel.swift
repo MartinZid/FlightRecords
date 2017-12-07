@@ -34,8 +34,8 @@ class RealmViewModel {
         
         let username = "TestUser"
         let password = "test"
-        //let url = "http://127.0.0.1:9080"
-        let url = "http://192.168.1.100:9080"
+        let url = "http://127.0.0.1:9080"
+        //let url = "http://192.168.1.100:9080"
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false),
                        server: URL(string: url)!) { user, error in
             guard let user = user else {

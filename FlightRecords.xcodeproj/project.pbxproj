@@ -45,6 +45,11 @@
 		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
 		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
 		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
+		5B7ACA061FD930DB001AAEC4 /* limits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7ACA041FD930DB001AAEC4 /* limits.storyboard */; };
+		5B7ACA081FD93599001AAEC4 /* LimitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */; };
+		5B7ACA0A1FD935B3001AAEC4 /* LimitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA091FD935B3001AAEC4 /* LimitsViewModel.swift */; };
+		5B7ACA0C1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA0B1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift */; };
+		5B7ACA0E1FD97E44001AAEC4 /* LimitsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA0D1FD97E44001AAEC4 /* LimitsViewModelTests.swift */; };
 		5B9963551FB5C56C00DA104B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9963541FB5C56C00DA104B /* Protocols.swift */; };
 		5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */; };
 		5B9A17D31F90F075003589B5 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
@@ -126,6 +131,11 @@
 		5B7309771F80219A0026152E /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		5B7309781F80219A0026152E /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		5B7309791F80219A0026152E /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		5B7ACA051FD930DB001AAEC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/limits.storyboard; sourceTree = "<group>"; };
+		5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitsViewController.swift; sourceTree = "<group>"; };
+		5B7ACA091FD935B3001AAEC4 /* LimitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitsViewModel.swift; sourceTree = "<group>"; };
+		5B7ACA0B1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationsViewModelTests.swift; sourceTree = "<group>"; };
+		5B7ACA0D1FD97E44001AAEC4 /* LimitsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9963541FB5C56C00DA104B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTests.swift; sourceTree = "<group>"; };
 		5B9A17D61F9234AC003589B5 /* TestCaseBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCaseBase.swift; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 				5B1694851FBD8680000A2B9D /* AddSimulatorRecordViewModel.swift */,
 				5BD6DC4F1FC8201C00140F34 /* SearchViewModel.swift */,
 				5BF695471FD00A3400D6B9CA /* PersonalInformationsViewModel.swift */,
+				5B7ACA091FD935B3001AAEC4 /* LimitsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 				5B1694831FBD8545000A2B9D /* AddSimulatorRecordTableViewController.swift */,
 				5BD6DC4D1FC81FEB00140F34 /* SearchViewController.swift */,
 				5BF695451FD00A0D00D6B9CA /* PersonalInformationsViewController.swift */,
+				5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +360,8 @@
 				5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */,
 				5B16948C1FBDACD9000A2B9D /* AddSimulatorRecordViewModelTests.swift */,
 				5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */,
+				5B7ACA0B1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift */,
+				5B7ACA0D1FD97E44001AAEC4 /* LimitsViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -355,6 +369,7 @@
 		5BECADFF1F98BDE400A3EA49 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5B7ACA041FD930DB001AAEC4 /* limits.storyboard */,
 				5BF695401FCFF81900D6B9CA /* profile.storyboard */,
 				5BD6DC4A1FC81BB200140F34 /* search.storyboard */,
 				5B1694801FBD843A000A2B9D /* addSimulatorRecord.storyboard */,
@@ -458,6 +473,7 @@
 			files = (
 				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
 				5B279BB11FAB441500090D7B /* planes.storyboard in Resources */,
+				5B7ACA061FD930DB001AAEC4 /* limits.storyboard in Resources */,
 				5BF695421FCFF81900D6B9CA /* profile.storyboard in Resources */,
 				5BD6DC4C1FC81BB200140F34 /* search.storyboard in Resources */,
 				5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */,
@@ -510,10 +526,12 @@
 			files = (
 				5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */,
 				5B189CBF1F8F53D4000B25FB /* RecordsViewModel.swift in Sources */,
+				5B7ACA0A1FD935B3001AAEC4 /* LimitsViewModel.swift in Sources */,
 				5BF6954C1FD00E7A00D6B9CA /* DateFormatterExtension.swift in Sources */,
 				5B1694881FBD8E6F000A2B9D /* RecordTableViewController.swift in Sources */,
 				5B189CBD1F8F5368000B25FB /* RecordsTableViewController.swift in Sources */,
 				5B279BB31FAB46BF00090D7B /* PlanesTableViewController.swift in Sources */,
+				5B7ACA081FD93599001AAEC4 /* LimitsViewController.swift in Sources */,
 				5B279BB71FAB46F000090D7B /* PlaneViewModel.swift in Sources */,
 				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
 				5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */,
@@ -554,9 +572,11 @@
 				5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */,
 				5B9A17C61F90BA1E003589B5 /* RecordsViewModelTests.swift in Sources */,
 				5B16948D1FBDACD9000A2B9D /* AddSimulatorRecordViewModelTests.swift in Sources */,
+				5B7ACA0E1FD97E44001AAEC4 /* LimitsViewModelTests.swift in Sources */,
 				5B9A17D91F924AC1003589B5 /* RecordsTableViewControllerTests.swift in Sources */,
 				5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */,
 				5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */,
+				5B7ACA0C1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +640,14 @@
 				5B001EFA1F9749AB0055870A /* cs */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5B7ACA041FD930DB001AAEC4 /* limits.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B7ACA051FD930DB001AAEC4 /* Base */,
+			);
+			name = limits.storyboard;
 			sourceTree = "<group>";
 		};
 		5BD6DC4A1FC81BB200140F34 /* search.storyboard */ = {

@@ -24,10 +24,14 @@ extension DateFormatter {
         return string(from: date)
     }
     
-    func createDate(hours: Int, minutes: Int) -> Date {
+    private func getDateComponents() -> DateComponents {
         let calendar = Calendar(identifier: .gregorian)
         let now = Date()
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        return calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+    }
+    
+    func createDate(hours: Int, minutes: Int) -> Date {
+        var components = getDateComponents()
         components.hour = hours
         components.minute = minutes
         return calendar.date(from: components)!
@@ -51,4 +55,27 @@ extension DateFormatter {
         }
         return nil
     }
+    
+    func getDateYearAgo(from: Date) -> Date {
+        var components = getDateComponents()
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        components.year = components.year! - 1
+        return calendar.date(from: components)!
+    }
+    
+    func getThisYearStartingDate() -> Date {
+        var components = getDateComponents()
+        components.month = 1
+        components.day = 1
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return calendar.date(from: components)!
+    }
 }
+
+
+
+

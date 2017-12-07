@@ -69,9 +69,7 @@ class SearchViewModelTests: XCTestCase {
     func testsetDefaultToDateValue() {
         viewModelUnderTest.fromDate.value = Date().addingTimeInterval(24 * 60 * 60)
         
-        viewModelUnderTest.setDefaultToDateValue()
-        
-        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.toDate.value!)
+        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.getDefaultToDateValue())
         let correctValue = dateFormatter.dateToString(from: viewModelUnderTest.fromDate.value!)
         
         XCTAssertEqual(toDateValue, correctValue, "toDate is set to wrong value.")    }
@@ -79,9 +77,7 @@ class SearchViewModelTests: XCTestCase {
     func testsetDefaultToDateValue2() {
         viewModelUnderTest.fromDate.value = Date().addingTimeInterval( -(24 * 60 * 60))
         
-        viewModelUnderTest.setDefaultToDateValue()
-        
-        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.toDate.value!)
+        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.getDefaultToDateValue())
         let correctValue = dateFormatter.dateToString(from: Date())
         
         XCTAssertEqual(toDateValue, correctValue, "toDate is set to wrong value.")
@@ -90,9 +86,7 @@ class SearchViewModelTests: XCTestCase {
     func testsetDefaultToDateValue3() {
         viewModelUnderTest.fromDate.value = nil
         
-        viewModelUnderTest.setDefaultToDateValue()
-        
-        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.toDate.value!)
+        let toDateValue = dateFormatter.dateToString(from: viewModelUnderTest.getDefaultToDateValue())
         let correctValue = dateFormatter.dateToString(from: Date())
         
         XCTAssertEqual(toDateValue, correctValue, "toDate is set to wrong value.")

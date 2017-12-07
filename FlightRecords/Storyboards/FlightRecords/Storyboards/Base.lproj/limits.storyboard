@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y1R-9o-W27">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Limity-->
+        <scene sceneID="xUT-sN-8Qd">
+            <objects>
+                <tableViewController id="IPr-6d-R3C" customClass="LimitsViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NxM-4Y-cFv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="f92-1W-QNW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="Sg0-mD-j8p">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sg0-mD-j8p" id="JkE-kd-YaD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 hodin za 28 dní" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhQ-jN-pOh">
+                                                    <rect key="frame" x="20" y="20" width="335" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="dUE-0i-8FW">
+                                                    <rect key="frame" x="20" y="78" width="335" height="2"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRQ-CP-bZG">
+                                                    <rect key="frame" x="306" y="49" width="53" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dUE-0i-8FW" firstAttribute="leading" secondItem="JkE-kd-YaD" secondAttribute="leading" constant="20" symbolic="YES" id="4Zo-Xd-jCd"/>
+                                                <constraint firstAttribute="trailing" secondItem="MRQ-CP-bZG" secondAttribute="trailing" constant="16" id="Ath-xG-2LM"/>
+                                                <constraint firstItem="MRQ-CP-bZG" firstAttribute="top" secondItem="qhQ-jN-pOh" secondAttribute="bottom" constant="8" symbolic="YES" id="Q6l-gR-Qc2"/>
+                                                <constraint firstAttribute="trailing" secondItem="dUE-0i-8FW" secondAttribute="trailing" constant="20" symbolic="YES" id="ShH-px-zbF"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="qhQ-jN-pOh" secondAttribute="trailing" constant="20" symbolic="YES" id="bHG-hb-KiK"/>
+                                                <constraint firstItem="dUE-0i-8FW" firstAttribute="top" secondItem="MRQ-CP-bZG" secondAttribute="bottom" constant="8" symbolic="YES" id="ft1-oa-eWH"/>
+                                                <constraint firstItem="qhQ-jN-pOh" firstAttribute="top" secondItem="JkE-kd-YaD" secondAttribute="top" constant="20" symbolic="YES" id="ky4-XH-EKE"/>
+                                                <constraint firstItem="MRQ-CP-bZG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkE-kd-YaD" secondAttribute="leading" constant="20" symbolic="YES" id="tqa-hc-XcJ"/>
+                                                <constraint firstItem="qhQ-jN-pOh" firstAttribute="leading" secondItem="JkE-kd-YaD" secondAttribute="leading" constant="20" symbolic="YES" id="wId-DV-o7p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="Nzh-ei-kRz">
+                                        <rect key="frame" x="0.0" y="97" width="375" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nzh-ei-kRz" id="tBw-rF-xZ9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="900 hodin za kalendářní rok" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zK-1c-5T6">
+                                                    <rect key="frame" x="20" y="20" width="335" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="Dhb-ZM-pnB">
+                                                    <rect key="frame" x="20" y="78" width="335" height="2"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNw-ws-aqE">
+                                                    <rect key="frame" x="306" y="49" width="53" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dhb-ZM-pnB" firstAttribute="leading" secondItem="tBw-rF-xZ9" secondAttribute="leading" constant="20" symbolic="YES" id="8ca-iB-cok"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4zK-1c-5T6" secondAttribute="trailing" constant="20" symbolic="YES" id="ASP-sH-VcY"/>
+                                                <constraint firstItem="BNw-ws-aqE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tBw-rF-xZ9" secondAttribute="leading" constant="20" symbolic="YES" id="IMn-bF-atA"/>
+                                                <constraint firstItem="Dhb-ZM-pnB" firstAttribute="top" secondItem="BNw-ws-aqE" secondAttribute="bottom" constant="8" symbolic="YES" id="cDs-Gg-zzB"/>
+                                                <constraint firstItem="4zK-1c-5T6" firstAttribute="leading" secondItem="tBw-rF-xZ9" secondAttribute="leading" constant="20" symbolic="YES" id="huY-zZ-TEg"/>
+                                                <constraint firstAttribute="trailing" secondItem="BNw-ws-aqE" secondAttribute="trailing" constant="16" id="jMg-Nh-cTJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dhb-ZM-pnB" secondAttribute="trailing" constant="20" symbolic="YES" id="jUW-hX-vRQ"/>
+                                                <constraint firstItem="BNw-ws-aqE" firstAttribute="top" secondItem="4zK-1c-5T6" secondAttribute="bottom" constant="8" symbolic="YES" id="uQl-UM-zGl"/>
+                                                <constraint firstItem="4zK-1c-5T6" firstAttribute="top" secondItem="tBw-rF-xZ9" secondAttribute="top" constant="20" symbolic="YES" id="wRu-JR-RwE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="5ZG-jY-qQa">
+                                        <rect key="frame" x="0.0" y="194" width="375" height="97"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ZG-jY-qQa" id="m9B-56-Q9g">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 hodin za 12 měsíců" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKI-or-dvh">
+                                                    <rect key="frame" x="20" y="20" width="335" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="Cut-jP-eQ3">
+                                                    <rect key="frame" x="20" y="78" width="335" height="2"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-G8-qdt">
+                                                    <rect key="frame" x="306" y="49" width="53" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="uKI-or-dvh" secondAttribute="trailing" constant="20" symbolic="YES" id="9fu-tn-oIS"/>
+                                                <constraint firstItem="Cut-jP-eQ3" firstAttribute="leading" secondItem="m9B-56-Q9g" secondAttribute="leading" constant="20" symbolic="YES" id="A9d-8j-ErY"/>
+                                                <constraint firstAttribute="trailing" secondItem="fLU-G8-qdt" secondAttribute="trailing" constant="16" id="I5T-Jq-ak3"/>
+                                                <constraint firstItem="uKI-or-dvh" firstAttribute="leading" secondItem="m9B-56-Q9g" secondAttribute="leading" constant="20" symbolic="YES" id="ONR-SY-3eh"/>
+                                                <constraint firstItem="uKI-or-dvh" firstAttribute="top" secondItem="m9B-56-Q9g" secondAttribute="top" constant="20" symbolic="YES" id="QyG-Vx-LjO"/>
+                                                <constraint firstItem="Cut-jP-eQ3" firstAttribute="top" secondItem="fLU-G8-qdt" secondAttribute="bottom" constant="8" symbolic="YES" id="SRc-cF-YQt"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cut-jP-eQ3" secondAttribute="trailing" constant="20" symbolic="YES" id="Xep-64-afu"/>
+                                                <constraint firstItem="fLU-G8-qdt" firstAttribute="top" secondItem="uKI-or-dvh" secondAttribute="bottom" constant="8" symbolic="YES" id="ekj-Qj-pfZ"/>
+                                                <constraint firstItem="fLU-G8-qdt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m9B-56-Q9g" secondAttribute="leading" constant="20" symbolic="YES" id="iHf-9V-qh5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="IPr-6d-R3C" id="RAX-fg-CkI"/>
+                            <outlet property="delegate" destination="IPr-6d-R3C" id="06x-cY-lXf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Limity" id="A1Q-09-wxz"/>
+                    <connections>
+                        <outlet property="hoursInDaysLabel" destination="MRQ-CP-bZG" id="q0o-zB-jk4"/>
+                        <outlet property="hoursInDaysProgress" destination="dUE-0i-8FW" id="V13-kF-RXy"/>
+                        <outlet property="hoursInDaysTitleLabel" destination="qhQ-jN-pOh" id="eCE-Ex-nRS"/>
+                        <outlet property="hoursInMonthsLabel" destination="fLU-G8-qdt" id="4Mu-Ew-ZKg"/>
+                        <outlet property="hoursInMonthsProgress" destination="Cut-jP-eQ3" id="2Zw-N7-klq"/>
+                        <outlet property="hoursInMonthsTitleLabel" destination="uKI-or-dvh" id="QRv-qt-daU"/>
+                        <outlet property="hoursInYearLabel" destination="BNw-ws-aqE" id="cM1-Tc-ogC"/>
+                        <outlet property="hoursInYearProgress" destination="Dhb-ZM-pnB" id="GH1-ie-IxF"/>
+                        <outlet property="hoursInYearTitleLabel" destination="4zK-1c-5T6" id="Agt-2j-uXW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6k-VN-gad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1375.2" y="151.57421289355324"/>
+        </scene>
+        <!--Limity-->
+        <scene sceneID="e2q-iI-YX6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y1R-9o-W27" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Limity" id="Eu9-hH-jKV"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fps-mp-yCZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IPr-6d-R3C" kind="relationship" relationship="rootViewController" id="AbH-dy-Cp4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUl-Gd-tPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2191" y="152"/>
+        </scene>
+    </scenes>
+</document>

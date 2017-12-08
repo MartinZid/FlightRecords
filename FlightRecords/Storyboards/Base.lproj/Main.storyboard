@@ -46,7 +46,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzo-fB-afS">
-                                            <rect key="frame" x="8" y="11" width="36" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="36" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From - To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8k-at-i5M">
-                                            <rect key="frame" x="8" y="39" width="177" height="21"/>
+                                            <rect key="frame" x="20" y="39" width="165" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                         <constraint firstItem="y8k-at-i5M" firstAttribute="bottom" secondItem="qLk-tN-gM2" secondAttribute="bottomMargin" id="7ab-JP-ifh"/>
                                         <constraint firstItem="uzo-fB-afS" firstAttribute="top" secondItem="qLk-tN-gM2" secondAttribute="top" constant="11" id="AAt-s4-7pF"/>
                                         <constraint firstItem="d7X-gQ-SjI" firstAttribute="leading" secondItem="hcH-R7-jg3" secondAttribute="leading" id="B4l-c1-UAf"/>
-                                        <constraint firstItem="uzo-fB-afS" firstAttribute="leading" secondItem="qLk-tN-gM2" secondAttribute="leading" constant="8" id="EUv-VO-0zs"/>
+                                        <constraint firstItem="uzo-fB-afS" firstAttribute="leading" secondItem="qLk-tN-gM2" secondAttribute="leading" constant="20" symbolic="YES" id="EUv-VO-0zs"/>
                                         <constraint firstItem="hcH-R7-jg3" firstAttribute="top" secondItem="d7X-gQ-SjI" secondAttribute="bottom" constant="5" id="FuT-ee-o5p"/>
                                         <constraint firstItem="d7X-gQ-SjI" firstAttribute="top" secondItem="qLk-tN-gM2" secondAttribute="topMargin" id="XZN-6Z-XnQ"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uzo-fB-afS" secondAttribute="trailing" constant="20" symbolic="YES" id="cQx-WM-Jbg"/>
@@ -139,14 +139,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Záznam letu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKJ-sT-3sB">
-                                                    <rect key="frame" x="8" y="11" width="95" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Záznam letu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKJ-sT-3sB">
+                                                    <rect key="frame" x="20" y="11" width="95" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YKJ-sT-3sB" secondAttribute="trailing" constant="20" symbolic="YES" id="42D-6Q-M8K"/>
+                                                <constraint firstItem="YKJ-sT-3sB" firstAttribute="leading" secondItem="5ny-4s-8ye" secondAttribute="leading" constant="20" symbolic="YES" id="9U1-pN-J3F"/>
+                                                <constraint firstItem="YKJ-sT-3sB" firstAttribute="centerY" secondItem="5ny-4s-8ye" secondAttribute="centerY" id="OdF-5F-59a"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Vcn-Cg-E1Q" kind="show" id="WPr-gP-mv9"/>
@@ -159,14 +163,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Záznam ze simulátoru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Pl-PxL">
-                                                    <rect key="frame" x="8" y="11" width="169" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Záznam ze simulátoru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Pl-PxL">
+                                                    <rect key="frame" x="20" y="11" width="169" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L2i-Pl-PxL" secondAttribute="trailing" constant="20" symbolic="YES" id="JnL-ls-xeb"/>
+                                                <constraint firstItem="L2i-Pl-PxL" firstAttribute="leading" secondItem="M9a-hJ-YOy" secondAttribute="leading" constant="20" symbolic="YES" id="vY2-bt-mw3"/>
+                                                <constraint firstItem="L2i-Pl-PxL" firstAttribute="centerY" secondItem="M9a-hJ-YOy" secondAttribute="centerY" id="xYb-m7-25f"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="0SD-La-MJQ" kind="show" id="Nja-rL-GUa"/>
@@ -210,7 +218,7 @@
                 <viewControllerPlaceholder storyboardName="addFlightRecord" id="Vcn-Cg-E1Q" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7OX-BM-Xz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2061.5999999999999" y="-1030.4347826086957"/>
+            <point key="canvasLocation" x="2254" y="-1031"/>
         </scene>
         <!--addSimulatorRecord-->
         <scene sceneID="G1H-y8-i11">

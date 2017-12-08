@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xoI-ag-uJS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Zdravotní certifikáty-->
+        <scene sceneID="CWj-mX-udM">
+            <objects>
+                <tableViewController title="Zdravotní certifikáty" id="xoI-ag-uJS" customClass="MedicalCertificatesViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W89-DJ-wDF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CertificatedCell" id="oxn-Cd-Yhb" customClass="CertificateViewCell" customModule="FlightRecords" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxn-Cd-Yhb" id="3eP-Ou-Stj">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LALP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9S-q0-fZF">
+                                            <rect key="frame" x="20" y="11" width="41" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Platnost do:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMX-Cm-pgG">
+                                            <rect key="frame" x="153" y="11.5" width="92" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.10.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfA-NG-84h">
+                                            <rect key="frame" x="253" y="11.5" width="80" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gfA-NG-84h" firstAttribute="centerY" secondItem="3eP-Ou-Stj" secondAttribute="centerY" id="2tC-VM-bOq"/>
+                                        <constraint firstItem="gfA-NG-84h" firstAttribute="leading" secondItem="lMX-Cm-pgG" secondAttribute="trailing" constant="8" id="NVb-Uc-oxA"/>
+                                        <constraint firstItem="lMX-Cm-pgG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3eP-Ou-Stj" secondAttribute="leading" constant="20" symbolic="YES" id="PK6-n6-dqR"/>
+                                        <constraint firstItem="lMX-Cm-pgG" firstAttribute="centerY" secondItem="gfA-NG-84h" secondAttribute="centerY" id="WRA-Kx-6vM"/>
+                                        <constraint firstItem="K9S-q0-fZF" firstAttribute="leading" secondItem="3eP-Ou-Stj" secondAttribute="leading" constant="20" symbolic="YES" id="fwZ-AB-Ty0"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="K9S-q0-fZF" secondAttribute="trailing" constant="20" symbolic="YES" id="wkj-Dr-kpe"/>
+                                        <constraint firstItem="K9S-q0-fZF" firstAttribute="centerY" secondItem="3eP-Ou-Stj" secondAttribute="centerY" id="yVQ-TF-ybE"/>
+                                        <constraint firstAttribute="trailing" secondItem="gfA-NG-84h" secondAttribute="trailing" constant="8" id="zhB-uB-Qgl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="certificateNameLabel" destination="K9S-q0-fZF" id="g8Y-Uc-lPY"/>
+                                    <outlet property="expirationDateLabel" destination="gfA-NG-84h" id="cEo-Wf-se4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xoI-ag-uJS" id="DAg-wq-3y5"/>
+                            <outlet property="delegate" destination="xoI-ag-uJS" id="qY3-ZU-OeW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="yvf-Zr-rPa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hbB-oK-aYH"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4AA-fh-b8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1520.8" y="430.43478260869568"/>
+        </scene>
+    </scenes>
+</document>

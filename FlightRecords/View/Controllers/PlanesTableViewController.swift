@@ -13,7 +13,6 @@ import UIKit
  */
 class PlanesTableViewController: UITableViewController {
     
-    private let planeCellIdentifier = "PlaneCell"
     private let viewModel = PlanesViewModel()
     
     var delegate: PlanesTableViewControllerDelegate? = nil
@@ -23,6 +22,7 @@ class PlanesTableViewController: UITableViewController {
     private struct Identifiers {
         static let addPlane = "addPlane"
         static let selectPlane = "planeSelected"
+        static let planeCellIdentifier = "PlaneCell"
     }
     
     override func viewDidLoad() {
@@ -31,24 +31,7 @@ class PlanesTableViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.planesChangedSignal.observeValues{ [weak self] changes in
-            guard let tableView = self?.tableView else { return }
-            switch changes {
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let modifications):
-                tableView.beginUpdates()
-                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-                                     with: .automatic)
-                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-                                     with: .automatic)
-                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-                                     with: .automatic)
-                tableView.endUpdates()
-            case .error(let error):
-                fatalError("\(error)")
-            }
-        }
+        observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
 
     // MARK: - Table view data source
@@ -62,7 +45,7 @@ class PlanesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: planeCellIdentifier, for: indexPath) as! PlaneCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.planeCellIdentifier, for: indexPath) as! PlaneCell
         
         cell.viewModel = viewModel.getCellViewModel(for: indexPath)
         

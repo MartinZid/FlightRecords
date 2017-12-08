@@ -49,7 +49,7 @@ class PlanesViewModelTests: TestCaseBase {
     func testRealmSetUpInformingOberversOnComplete() {
         let promise = expectation(description: "observers recieved notification")
         
-        viewModelUnderTest.planesChangedSignal.observeValues { changes in
+        viewModelUnderTest.collectionChangedSignal.observeValues { changes in
             promise.fulfill()
         }
         

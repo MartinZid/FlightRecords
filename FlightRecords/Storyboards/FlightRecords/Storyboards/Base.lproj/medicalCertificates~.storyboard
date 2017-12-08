@@ -65,7 +65,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Uwb-0j-aCo" kind="show" id="kEp-lx-xcH"/>
+                                            <segue destination="xoI-ag-uJS" kind="show" id="kEp-lx-xcH"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Hdh-QR-TD8">
@@ -275,6 +275,34 @@
             </objects>
             <point key="canvasLocation" x="310" y="-396"/>
         </scene>
+        <!--Zdravotní certifikáty-->
+        <scene sceneID="CWj-mX-udM">
+            <objects>
+                <tableViewController title="Zdravotní certifikáty" id="xoI-ag-uJS" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W89-DJ-wDF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oxn-Cd-Yhb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxn-Cd-Yhb" id="3eP-Ou-Stj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xoI-ag-uJS" id="DAg-wq-3y5"/>
+                            <outlet property="delegate" destination="xoI-ag-uJS" id="qY3-ZU-OeW"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4AA-fh-b8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="431"/>
+        </scene>
         <!--Profil-->
         <scene sceneID="09l-rU-usC">
             <objects>
@@ -294,14 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwb-m4-Qyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1329.5999999999999" y="-103.44827586206897"/>
-        </scene>
-        <!--medicalCertificates-->
-        <scene sceneID="jxt-Oy-fmK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="medicalCertificates" id="Uwb-0j-aCo" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p28-GZ-28V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="489" y="54"/>
         </scene>
     </scenes>
 </document>

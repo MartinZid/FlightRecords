@@ -32,6 +32,7 @@ class PersonalInformationsViewModelTests: TestCaseBase {
     
     func testObserversNotificationAfterDataIsSet() {
         let promise = expectation(description: "observers recieved notification")
+        viewModelUnderTest.realm = setUpRealm()
         viewModelUnderTest.realmInitCompleted()
         
         viewModelUnderTest.dataSetSignal.observeValues {

@@ -8,19 +8,11 @@
 
 import Foundation
 
-/**
- RecordViewModel is RecordCell's viewModel. It prepares the data to be show in each cell.
- */
 class RecordViewModel {
     
-    /// Record model object
     private let record: Record
     private let simulator = "Simulator"
     
-    /**
-     Init function initializes RecordViewModel with given Record.
-     - Parameter record: Record object.
-     */
     init(with record: Record) {
         self.record = record
     }

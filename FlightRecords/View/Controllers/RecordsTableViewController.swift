@@ -9,12 +9,12 @@
 import UIKit
 
 class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
-    
-    private let recordCellIdentifier = "RecordCell"
+
     private let viewModel = RecordsViewModel()
     
     private struct Identifiers {
         static let searchSegueIdentifier = "search"
+        static let recordCellIdentifier = "RecordCell"
     }
     
     override func viewDidLoad() {
@@ -23,24 +23,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     }
     
     private func bindViewModel() {
-        viewModel.recordsChangedSignal.observeValues{ [weak self] changes in
-            guard let tableView = self?.tableView else { return }
-            switch changes {
-            case .initial:
-                tableView.reloadData()
-            case .update(_, let deletions, let insertions, let modifications):
-                tableView.beginUpdates()
-                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-                                     with: .automatic)
-                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-                                     with: .automatic)
-                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-                                     with: .automatic)
-                tableView.endUpdates()
-            case .error(let error):
-                fatalError("\(error)")
-            }
-        }
+        observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
     
     func apply(searchViewModel viewModel: SearchViewModel) {
@@ -58,7 +41,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: recordCellIdentifier, for: indexPath) as! RecordCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.recordCellIdentifier, for: indexPath) as! RecordCell
 
         cell.viewModel = viewModel.getCellViewModel(for: indexPath)
 

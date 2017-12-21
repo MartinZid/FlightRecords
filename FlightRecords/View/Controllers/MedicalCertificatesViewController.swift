@@ -14,6 +14,9 @@ class MedicalCertificatesViewController: UITableViewController {
     
     private struct Identifiers {
         static let certificateCellIdentifier = "CertificatedCell"
+        static let addCertificate = "addCertificate"
+        static let medicalCertificatesSB = "medicalCertificates"
+        static let addMedicalCertificateVC = "AddMedicalCertificateViewController"
     }
     
     override func viewDidLoad() {
@@ -55,14 +58,13 @@ class MedicalCertificatesViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-
     // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextViewController = UIStoryboard(name: Identifiers.medicalCertificatesSB, bundle: nil).instantiateViewController(withIdentifier: Identifiers.addMedicalCertificateVC) as! AddMedicalCertificateViewController
+        nextViewController.viewModel = viewModel.getAddCertificateViewModel(for: indexPath)
+        let navigationController = UINavigationController(rootViewController: nextViewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
 
 }

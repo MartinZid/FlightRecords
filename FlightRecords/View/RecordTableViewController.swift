@@ -51,6 +51,15 @@ class RecordTableViewController: UITableViewController {
         return sender.inputView as! UIDatePicker
     }
     
+    /**
+     It sets UIDatePicker as inputView to sender with UIDatePickerMode. It also binds this datePicker's value to MutableProperty.
+     
+     When MutableProperty has not nil value, it's value is set to datePicker, otherwise if default value is not nil, then defaul value is set to datePicker.
+     - Parameter sender: UITextField
+     - Parameter mode: UIDatePickerMode
+     - Parameter property: MutableProperty<Date?>
+     - Parameter defaultValue: Date?
+    */
     internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
                                    and property: MutableProperty<Date?>, default defaultValue: Date? ) -> UIDatePicker {
         if sender.inputView == nil {

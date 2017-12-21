@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 final class MedicalCertificate: Object {
+    @objc dynamic var type: CertificateType = .LALP
     @objc dynamic var name: String? = nil
     @objc dynamic var publicationDate: Date? = nil
     @objc dynamic var expirationDate: Date? = nil

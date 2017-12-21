@@ -107,6 +107,7 @@
                                             <constraints>
                                                 <constraint firstItem="r46-df-zG7" firstAttribute="centerY" secondItem="aUn-wQ-dgK" secondAttribute="centerY" id="QcL-m6-fg7"/>
                                                 <constraint firstItem="r46-df-zG7" firstAttribute="leading" secondItem="aUn-wQ-dgK" secondAttribute="centerX" symbolic="YES" id="Qvy-tO-BgC"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xca-i9-m8G" secondAttribute="trailing" constant="20" symbolic="YES" id="cVl-li-6Tc"/>
                                                 <constraint firstItem="xca-i9-m8G" firstAttribute="centerY" secondItem="aUn-wQ-dgK" secondAttribute="centerY" id="cnu-OD-Ejz"/>
                                                 <constraint firstItem="xca-i9-m8G" firstAttribute="leading" secondItem="aUn-wQ-dgK" secondAttribute="leading" constant="20" symbolic="YES" id="fHa-Jl-bFP"/>
                                                 <constraint firstAttribute="trailing" secondItem="r46-df-zG7" secondAttribute="trailing" constant="20" symbolic="YES" id="q8j-9Y-T27"/>
@@ -137,6 +138,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fOy-Uk-WyX" secondAttribute="trailing" constant="20" symbolic="YES" id="4PU-4A-aaR"/>
                                                 <constraint firstItem="fOy-Uk-WyX" firstAttribute="leading" secondItem="AVf-dS-ZCZ" secondAttribute="leading" constant="20" symbolic="YES" id="Ayo-bf-dfE"/>
                                                 <constraint firstItem="9yh-g1-28n" firstAttribute="centerY" secondItem="AVf-dS-ZCZ" secondAttribute="centerY" id="HrH-qF-105"/>
                                                 <constraint firstItem="9yh-g1-28n" firstAttribute="leading" secondItem="AVf-dS-ZCZ" secondAttribute="centerX" symbolic="YES" id="KuV-NL-rWx"/>
@@ -169,6 +171,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Qp-BU-UYg" secondAttribute="trailing" constant="20" symbolic="YES" id="782-yb-AsL"/>
                                                 <constraint firstItem="LAj-7k-K9H" firstAttribute="centerY" secondItem="o5k-0M-bnK" secondAttribute="centerY" id="Dtj-Hr-2vh"/>
                                                 <constraint firstItem="8Qp-BU-UYg" firstAttribute="leading" secondItem="o5k-0M-bnK" secondAttribute="leading" constant="20" symbolic="YES" id="GYA-4F-Q5Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="LAj-7k-K9H" secondAttribute="trailing" constant="20" symbolic="YES" id="GeN-F5-z1f"/>
@@ -206,6 +209,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="QKK-iz-xPi" secondAttribute="trailing" constant="20" symbolic="YES" id="apu-Vy-bh3"/>
                                                 <constraint firstItem="jKg-YP-90h" firstAttribute="leading" secondItem="heZ-ss-qAw" secondAttribute="leading" constant="20" symbolic="YES" id="f5o-Gu-Ulv"/>
                                                 <constraint firstItem="QKK-iz-xPi" firstAttribute="leading" secondItem="heZ-ss-qAw" secondAttribute="centerX" symbolic="YES" id="kUA-uM-pVJ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jKg-YP-90h" secondAttribute="trailing" constant="20" symbolic="YES" id="uBO-My-vZ0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -222,8 +226,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-vN-cw6">
-                                                    <rect key="frame" x="347" y="7" width="8" height="30"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Engine" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-vN-cw6">
+                                                    <rect key="frame" x="187.5" y="7" width="167.5" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="zzX-Sy-sH8"/>
                                                     </constraints>
@@ -237,7 +241,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EOI-vN-cw6" firstAttribute="centerY" secondItem="scB-td-sIH" secondAttribute="centerY" id="5YV-q3-q9o"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IJ4-ES-Lc9" secondAttribute="trailing" constant="20" symbolic="YES" id="OUT-zb-6QR"/>
                                                 <constraint firstItem="IJ4-ES-Lc9" firstAttribute="leading" secondItem="scB-td-sIH" secondAttribute="leading" constant="20" symbolic="YES" id="SFN-JQ-w9s"/>
+                                                <constraint firstItem="EOI-vN-cw6" firstAttribute="leading" secondItem="scB-td-sIH" secondAttribute="centerX" symbolic="YES" id="We1-zs-xiV"/>
                                                 <constraint firstAttribute="trailing" secondItem="EOI-vN-cw6" secondAttribute="trailing" constant="20" symbolic="YES" id="ZGH-Jn-5Do"/>
                                                 <constraint firstItem="IJ4-ES-Lc9" firstAttribute="centerY" secondItem="scB-td-sIH" secondAttribute="centerY" id="aHI-Oh-LVp"/>
                                             </constraints>

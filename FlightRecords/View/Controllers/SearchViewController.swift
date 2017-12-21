@@ -33,7 +33,6 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         super.viewDidLoad()
         bindViewModel()
         setEndEditingOnTap()
-        print("view did load")
     }
     
     // MARK: - Binding
@@ -61,15 +60,6 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     
     @IBAction func fromTextFieldEditing(_ sender: UITextField) {
         _ = handleDatePicker(for: sender, with: .date, and: viewModel.fromDate, default: Date())
-//        if sender.inputView == nil {
-//            let datePicker = assingUIDatePicker(to: sender, with: .date)
-//            bind(datepicker: datePicker, to: viewModel.fromDate)
-//            if let date = viewModel.fromDate.value {
-//                datePicker.date = date
-//            } else {
-//                viewModel.fromDate.value = Date()
-//            }
-//        }
     }
     
     private func setMinimum(date value: Date?, to datePicker: UIDatePicker) {
@@ -88,16 +78,6 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     @IBAction func toTextFieldEditing(_ sender: UITextField) {
         let datePicker = handleDatePicker(for: sender, with: .date, and: viewModel.toDate, default: viewModel.getDefaultToDateValue())
         setMinDateOnSignal(to: datePicker)
-//        if sender.inputView == nil {
-//            let datePicker = assingUIDatePicker(to: sender, with: .date)
-//            bind(datepicker: datePicker, to: viewModel.toDate)
-//            setMinDateOnSignal(to: datePicker)
-//            if let date = viewModel.toDate.value {
-//                datePicker.date = date
-//            } else {
-//                viewModel.setDefaultToDateValue()
-//            }
-//        }
     }
     
     private func resetDateInputTextFields() {

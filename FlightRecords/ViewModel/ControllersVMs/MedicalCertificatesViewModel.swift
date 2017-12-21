@@ -26,4 +26,8 @@ class MedicalCertificatesViewModel: RealmTableViewModel<MedicalCertificate> {
         deleteObject(at: indexPath)
     }
     
+    func getAddCertificateViewModel(for indexPath: IndexPath) -> AddMedicalCertificateViewModel {
+        return AddMedicalCertificateViewModel(with: collection![indexPath.row])
+    }
+    
 }

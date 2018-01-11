@@ -26,7 +26,7 @@ class AddMedicalCertificateViewModel: RealmViewModel {
     private let types = [NSLocalizedString("LALP", comment: ""), NSLocalizedString("Class1", comment: ""), NSLocalizedString("Class2", comment: ""), NSLocalizedString("Custom", comment: "")]
     
     private let certificate: MedicalCertificate?
-    private var informations: PersonalInformations?
+    var informations: PersonalInformations?
     let title: String
     
     init(with certificate: MedicalCertificate?) {
@@ -44,7 +44,6 @@ class AddMedicalCertificateViewModel: RealmViewModel {
         expiration <~ Signal.combineLatest(publication.signal, type.signal).map(countExpirationDate)
         type <~ typeString.producer.filterMap(type)
         publicationString <~ publication.producer.map(dateFormatter.optinalDateToString)
-        //expiration <~ publication.producer.filterMap(countExpirationDate)
         expirationString <~ expiration.producer.map(dateFormatter.optinalDateToString)
     }
     

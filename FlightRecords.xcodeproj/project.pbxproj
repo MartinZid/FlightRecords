@@ -12,6 +12,7 @@
 		5B001F081F975E710055870A /* AddFlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B001F071F975E710055870A /* AddFlightViewModel.swift */; };
 		5B0C4D4E1FEBA592001CBF24 /* AddMedicalCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4D4D1FEBA592001CBF24 /* AddMedicalCertificateViewController.swift */; };
 		5B0C4D501FEBA6C3001CBF24 /* AddMedicalCertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4D4F1FEBA6C3001CBF24 /* AddMedicalCertificateViewModel.swift */; };
+		5B11C8932007727100D324D8 /* AddMedicalCertificateViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11C8922007727100D324D8 /* AddMedicalCertificateViewModelTests.swift */; };
 		5B1694821FBD843A000A2B9D /* addSimulatorRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1694801FBD843A000A2B9D /* addSimulatorRecord.storyboard */; };
 		5B1694841FBD8545000A2B9D /* AddSimulatorRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1694831FBD8545000A2B9D /* AddSimulatorRecordTableViewController.swift */; };
 		5B1694861FBD8680000A2B9D /* AddSimulatorRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1694851FBD8680000A2B9D /* AddSimulatorRecordViewModel.swift */; };
@@ -105,6 +106,7 @@
 		5B001F0D1F9768A40055870A /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		5B0C4D4D1FEBA592001CBF24 /* AddMedicalCertificateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicalCertificateViewController.swift; sourceTree = "<group>"; };
 		5B0C4D4F1FEBA6C3001CBF24 /* AddMedicalCertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicalCertificateViewModel.swift; sourceTree = "<group>"; };
+		5B11C8922007727100D324D8 /* AddMedicalCertificateViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicalCertificateViewModelTests.swift; sourceTree = "<group>"; };
 		5B1694811FBD843A000A2B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addSimulatorRecord.storyboard; sourceTree = "<group>"; };
 		5B1694831FBD8545000A2B9D /* AddSimulatorRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSimulatorRecordTableViewController.swift; sourceTree = "<group>"; };
 		5B1694851FBD8680000A2B9D /* AddSimulatorRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSimulatorRecordViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +226,32 @@
 				5BF6954D1FD00EB700D6B9CA /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		5B11C8942007728B00D324D8 /* ControllersVMs */ = {
+			isa = PBXGroup;
+			children = (
+				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
+				5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */,
+				5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */,
+				5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */,
+				5B16948C1FBDACD9000A2B9D /* AddSimulatorRecordViewModelTests.swift */,
+				5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */,
+				5B7ACA0B1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift */,
+				5B7ACA0D1FD97E44001AAEC4 /* LimitsViewModelTests.swift */,
+				5B11C8922007727100D324D8 /* AddMedicalCertificateViewModelTests.swift */,
+			);
+			path = ControllersVMs;
+			sourceTree = "<group>";
+		};
+		5B11C8952007729100D324D8 /* CellsVMs */ = {
+			isa = PBXGroup;
+			children = (
+				5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */,
+				5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */,
+				5B7F4B2E1FDABD0400A435AE /* CertificateViewModelTests.swift */,
+			);
+			path = CellsVMs;
 			sourceTree = "<group>";
 		};
 		5B189CC21F8F5491000B25FB /* Model */ = {
@@ -396,17 +424,8 @@
 		5BB958401FAC6F520073AF55 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5B9A17C51F90BA1E003589B5 /* RecordsViewModelTests.swift */,
-				5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */,
-				5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */,
-				5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */,
-				5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */,
-				5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */,
-				5B16948C1FBDACD9000A2B9D /* AddSimulatorRecordViewModelTests.swift */,
-				5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */,
-				5B7ACA0B1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift */,
-				5B7ACA0D1FD97E44001AAEC4 /* LimitsViewModelTests.swift */,
-				5B7F4B2E1FDABD0400A435AE /* CertificateViewModelTests.swift */,
+				5B11C8942007728B00D324D8 /* ControllersVMs */,
+				5B11C8952007729100D324D8 /* CellsVMs */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -633,6 +652,7 @@
 				5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */,
 				5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */,
 				5B7ACA0C1FD9786D001AAEC4 /* PersonalInformationsViewModelTests.swift in Sources */,
+				5B11C8932007727100D324D8 /* AddMedicalCertificateViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

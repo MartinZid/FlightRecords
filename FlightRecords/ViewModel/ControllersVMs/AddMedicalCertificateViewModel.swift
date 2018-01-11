@@ -26,6 +26,7 @@ class AddMedicalCertificateViewModel: RealmViewModel {
     private let types = [NSLocalizedString("LALP", comment: ""), NSLocalizedString("Class1", comment: ""), NSLocalizedString("Class2", comment: ""), NSLocalizedString("Custom", comment: "")]
     
     private let certificate: MedicalCertificate?
+    private var informations: PersonalInformations?
     let title: String
     
     init(with certificate: MedicalCertificate?) {
@@ -40,16 +41,51 @@ class AddMedicalCertificateViewModel: RealmViewModel {
         
         super.init()
         
+        expiration <~ Signal.combineLatest(publication.signal, type.signal).map(countExpirationDate)
         type <~ typeString.producer.filterMap(type)
         publicationString <~ publication.producer.map(dateFormatter.optinalDateToString)
-        //todo count expiration date after publication is set (according to certificate type and user's age)
+        //expiration <~ publication.producer.filterMap(countExpirationDate)
         expirationString <~ expiration.producer.map(dateFormatter.optinalDateToString)
+    }
+    
+    override func realmInitCompleted() {
+        informations = realm.objects(PersonalInformations.self).first
     }
     
     private func type(for value: String) -> MedicalCertificate.CertificateType {
         let index = types.index(where: {$0 == value})!
         let type = MedicalCertificate.CertificateType(rawValue: index)!
         return type
+    }
+    
+    private func countExpirationDate(from publicationDate: Date?, with type: MedicalCertificate.CertificateType) -> Date? {
+        if let publication = publicationDate {
+            if let informations = informations {
+                let age = informations.getAge()
+                switch type {
+                case .LALP:
+                    if age < 40 {
+                        return dateFormatter.add(years: 5, to: publication)
+                    }
+                    return dateFormatter.add(years: 2, to: publication)
+                case .class2:
+                    if age < 40 {
+                        return dateFormatter.add(years: 5, to: publication)
+                    } else if age < 50 {
+                        return dateFormatter.add(years: 2, to: publication)
+                    }
+                    return dateFormatter.add(years: 1, to: publication)
+                case .class1:
+                    if age < 40 {
+                        return dateFormatter.add(years: 1, to: publication)
+                    }
+                    return dateFormatter.add(months: 6, to: publication)
+                case .custom:
+                    return nil
+                }
+            }
+        }
+        return nil
     }
     
     func getTypesCount() -> Int {

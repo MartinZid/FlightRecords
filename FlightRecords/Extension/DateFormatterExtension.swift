@@ -24,14 +24,13 @@ extension DateFormatter {
         return string(from: date)
     }
     
-    private func getDateComponents() -> DateComponents {
+    private func getDateComponents(from date: Date) -> DateComponents {
         let calendar = Calendar(identifier: .gregorian)
-        let now = Date()
-        return calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+        return calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
     }
     
     func createDate(hours: Int, minutes: Int) -> Date {
-        var components = getDateComponents()
+        var components = getDateComponents(from: Date())
         components.hour = hours
         components.minute = minutes
         return calendar.date(from: components)!
@@ -57,7 +56,7 @@ extension DateFormatter {
     }
     
     func getDateYearAgo(from: Date) -> Date {
-        var components = getDateComponents()
+        var components = getDateComponents(from: Date())
         components.hour = 0
         components.minute = 0
         components.second = 0
@@ -66,12 +65,32 @@ extension DateFormatter {
     }
     
     func getThisYearStartingDate() -> Date {
-        var components = getDateComponents()
+        var components = getDateComponents(from: Date())
         components.month = 1
         components.day = 1
         components.hour = 0
         components.minute = 0
         components.second = 0
+        return calendar.date(from: components)!
+    }
+    
+    func countAge(from birthDay: Date) -> Int {
+        let calendar = NSCalendar(identifier: .gregorian)
+        let now = Date()
+        let ageDate = calendar?.components(.year, from: birthDay, to: now, options: [])
+        let age = ageDate?.year
+        return age!
+    }
+    
+    func add(years: Int, to date: Date) -> Date {
+        var components = getDateComponents(from: date)
+        components.year = components.year! + years
+        return calendar.date(from: components)!
+    }
+    
+    func add(months: Int, to date: Date) -> Date {
+        var components = getDateComponents(from: date)
+        components.month = components.month! + months
         return calendar.date(from: components)!
     }
 }

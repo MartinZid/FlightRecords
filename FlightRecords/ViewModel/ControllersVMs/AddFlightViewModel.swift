@@ -118,20 +118,25 @@ class AddFlightRecordViewModel: RealmViewModel {
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
         var interval: Int
-        var dateTmp: Date
+        let componentsTKO = dateFormatter.getDateComponents(from: timeTKO)
+        let componentsLDG = dateFormatter.getDateComponents(from: timeLDG)
         
-        if(timeTKO.compare(timeLDG).rawValue == 1) { // the flight took place in two days
-            dateTmp = dateFormatter.createDate(hours: 0, minutes: 0)
-            interval = Int(timeLDG.timeIntervalSince(dateTmp))
+        if(timeTKO.compare(timeLDG) == .orderedDescending) { // the flight took place in two days
+            // time from TKO to midnight
+            interval = (23 - componentsTKO.hour!) * 60 //we need to consider minutes (if 0 in timeTKO we add 60 to interval)
+            interval += 60 - componentsTKO.minute!
             
-            dateTmp.addTimeInterval(TimeInterval(3600*24))
-            interval += Int(dateTmp.timeIntervalSince(timeTKO))
+            interval += componentsLDG.hour! * 60
+            interval += componentsLDG.minute!
+            
         } else { // simple one day flight
-            interval = Int(timeLDG.timeIntervalSince(timeTKO).rounded())
+            interval = (componentsLDG.hour! - componentsTKO.hour!) * 60
+            interval += componentsLDG.minute! - componentsTKO.minute!
         }
         
-        let hours: Int = (interval/3600) % 24
-        let minutes: Int = (interval % 3600) / 60
+        let hours: Int = (interval/60) % 24
+        let minutes: Int = interval % 60
+        
         let date = dateFormatter.date(from: "\(String(hours)):\(String(minutes))")
         return date!
     }

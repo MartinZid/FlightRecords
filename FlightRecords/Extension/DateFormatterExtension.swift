@@ -24,7 +24,7 @@ extension DateFormatter {
         return string(from: date)
     }
     
-    private func getDateComponents(from date: Date) -> DateComponents {
+    func getDateComponents(from date: Date) -> DateComponents {
         let calendar = Calendar(identifier: .gregorian)
         return calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
     }

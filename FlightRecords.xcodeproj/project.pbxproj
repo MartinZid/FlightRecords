@@ -72,6 +72,10 @@
 		5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */; };
 		5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */; };
 		5BC76B9B1FCEAE3B00852021 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */; };
+		5BCDC1FA2015D6E0006D7966 /* statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCDC1F82015D6E0006D7966 /* statistics.storyboard */; };
+		5BCDC1FC2015D957006D7966 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */; };
+		5BCDC1FE2015D982006D7966 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDC1FD2015D982006D7966 /* StatisticsViewModel.swift */; };
+		5BCDC2002015DB67006D7966 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDC1FF2015DB67006D7966 /* Filter.swift */; };
 		5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69021FA9C89700F19577 /* NoteViewController.swift */; };
 		5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */; };
 		5BD6DC4C1FC81BB200140F34 /* search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD6DC4A1FC81BB200140F34 /* search.storyboard */; };
@@ -166,6 +170,10 @@
 		5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesTableViewControllerTests.swift; sourceTree = "<group>"; };
 		5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesViewModelTests.swift; sourceTree = "<group>"; };
 		5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		5BCDC1F92015D6E0006D7966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/statistics.storyboard; sourceTree = "<group>"; };
+		5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		5BCDC1FD2015D982006D7966 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		5BCDC1FF2015DB67006D7966 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5BCF69021FA9C89700F19577 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		5BD6DC4B1FC81BB200140F34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/search.storyboard; sourceTree = "<group>"; };
@@ -262,6 +270,7 @@
 				5BD6DC511FC8205200140F34 /* SearchConfiguration.swift */,
 				5BF695491FD00A6D00D6B9CA /* PersonalInformations.swift */,
 				5B7F4B2C1FDA98A400A435AE /* MedicalCertificate.swift */,
+				5BCDC1FF2015DB67006D7966 /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +311,7 @@
 				5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */,
 				5B7F4B221FDA921900A435AE /* MedicalCertificatesViewController.swift */,
 				5B0C4D4D1FEBA592001CBF24 /* AddMedicalCertificateViewController.swift */,
+				5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +408,7 @@
 				5B7ACA091FD935B3001AAEC4 /* LimitsViewModel.swift */,
 				5B7F4B281FDA92BE00A435AE /* MedicalCertificatesViewModel.swift */,
 				5B0C4D4F1FEBA6C3001CBF24 /* AddMedicalCertificateViewModel.swift */,
+				5BCDC1FD2015D982006D7966 /* StatisticsViewModel.swift */,
 			);
 			path = ControllersVMs;
 			sourceTree = "<group>";
@@ -433,6 +444,7 @@
 		5BECADFF1F98BDE400A3EA49 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5BCDC1F82015D6E0006D7966 /* statistics.storyboard */,
 				5B7F4B1F1FDA90C700A435AE /* medicalCertificates.storyboard */,
 				5B7ACA041FD930DB001AAEC4 /* limits.storyboard */,
 				5BF695401FCFF81900D6B9CA /* profile.storyboard */,
@@ -538,6 +550,7 @@
 			files = (
 				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
 				5B279BB11FAB441500090D7B /* planes.storyboard in Resources */,
+				5BCDC1FA2015D6E0006D7966 /* statistics.storyboard in Resources */,
 				5B7ACA061FD930DB001AAEC4 /* limits.storyboard in Resources */,
 				5BF695421FCFF81900D6B9CA /* profile.storyboard in Resources */,
 				5BD6DC4C1FC81BB200140F34 /* search.storyboard in Resources */,
@@ -603,6 +616,7 @@
 				5B7F4B331FDAC08700A435AE /* RealmTableViewModel.swift in Sources */,
 				5B7ACA081FD93599001AAEC4 /* LimitsViewController.swift in Sources */,
 				5B7F4B231FDA921900A435AE /* MedicalCertificatesViewController.swift in Sources */,
+				5BCDC2002015DB67006D7966 /* Filter.swift in Sources */,
 				5B279BB71FAB46F000090D7B /* PlaneViewModel.swift in Sources */,
 				5B001F061F9758150055870A /* AddFlightRecordViewController.swift in Sources */,
 				5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */,
@@ -617,6 +631,8 @@
 				5B0C4D501FEBA6C3001CBF24 /* AddMedicalCertificateViewModel.swift in Sources */,
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
 				5B279BB51FAB46D700090D7B /* PlaneCell.swift in Sources */,
+				5BCDC1FE2015D982006D7966 /* StatisticsViewModel.swift in Sources */,
+				5BCDC1FC2015D957006D7966 /* StatisticsViewController.swift in Sources */,
 				5BF6954E1FD00EB700D6B9CA /* UIViewControllerExtension.swift in Sources */,
 				5BF6954A1FD00A6D00D6B9CA /* PersonalInformations.swift in Sources */,
 				5B279BB91FAB46F900090D7B /* PlanesViewModel.swift in Sources */,
@@ -732,6 +748,14 @@
 				5B7F4B201FDA90C700A435AE /* Base */,
 			);
 			name = medicalCertificates.storyboard;
+			sourceTree = "<group>";
+		};
+		5BCDC1F82015D6E0006D7966 /* statistics.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BCDC1F92015D6E0006D7966 /* Base */,
+			);
+			name = statistics.storyboard;
 			sourceTree = "<group>";
 		};
 		5BD6DC4A1FC81BB200140F34 /* search.storyboard */ = {

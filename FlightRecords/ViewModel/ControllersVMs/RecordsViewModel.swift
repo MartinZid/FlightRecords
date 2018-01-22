@@ -14,7 +14,7 @@ import Result
 
 class RecordsViewModel: RealmTableViewModel<Record> {
     
-    var searchConfiguration: SearchConfiguration?
+    private let filter = Filter()
     
     override func updateList() {
         collection = realm.objects(Record.self)
@@ -49,42 +49,16 @@ class RecordsViewModel: RealmTableViewModel<Record> {
     }
     
     func getSearchViewModel() -> SearchViewModel {
-        return SearchViewModel(with: searchConfiguration)
+        return SearchViewModel(with: filter.searchConfiguration)
     }
     
     func apply(searchViewModel: SearchViewModel) {
-        self.searchConfiguration = searchViewModel.getConfiguration()
+        filter.searchConfiguration = searchViewModel.getConfiguration()
         filterRecords()
     }
     
     private func filterRecords() {
-        collection = realm.objects(Record.self)
-        if let text = searchConfiguration?.searchText {
-            if text.count > 0 {
-                collection = collection?.filter("(from contains[c] %@) or (to contains[c] %@)", text, text)
-            }
-        }
-        if searchConfiguration?.flightsSwitch == false {
-            collection = collection?.filter("type == 1")
-        }
-        if searchConfiguration?.fstdSwitch == false {
-            collection = collection?.filter("type == 0")
-        }
-        if let type = searchConfiguration?.planeType {
-            if type.count > 0 {
-                print(type)
-                collection = collection?.filter("plane.type contains[c] %@", type)
-            }
-        }
-        if let plane = searchConfiguration?.plane {
-            collection = collection?.filter("plane == %@", plane)
-        }
-        if let fromDate = searchConfiguration?.fromDate {
-            collection = collection?.filter("date > %@", Calendar.current.startOfDay(for: fromDate))
-        }
-        if let toDate = searchConfiguration?.toDate {
-            collection = collection?.filter("date < %@", Calendar.current.startOfDay(for: toDate.addingTimeInterval(60 * 60 * 24)))
-        }
+        collection = filter.filterRecords(from: realm.objects(Record.self))
         collectionNotificationsToken?.invalidate()
         collection = collection?.sorted(byKeyPath: "date", ascending: false)
         collectionNotificationsToken = collection?.observe(collectionChangedNotificationBlock)

@@ -52,7 +52,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reg. No" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcH-R7-jg3">
-                                            <rect key="frame" x="192" y="37" width="141" height="21"/>
+                                            <rect key="frame" x="192" y="39" width="141" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                         <constraint firstItem="uzo-fB-afS" firstAttribute="top" secondItem="qLk-tN-gM2" secondAttribute="top" constant="11" id="AAt-s4-7pF"/>
                                         <constraint firstItem="d7X-gQ-SjI" firstAttribute="leading" secondItem="hcH-R7-jg3" secondAttribute="leading" id="B4l-c1-UAf"/>
                                         <constraint firstItem="uzo-fB-afS" firstAttribute="leading" secondItem="qLk-tN-gM2" secondAttribute="leading" constant="20" symbolic="YES" id="EUv-VO-0zs"/>
-                                        <constraint firstItem="hcH-R7-jg3" firstAttribute="top" secondItem="d7X-gQ-SjI" secondAttribute="bottom" constant="5" id="FuT-ee-o5p"/>
+                                        <constraint firstItem="hcH-R7-jg3" firstAttribute="top" secondItem="d7X-gQ-SjI" secondAttribute="bottom" constant="7" id="FuT-ee-o5p"/>
                                         <constraint firstItem="d7X-gQ-SjI" firstAttribute="top" secondItem="qLk-tN-gM2" secondAttribute="topMargin" id="XZN-6Z-XnQ"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uzo-fB-afS" secondAttribute="trailing" constant="20" symbolic="YES" id="cQx-WM-Jbg"/>
                                         <constraint firstItem="d7X-gQ-SjI" firstAttribute="trailing" secondItem="hcH-R7-jg3" secondAttribute="trailing" id="etx-Tf-mQb"/>

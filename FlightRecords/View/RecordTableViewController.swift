@@ -69,6 +69,7 @@ class RecordTableViewController: UITableViewController {
                 datePicker.date = value
             } else if let value = defaultValue {
                 property.value = value
+                datePicker.date = value
             }
             return datePicker
         }

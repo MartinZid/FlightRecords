@@ -89,7 +89,7 @@ class LimitsViewModel: RealmViewModel {
     }
     
     private func countFlightTimeInLastDays() -> String {
-        // fromDate should be initialized with time 00:00, for correct compiution
+        // fromDate should be initialized with time 00:00, for correct calculation
         let fromDate = dateFormatter.createDate(hours: 0, minutes: 0).addingTimeInterval(-(28 * day))
         let toDate = Date()
         return countTimeInInterval(starting: fromDate, ending: toDate)

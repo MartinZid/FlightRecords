@@ -16,15 +16,15 @@ class LimitsViewModel: RealmViewModel {
     private var records: Results<Record>?
     
     let inDays = MutableProperty<Float>(0.0)
-    let inDaysString = MutableProperty<String>("0:0")
+    let inDaysString = MutableProperty<String>("0:00")
     let inDaysLabel = MutableProperty<String>("?/100")
     
     let inYear = MutableProperty<Float>(0.0)
-    let inYearString = MutableProperty<String>("0:0")
+    let inYearString = MutableProperty<String>("0:00")
     let inYearLabel = MutableProperty<String>("?/900")
     
     let inMonths = MutableProperty<Float>(0.0)
-    let inMonthsString = MutableProperty<String>("0:0")
+    let inMonthsString = MutableProperty<String>("0:00")
     let inMonthsLabel = MutableProperty<String>("?/1000")
     
     private let day: Double = 60 * 60 * 24
@@ -85,7 +85,7 @@ class LimitsViewModel: RealmViewModel {
         }
         hours += minutes/60
         minutes = minutes % 60
-        return String(hours) + ":" + ((minutes != 0) ? String(minutes) : "00")
+        return String(hours) + ":" + String(format: "%02d", minutes)
     }
     
     private func countFlightTimeInLastDays() -> String {

@@ -63,8 +63,8 @@ class LimitsViewModelTests: TestCaseBase {
     func testCountFlightTime() {
         viewModelUnderTest.realmInitCompleted()
         
-        XCTAssertEqual(viewModelUnderTest.inDaysString.value, "7:00", "Flight hours in last 28 day are not compiuted correctly.")
-        XCTAssertEqual(viewModelUnderTest.inMonthsString.value, "23:30", "Flight hours in last 12 months are not compiuted correctly.")
+        XCTAssertEqual(viewModelUnderTest.inDaysString.value, "7:00", "Flight hours in last 28 day are not calculated correctly.")
+        XCTAssertEqual(viewModelUnderTest.inMonthsString.value, "23:30", "Flight hours in last 12 months are not calculated correctly.")
     }
 }
 

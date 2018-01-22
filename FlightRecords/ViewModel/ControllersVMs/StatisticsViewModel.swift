@@ -12,13 +12,13 @@ import ReactiveSwift
 
 class StatisticsViewModel: RealmViewModel {
     
-    let totalTimeString = MutableProperty<String>("00:00")
-    let nightTimeString = MutableProperty<String>("00:00")
-    let ifrTimeString = MutableProperty<String>("00:00")
-    let picTimeString = MutableProperty<String>("00:00")
-    let coTimeString = MutableProperty<String>("00:00")
-    let dualTimeString = MutableProperty<String>("00:00")
-    let instructorTimeString = MutableProperty<String>("00:00")
+    let totalTimeString = MutableProperty<String>("0:00")
+    let nightTimeString = MutableProperty<String>("0:00")
+    let ifrTimeString = MutableProperty<String>("0:00")
+    let picTimeString = MutableProperty<String>("0:00")
+    let coTimeString = MutableProperty<String>("0:00")
+    let dualTimeString = MutableProperty<String>("0:00")
+    let instructorTimeString = MutableProperty<String>("0:00")
     
     private let dateFormatter = DateFormatter()
     
@@ -32,14 +32,19 @@ class StatisticsViewModel: RealmViewModel {
     
     private func updateList() {
         records = realm.objects(Record.self)
-        recordsNotificationsToken = records?.observe(countStatistics)
+        //recordsNotificationsToken = records?.observe(countStatistics)
+        countStatistics()
     }
     
     override func realmInitCompleted() {
         updateList()
     }
     
-    private func countStatistics(changes: RealmCollectionChange<Results<Record>>) {
+    override func notificationHandler(notification: Realm.Notification, realm: Realm) {
+        countStatistics()
+    }
+    
+    private func countStatistics(/*changes: RealmCollectionChange<Results<Record>>*/) {
         if let records = records {
             totalTimeString.value = countTime(from: records.map{ dateFormatter.createTime(from: $0.time!) })
             nightTimeString.value = countTime(from: records.map{ $0.timeNight } )
@@ -63,7 +68,7 @@ class StatisticsViewModel: RealmViewModel {
         }
         hours += minutes/60
         minutes = minutes % 60
-        return String(hours) + ":" + ((minutes != 0) ? String(minutes) : "00")
+        return String(hours) + ":" + String(format: "%02d", minutes)
     }
     
     deinit {
@@ -81,7 +86,5 @@ class StatisticsViewModel: RealmViewModel {
     
     private func filterRecords() {
         records = filter.filterRecords(from: realm.objects(Record.self))
-        recordsNotificationsToken?.invalidate()
-        recordsNotificationsToken = records?.observe(countStatistics)
     }
 }

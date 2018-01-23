@@ -156,7 +156,7 @@
         <scene sceneID="e2q-iI-YX6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y1R-9o-W27" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Limity" id="Eu9-hH-jKV"/>
+                    <tabBarItem key="tabBarItem" title="Limity" image="icons8-futures-filled-50.png" id="Eu9-hH-jKV"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fps-mp-yCZ">
@@ -173,4 +173,7 @@
             <point key="canvasLocation" x="-2191" y="152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-futures-filled-50.png" width="35" height="35"/>
+    </resources>
 </document>

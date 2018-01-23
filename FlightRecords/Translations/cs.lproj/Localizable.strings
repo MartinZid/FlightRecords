@@ -12,6 +12,8 @@
 "Plane" = "Letadlo";
 "Add new flight record" = "Přidat záznam letu";
 "Edit flight record" = "Upravit záznam letu";
+"Add new plane" = "Přidat letadlo";
+"Edit plane" = "Upravit letadlo";
 "Add new simulator record" = "Přidat záznam ze simulátoru";
 "Edit simulator record" = "Upravit záznam ze simulátoru";
 "LALP" = "LALP";

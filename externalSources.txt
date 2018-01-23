@@ -1,0 +1,4 @@
+https://icons8.com/
+https://github.com/ReactiveCocoa/ReactiveSwift/
+https://github.com/ReactiveCocoa/ReactiveCocoa/
+https://realm.io/

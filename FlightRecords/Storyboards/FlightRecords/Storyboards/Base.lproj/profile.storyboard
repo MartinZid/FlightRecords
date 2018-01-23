@@ -282,7 +282,7 @@
         <scene sceneID="09l-rU-usC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Jq-Hx-ujm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profil" id="w6L-fX-Hwz"/>
+                    <tabBarItem key="tabBarItem" title="Profil" image="icons8-air-pilot-hat-50.png" id="w6L-fX-Hwz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="16F-1A-6xd">
@@ -315,4 +315,7 @@
             <point key="canvasLocation" x="554" y="484"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-air-pilot-hat-50.png" width="40" height="40"/>
+    </resources>
 </document>

@@ -22,9 +22,13 @@ class AddPlaneViewModel: RealmViewModel {
     private let engines = [NSLocalizedString("SE", comment: ""), NSLocalizedString("ME", comment: "")]
     
     private let plane: Plane?
+    let title: String
     
     init(with plane: Plane?) {
         self.plane = plane
+        
+        title = (plane == nil ? NSLocalizedString("Add new plane", comment: "") : NSLocalizedString("Edit plane", comment: ""))
+        
         type = MutableProperty(plane?.type ?? nil)
         model = MutableProperty(plane?.model ?? nil)
         variant = MutableProperty(plane?.variant ?? nil)

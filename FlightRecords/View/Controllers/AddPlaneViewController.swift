@@ -30,6 +30,8 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
     }
     
     private func bindViewModel() {
+        self.title = viewModel.title
+        
         typeTextField.text = viewModel.type.value
         modelTextField.text = viewModel.model.value
         variantTextField.text = viewModel.variant.value

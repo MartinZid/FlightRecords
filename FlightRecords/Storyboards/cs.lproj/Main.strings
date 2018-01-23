@@ -2,26 +2,23 @@
 /* Class = "UITableViewController"; title = "Typ záznamu"; ObjectID = "CjA-yR-1r8"; */
 "CjA-yR-1r8.title" = "Typ záznamu";
 
+/* Class = "UITabBarItem"; title = "Limity"; ObjectID = "EI1-Sd-0Ee"; */
+"EI1-Sd-0Ee.title" = "Limity";
+
+/* Class = "UITabBarItem"; title = "Profil"; ObjectID = "JpQ-9M-guS"; */
+"JpQ-9M-guS.title" = "Profil";
+
 /* Class = "UINavigationItem"; title = "Záznamy"; ObjectID = "KQs-tF-GQT"; */
 "KQs-tF-GQT.title" = "Záznamy";
-
-/* Class = "UITextField"; placeholder = "PRG"; ObjectID = "KzX-e7-lFG"; */
-"KzX-e7-lFG.placeholder" = "PRG";
 
 /* Class = "UILabel"; text = "Záznam ze simulátoru"; ObjectID = "L2i-Pl-PxL"; */
 "L2i-Pl-PxL.text" = "Záznam ze simulátoru";
 
-/* Class = "UITableViewController"; title = "Přidat záznam letu"; ObjectID = "Pbt-cA-dG7"; */
-"Pbt-cA-dG7.title" = "Přidat záznam letu";
+/* Class = "UITabBarItem"; title = "Záznamy"; ObjectID = "OLK-Vv-euN"; */
+"OLK-Vv-euN.title" = "Záznamy";
 
 /* Class = "UILabel"; text = "Záznam letu"; ObjectID = "YKJ-sT-3sB"; */
 "YKJ-sT-3sB.text" = "Záznam letu";
-
-/* Class = "UILabel"; text = "Datum"; ObjectID = "bPZ-q2-xLN"; */
-"bPZ-q2-xLN.text" = "Datum";
-
-/* Class = "UITextField"; placeholder = "12.10.2017"; ObjectID = "bVJ-to-ey5"; */
-"bVJ-to-ey5.placeholder" = "12.10.2017";
 
 /* Class = "UILabel"; text = "Time"; ObjectID = "d7X-gQ-SjI"; */
 "d7X-gQ-SjI.text" = "Time";
@@ -29,8 +26,8 @@
 /* Class = "UILabel"; text = "Reg. No"; ObjectID = "hcH-R7-jg3"; */
 "hcH-R7-jg3.text" = "Reg. No";
 
-/* Class = "UILabel"; text = "Místo odletu"; ObjectID = "idq-lD-UOQ"; */
-"idq-lD-UOQ.text" = "Místo odletu";
+/* Class = "UITabBarItem"; title = "Letadla"; ObjectID = "iWh-Q7-Pgb"; */
+"iWh-Q7-Pgb.title" = "Letadla";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "t2x-aO-Eyq"; */
 "t2x-aO-Eyq.title" = "Item";

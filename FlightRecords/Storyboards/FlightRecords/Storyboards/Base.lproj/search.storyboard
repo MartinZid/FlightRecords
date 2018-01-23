@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nastavení hledání-->
+        <!--Nastavení filtrování-->
         <scene sceneID="Z0d-9j-bjo">
             <objects>
                 <tableViewController id="JnI-Wv-4LL" customClass="SearchViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
@@ -265,7 +265,7 @@
                             <outlet property="delegate" destination="JnI-Wv-4LL" id="Xyi-37-PC1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nastavení hledání" id="cA6-Dk-ceu">
+                    <navigationItem key="navigationItem" title="Nastavení filtrování" id="cA6-Dk-ceu">
                         <barButtonItem key="leftBarButtonItem" title="Zrušit" id="NEN-Le-24N">
                             <connections>
                                 <action selector="cancel:" destination="JnI-Wv-4LL" id="kat-jM-biL"/>

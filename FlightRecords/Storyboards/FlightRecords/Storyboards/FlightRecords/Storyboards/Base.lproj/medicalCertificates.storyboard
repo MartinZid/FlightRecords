@@ -66,7 +66,7 @@
                             <outlet property="delegate" destination="xoI-ag-uJS" id="qY3-ZU-OeW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yvf-Zr-rPa">
+                    <navigationItem key="navigationItem" title="Zdravotní certifikáty" id="yvf-Zr-rPa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hbB-oK-aYH">
                             <connections>
                                 <segue destination="HKu-rx-Evo" kind="presentation" identifier="" id="vtL-bh-TvI"/>

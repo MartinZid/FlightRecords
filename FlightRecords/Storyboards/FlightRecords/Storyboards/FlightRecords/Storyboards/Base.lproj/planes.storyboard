@@ -73,7 +73,7 @@
         <!--Přidat letadlo-->
         <scene sceneID="pKD-hc-LfU">
             <objects>
-                <tableViewController id="U7J-aF-Cr0" customClass="AddPlaneViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addPlaneVC" id="U7J-aF-Cr0" customClass="AddPlaneViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y5h-QY-FYX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

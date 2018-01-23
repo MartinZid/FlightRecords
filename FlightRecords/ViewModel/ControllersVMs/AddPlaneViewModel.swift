@@ -21,7 +21,10 @@ class AddPlaneViewModel: RealmViewModel {
     
     private let engines = [NSLocalizedString("SE", comment: ""), NSLocalizedString("ME", comment: "")]
     
+    private let plane: Plane?
+    
     init(with plane: Plane?) {
+        self.plane = plane
         type = MutableProperty(plane?.type ?? nil)
         model = MutableProperty(plane?.model ?? nil)
         variant = MutableProperty(plane?.variant ?? nil)
@@ -49,13 +52,14 @@ class AddPlaneViewModel: RealmViewModel {
     }
     
     func savePlaneToRealm() {
-        let plane = Plane()
-        plane.type = type.value
-        plane.model = model.value
-        plane.variant = variant.value
-        plane.registrationNumber = registrationNumber.value
-        plane.engine = engine.value
+        let plane = self.plane ?? Plane()
         try! realm.write {
+            plane.type = type.value
+            plane.model = model.value
+            plane.variant = variant.value
+            plane.registrationNumber = registrationNumber.value
+            plane.engine = engine.value
+            
             realm.add(plane)
         }
     }

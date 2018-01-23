@@ -24,4 +24,12 @@ class PlanesViewModel: RealmTableViewModel<Plane> {
     func addPlaneViewModelForNewPlane() -> AddPlaneViewModel {
         return AddPlaneViewModel(with: nil)
     }
+    
+    func addPlaneViewModelForPlane(at indexPath: IndexPath) -> AddPlaneViewModel {
+        return AddPlaneViewModel(with: collection![indexPath.row])
+    }
+    
+    func deletePlane(at indexPath: IndexPath) {
+        deleteObject(at: indexPath)
+    }
 }

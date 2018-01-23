@@ -15,6 +15,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     private struct Identifiers {
         static let searchSegueIdentifier = "search"
         static let recordCellIdentifier = "RecordCell"
+        static let addFlightRecordSB = "addFlightRecord"
+        static let addSimulatorRecordSB = "addSimulatorRecord"
     }
     
     override func viewDidLoad() {
@@ -65,11 +67,11 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = viewModel.getTypeOfRecord(at: indexPath)
         if  type == .flight {
-            let nextViewController = UIStoryboard(name: "addFlightRecord", bundle: nil).instantiateInitialViewController() as! AddFlightRecordTableViewController
+            let nextViewController = UIStoryboard(name: Identifiers.addFlightRecordSB, bundle: nil).instantiateInitialViewController() as! AddFlightRecordTableViewController
             nextViewController.viewModel = viewModel.getAddFlightViewModel(for: indexPath)
             self.navigationController?.pushViewController(nextViewController, animated: true)
         } else if type == .simulator {
-            let nextViewController = UIStoryboard(name: "addSimulatorRecord", bundle: nil).instantiateInitialViewController() as! AddSimulatorRecordTableViewController
+            let nextViewController = UIStoryboard(name: Identifiers.addSimulatorRecordSB, bundle: nil).instantiateInitialViewController() as! AddSimulatorRecordTableViewController
             nextViewController.viewModel = viewModel.getAddSimulatorViewModel(for: indexPath)
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }

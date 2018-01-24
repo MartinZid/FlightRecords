@@ -41,7 +41,7 @@ class StatisticsViewController: UITableViewController, SearchViewControllerDeleg
         instructorTimeLabel.reactive.text <~ viewModel.instructorTimeString
     }
     
-    // MARK: - Delegation
+    // MARK: - SearchViewControllerDelegate
     
     func apply(searchViewModel viewModel: SearchViewModel) {
         self.viewModel.apply(searchViewModel: viewModel)

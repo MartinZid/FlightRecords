@@ -35,8 +35,6 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         setEndEditingOnTap()
     }
     
-    // MARK: - Binding
-    
     private func bindViewModel() {
         setDefaultValues()
         
@@ -91,7 +89,7 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         resetDateInputTextFields()
     }
     
-    // MARK: - Delegate functions
+    // MARK: - PlanesTableViewControllerDelegate
     
     func userDidSelect(planeViewModel: PlaneViewModel) {
         viewModel.setPlane(from: planeViewModel)

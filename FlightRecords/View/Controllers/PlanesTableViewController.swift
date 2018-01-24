@@ -8,16 +8,11 @@
 
 import UIKit
 
-/**
-    PlanesTableViewController displays all user's planes in table.
- */
 class PlanesTableViewController: UITableViewController {
     
     private let viewModel = PlanesViewModel()
     
     var delegate: PlanesTableViewControllerDelegate? = nil
-    
-    private var selectedPlaneViewModel: PlaneViewModel!
     
     private struct Identifiers {
         static let addPlane = "addPlane"
@@ -77,7 +72,7 @@ class PlanesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if delegate != nil { // user is selecting plane (pass it to delegate)
-            selectedPlaneViewModel = viewModel.getCellViewModel(for: indexPath)
+            let selectedPlaneViewModel = viewModel.getCellViewModel(for: indexPath)
             delegate?.userDidSelect(planeViewModel: selectedPlaneViewModel)
             self.navigationController?.popViewController(animated: true)
         } else { // user is managing planes (show him detail)
@@ -85,7 +80,6 @@ class PlanesTableViewController: UITableViewController {
             nextViewController.viewModel = viewModel.addPlaneViewModelForPlane(at: indexPath)
             let navigationController = UINavigationController(rootViewController: nextViewController)
             self.navigationController?.present(navigationController, animated: true, completion: nil)
-            //self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
 

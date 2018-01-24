@@ -11,22 +11,14 @@ import ReactiveSwift
 import ReactiveCocoa
 import Result
 
-/**
- NoteViewController is used for creating/editing flight note.
- */
 class NoteViewController: UIViewController {
 
-    /// UIBarButton which saves user's note
     @IBOutlet weak var saveBtn: UIBarButtonItem!
-    /// UITextField contains the note
     @IBOutlet weak var noteField: UITextView!
     
-    /// delegate who is saves the note
     var delegate: NoteViewControllerDelegate? = nil
-    /// note variable
     var note: String? = nil
 
-    /// NoteViewModel handles save action and note value
     private var viewModel: NoteViewModel!
     
     override func viewDidLoad() {
@@ -36,9 +28,6 @@ class NoteViewController: UIViewController {
         noteField.becomeFirstResponder()
     }
     
-    /**
-     This function binds viewModel to View.
-     */
     private func bindViewModel() {
         noteField.text = viewModel.note.value
         viewModel.note <~ noteField.reactive.continuousTextValues.filterMap{$0}
@@ -57,9 +46,6 @@ class NoteViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /**
-     Cancel function closes the modal.
-    */
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

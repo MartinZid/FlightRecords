@@ -8,32 +8,18 @@
 
 import Foundation
 
-/**
-    PlaneViewModel is PlaneCell's viewModel. It prepares (passes) the data to be show in each cell.
- */
 class PlaneViewModel {
-    /// Plane model object
+    
     private let plane: Plane
     
-    /**
-     Init function initializes PlaneViewModel with given Plane.
-     - Parameter plane: Plane object.
-     */
     init(with plane: Plane) {
         self.plane = plane
     }
     
-    /**
-     - Returns: Plane's registrationNumber.
-     */
     func getRegistrationNumber() -> String {
         return plane.registrationNumber ?? NSLocalizedString("N/A", comment: "")
     }
-    
-    /**
-     Combines into one String -- type, model and variant.
-     - Returns: Plane's info.
-     */
+
     func getPlaneInfo() -> String {
         var info = ""
         if let type = plane.type {

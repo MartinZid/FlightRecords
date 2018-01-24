@@ -99,8 +99,6 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         noteLabel.reactive.text <~ viewModel.note
     }
     
-    // MARK: - UIDatePickers initialization
-    
     private func setMaxTimeOnSignal(to datePicker: UIDatePicker) {
         setMax(time: viewModel.totalTime.value, to: datePicker)
         viewModel.totalTime.signal.observeValues{ time in
@@ -161,15 +159,20 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    // MARK: - NoteViewControllerDelegate
+    
     func save(note: String) {
         viewModel.note.value = note
     }
+    
+    // MARK: - PlanesTableViewControllerDelegate
     
     func userDidSelect(planeViewModel: PlaneViewModel) {
         viewModel.setPlane(from: planeViewModel)
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.noteSegueIdentifier {
             if let noteVC = segue.destination.contentViewController as? NoteViewController {

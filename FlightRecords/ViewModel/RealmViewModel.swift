@@ -11,22 +11,13 @@ import RealmSwift
 import ReactiveSwift
 import Result
 
-/**
-    RealmViewModel handles all activity asociated with Realm.
- */
 class RealmViewModel {
-    /// notificationToken is Realm's object which is notified everytime Realm is changed.
+    
     internal var notificationToken: NotificationToken!
-    /// realm is a instance of Realm class
     internal var realm: Realm!
-    /// This variable can be observed for notifications about change in records list.
     let contentChangedSignal: Signal<Void, NoError>
-    /// To contentChangedObserver is send a value, everytime records list is updated.
     internal let contentChangedObserver: Signal<Void, NoError>.Observer
     
-    /**
-     Init function sets up Realm instance, logins user to Realm, sets up notifications and informs when all is set.
-     */
     init() {
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
         self.contentChangedSignal = contentChangedSignal
@@ -68,9 +59,6 @@ class RealmViewModel {
      */
     internal func notificationHandler(notification: Realm.Notification, realm: Realm) {}
     
-    /**
-     This function is a destructor, which stop Realm's notifications.
-     */
     deinit {
         notificationToken.invalidate()
     }

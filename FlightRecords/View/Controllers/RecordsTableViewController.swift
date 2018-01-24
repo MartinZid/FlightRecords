@@ -28,6 +28,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
     
+    // MARK: - SearchViewControllerDelegate
+    
     func apply(searchViewModel viewModel: SearchViewModel) {
         self.viewModel.apply(searchViewModel: viewModel)
     }

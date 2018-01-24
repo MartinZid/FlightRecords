@@ -8,17 +8,11 @@
 
 import UIKit
 
-/**
-    PlaneCell is UITableCell, which is used for each of user's planes in PlanesTableView.
- */
 class PlaneCell: UITableViewCell {
 
-    /// UILabel that displays planes's registration No.
     @IBOutlet weak var registrationLabel: UILabel!
-    /// UILabel that displays plane's type.
     @IBOutlet weak var typeLabel: UILabel!
     
-    /// viewModel prepares data for each label of PlaneCell.
     var viewModel: PlaneViewModel! {
         didSet {
             registrationLabel.text = viewModel.getRegistrationNumber()

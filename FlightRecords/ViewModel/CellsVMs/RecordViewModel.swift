@@ -17,11 +17,6 @@ class RecordViewModel {
         self.record = record
     }
     
-    /**
-     This function converts Record's date to String.
-     Format dd.MM.yyyy.
-     - Returns: dd.MM.yyyy String of Record's date, if the date is set. Or empty string if is not set.
-     */
     func getDate() -> String {
         let dateformatter = DateFormatter()
         
@@ -32,10 +27,6 @@ class RecordViewModel {
         return ""
     }
     
-    /**
-     This function takes Record's destinations (from and to) and combines them.
-     - Returns: String in format: from-to.
-     */
     func getDestinations() -> String {
         if record.type == .flight {
             let from = record.from ?? "N/A"
@@ -45,19 +36,14 @@ class RecordViewModel {
             return simulator
         }
     }
-    /**
-     getTime function converts Record's time to String and appends "h" (hours) to the end.
-     - Returns: Time String eg.: 8 h.
-     */
+
     func getTime() -> String {
         if let time = record.time {
             return time + " h"
         }
         return ""
     }
-    /**
-     - Returns: Record's plane.
-     */
+    
     func getRegistrationNumber() -> String {
         if record.type == .flight {
             return record.plane?.registrationNumber ?? NSLocalizedString("N/A", comment: "")

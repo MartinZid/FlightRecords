@@ -63,6 +63,7 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.noteSegueIdentifier {
             if let noteVC = segue.destination.contentViewController as? NoteViewController {

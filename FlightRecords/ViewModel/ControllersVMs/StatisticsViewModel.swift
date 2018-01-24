@@ -32,7 +32,6 @@ class StatisticsViewModel: RealmViewModel {
     
     private func updateList() {
         records = realm.objects(Record.self)
-        //recordsNotificationsToken = records?.observe(countStatistics)
         countStatistics()
     }
     
@@ -44,7 +43,7 @@ class StatisticsViewModel: RealmViewModel {
         countStatistics()
     }
     
-    private func countStatistics(/*changes: RealmCollectionChange<Results<Record>>*/) {
+    private func countStatistics() {
         if let records = records {
             totalTimeString.value = countTime(from: records.map{ dateFormatter.createTime(from: $0.time!) })
             nightTimeString.value = countTime(from: records.map{ $0.timeNight } )

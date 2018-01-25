@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 import ReactiveSwift
 import Result
+import CloudKit
 
 class RealmViewModel {
     
@@ -45,6 +46,15 @@ class RealmViewModel {
                 self.realmInitCompleted()
             }
         }
+        
+        iCloudUserIDAsync() {
+            recordID, error in
+            if let userID = recordID?.recordName {
+                print("received iCloudID \(userID)")
+            } else {
+                print("Fetched iCloudID was nil")
+            }
+        }
     }
     
     /**
@@ -61,5 +71,19 @@ class RealmViewModel {
     
     deinit {
         notificationToken.invalidate()
+    }
+    
+    func iCloudUserIDAsync(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
+        let container = CKContainer.default()
+        container.fetchUserRecordID() {
+            recordID, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                complete(nil, error)
+            } else {
+                print("fetched ID \(recordID?.recordName ?? "nothing")")
+                complete(recordID, nil)
+            }
+        }
     }
 }

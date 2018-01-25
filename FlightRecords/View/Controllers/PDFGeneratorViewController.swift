@@ -29,25 +29,25 @@ class PDFGeneratorViewController: UIViewController {
     
     private func generateHTMLString() -> String? {
         let pathToTable = Bundle.main.path(forResource: "table", ofType: "html")
-        let pathToItem = Bundle.main.path(forResource: "row", ofType: "html")
+//        let pathToItem = Bundle.main.path(forResource: "row", ofType: "html")
         
         do {
             var HTMLTable = try String(contentsOfFile: pathToTable!)
-            var HTMLRow = try String(contentsOfFile: pathToItem!)
-            
-            var items = ""
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#NUMBER", with: "1")
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#NAME", with: "Martin")
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#ITEM", with: "Guitar")
-            items += HTMLRow
-            
-            HTMLRow = try String(contentsOfFile: pathToItem!)
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#NUMBER", with: "2")
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#NAME", with: "Aja")
-            HTMLRow = HTMLRow.replacingOccurrences(of: "#ITEM", with: "Book")
-            items += HTMLRow
-            
-            HTMLTable = HTMLTable.replacingOccurrences(of: "#ITEM", with: items)
+//            var HTMLRow = try String(contentsOfFile: pathToItem!)
+//
+//            var items = ""
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#NUMBER", with: "1")
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#NAME", with: "Martin")
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#ITEM", with: "Guitar")
+//            items += HTMLRow
+//
+//            HTMLRow = try String(contentsOfFile: pathToItem!)
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#NUMBER", with: "2")
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#NAME", with: "Aja")
+//            HTMLRow = HTMLRow.replacingOccurrences(of: "#ITEM", with: "Book")
+//            items += HTMLRow
+//
+//            HTMLTable = HTMLTable.replacingOccurrences(of: "#ITEM", with: items)
             
             return HTMLTable
         } catch {

@@ -84,9 +84,9 @@
 		5BCF69031FA9C89700F19577 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69021FA9C89700F19577 /* NoteViewController.swift */; };
 		5BCF69051FA9D01E00F19577 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */; };
 		5BD49A8420188A4600711D47 /* PDFGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD49A8320188A4600711D47 /* PDFGeneratorViewController.swift */; };
-		5BD49A872018947800711D47 /* table.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BD49A852018947700711D47 /* table.html */; };
 		5BD49A882018947800711D47 /* row.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BD49A862018947700711D47 /* row.html */; };
 		5BD49A8B2018972600711D47 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD49A8A2018972600711D47 /* CustomPrintPageRenderer.swift */; };
+		5BD49A8F2019CC7F00711D47 /* table.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BD49A8E2019CC7F00711D47 /* table.html */; };
 		5BD6DC4C1FC81BB200140F34 /* search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD6DC4A1FC81BB200140F34 /* search.storyboard */; };
 		5BD6DC4E1FC81FEB00140F34 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6DC4D1FC81FEB00140F34 /* SearchViewController.swift */; };
 		5BD6DC501FC8201C00140F34 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6DC4F1FC8201C00140F34 /* SearchViewModel.swift */; };
@@ -191,9 +191,9 @@
 		5BCF69021FA9C89700F19577 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		5BCF69041FA9D01E00F19577 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		5BD49A8320188A4600711D47 /* PDFGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorViewController.swift; sourceTree = "<group>"; };
-		5BD49A852018947700711D47 /* table.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = table.html; sourceTree = "<group>"; };
 		5BD49A862018947700711D47 /* row.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = row.html; sourceTree = "<group>"; };
 		5BD49A8A2018972600711D47 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
+		5BD49A8E2019CC7F00711D47 /* table.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = table.html; sourceTree = "<group>"; };
 		5BD6DC4B1FC81BB200140F34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/search.storyboard; sourceTree = "<group>"; };
 		5BD6DC4D1FC81FEB00140F34 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5BD6DC4F1FC8201C00140F34 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -495,7 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				5BD49A862018947700711D47 /* row.html */,
-				5BD49A852018947700711D47 /* table.html */,
+				5BD49A8E2019CC7F00711D47 /* table.html */,
 			);
 			path = html;
 			sourceTree = "<group>";
@@ -613,7 +613,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD49A872018947800711D47 /* table.html in Resources */,
 				5BD49A882018947800711D47 /* row.html in Resources */,
 				5B001F021F97510F0055870A /* Localizable.strings in Resources */,
 				5B279BB11FAB441500090D7B /* planes.storyboard in Resources */,
@@ -628,6 +627,7 @@
 				5B92555820175A0100A47E4E /* icons8-airplane-50.png in Resources */,
 				5B92555A20175AE000A47E4E /* icons8-air-pilot-hat-50.png in Resources */,
 				5B73095D1F8015F70026152E /* Assets.xcassets in Resources */,
+				5BD49A8F2019CC7F00711D47 /* table.html in Resources */,
 				5B92555C20175B4600A47E4E /* icons8-futures-filled-50.png in Resources */,
 				5B73095B1F8015F70026152E /* Main.storyboard in Resources */,
 				5B92555E20175E5200A47E4E /* icons8-bulleted-list-50.png in Resources */,

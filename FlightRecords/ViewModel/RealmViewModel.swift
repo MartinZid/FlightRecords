@@ -18,41 +18,64 @@ class RealmViewModel {
     internal var realm: Realm!
     let contentChangedSignal: Signal<Void, NoError>
     internal let contentChangedObserver: Signal<Void, NoError>.Observer
+    private let url = "http://127.0.0.1:9080"
+//    pritate let url = "http://192.168.1.100:9080"
     
     init() {
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
         self.contentChangedSignal = contentChangedSignal
         self.contentChangedObserver = contentChangedObserver
-        
-        let username = "TestUser"
-        let password = "test"
-        let url = "http://127.0.0.1:9080"
-        //let url = "http://192.168.1.100:9080"
-        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false),
-                       server: URL(string: url)!) { user, error in
+
+        if let user = SyncUser.current {
+            setUpRealmInstance(with: user)
+        } else {
+            getUserICloudID() { [weak self]
+                recordID, error in
+                if let userID = recordID?.recordName {
+                    print("received iCloudID \(userID)")
+                    self?.logInUser(with: userID)
+                } else {
+                    print("Fetched iCloudID was nil")
+                }
+            }
+        }
+    }
+    
+    private func logInUser(with token: String) {
+        let cloudKitCredentials = SyncCredentials.cloudKit(token: token)
+        SyncUser.logIn(with: cloudKitCredentials, server: URL(string: url)!) { [weak self] user, error in
             guard let user = user else {
                 fatalError(String(describing: error))
             }
             DispatchQueue.main.async {
-                print("preparing Realm...")
-                let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords03")!)
-                )
-                self.realm = try! Realm(configuration: configuration)
-                
-                print("Realm instance set up")
-                
-                self.notificationToken = self.realm.observe(self.notificationHandler)
-                self.realmInitCompleted()
+                self?.setUpRealmInstance(with: user)
             }
         }
+    }
+    
+    private func setUpRealmInstance(with user: SyncUser) {
+        print("preparing Realm...")
+        let configuration = Realm.Configuration(
+            syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords03")!)
+        )
+        self.realm = try! Realm(configuration: configuration)
         
-        iCloudUserIDAsync() {
+        print("Realm instance set up")
+        
+        self.notificationToken = self.realm.observe(self.notificationHandler)
+        self.realmInitCompleted()
+    }
+    
+    private func getUserICloudID(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
+        let container = CKContainer.default()
+        container.fetchUserRecordID() {
             recordID, error in
-            if let userID = recordID?.recordName {
-                print("received iCloudID \(userID)")
+            if error != nil {
+                print(error!.localizedDescription)
+                complete(nil, error)
             } else {
-                print("Fetched iCloudID was nil")
+                print("fetched ID \(recordID?.recordName ?? "nothing")")
+                complete(recordID, nil)
             }
         }
     }
@@ -71,19 +94,5 @@ class RealmViewModel {
     
     deinit {
         notificationToken.invalidate()
-    }
-    
-    func iCloudUserIDAsync(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
-        let container = CKContainer.default()
-        container.fetchUserRecordID() {
-            recordID, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                complete(nil, error)
-            } else {
-                print("fetched ID \(recordID?.recordName ?? "nothing")")
-                complete(recordID, nil)
-            }
-        }
     }
 }

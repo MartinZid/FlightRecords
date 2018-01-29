@@ -18,8 +18,8 @@ class RealmViewModel {
     internal var realm: Realm!
     let contentChangedSignal: Signal<Void, NoError>
     internal let contentChangedObserver: Signal<Void, NoError>.Observer
-    private let url = "http://127.0.0.1:9080"
-//    pritate let url = "http://192.168.1.100:9080"
+    private let url = "127.0.0.1:9080"
+//    private let url = "192.168.1.101:9080"
     
     init() {
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
@@ -43,7 +43,7 @@ class RealmViewModel {
     
     private func logInUser(with token: String) {
         let cloudKitCredentials = SyncCredentials.cloudKit(token: token)
-        SyncUser.logIn(with: cloudKitCredentials, server: URL(string: url)!) { [weak self] user, error in
+        SyncUser.logIn(with: cloudKitCredentials, server: URL(string: "http://" + url)!) { [weak self] user, error in
             guard let user = user else {
                 fatalError(String(describing: error))
             }
@@ -56,7 +56,7 @@ class RealmViewModel {
     private func setUpRealmInstance(with user: SyncUser) {
         print("preparing Realm...")
         let configuration = Realm.Configuration(
-            syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/testrecords03")!)
+            syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://" + url + "/~/testrecords03")!)
         )
         self.realm = try! Realm(configuration: configuration)
         

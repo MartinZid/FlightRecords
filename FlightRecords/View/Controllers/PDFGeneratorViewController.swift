@@ -15,24 +15,24 @@ class PDFGeneratorViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     
     private var pdfFilename = ""
+    var viewModel: PDFGeneratorViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pathToTable = Bundle.main.path(forResource: "table", ofType: "html")
-        webView.loadHTMLString(generateHTMLString()!, baseURL: URL(fileURLWithPath: pathToTable!))
+        webView.loadHTMLString(viewModel.generateHTMLString()!, baseURL: nil)
     }
     
     @IBAction func generate(_ sender: Any) {
-        exportHTMLContentToPDF(HTMLContent: generateHTMLString()!)
+        exportHTMLContentToPDF(HTMLContent: viewModel.generateHTMLString()!)
         showOptionsAlert()
     }
     
-    private func generateHTMLString() -> String? {
-        let pathToTable = Bundle.main.path(forResource: "table", ofType: "html")
+//    private func generateHTMLString() -> String? {
+//        let pathToTable = Bundle.main.path(forResource: "table", ofType: "html")
 //        let pathToItem = Bundle.main.path(forResource: "row", ofType: "html")
-        
-        do {
-            var HTMLTable = try String(contentsOfFile: pathToTable!)
+//
+//        do {
+//            var HTMLTable = try String(contentsOfFile: pathToTable!)
 //            var HTMLRow = try String(contentsOfFile: pathToItem!)
 //
 //            var items = ""
@@ -48,20 +48,20 @@ class PDFGeneratorViewController: UIViewController {
 //            items += HTMLRow
 //
 //            HTMLTable = HTMLTable.replacingOccurrences(of: "#ITEM", with: items)
-            
-            return HTMLTable
-        } catch {
-            print("Unable to open and use HTML template files.")
-        }
-        return nil
-    }
+//
+//            return HTMLTable
+//        } catch {
+//            print("Unable to open and use HTML template files.")
+//        }
+//        return nil
+//    }
     
     private func exportHTMLContentToPDF(HTMLContent: String) {
         let printPageRenderer = CustomPrintPageRenderer()
         
         let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
-        
+
         let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
         
         //let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -77,9 +77,13 @@ class PDFGeneratorViewController: UIViewController {
         
         UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
         
-        UIGraphicsBeginPDFPage()
-        
-        printPageRenderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
+        for i in 1...viewModel.numberOfPages() {
+            UIGraphicsBeginPDFPage();
+            printPageRenderer.drawPage(at: i - 1, in: UIGraphicsGetPDFContextBounds())
+        }
+//        UIGraphicsBeginPDFPage()
+//
+//        printPageRenderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
         
         UIGraphicsEndPDFContext()
         
@@ -121,15 +125,4 @@ class PDFGeneratorViewController: UIViewController {
             present(mailComposeViewController, animated: true, completion: nil)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

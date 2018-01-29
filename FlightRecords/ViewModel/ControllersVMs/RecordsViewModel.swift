@@ -52,6 +52,10 @@ class RecordsViewModel: RealmTableViewModel<Record> {
         return SearchViewModel(with: filter.searchConfiguration)
     }
     
+    func getPDFGeneratorViewModel() -> PDFGeneratorViewModel {
+        return PDFGeneratorViewModel(with: collection)
+    }
+    
     func apply(searchViewModel: SearchViewModel) {
         filter.searchConfiguration = searchViewModel.getConfiguration()
         filterRecords()

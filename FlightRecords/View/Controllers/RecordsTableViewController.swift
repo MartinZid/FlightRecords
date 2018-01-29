@@ -17,6 +17,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         static let recordCellIdentifier = "RecordCell"
         static let addFlightRecordSB = "addFlightRecord"
         static let addSimulatorRecordSB = "addSimulatorRecord"
+        static let pdfSegueIdentifier = "PDF"
     }
     
     override func viewDidLoad() {
@@ -86,6 +87,11 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
             if let searchVC = segue.destination.contentViewController as? SearchViewController {
                 searchVC.delegate = self
                 searchVC.viewModel = viewModel.getSearchViewModel()
+            }
+        }
+        if segue.identifier == Identifiers.pdfSegueIdentifier {
+            if let pdfVC = segue.destination.contentViewController as? PDFGeneratorViewController {
+                pdfVC.viewModel = viewModel.getPDFGeneratorViewModel()
             }
         }
     }

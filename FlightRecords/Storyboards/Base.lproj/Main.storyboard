@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h69-v2-waA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h69-v2-waA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -107,7 +107,7 @@
                     <navigationItem key="navigationItem" title="Záznamy" id="KQs-tF-GQT">
                         <barButtonItem key="leftBarButtonItem" title="PDF" id="G3k-iZ-0tf">
                             <connections>
-                                <segue destination="Azj-yp-wu6" kind="show" id="foM-iG-ktV"/>
+                                <segue destination="0IV-ax-pi0" kind="show" identifier="PDF" id="lzs-m7-jnW"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -262,7 +262,7 @@
                         <viewLayoutGuide key="safeArea" id="7LU-XN-exT"/>
                     </view>
                     <navigationItem key="navigationItem" id="qNO-LR-CeM">
-                        <barButtonItem key="rightBarButtonItem" title="Generate" id="kyy-Aj-ju2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="kyy-Aj-ju2">
                             <connections>
                                 <action selector="generate:" destination="0IV-ax-pi0" id="idT-Fh-ILE"/>
                             </connections>
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8o-p4-lM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-2005"/>
+            <point key="canvasLocation" x="260" y="-1926"/>
         </scene>
         <!--search-->
         <scene sceneID="Zz0-r8-f0N">
@@ -330,24 +330,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDs-hc-2q3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2651" y="-154"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DWD-l9-eW0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Azj-yp-wu6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p3G-hd-ujK">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0IV-ax-pi0" kind="relationship" relationship="rootViewController" id="VqL-ab-mF3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CjF-wo-odU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="298" y="-2006"/>
         </scene>
     </scenes>
     <resources>

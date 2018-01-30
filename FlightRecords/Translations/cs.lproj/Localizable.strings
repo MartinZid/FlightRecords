@@ -23,3 +23,38 @@
 "Add new certificate" = "Přidat certifikát";
 "Edit certificate" = "Upravit certifikát";
 
+"Date" = "DATUM <br>(dd/mm/rr)";
+"Departure" = "ODLET";
+"Arrival" = "PŘÍLET";
+"Single pilot" = "JEDNO <br>PILOTNÍ";
+"Multi pilot" = "VÍCE-<br>PILOTNÍ";
+"Total time" = "CELKOVÁ DOBA LETU";
+"PIC name" = "JMÉNO PIC";
+"Takeoffs" = "VZLETY";
+"Landings" = "PŘISTÁNÍ";
+"Place" = "MÍSTO";
+"Time" = "ČAS";
+"TMV" = "TYP, MODEL, VARIANTA";
+"RegNo" = "POZNÁVACÍ ZNAČKA";
+"DayBR" = "D<br>E<br>N";
+"NightBR" = "N<br>O<br>C";
+"This page total" = "CELKEM NA TÉTO STRANĚ";
+"Prev pages total" = "CELKEM Z PŘEDCHOZÍCH STRAN";
+"Total time" = "CELKOVÁ DOBA";
+"Condition time" = "DOBA V PROVOZNÍCH PODMÍNKÁCH";
+"Pilot time" = "DOBA V PILOTNÍ FUNKCI";
+"Simulator records" = "ZÁZNAM ZE SIMULÁTORU";
+"Notes" = "POZNÁMKY A POTVRZENÍ";
+"Night" = "NOC";
+"PIC" = "VELÍCÍ PILOT";
+"CO" = "DRUHÝ PILOT";
+"Dual" = "DVOJÍ";
+"Instructor" = "INSTRUKTOR";
+"Type" = "TYP";
+"Total time2" = "CELKOVÝ ČAS";
+"Certification" = "POTVRZUJI, ŽE ZÁZNAMY V TOMTO ZÁPISNÍKU JSOU PRAVDIVÉ";
+"Pilot's signature" = "PODPIS PILOTA";
+
+
+
+

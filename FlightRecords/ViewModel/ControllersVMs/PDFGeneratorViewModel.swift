@@ -65,7 +65,6 @@ class PDFGeneratorViewModel {
         static let fstdType = "#FSTDTYPE"
         static let fstdTime = "#FSTDTIME"
         static let note = "#NOTE"
-        
     }
     
     private enum DateTime {
@@ -86,6 +85,7 @@ class PDFGeneratorViewModel {
         do {
             var layout = try String(contentsOfFile: pathToLayout!)
             layout = layout.replacingOccurrences(of: Marks.table, with: try generateTables())
+            layout = localising(html: layout)
             return layout
         } catch {
             print("Unable to open and use HTML files.")
@@ -279,6 +279,44 @@ class PDFGeneratorViewModel {
             dateFormatter.countTime(from: records!.filter{ $0.type == .simulator }.map{ dateFormatter.createTime(from: $0.time!) }) : "" )
         
         return row
+    }
+    
+    private func localising(html: String) -> String {
+        var localizedHTML = html
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THDATE", with: NSLocalizedString("Date", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THDEPARTURE", with: NSLocalizedString("Departure", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THARRIVAL", with: NSLocalizedString("Arrival", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPLANE", with: NSLocalizedString("Plane", comment: "").uppercased())
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THSINGLEPILOT", with: NSLocalizedString("Single pilot", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THMULTIPILOT", with: NSLocalizedString("Multi pilot", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTOTALTIME", with: NSLocalizedString("Total time", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPIC", with: NSLocalizedString("PIC name", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTKO", with: NSLocalizedString("Takeoffs", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THLDG", with: NSLocalizedString("Landings", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPLACE", with: NSLocalizedString("Place", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTIME", with: NSLocalizedString("Time", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTMV", with: NSLocalizedString("TMV", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THREGNO", with: NSLocalizedString("RegNo", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THDAYBR", with: NSLocalizedString("DayBR", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THNIGHTBR", with: NSLocalizedString("NightBR", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTHISPAGE", with: NSLocalizedString("This page total", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPREVPAGES", with: NSLocalizedString("Prev pages total", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTOTALTIME", with: NSLocalizedString("Total time", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THCONDITIONTIME", with: NSLocalizedString("Condition time", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPILOTTIME", with: NSLocalizedString("Pilot time", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THSIMULATOR", with: NSLocalizedString("Simulator records", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THNOTES", with: NSLocalizedString("Notes", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THNIGHT", with: NSLocalizedString("Night", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THPIC", with: NSLocalizedString("PIC", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THCO", with: NSLocalizedString("CO", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THDUAL", with: NSLocalizedString("Dual", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THINSTRUCTOR", with: NSLocalizedString("Instructor", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#THTYPE", with: NSLocalizedString("Type", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#TH2TOTALTIME", with: NSLocalizedString("Total time2", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#CERTIFICATION", with: NSLocalizedString("Certification", comment: ""))
+        localizedHTML = localizedHTML.replacingOccurrences(of: "#SIGNATURE", with: NSLocalizedString("Pilot's signature", comment: ""))
+        
+        return localizedHTML
     }
 }
 

@@ -12,47 +12,46 @@
         </tr>
         <tr>
             <th rowspan="2">
-                DATUM <br>
-                (dd/mm/rr)
+                #THDATE
             </th>
-            <th colspan="2">ODLET</th>
-            <th colspan="2">PŘÍLET</th>
-            <th colspan="2">LETADLO</th>
-            <th colspan="2">JEDNO-<br> PILOTNÍ</th>
-            <th rowspan="2">VÍCE-<br>PILOTNÍ</th>
-            <th rowspan="2">CELKOVÁ DOBA LETU</th>
-            <th rowspan="2">JMÉNO PIC</th>
-            <th width="6%" colspan="2">VZLETY</th>
-            <th width="6%" colspan="2">PŘISTÁNÍ</th>
+            <th colspan="2">#THDEPARTURE</th>
+            <th colspan="2">#THARRIVAL</th>
+            <th colspan="2">#THPLANE</th>
+            <th colspan="2">#THSINGLEPILOT</th>
+            <th rowspan="2">#THMULTIPILOT</th>
+            <th rowspan="2">#THTOTALTIME</th>
+            <th rowspan="2">#THPIC</th>
+            <th width="6%" colspan="2">#THTKO</th>
+            <th width="6%" colspan="2">#THLDG</th>
         </tr>
         <tr class="thickline-bottom">
-            <th>MÍSTO</th>
-            <th>ČAS</th>
-            <th>MÍSTO</th>
-            <th>ČAS</th>
-            <th>TYP, MODEL, VARIANTA</th>
-            <th>POZNÁVACÍ ZNAČKA</th>
+            <th>#THPLACE</th>
+            <th>#THTIME</th>
+            <th>#THPLACE</th>
+            <th>#THTIME</th>
+            <th>#THTMV</th>
+            <th>#THREGNO</th>
             <th width="2%">SE</th>
             <th width="2%">ME</th>
-            <th>D<br>E<br>N</th>
-            <th>N<br>O<br>C</th>
-            <th>D<br>E<br>N</th>
-            <th>N<br>O<br>C</th>
+            <th>#THDAYBR</th>
+            <th>#THNIGHTBR</th>
+            <th>#THDAYBR</th>
+            <th>#THNIGHTBR</th>
         </tr>
         
         #ROW01
         
         <tr class="thickline-top">
             <th colspan="5" rowspan="3"></th>
-            <th colspan="4">CELKEM NA TÉTO STRANĚ</th>
+            <th colspan="4">#THTHISPAGE</th>
             #THISPAGE01
         </tr>
         <tr>
-            <th colspan="4">CELKEM Z PŘEDCHOZÍCH STRAN</th>
+            <th colspan="4">#THPREVPAGES</th>
             #PREVPAGES01
         </tr>
         <tr style="border-top: double;">
-            <th colspan="4">CELKOVÁ DOBA</th>
+            <th colspan="4">#THTOTALTIME</th>
             #TOTAL01
         </tr>
     </table>
@@ -65,24 +64,23 @@
             <th width="35%">12</th>
         </tr>
         <tr>
-            <th colspan="2">DOBA V PROVOZNÍCH PODMÍNKÁCH</th>
-            <th colspan="4">DOBA V PILOTNÍ FUNKCI</th>
-            <th colspan="3">ZÁZNAM ZE SIMULÁTORU</th>
-            <th rowspan="2">POZNÁMKY A POTVRZENÍ</th>
+            <th colspan="2">#THCONDITIONTIME</th>
+            <th colspan="4">#THPILOTTIME</th>
+            <th colspan="3">#THSIMULATOR</th>
+            <th rowspan="2">#THNOTES</th>
         </tr>
         <tr class="thickline-bottom">
-            <th width="5%">NOC</th>
+            <th width="5%">#THNIGHT</th>
             <th width="5%">IFR</th>
-            <th width="6%">VELÍCÍ PILOT</th>
-            <th width="6%">DRUHÝ PILOT</th>
-            <th width="6%">DVOJÍ</th>
-            <th width="6%">INSTRUKTOR</th>
+            <th width="6%">#THPIC</th>
+            <th width="6%">#THCO</th>
+            <th width="6%">#THDUAL</th>
+            <th width="6%">#THINSTRUCTOR</th>
             <th width="5%">
-                DATUM <br>
-                (dd/mm/rr)
+                #THDATE
             </th>
-            <th width="11%">TYP</th>
-            <th width="5%">CELKOVÝ ČAS</th>
+            <th width="11%">#THTYPE</th>
+            <th width="5%">#TH2TOTALTIME</th>
         </tr>
         
         #ROW02
@@ -90,7 +88,7 @@
         <tr class="thickline-top">
             #THISPAGE02
             <td style="text-align: center; border-bottom: none;">
-                POTVRZUJI, ŽE ZÁZNAMY V TOMTO ZÁPISNÍKU JSOU PRAVDIVÉ
+                #CERTIFICATION
             </td>
         </tr>
         <tr>
@@ -101,7 +99,7 @@
             #TOTAL02
             <td style="border: none !important; text-align: center;">
                 ....................................................................................<br>
-                PODPIS PILOTA
+                #SIGNATURE
             </td>
         </tr>
     </table>

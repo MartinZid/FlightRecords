@@ -23,14 +23,20 @@ class PDFGeneratorViewModel {
         static let thisPageSumRow2 = "thisPageRow02"
         static let prevPagesSumRow1 = "prevPagesRow01"
         static let prevPagesSumRow2 = "prevPagesRow02"
-        static let allPagesSumRow1 = "totalRow01"
-        static let allPagesSumRow2 = "totalRow02"
+        static let totalRow1 = "totalRow01"
+        static let totalRow2 = "totalRow02"
     }
     
     private struct Marks {
         static let table = "#TABLE"
         static let basicRow1 = "#ROW01"
         static let basicRow2 = "#ROW02"
+        static let thisPage1 = "#THISPAGE01"
+        static let thisPage2 = "#THISPAGE02"
+        static let prevPages1 = "#PREVPAGES01"
+        static let prevPages2 = "#PREVPAGES02"
+        static let totalSum1 = "#TOTAL01"
+        static let totalSum2 = "#TOTAL02"
         
         static let date = "#DATE"
         static let from = "#DEPPLACE"
@@ -106,16 +112,52 @@ class PDFGeneratorViewModel {
         return contents
     }
     
+    private func fisrtRecordOn(page: Int) -> Int {
+        return recordOnPage * (page - 1)
+    }
+    
+    private func lastRecordOn(page: Int) -> Int {
+        var index = 0
+        if let records = records {
+            index = recordOnPage * page - 1
+            if index >= records.count {
+                index = records.count - 1
+            }
+        }
+        return index
+    }
+    
     private func generateTable(for page: Int) throws -> String {
         var table = try getContentsOfHTMLFile(for: HTMLFiles.table)
+        
+        let first = fisrtRecordOn(page: page)
+        let last = lastRecordOn(page: page)
+        var thisPageRecords: [Record]? = nil
+        var prevPagesRecords: [Record]? = nil
+        var totalPageRecords: [Record]? = nil
+        if let records = records {
+            thisPageRecords = Array(records[first...last])
+            if page != 1 {
+                let prevPageFirst = fisrtRecordOn(page: page-1)
+                let prevPageLast = lastRecordOn(page: page-1)
+                prevPagesRecords = Array(records[prevPageFirst...prevPageLast])
+            }
+            totalPageRecords = Array(records[0...last])
+        }
         table = table.replacingOccurrences(of: Marks.basicRow1, with: try generateTableRows(for: page, generate: generateFirstTableRow))
         table = table.replacingOccurrences(of: Marks.basicRow2, with: try generateTableRows(for: page, generate: generateSecondTableRow))
+        table = table.replacingOccurrences(of: Marks.thisPage1, with: try countFirstTableSums(from: thisPageRecords, template: HTMLFiles.thisPageSumRow1))
+        table = table.replacingOccurrences(of: Marks.thisPage2, with: try countSecondsTableSums(from: thisPageRecords, template: HTMLFiles.thisPageSumRow2))
+        table = table.replacingOccurrences(of: Marks.prevPages1, with: try countFirstTableSums(from: prevPagesRecords, template: HTMLFiles.prevPagesSumRow1))
+        table = table.replacingOccurrences(of: Marks.prevPages2, with: try countSecondsTableSums(from: prevPagesRecords, template: HTMLFiles.prevPagesSumRow2))
+        table = table.replacingOccurrences(of: Marks.totalSum1, with: try countFirstTableSums(from: totalPageRecords, template: HTMLFiles.totalRow1))
+        table = table.replacingOccurrences(of: Marks.totalSum2, with: try countSecondsTableSums(from: totalPageRecords, template: HTMLFiles.totalRow2))
         return table
     }
     
     private func generateTableRows(for page: Int, generate: (Record?) throws -> String) throws -> String {
         var rows = ""
-        let pageStart = recordOnPage * (page - 1)
+        let pageStart = fisrtRecordOn(page: page)
         let pageEnd = recordOnPage * page - 1
         for index in pageStart...pageEnd {
             var record: Record? = nil
@@ -194,6 +236,47 @@ class PDFGeneratorViewModel {
         row = row.replacingOccurrences(of: Marks.fstdType, with: (record?.type == .simulator) ? record?.simulator ?? "" : "")
         row = row.replacingOccurrences(of: Marks.fstdTime, with: (record?.type == .simulator) ? record?.time ?? "" : "")
         row = row.replacingOccurrences(of: Marks.note, with: record?.note ?? "")
+        
+        return row
+    }
+    
+    private func reduceSumToString(from values: [Int]) -> String {
+        return String(values.reduce(0) { $0 + $1 })
+    }
+    
+    private func countFirstTableSums(from records: [Record]?, template: String) throws -> String {
+        var row = try getContentsOfHTMLFile(for: template)
+        
+        row = row.replacingOccurrences(of: Marks.multiPilot, with: "")
+        row = row.replacingOccurrences(of: Marks.flightTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.filter{ $0.type == .flight }.map{ dateFormatter.createTime(from: $0.time!) }) : "" )
+        row = row.replacingOccurrences(of: Marks.pic, with: "" )
+        row = row.replacingOccurrences(of: Marks.tkoDay, with: (records != nil) ? reduceSumToString(from: records!.map{ Int($0.tkoDay) }) : "")
+        row = row.replacingOccurrences(of: Marks.tkoNight, with: (records != nil) ? reduceSumToString(from: records!.map{ Int($0.tkoNight) }) : "")
+        row = row.replacingOccurrences(of: Marks.ldgDay, with: (records != nil) ? reduceSumToString(from: records!.map{ Int($0.ldgDay) }) : "")
+        row = row.replacingOccurrences(of: Marks.ldgNight, with: (records != nil) ? reduceSumToString(from: records!.map{ Int($0.ldgNight) }) : "")
+        return row
+    }
+    
+    private func countSecondsTableSums(from records: [Record]?, template: String) throws -> String {
+        var row = try getContentsOfHTMLFile(for: template)
+        
+        row = row.replacingOccurrences(of: Marks.nightTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timeNight }) : "" )
+        row = row.replacingOccurrences(of: Marks.ifrTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timeIFR }) : "" )
+        row = row.replacingOccurrences(of: Marks.picTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timePIC }) : "" )
+        row = row.replacingOccurrences(of: Marks.coTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timeCO }) : "" )
+        row = row.replacingOccurrences(of: Marks.dualTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timeDUAL }) : "" )
+        row = row.replacingOccurrences(of: Marks.instructorTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.map{ $0.timeInstructor }) : "" )
+        row = row.replacingOccurrences(of: Marks.fstdDate, with: "" )
+        row = row.replacingOccurrences(of: Marks.fstdType, with: "" )
+        row = row.replacingOccurrences(of: Marks.fstdTime, with: (records != nil) ?
+            dateFormatter.countTime(from: records!.filter{ $0.type == .simulator }.map{ dateFormatter.createTime(from: $0.time!) }) : "" )
         
         return row
     }

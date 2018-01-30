@@ -81,12 +81,7 @@ class PDFGeneratorViewController: UIViewController {
             UIGraphicsBeginPDFPage();
             printPageRenderer.drawPage(at: i - 1, in: UIGraphicsGetPDFContextBounds())
         }
-//        UIGraphicsBeginPDFPage()
-//
-//        printPageRenderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
-        
         UIGraphicsEndPDFContext()
-        
         return data
     }
     

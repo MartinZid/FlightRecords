@@ -93,6 +93,21 @@ extension DateFormatter {
         components.month = components.month! + months
         return calendar.date(from: components)!
     }
+    
+    func countTime(from array: [Date?]) -> String {
+        var hours = 0
+        var minutes = 0
+        for elem in array {
+            if let time = elem {
+                let components = getDateComponents(from: time)
+                hours += components.hour!
+                minutes += components.minute!
+            }
+        }
+        hours += minutes/60
+        minutes = minutes % 60
+        return String(hours) + ":" + String(format: "%02d", minutes)
+    }
 }
 
 

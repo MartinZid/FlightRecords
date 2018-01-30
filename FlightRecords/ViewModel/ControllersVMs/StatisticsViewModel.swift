@@ -45,29 +45,14 @@ class StatisticsViewModel: RealmViewModel {
     
     private func countStatistics() {
         if let records = records {
-            totalTimeString.value = countTime(from: records.map{ dateFormatter.createTime(from: $0.time!) })
-            nightTimeString.value = countTime(from: records.map{ $0.timeNight } )
-            ifrTimeString.value = countTime(from: records.map{ $0.timeIFR } )
-            picTimeString.value = countTime(from: records.map{ $0.timePIC } )
-            coTimeString.value = countTime(from: records.map{ $0.timeCO } )
-            dualTimeString.value = countTime(from: records.map{ $0.timeDUAL } )
-            instructorTimeString.value = countTime(from: records.map{ $0.timeInstructor } )
+            totalTimeString.value = dateFormatter.countTime(from: records.map{ dateFormatter.createTime(from: $0.time!) })
+            nightTimeString.value = dateFormatter.countTime(from: records.map{ $0.timeNight } )
+            ifrTimeString.value = dateFormatter.countTime(from: records.map{ $0.timeIFR } )
+            picTimeString.value = dateFormatter.countTime(from: records.map{ $0.timePIC } )
+            coTimeString.value = dateFormatter.countTime(from: records.map{ $0.timeCO } )
+            dualTimeString.value = dateFormatter.countTime(from: records.map{ $0.timeDUAL } )
+            instructorTimeString.value = dateFormatter.countTime(from: records.map{ $0.timeInstructor } )
         }
-    }
-    
-    private func countTime(from array: [Date?]) -> String {
-        var hours = 0
-        var minutes = 0
-        for elem in array {
-            if let time = elem {
-                let components = dateFormatter.getDateComponents(from: time)
-                hours += components.hour!
-                minutes += components.minute!
-            }
-        }
-        hours += minutes/60
-        minutes = minutes % 60
-        return String(hours) + ":" + String(format: "%02d", minutes)
     }
     
     deinit {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Jq-Hx-ujm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wNu-Jb-wFZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         <!--Profil-->
         <scene sceneID="JhO-v9-q1r">
             <objects>
-                <tableViewController id="ipP-2f-WxR" sceneMemberID="viewController">
+                <tableViewController id="ipP-2f-WxR" customClass="ProfileViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iUf-vC-W5r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="1Xz-ji-b1V" kind="show" id="5oW-co-NMg"/>
+                                            <segue destination="Mx6-8V-o3l" kind="showDetail" id="0VW-eA-6vz"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ZoN-oT-LJ9">
@@ -65,7 +65,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Uwb-0j-aCo" kind="show" id="kEp-lx-xcH"/>
+                                            <segue destination="Uwb-0j-aCo" kind="showDetail" id="nk3-GL-29E"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Hdh-QR-TD8">
@@ -89,7 +89,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Uhl-eo-o52" kind="show" id="O5w-rn-wkx"/>
+                                            <segue destination="Uhl-eo-o52" kind="showDetail" id="SpN-hr-o6f"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -276,13 +276,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA6-IW-b0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-396"/>
+            <point key="canvasLocation" x="1402" y="-891"/>
+        </scene>
+        <!--Profil-->
+        <scene sceneID="yxJ-3w-hUp">
+            <objects>
+                <splitViewController id="wNu-Jb-wFZ" customClass="SplitViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profil" image="icons8-air-pilot-hat-50.png" id="kRH-iD-j8c"/>
+                    <connections>
+                        <segue destination="3Jq-Hx-ujm" kind="relationship" relationship="masterViewController" id="fCU-cZ-RGz"/>
+                        <segue destination="Mx6-8V-o3l" kind="relationship" relationship="detailViewController" id="4qt-th-rzP"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xnc-Wt-Zp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2775" y="-105"/>
         </scene>
         <!--Profil-->
         <scene sceneID="09l-rU-usC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Jq-Hx-ujm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profil" image="icons8-air-pilot-hat-50.png" id="w6L-fX-Hwz"/>
+                    <tabBarItem key="tabBarItem" title="Profil" image="icons8-air-pilot-hat-50.png" id="Thd-Nb-B6P"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="16F-1A-6xd">
@@ -296,7 +310,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwb-m4-Qyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1329.5999999999999" y="-103.44827586206897"/>
+            <point key="canvasLocation" x="-1487" y="-106"/>
         </scene>
         <!--medicalCertificates-->
         <scene sceneID="jxt-Oy-fmK">
@@ -304,7 +318,7 @@
                 <viewControllerPlaceholder storyboardName="medicalCertificates" id="Uwb-0j-aCo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p28-GZ-28V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="54"/>
+            <point key="canvasLocation" x="538" y="10"/>
         </scene>
         <!--statistics-->
         <scene sceneID="y51-e1-YKc">
@@ -312,10 +326,31 @@
                 <viewControllerPlaceholder storyboardName="statistics" id="Uhl-eo-o52" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkh-dT-F38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="484"/>
+            <point key="canvasLocation" x="489" y="-107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Di-MW-ry6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mx6-8V-o3l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PjV-hF-7A3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Xz-ji-b1V" kind="relationship" relationship="rootViewController" id="ZeD-Ni-i0B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Exa-qk-D48" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="-891"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-air-pilot-hat-50.png" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4qt-th-rzP"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -78,6 +78,7 @@
 		5BA8DE051FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */; };
 		5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */; };
 		5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */; };
+		5BC0D2BC202214050069A2D9 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0D2BB202214050069A2D9 /* SplitViewController.swift */; };
 		5BC363AD201A031400CC91A2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC363AC201A031400CC91A2 /* CloudKit.framework */; };
 		5BC363AF201A0DCF00CC91A2 /* row02.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BC363AE201A0DCF00CC91A2 /* row02.html */; };
 		5BC363B1201A0F0600CC91A2 /* thisPageRow01.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BC363B0201A0F0600CC91A2 /* thisPageRow01.html */; };
@@ -195,6 +196,7 @@
 		5BA8DE041FB4CB5800A7A5A4 /* AddPlaneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModelTests.swift; sourceTree = "<group>"; };
 		5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesTableViewControllerTests.swift; sourceTree = "<group>"; };
 		5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanesViewModelTests.swift; sourceTree = "<group>"; };
+		5BC0D2BB202214050069A2D9 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BC363AC201A031400CC91A2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5BC363AE201A0DCF00CC91A2 /* row02.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = row02.html; sourceTree = "<group>"; };
 		5BC363B0201A0F0600CC91A2 /* thisPageRow01.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = thisPageRow01.html; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				5B0C4D4D1FEBA592001CBF24 /* AddMedicalCertificateViewController.swift */,
 				5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */,
 				5BD49A8320188A4600711D47 /* PDFGeneratorViewController.swift */,
+				5BC0D2BB202214050069A2D9 /* SplitViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				5B7309561F8015F70026152E /* AppDelegate.swift in Sources */,
 				5B189CC81F8F54F3000B25FB /* RecordViewModel.swift in Sources */,
 				5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */,
+				5BC0D2BC202214050069A2D9 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

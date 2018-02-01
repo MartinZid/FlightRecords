@@ -235,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="2255" y="-487"/>
         </scene>
-        <!--Generator View Controller-->
+        <!--Náhled-->
         <scene sceneID="AYv-nD-vIc">
             <objects>
                 <viewController id="0IV-ax-pi0" customClass="PDFGeneratorViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
@@ -261,7 +261,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7LU-XN-exT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qNO-LR-CeM">
+                    <navigationItem key="navigationItem" title="Náhled" id="qNO-LR-CeM">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="kyy-Aj-ju2">
                             <connections>
                                 <action selector="generate:" destination="0IV-ax-pi0" id="idT-Fh-ILE"/>

@@ -32,12 +32,13 @@ class PersonalInformationsViewModelTests: TestCaseBase {
     
     func testObserversNotificationAfterDataIsSet() {
         let promise = expectation(description: "observers recieved notification")
-        viewModelUnderTest.realm = setUpRealm()
-        viewModelUnderTest.realmInitCompleted()
         
         viewModelUnderTest.dataSetSignal.observeValues {
             promise.fulfill()
         }
+        
+        viewModelUnderTest.realm = setUpRealm()
+        viewModelUnderTest.realmInitCompleted()
         
         waitForExpectations(timeout: 5, handler: nil)
     }
@@ -65,13 +66,12 @@ class PersonalInformationsViewModelTests: TestCaseBase {
     
     func testSaveInfo() {
         viewModelUnderTest.realm = setUpRealm()
+        viewModelUnderTest.realmInitCompleted()
         viewModelUnderTest.birthDay.value = dateFormatter.createDate(hours: 1, minutes: 0)
         viewModelUnderTest.surname.value = "Snow"
-        
         viewModelUnderTest.saveInfo()
         
         let savedInfo = viewModelUnderTest.realm.objects(PersonalInformations.self).first
-        
         XCTAssertEqual(savedInfo?.birthDay, dateFormatter.createDate(hours: 1, minutes: 0), "Saved info has wrong properties.")
         XCTAssertEqual(savedInfo?.surname, "Snow", "Saved info has wrong properties.")
     }

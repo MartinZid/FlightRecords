@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pbt-cA-dG7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pbt-cA-dG7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,6 +37,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="dateFieldEditing:" destination="Pbt-cA-dG7" eventType="editingDidBegin" id="bZa-mE-KIX"/>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="BJV-hp-dMp"/>
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPZ-q2-xLN">
@@ -51,7 +52,7 @@
                                                 <constraint firstItem="bVJ-to-ey5" firstAttribute="centerY" secondItem="vb7-ns-ah3" secondAttribute="centerY" id="Lgd-vg-rLI"/>
                                                 <constraint firstItem="bPZ-q2-xLN" firstAttribute="centerY" secondItem="vb7-ns-ah3" secondAttribute="centerY" id="LhJ-45-kiT"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bPZ-q2-xLN" secondAttribute="trailing" constant="20" symbolic="YES" id="Weq-eK-66K"/>
-                                                <constraint firstItem="bVJ-to-ey5" firstAttribute="leading" secondItem="vb7-ns-ah3" secondAttribute="centerX" symbolic="YES" id="cOq-lc-ted"/>
+                                                <constraint firstItem="bVJ-to-ey5" firstAttribute="leading" secondItem="vb7-ns-ah3" secondAttribute="centerX" id="cOq-lc-ted"/>
                                                 <constraint firstItem="bPZ-q2-xLN" firstAttribute="leading" secondItem="vb7-ns-ah3" secondAttribute="leading" constant="20" symbolic="YES" id="iEF-gq-52W"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -77,11 +78,14 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="Y0f-n8-ASg"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="idq-lD-UOQ" firstAttribute="centerY" secondItem="bzu-jW-BgR" secondAttribute="centerY" id="6SR-MJ-e41"/>
-                                                <constraint firstItem="KzX-e7-lFG" firstAttribute="leading" secondItem="bzu-jW-BgR" secondAttribute="centerX" symbolic="YES" id="eQt-Av-Jhc"/>
+                                                <constraint firstItem="KzX-e7-lFG" firstAttribute="leading" secondItem="bzu-jW-BgR" secondAttribute="centerX" id="eQt-Av-Jhc"/>
                                                 <constraint firstItem="idq-lD-UOQ" firstAttribute="leading" secondItem="bzu-jW-BgR" secondAttribute="leading" constant="20" symbolic="YES" id="pt5-fN-qAC"/>
                                                 <constraint firstItem="KzX-e7-lFG" firstAttribute="centerY" secondItem="bzu-jW-BgR" secondAttribute="centerY" id="rx9-c4-YPf"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="idq-lD-UOQ" secondAttribute="trailing" constant="20" symbolic="YES" id="sZE-GG-59A"/>
@@ -111,12 +115,13 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="gCj-uL-XFy"/>
                                                         <action selector="timeTKOFieldEditing:" destination="Pbt-cA-dG7" eventType="editingDidBegin" id="hFW-n7-TKN"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fHm-cS-Q5a" firstAttribute="leading" secondItem="b3K-i5-iEm" secondAttribute="centerX" symbolic="YES" id="0OQ-1z-cYB"/>
+                                                <constraint firstItem="fHm-cS-Q5a" firstAttribute="leading" secondItem="b3K-i5-iEm" secondAttribute="centerX" id="0OQ-1z-cYB"/>
                                                 <constraint firstItem="fHm-cS-Q5a" firstAttribute="centerY" secondItem="b3K-i5-iEm" secondAttribute="centerY" id="OXM-n2-b4f"/>
                                                 <constraint firstItem="XyU-sK-BD2" firstAttribute="leading" secondItem="b3K-i5-iEm" secondAttribute="leading" constant="20" symbolic="YES" id="b3l-dV-pRY"/>
                                                 <constraint firstItem="XyU-sK-BD2" firstAttribute="centerY" secondItem="b3K-i5-iEm" secondAttribute="centerY" id="e2p-yO-3af"/>
@@ -146,6 +151,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="uy9-py-zg3"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -154,7 +162,7 @@
                                                 <constraint firstItem="jar-VI-QZD" firstAttribute="centerY" secondItem="PLB-lp-v7I" secondAttribute="centerY" id="OeM-Bm-Mde"/>
                                                 <constraint firstAttribute="trailing" secondItem="jar-VI-QZD" secondAttribute="trailing" constant="20" symbolic="YES" id="VgX-SW-aKR"/>
                                                 <constraint firstItem="adL-bz-yoB" firstAttribute="centerY" secondItem="PLB-lp-v7I" secondAttribute="centerY" id="kzH-Fa-GbN"/>
-                                                <constraint firstItem="jar-VI-QZD" firstAttribute="leading" secondItem="PLB-lp-v7I" secondAttribute="centerX" symbolic="YES" id="lYW-OK-Hj1"/>
+                                                <constraint firstItem="jar-VI-QZD" firstAttribute="leading" secondItem="PLB-lp-v7I" secondAttribute="centerX" id="lYW-OK-Hj1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -180,6 +188,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="l99-PW-OmJ"/>
                                                         <action selector="timeLDGFieldEditing:" destination="Pbt-cA-dG7" eventType="editingDidBegin" id="Arz-Fb-9lH"/>
                                                     </connections>
                                                 </textField>
@@ -187,7 +196,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="gMU-Rb-Tpz" secondAttribute="trailing" constant="20" symbolic="YES" id="53Y-KB-plz"/>
                                                 <constraint firstItem="UQu-CK-Pya" firstAttribute="centerY" secondItem="u6E-Ln-Sfs" secondAttribute="centerY" id="5HL-Tc-gz5"/>
-                                                <constraint firstItem="gMU-Rb-Tpz" firstAttribute="leading" secondItem="u6E-Ln-Sfs" secondAttribute="centerX" symbolic="YES" id="MnZ-wU-3Bx"/>
+                                                <constraint firstItem="gMU-Rb-Tpz" firstAttribute="leading" secondItem="u6E-Ln-Sfs" secondAttribute="centerX" id="MnZ-wU-3Bx"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UQu-CK-Pya" secondAttribute="trailing" constant="20" symbolic="YES" id="gMl-uS-B4l"/>
                                                 <constraint firstItem="gMU-Rb-Tpz" firstAttribute="centerY" secondItem="u6E-Ln-Sfs" secondAttribute="centerY" id="nx5-D0-1dQ"/>
                                                 <constraint firstItem="UQu-CK-Pya" firstAttribute="leading" secondItem="u6E-Ln-Sfs" secondAttribute="leading" constant="20" symbolic="YES" id="tPx-w6-zPg"/>
@@ -217,7 +226,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="EdC-cv-eh5" secondAttribute="trailing" constant="20" symbolic="YES" id="8yg-ga-qDf"/>
                                                 <constraint firstItem="EdC-cv-eh5" firstAttribute="centerY" secondItem="TG7-8z-t9b" secondAttribute="centerY" id="9Xm-Sv-FHw"/>
-                                                <constraint firstItem="EdC-cv-eh5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TG7-8z-t9b" secondAttribute="centerX" symbolic="YES" id="Jgi-NC-oYe"/>
+                                                <constraint firstItem="EdC-cv-eh5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TG7-8z-t9b" secondAttribute="centerX" id="Jgi-NC-oYe"/>
                                                 <constraint firstItem="my0-xg-BSE" firstAttribute="centerY" secondItem="TG7-8z-t9b" secondAttribute="centerY" id="TOI-8K-6Ig"/>
                                                 <constraint firstItem="my0-xg-BSE" firstAttribute="leading" secondItem="TG7-8z-t9b" secondAttribute="leading" constant="20" symbolic="YES" id="gTF-I1-0bm"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="my0-xg-BSE" secondAttribute="trailing" constant="20" symbolic="YES" id="oyb-s4-iAh"/>
@@ -278,13 +287,16 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldEndEditing:" destination="Pbt-cA-dG7" eventType="editingDidEnd" id="lOS-HH-CmV"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jwK-Wa-gXK" secondAttribute="trailing" constant="20" symbolic="YES" id="Gqt-Di-bHD"/>
                                                 <constraint firstAttribute="trailing" secondItem="tP9-sZ-Kwy" secondAttribute="trailing" constant="20" symbolic="YES" id="Ive-mG-mf2"/>
                                                 <constraint firstItem="jwK-Wa-gXK" firstAttribute="centerY" secondItem="DCn-IM-A5f" secondAttribute="centerY" id="ZUE-SP-hld"/>
-                                                <constraint firstItem="tP9-sZ-Kwy" firstAttribute="leading" secondItem="DCn-IM-A5f" secondAttribute="centerX" symbolic="YES" id="amt-eH-DH0"/>
+                                                <constraint firstItem="tP9-sZ-Kwy" firstAttribute="leading" secondItem="DCn-IM-A5f" secondAttribute="centerX" id="amt-eH-DH0"/>
                                                 <constraint firstItem="tP9-sZ-Kwy" firstAttribute="centerY" secondItem="DCn-IM-A5f" secondAttribute="centerY" id="qQK-af-Ldh"/>
                                                 <constraint firstItem="jwK-Wa-gXK" firstAttribute="leading" secondItem="DCn-IM-A5f" secondAttribute="leading" constant="20" symbolic="YES" id="vpn-Bc-oVr"/>
                                             </constraints>
@@ -320,7 +332,7 @@
                                                 <constraint firstItem="tpB-WP-Xc1" firstAttribute="centerY" secondItem="bRe-jx-FLf" secondAttribute="centerY" id="LNP-tm-NTb"/>
                                                 <constraint firstItem="z3P-1o-qj0" firstAttribute="leading" secondItem="z8s-al-12W" secondAttribute="trailing" constant="8" id="OCz-Ae-637"/>
                                                 <constraint firstItem="tpB-WP-Xc1" firstAttribute="leading" secondItem="bRe-jx-FLf" secondAttribute="leading" constant="20" symbolic="YES" id="hKJ-Rd-bbz"/>
-                                                <constraint firstItem="z8s-al-12W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bRe-jx-FLf" secondAttribute="centerX" symbolic="YES" id="nY5-2b-myk"/>
+                                                <constraint firstItem="z8s-al-12W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bRe-jx-FLf" secondAttribute="centerX" id="nY5-2b-myk"/>
                                                 <constraint firstItem="z3P-1o-qj0" firstAttribute="centerY" secondItem="bRe-jx-FLf" secondAttribute="centerY" id="xJr-fk-pP0"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -353,7 +365,7 @@
                                                 <constraint firstItem="gHL-5m-yEl" firstAttribute="centerY" secondItem="6ts-cF-J7y" secondAttribute="centerY" id="7yq-Ii-ULh"/>
                                                 <constraint firstItem="EN3-2w-T5I" firstAttribute="leading" secondItem="6ts-cF-J7y" secondAttribute="leading" constant="20" symbolic="YES" id="BU2-jX-MI7"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EN3-2w-T5I" secondAttribute="trailing" constant="20" symbolic="YES" id="F8U-z0-bHf"/>
-                                                <constraint firstItem="gHL-5m-yEl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ts-cF-J7y" secondAttribute="centerX" symbolic="YES" id="gfW-3Z-jwq"/>
+                                                <constraint firstItem="gHL-5m-yEl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ts-cF-J7y" secondAttribute="centerX" id="gfW-3Z-jwq"/>
                                                 <constraint firstAttribute="trailing" secondItem="A7g-ro-GQ7" secondAttribute="trailing" constant="20" symbolic="YES" id="lBr-et-tna"/>
                                                 <constraint firstItem="A7g-ro-GQ7" firstAttribute="leading" secondItem="gHL-5m-yEl" secondAttribute="trailing" constant="8" id="t91-z6-7g9"/>
                                                 <constraint firstItem="A7g-ro-GQ7" firstAttribute="centerY" secondItem="6ts-cF-J7y" secondAttribute="centerY" id="xpH-8M-aNf"/>
@@ -384,7 +396,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pAi-0o-pg0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5D7-Zr-IiJ" secondAttribute="centerX" symbolic="YES" id="9qX-0G-pph"/>
+                                                <constraint firstItem="pAi-0o-pg0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5D7-Zr-IiJ" secondAttribute="centerX" id="9qX-0G-pph"/>
                                                 <constraint firstItem="ggk-Pb-y9x" firstAttribute="leading" secondItem="5D7-Zr-IiJ" secondAttribute="leading" constant="20" symbolic="YES" id="B0h-cQ-kLJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="9Dz-G6-kK8" secondAttribute="trailing" constant="20" symbolic="YES" id="B8r-83-afd"/>
                                                 <constraint firstItem="pAi-0o-pg0" firstAttribute="centerY" secondItem="5D7-Zr-IiJ" secondAttribute="centerY" id="L3M-jn-c88"/>
@@ -426,7 +438,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="UWx-OW-GmA" secondAttribute="trailing" constant="20" symbolic="YES" id="EsD-m4-wFW"/>
                                                 <constraint firstItem="sDd-vm-L55" firstAttribute="centerY" secondItem="0PX-Wf-Gxx" secondAttribute="centerY" id="OfN-dD-LBm"/>
                                                 <constraint firstItem="UWx-OW-GmA" firstAttribute="centerY" secondItem="0PX-Wf-Gxx" secondAttribute="centerY" id="RhT-v2-uwz"/>
-                                                <constraint firstItem="unD-ks-hnK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0PX-Wf-Gxx" secondAttribute="centerX" symbolic="YES" id="S3i-bw-BZz"/>
+                                                <constraint firstItem="unD-ks-hnK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0PX-Wf-Gxx" secondAttribute="centerX" id="S3i-bw-BZz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -466,7 +478,7 @@
                                                 <constraint firstItem="EiE-b5-ZJh" firstAttribute="centerY" secondItem="D1S-dq-871" secondAttribute="centerY" id="bBr-lV-Eux"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g3l-RH-7lH" secondAttribute="trailing" constant="20" symbolic="YES" id="f1e-eL-Yu7"/>
                                                 <constraint firstItem="g3l-RH-7lH" firstAttribute="centerY" secondItem="D1S-dq-871" secondAttribute="centerY" id="fpc-ug-fVG"/>
-                                                <constraint firstItem="EiE-b5-ZJh" firstAttribute="leading" secondItem="D1S-dq-871" secondAttribute="centerX" symbolic="YES" id="kN7-25-Nkr"/>
+                                                <constraint firstItem="EiE-b5-ZJh" firstAttribute="leading" secondItem="D1S-dq-871" secondAttribute="centerX" id="kN7-25-Nkr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -484,7 +496,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2:00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUV-Wq-I32">
-                                                    <rect key="frame" x="20" y="6" width="335" height="30"/>
+                                                    <rect key="frame" x="187.5" y="6" width="167.5" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="2EL-vp-fbJ"/>
                                                     </constraints>
@@ -498,7 +510,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Awo-FA-40d" firstAttribute="leading" secondItem="qyF-QD-Zp0" secondAttribute="leading" constant="20" symbolic="YES" id="CBJ-pP-dRE"/>
-                                                <constraint firstItem="AUV-Wq-I32" firstAttribute="leading" secondItem="qyF-QD-Zp0" secondAttribute="leading" constant="20" symbolic="YES" id="J7j-dd-4Om"/>
+                                                <constraint firstItem="AUV-Wq-I32" firstAttribute="leading" secondItem="qyF-QD-Zp0" secondAttribute="centerX" id="J7j-dd-4Om"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Awo-FA-40d" secondAttribute="trailing" constant="20" symbolic="YES" id="Nis-MH-Lzh"/>
                                                 <constraint firstItem="AUV-Wq-I32" firstAttribute="centerY" secondItem="qyF-QD-Zp0" secondAttribute="centerY" id="T9Q-Sc-C7H"/>
                                                 <constraint firstItem="Awo-FA-40d" firstAttribute="centerY" secondItem="qyF-QD-Zp0" secondAttribute="centerY" id="akj-hI-agp"/>
@@ -510,7 +522,7 @@
                                         <rect key="frame" x="0.0" y="672" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IPG-1m-3gj" id="Njf-lS-kcG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čas PIC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8p-ic-Xqo">
@@ -520,7 +532,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2:00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="una-Og-f5x">
-                                                    <rect key="frame" x="187.5" y="8" width="167.5" height="30"/>
+                                                    <rect key="frame" x="187.5" y="7" width="167.5" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="EIp-qo-sOF"/>
                                                     </constraints>
@@ -533,7 +545,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="una-Og-f5x" firstAttribute="leading" secondItem="Njf-lS-kcG" secondAttribute="centerX" symbolic="YES" id="XBi-lK-25h"/>
+                                                <constraint firstItem="una-Og-f5x" firstAttribute="leading" secondItem="Njf-lS-kcG" secondAttribute="centerX" id="XBi-lK-25h"/>
                                                 <constraint firstItem="X8p-ic-Xqo" firstAttribute="centerY" secondItem="Njf-lS-kcG" secondAttribute="centerY" id="f3s-uG-Sc9"/>
                                                 <constraint firstItem="X8p-ic-Xqo" firstAttribute="leading" secondItem="Njf-lS-kcG" secondAttribute="leading" constant="20" symbolic="YES" id="fJQ-OD-ynm"/>
                                                 <constraint firstAttribute="trailing" secondItem="una-Og-f5x" secondAttribute="trailing" constant="20" symbolic="YES" id="hbI-0f-EF8"/>
@@ -542,15 +554,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JPA-4P-j3q">
+                                    <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JPA-4P-j3q">
                                         <rect key="frame" x="0.0" y="716" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JPA-4P-j3q" id="bVY-0m-OCS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čas CO-PILOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd7-9B-dD9">
-                                                    <rect key="frame" x="20" y="12.5" width="112" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="112" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -571,7 +583,7 @@
                                             <constraints>
                                                 <constraint firstItem="Yd7-9B-dD9" firstAttribute="centerY" secondItem="bVY-0m-OCS" secondAttribute="centerY" id="94i-08-4jg"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yd7-9B-dD9" secondAttribute="trailing" constant="20" symbolic="YES" id="TAA-9N-q5t"/>
-                                                <constraint firstItem="KTs-Yb-Dti" firstAttribute="leading" secondItem="bVY-0m-OCS" secondAttribute="centerX" symbolic="YES" id="aFD-oJ-xGo"/>
+                                                <constraint firstItem="KTs-Yb-Dti" firstAttribute="leading" secondItem="bVY-0m-OCS" secondAttribute="centerX" id="aFD-oJ-xGo"/>
                                                 <constraint firstItem="KTs-Yb-Dti" firstAttribute="centerY" secondItem="bVY-0m-OCS" secondAttribute="centerY" id="jbV-zy-lbY"/>
                                                 <constraint firstItem="Yd7-9B-dD9" firstAttribute="leading" secondItem="bVY-0m-OCS" secondAttribute="leading" constant="20" symbolic="YES" id="qzu-1a-OV9"/>
                                                 <constraint firstAttribute="trailing" secondItem="KTs-Yb-Dti" secondAttribute="trailing" constant="20" symbolic="YES" id="yaG-5a-Q7N"/>
@@ -582,7 +594,7 @@
                                         <rect key="frame" x="0.0" y="760" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wax-mZ-mSL" id="Bn5-nG-9oK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čas DUAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff1-jI-Ocf">
@@ -610,7 +622,7 @@
                                                 <constraint firstItem="Ff1-jI-Ocf" firstAttribute="leading" secondItem="Bn5-nG-9oK" secondAttribute="leading" constant="20" symbolic="YES" id="aNb-9V-hoc"/>
                                                 <constraint firstItem="Ff1-jI-Ocf" firstAttribute="centerY" secondItem="Bn5-nG-9oK" secondAttribute="centerY" id="ncT-MJ-GA9"/>
                                                 <constraint firstItem="F6Q-By-Qpx" firstAttribute="centerY" secondItem="Bn5-nG-9oK" secondAttribute="centerY" id="pwZ-Ix-ZpE"/>
-                                                <constraint firstItem="F6Q-By-Qpx" firstAttribute="leading" secondItem="Bn5-nG-9oK" secondAttribute="centerX" symbolic="YES" id="z5t-hA-c8u"/>
+                                                <constraint firstItem="F6Q-By-Qpx" firstAttribute="leading" secondItem="Bn5-nG-9oK" secondAttribute="centerX" id="z5t-hA-c8u"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -618,7 +630,7 @@
                                         <rect key="frame" x="0.0" y="804" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bzf-ZO-urD" id="K7V-Mi-QN5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čas Instruktor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-Ef-5Eg">
@@ -642,7 +654,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PuZ-IQ-W0E" firstAttribute="centerY" secondItem="K7V-Mi-QN5" secondAttribute="centerY" id="Cgx-SA-gon"/>
-                                                <constraint firstItem="PuZ-IQ-W0E" firstAttribute="leading" secondItem="K7V-Mi-QN5" secondAttribute="centerX" symbolic="YES" id="GoR-zy-w1I"/>
+                                                <constraint firstItem="PuZ-IQ-W0E" firstAttribute="leading" secondItem="K7V-Mi-QN5" secondAttribute="centerX" id="GoR-zy-w1I"/>
                                                 <constraint firstItem="cy4-Ef-5Eg" firstAttribute="centerY" secondItem="K7V-Mi-QN5" secondAttribute="centerY" id="UbP-6B-WDX"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cy4-Ef-5Eg" secondAttribute="trailing" constant="20" symbolic="YES" id="YPn-eK-1dB"/>
                                                 <constraint firstAttribute="trailing" secondItem="PuZ-IQ-W0E" secondAttribute="trailing" constant="20" symbolic="YES" id="p3J-Pj-fWT"/>
@@ -658,17 +670,17 @@
                                         <rect key="frame" x="0.0" y="876" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FLa-vR-fMD" id="46V-H2-MvR">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poznámka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POM-yY-QQ3">
-                                                    <rect key="frame" x="20" y="12.5" width="79" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="79" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="note" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mp-NI-LiF">
-                                                    <rect key="frame" x="287.5" y="12.5" width="34.5" height="21"/>
+                                                    <rect key="frame" x="287.5" y="11.5" width="34.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -677,7 +689,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="6mp-NI-LiF" secondAttribute="trailing" constant="20" symbolic="YES" id="Kqu-Pa-esw"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="POM-yY-QQ3" secondAttribute="trailing" constant="20" symbolic="YES" id="PcJ-Qv-6eI"/>
-                                                <constraint firstItem="6mp-NI-LiF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="46V-H2-MvR" secondAttribute="centerX" symbolic="YES" id="PtH-97-mzy"/>
+                                                <constraint firstItem="6mp-NI-LiF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="46V-H2-MvR" secondAttribute="centerX" id="PtH-97-mzy"/>
                                                 <constraint firstItem="POM-yY-QQ3" firstAttribute="centerY" secondItem="46V-H2-MvR" secondAttribute="centerY" id="Urh-uB-x8Q"/>
                                                 <constraint firstItem="POM-yY-QQ3" firstAttribute="leading" secondItem="46V-H2-MvR" secondAttribute="leading" constant="20" symbolic="YES" id="kho-r0-ZPA"/>
                                                 <constraint firstItem="6mp-NI-LiF" firstAttribute="centerY" secondItem="46V-H2-MvR" secondAttribute="centerY" id="xbU-gj-b2D"/>
@@ -710,15 +722,22 @@
                         <outlet property="ldgDayStepper" destination="9Dz-G6-kK8" id="2Rk-xj-kCy"/>
                         <outlet property="ldgNightLabel" destination="unD-ks-hnK" id="Iix-eI-veP"/>
                         <outlet property="ldgNightStepper" destination="UWx-OW-GmA" id="BuL-oX-Lnb"/>
+                        <outlet property="noteCell" destination="FLa-vR-fMD" id="PBg-uU-Qme"/>
                         <outlet property="noteLabel" destination="6mp-NI-LiF" id="3qh-RL-zn5"/>
                         <outlet property="picTextField" destination="tP9-sZ-Kwy" id="Jd8-qk-s5n"/>
                         <outlet property="planeLabel" destination="EdC-cv-eh5" id="6aY-ip-RF1"/>
+                        <outlet property="timeCOCell" destination="JPA-4P-j3q" id="mO1-3t-zVu"/>
                         <outlet property="timeCOField" destination="KTs-Yb-Dti" id="gPP-R0-sKW"/>
+                        <outlet property="timeDualCell" destination="Wax-mZ-mSL" id="Ukp-O5-CUY"/>
                         <outlet property="timeDualField" destination="F6Q-By-Qpx" id="UxO-WZ-o1K"/>
+                        <outlet property="timeIFRCell" destination="1xq-hK-8OT" id="iHh-6Z-5gJ"/>
                         <outlet property="timeIFRField" destination="AUV-Wq-I32" id="DZK-pQ-bWE"/>
+                        <outlet property="timeInstructorCell" destination="Bzf-ZO-urD" id="2pP-Zs-B9P"/>
                         <outlet property="timeInstructorField" destination="PuZ-IQ-W0E" id="ej0-1a-tmZ"/>
                         <outlet property="timeLDGField" destination="gMU-Rb-Tpz" id="htW-8l-AxC"/>
+                        <outlet property="timeNightCell" destination="bMJ-Rn-Lbn" id="juM-ZW-IRR"/>
                         <outlet property="timeNightField" destination="EiE-b5-ZJh" id="5CR-0x-3YP"/>
+                        <outlet property="timePICCell" destination="IPG-1m-3gj" id="6SW-KI-JCa"/>
                         <outlet property="timePICField" destination="una-Og-f5x" id="H2Q-Hs-OV2"/>
                         <outlet property="timeTKOField" destination="fHm-cS-Q5a" id="a9k-AE-VUQ"/>
                         <outlet property="tkoDayLabel" destination="z8s-al-12W" id="JnP-lC-Ckr"/>

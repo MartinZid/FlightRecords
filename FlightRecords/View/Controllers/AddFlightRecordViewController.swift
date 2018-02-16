@@ -42,6 +42,16 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     
     @IBOutlet weak var noteLabel: UILabel!
     
+    //cells
+    private var brokenConstraintsCells: [UITableViewCell]! = []
+    @IBOutlet weak var timeNightCell: UITableViewCell!
+    @IBOutlet weak var timeIFRCell: UITableViewCell!
+    @IBOutlet weak var timePICCell: UITableViewCell!
+    @IBOutlet weak var timeCOCell: UITableViewCell!
+    @IBOutlet weak var timeDualCell: UITableViewCell!
+    @IBOutlet weak var timeInstructorCell: UITableViewCell!
+    @IBOutlet weak var noteCell: UITableViewCell!
+    
     var viewModel: AddFlightRecordViewModel!
     private let dateFormatter = DateFormatter()
     
@@ -57,9 +67,10 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         }
         bindViewModel()
         setEndEditingOnTap()
+        addBrokenConstraintsCells()
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         self.title = viewModel.title
         
         fromTextField.text = viewModel.from.value
@@ -99,6 +110,16 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         noteLabel.reactive.text <~ viewModel.note
     }
     
+    private func addBrokenConstraintsCells() {
+        brokenConstraintsCells.append(timeNightCell)
+        brokenConstraintsCells.append(timeIFRCell)
+        brokenConstraintsCells.append(timePICCell)
+        brokenConstraintsCells.append(timeCOCell)
+        brokenConstraintsCells.append(timeDualCell)
+        brokenConstraintsCells.append(timeInstructorCell)
+        brokenConstraintsCells.append(noteCell)
+    }
+    
     private func setMaxTimeOnSignal(to datePicker: UIDatePicker) {
         setMax(time: viewModel.totalTime.value, to: datePicker)
         viewModel.totalTime.signal.observeValues{ time in
@@ -118,6 +139,13 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         _ = handleDatePicker(for: sender, with: .time, and: viewModel.timeLDG)
     }
     
+    @IBAction func textFieldEndEditing(_ sender: UITextField) {
+        for cell in brokenConstraintsCells {
+            cell.setNeedsUpdateConstraints()
+        }
+    }
+    
+
     @IBAction func timeNightFieldEditing(_ sender: UITextField) {
         let value = dateFormatter.createDate(hours: 0, minutes: 0)
         let datePicker = handleDatePicker(for: sender, with: .time, and: viewModel.timeNight, default: value)

@@ -121,7 +121,7 @@ class PDFGeneratorViewModel {
         if let records = records {
             index = recordOnPage * page - 1
             if index >= records.count {
-                index = records.count - 1
+                index = (records.count > 0) ? records.count - 1 : 0
             }
         }
         return index
@@ -135,7 +135,7 @@ class PDFGeneratorViewModel {
         var thisPageRecords: [Record]? = nil
         var prevPagesRecords: [Record]? = nil
         var totalPageRecords: [Record]? = nil
-        if let records = records {
+        if let records = records, records.count > 0 {
             thisPageRecords = Array(records[first...last])
             if page != 1 {
                 let prevPageFirst = fisrtRecordOn(page: page-1)

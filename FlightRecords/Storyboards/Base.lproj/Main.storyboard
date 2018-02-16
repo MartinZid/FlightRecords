@@ -111,7 +111,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" systemItem="add" id="t2x-aO-Eyq">
+                            <barButtonItem systemItem="add" id="t2x-aO-Eyq">
                                 <connections>
                                     <segue destination="CjA-yR-1r8" kind="show" id="laW-Q3-aO0"/>
                                 </connections>

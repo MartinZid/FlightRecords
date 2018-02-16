@@ -206,6 +206,7 @@
 		5BC363BA201A106100CC91A2 /* prevPagesRow02.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = prevPagesRow02.html; sourceTree = "<group>"; };
 		5BC363BC201A107200CC91A2 /* totalRow02.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = totalRow02.html; sourceTree = "<group>"; };
 		5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		5BCC209620239C3C004D17A5 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 		5BCDC1F92015D6E0006D7966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/statistics.storyboard; sourceTree = "<group>"; };
 		5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		5BCDC1FD2015D982006D7966 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
@@ -222,7 +223,6 @@
 		5BD6DC511FC8205200140F34 /* SearchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfiguration.swift; sourceTree = "<group>"; };
 		5BECAE031F98BEE600A3EA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addFlightRecord.storyboard; sourceTree = "<group>"; };
 		5BF695411FCFF81900D6B9CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/profile.storyboard; sourceTree = "<group>"; };
-		5BF695441FD0098A00D6B9CA /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 		5BF695451FD00A0D00D6B9CA /* PersonalInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationsViewController.swift; sourceTree = "<group>"; };
 		5BF695471FD00A3400D6B9CA /* PersonalInformationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationsViewModel.swift; sourceTree = "<group>"; };
 		5BF695491FD00A6D00D6B9CA /* PersonalInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformations.swift; sourceTree = "<group>"; };
@@ -888,7 +888,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5BECAE031F98BEE600A3EA49 /* Base */,
-				5BF695441FD0098A00D6B9CA /* cs */,
+				5BCC209620239C3C004D17A5 /* cs */,
 			);
 			name = addFlightRecord.storyboard;
 			sourceTree = "<group>";
@@ -1026,6 +1026,7 @@
 					"$(PROJECT_DIR)/Realm",
 				);
 				INFOPLIST_FILE = FlightRecords/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = development.FlightRecords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1047,6 +1048,7 @@
 					"$(PROJECT_DIR)/Realm",
 				);
 				INFOPLIST_FILE = FlightRecords/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = development.FlightRecords;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -21,15 +21,15 @@ class PersonalInformationsViewModel: RealmViewModel {
     let birthDayString = MutableProperty<String?>(nil)
     let address = MutableProperty<String?>(nil)
     
-    var dataSetSignal: Signal<Void, NoError>
-    private var dataSetObserver: Signal<Void, NoError>.Observer
+//    var dataSetSignal: Signal<Void, NoError>
+//    private var dataSetObserver: Signal<Void, NoError>.Observer
     
     var informations: PersonalInformations?
     
     override init() {
-        let (dataSetSignal, dataSetObserver) = Signal<Void, NoError>.pipe()
-        self.dataSetSignal = dataSetSignal
-        self.dataSetObserver = dataSetObserver
+//        let (dataSetSignal, dataSetObserver) = Signal<Void, NoError>.pipe()
+//        self.dataSetSignal = dataSetSignal
+//        self.dataSetObserver = dataSetObserver
         super.init()
         
         birthDayString <~ birthDay.producer.map(dateFormatter.optinalDateToString)
@@ -40,7 +40,7 @@ class PersonalInformationsViewModel: RealmViewModel {
         surname.value = informations?.surname
         birthDay.value = informations?.birthDay
         address.value = informations?.address
-        dataSetObserver.send(value: ())
+//        dataSetObserver.send(value: ())
     }
     
     override func realmInitCompleted() {

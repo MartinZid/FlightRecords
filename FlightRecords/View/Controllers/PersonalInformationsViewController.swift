@@ -26,12 +26,16 @@ class PersonalInformationsViewController: RecordTableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.dataSetSignal.observeValues { [weak self] in
-            self?.nameTextField.text = self?.viewModel.name.value
-            self?.surnameTextField.text = self?.viewModel.surname.value
-            self?.birthDayTextField.text = self?.viewModel.birthDayString.value
-            self?.addressTextField.text = self?.viewModel.address.value
-        }
+        nameTextField.text = viewModel.name.value
+        surnameTextField.text = viewModel.surname.value
+        birthDayTextField.text = viewModel.birthDayString.value
+        addressTextField.text = viewModel.address.value
+//        viewModel.dataSetSignal.observeValues { [weak self] in
+//            self?.nameTextField.text = self?.viewModel.name.value
+//            self?.surnameTextField.text = self?.viewModel.surname.value
+//            self?.birthDayTextField.text = self?.viewModel.birthDayString.value
+//            self?.addressTextField.text = self?.viewModel.address.value
+//        }
         viewModel.name <~ nameTextField.reactive.continuousTextValues.filterMap{ $0 }
         viewModel.surname <~ surnameTextField.reactive.continuousTextValues.filterMap{ $0 }
         birthDayTextField.reactive.text <~ viewModel.birthDayString
@@ -40,7 +44,10 @@ class PersonalInformationsViewController: RecordTableViewController {
     
     @IBAction func save(_ sender: Any) {
         viewModel.saveInfo()
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     @IBAction func birthDayTextFieldEditing(_ sender: UITextField) {

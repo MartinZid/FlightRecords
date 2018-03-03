@@ -157,6 +157,7 @@
 		5B44B3F71F98A966004B1E65 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
 		5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewController.swift; sourceTree = "<group>"; };
 		5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModel.swift; sourceTree = "<group>"; };
+		5B6E50932048115300A55289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		5B7309521F8015F70026152E /* FlightRecords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightRecords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7309551F8015F70026152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B73095A1F8015F70026152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -839,6 +840,7 @@
 			children = (
 				5B73095A1F8015F70026152E /* Base */,
 				5B9255602017600000A47E4E /* cs */,
+				5B6E50932048115300A55289 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

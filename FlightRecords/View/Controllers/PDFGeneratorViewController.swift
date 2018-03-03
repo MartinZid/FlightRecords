@@ -56,33 +56,6 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
         return data
     }
     
-//    func showOptionsAlert() {
-//        let alertController = UIAlertController(title: "Yeah!", message: "Your invoice has been successfully printed to a PDF file.\n\nWhat do you want to do now?", preferredStyle: UIAlertControllerStyle.alert)
-//
-//        let actionPreview = UIAlertAction(title: "Preview it", style: UIAlertActionStyle.default) { (action) in
-//            let url = URL(fileURLWithPath: self.pdfFilename)
-//            self.webView.loadFileURL(url, allowingReadAccessTo: url)
-//        }
-//
-//        let actionEmail = UIAlertAction(title: "Send by Email", style: UIAlertActionStyle.default) { (action) in
-//            DispatchQueue.main.async {
-//                self.sendEmail()
-//            }
-//        }
-//
-//        let actionNothing = UIAlertAction(title: "Nothing", style: UIAlertActionStyle.default) { (action) in
-//
-//        }
-//
-//        alertController.addAction(actionPreview)
-//        alertController.addAction(actionEmail)
-//        alertController.addAction(actionNothing)
-//
-//        present(alertController, animated: true, completion: nil)
-//    }
-    
-    
-    
     private func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()

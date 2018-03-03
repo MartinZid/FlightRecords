@@ -32,6 +32,9 @@ class StatisticsViewModel: RealmViewModel {
     
     private func updateList() {
         records = realm.objects(Record.self)
+        recordsNotificationsToken = records?.observe { [weak self] _ in
+            self?.countStatistics()
+        }
         countStatistics()
     }
     
@@ -70,5 +73,9 @@ class StatisticsViewModel: RealmViewModel {
     
     private func filterRecords() {
         records = filter.filterRecords(from: realm.objects(Record.self))
+        recordsNotificationsToken?.invalidate()
+        recordsNotificationsToken = records?.observe{ [weak self] _ in
+            self?.countStatistics()
+        }
     }
 }

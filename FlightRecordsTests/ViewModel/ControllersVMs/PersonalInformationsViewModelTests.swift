@@ -30,18 +30,18 @@ class PersonalInformationsViewModelTests: TestCaseBase {
         super.tearDown()
     }
     
-    func testObserversNotificationAfterDataIsSet() {
-        let promise = expectation(description: "observers recieved notification")
-        
-        viewModelUnderTest.dataSetSignal.observeValues {
-            promise.fulfill()
-        }
-        
-        viewModelUnderTest.realm = setUpRealm()
-        viewModelUnderTest.realmInitCompleted()
-        
-        waitForExpectations(timeout: 5, handler: nil)
-    }
+//    func testObserversNotificationAfterDataIsSet() {
+//        let promise = expectation(description: "observers recieved notification")
+//        
+//        viewModelUnderTest.dataSetSignal.observeValues {
+//            promise.fulfill()
+//        }
+//        
+//        viewModelUnderTest.realm = setUpRealm()
+//        viewModelUnderTest.realmInitCompleted()
+//        
+//        waitForExpectations(timeout: 5, handler: nil)
+//    }
     
     func testBirthDayConnection() {
         viewModelUnderTest.birthDay.value = Date()

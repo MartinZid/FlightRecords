@@ -318,7 +318,7 @@
                 <viewControllerPlaceholder storyboardName="medicalCertificates" id="Uwb-0j-aCo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p28-GZ-28V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="10"/>
+            <point key="canvasLocation" x="305" y="30"/>
         </scene>
         <!--statistics-->
         <scene sceneID="y51-e1-YKc">
@@ -326,7 +326,7 @@
                 <viewControllerPlaceholder storyboardName="statistics" id="Uhl-eo-o52" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jkh-dT-F38" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489" y="-107"/>
+            <point key="canvasLocation" x="255" y="-105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Di-MW-ry6">

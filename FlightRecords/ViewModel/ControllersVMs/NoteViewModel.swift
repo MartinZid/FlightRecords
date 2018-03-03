@@ -17,7 +17,8 @@ class NoteViewModel {
     
     init(note: String?) {
         self.note = MutableProperty(note)
-        saveAction = Action<(), String, NoError>(state: self.note, enabledIf: {
+        saveAction = Action<(), String, NoError>(
+            state: self.note, enabledIf: {
             if let note = $0 {
                 return note.count > 0
             }

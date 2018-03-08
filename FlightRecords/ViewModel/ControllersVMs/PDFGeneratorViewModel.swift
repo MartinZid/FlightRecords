@@ -72,7 +72,7 @@ class PDFGeneratorViewModel {
         case time
     }
     
-    private let recordOnPage = 12
+    private let recordsOnPage = 12
     private let html = "html"
     
     init(with records: Results<Record>?) {
@@ -95,7 +95,11 @@ class PDFGeneratorViewModel {
     
     func numberOfPages() -> Int {
         let recordsCount = Double(records?.count ?? 0)
-        return Int(floor(recordsCount / Double(recordOnPage))) + 1
+        let pages = Int(floor(recordsCount / Double(recordsOnPage)))
+        if Int(recordsCount) % recordsOnPage == 0 { // number of record 12, 24, etc.
+            return pages
+        }
+        return pages + 1
     }
     
     private func generateTables() throws -> String {
@@ -113,13 +117,13 @@ class PDFGeneratorViewModel {
     }
     
     private func fisrtRecordOn(page: Int) -> Int {
-        return recordOnPage * (page - 1)
+        return recordsOnPage * (page - 1)
     }
     
     private func lastRecordOn(page: Int) -> Int {
         var index = 0
         if let records = records {
-            index = recordOnPage * page - 1
+            index = recordsOnPage * page - 1
             if index >= records.count {
                 index = (records.count > 0) ? records.count - 1 : 0
             }
@@ -158,7 +162,7 @@ class PDFGeneratorViewModel {
     private func generateTableRows(for page: Int, generate: (Record?) throws -> String) throws -> String {
         var rows = ""
         let pageStart = fisrtRecordOn(page: page)
-        let pageEnd = recordOnPage * page - 1
+        let pageEnd = recordsOnPage * page - 1
         for index in pageStart...pageEnd {
             var record: Record? = nil
             if let records = records {

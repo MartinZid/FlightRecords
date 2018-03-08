@@ -38,6 +38,7 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
         //let delegate = UIApplication.shared.delegate as! AppDelegate
         let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         pdfFilename = "\(docDir)/PDF.pdf"
+        print(pdfFilename)
         pdfData?.write(toFile: pdfFilename, atomically: true)
         
         print(pdfFilename)

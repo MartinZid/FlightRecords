@@ -38,7 +38,14 @@ class PlanesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfPlanesInSection()
+        if viewModel.numberOfPlanesInSection() > 0 {
+            deleteEmptyTableMessage()
+            return viewModel.numberOfPlanesInSection()
+        } else {
+            displayEmptyTableMessage(message: NSLocalizedString("Empty planes table", comment: ""),
+                                     subMessage: NSLocalizedString("Add new plane info", comment: ""))
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

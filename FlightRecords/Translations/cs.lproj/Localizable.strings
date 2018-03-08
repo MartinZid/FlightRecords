@@ -57,6 +57,11 @@
 
 "Records" = "Záznamy";
 
+"Cant send email" = "Nelze odeslat email";
+"Unset email client" = "Váš emailový client není nastavený.";
+"Empty planes table" = "Nemáte žádné vložená letadla.";
+"Add new plane info" = "Klepnutím na \"+\" vložte letadlo";
+
 
 
 

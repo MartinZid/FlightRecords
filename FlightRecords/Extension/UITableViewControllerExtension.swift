@@ -37,4 +37,23 @@ extension UITableViewController {
             }
         }
     }
+    
+    internal func displayEmptyTableMessage(message: String, subMessage: String) {
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size:
+            CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        let messageLabel = UILabel(frame: rect)
+        messageLabel.text = message + "\n" + subMessage
+        messageLabel.textColor = UIColor.black
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.sizeToFit()
+        
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = .none;
+    }
+    
+    internal func deleteEmptyTableMessage() {
+        self.tableView.backgroundView = nil
+        self.tableView.separatorStyle = .singleLine
+    }
 }

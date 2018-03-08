@@ -63,6 +63,10 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
             mailComposeViewController.setSubject(NSLocalizedString("Records", comment: ""))
             mailComposeViewController.addAttachmentData(NSData(contentsOfFile: pdfFilename)! as Data, mimeType: "application/pdf", fileName: NSLocalizedString("Records", comment: ""))
             present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("Cant send email", comment: ""), message: NSLocalizedString("Unset email client", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

@@ -82,9 +82,9 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         ldgNightStepper.value = viewModel.ldgNight.value
         
         dateTextField.reactive.text <~ viewModel.dateString
-        viewModel.from <~ toTextField.reactive.continuousTextValues.filterMap{ $0 }
+        viewModel.from <~ fromTextField.reactive.continuousTextValues.filterMap{ $0 }
         timeTKOField.reactive.text <~ viewModel.timeTKOString
-        viewModel.to <~ fromTextField.reactive.continuousTextValues.filterMap{ $0 }
+        viewModel.to <~ toTextField.reactive.continuousTextValues.filterMap{ $0 }
         timeLDGField.reactive.text <~ viewModel.timeLDGString
         planeLabel.reactive.text <~ viewModel.planeString
         totalTimeLabel.reactive.text <~ viewModel.totalTime

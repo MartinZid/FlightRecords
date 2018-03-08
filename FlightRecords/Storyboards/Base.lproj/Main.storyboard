@@ -39,9 +39,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="CYf-hV-3GU">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filtrované záznamy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-Xn-kLm">
+                                    <rect key="frame" x="20" y="12" width="147" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRs-tx-NHT">
+                                    <rect key="frame" x="252" y="7" width="103" height="30"/>
+                                    <state key="normal" title="Zrušit filtrování">
+                                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="disableFilters:" destination="HxC-QL-mR1" eventType="touchUpInside" id="B8y-pb-wC0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="LRs-tx-NHT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CYf-hV-3GU" secondAttribute="leading" constant="20" symbolic="YES" id="8H0-R1-0rs"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="crk-Xn-kLm" secondAttribute="trailing" constant="20" symbolic="YES" id="AzJ-Zs-yxq"/>
+                                <constraint firstItem="crk-Xn-kLm" firstAttribute="leading" secondItem="CYf-hV-3GU" secondAttribute="leading" constant="20" symbolic="YES" id="Sta-Ie-dHY"/>
+                                <constraint firstItem="crk-Xn-kLm" firstAttribute="centerY" secondItem="CYf-hV-3GU" secondAttribute="centerY" id="ZpI-YE-aCD"/>
+                                <constraint firstItem="LRs-tx-NHT" firstAttribute="centerY" secondItem="CYf-hV-3GU" secondAttribute="centerY" id="kcu-KF-can"/>
+                                <constraint firstAttribute="trailing" secondItem="LRs-tx-NHT" secondAttribute="trailing" constant="20" symbolic="YES" id="uMv-gp-Rm3"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecordCell" rowHeight="71" id="ZY7-K0-kUq" customClass="RecordCell" customModule="FlightRecords" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="71"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZY7-K0-kUq" id="qLk-tN-gM2">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="70.5"/>
@@ -123,6 +153,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="headerView" destination="CYf-hV-3GU" id="jQI-9U-1ho"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE0-ry-MTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,4 +18,12 @@ class SearchConfiguration {
     
     var fromDate: Date? = nil
     var toDate: Date? = nil
+    
+    func isDefaul() -> Bool {
+        if searchText == nil, flightsSwitch == true, fstdSwitch == true,
+            planeType == nil, plane == nil, fromDate == nil, toDate == nil {
+            return true
+        }
+        return false
+    }
 }

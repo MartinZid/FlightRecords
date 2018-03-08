@@ -9,7 +9,9 @@
 import UIKit
 
 class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
-
+    
+    @IBOutlet var headerView: UIView!
+    
     private let viewModel = RecordsViewModel()
     
     private struct Identifiers {
@@ -23,11 +25,22 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
+        tableView.tableHeaderView = nil
     }
     
     private func bindViewModel() {
+        viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
+            self?.tableView.tableHeaderView = (value) ? nil : self?.headerView
+        }
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func disableFilters(_ sender: UIButton) {
+        viewModel.disableFilters()
+    }
+    
     
     // MARK: - SearchViewControllerDelegate
     

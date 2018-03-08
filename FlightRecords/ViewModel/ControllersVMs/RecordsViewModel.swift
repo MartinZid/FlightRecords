@@ -14,7 +14,16 @@ import Result
 
 class RecordsViewModel: RealmTableViewModel<Record> {
     
+    let searchConfigurationChangedSignal: Signal<Bool, NoError>
+    private let searchConfigurationChangedObserver: Signal<Bool, NoError>.Observer
     private let filter = Filter()
+    
+    override init() {
+        let (searchConfigurationChangedSignal, searchConfigurationChangedObserver) = Signal<Bool, NoError>.pipe()
+        self.searchConfigurationChangedSignal = searchConfigurationChangedSignal
+        self.searchConfigurationChangedObserver = searchConfigurationChangedObserver
+        super.init()
+    }
     
     override func updateList() {
         collection = realm.objects(Record.self)
@@ -61,7 +70,21 @@ class RecordsViewModel: RealmTableViewModel<Record> {
         filterRecords()
     }
     
+    func disableFilters() {
+        filter.searchConfiguration = SearchConfiguration()
+        filterRecords()
+    }
+    
+    private func hasDefaulFilter() -> Bool {
+        if let searchConfiguration = filter.searchConfiguration {
+            return searchConfiguration.isDefaul()
+        }
+        return true
+    }
+    
     private func filterRecords() {
+        searchConfigurationChangedObserver.send(value: hasDefaulFilter())
+        
         collection = filter.filterRecords(from: realm.objects(Record.self))
         collectionNotificationsToken?.invalidate()
         collection = collection?.sorted(byKeyPath: "date", ascending: false)

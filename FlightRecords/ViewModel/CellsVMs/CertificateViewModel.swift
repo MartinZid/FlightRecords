@@ -17,7 +17,7 @@ class CertificateViewModel {
     }
     
     func getCertificateName() -> String {
-        return certificate.name ?? ""
+        return certificate.name ?? NSLocalizedString("Without name", comment: "")
     }
     
     func getCertificateExpiration() -> String {

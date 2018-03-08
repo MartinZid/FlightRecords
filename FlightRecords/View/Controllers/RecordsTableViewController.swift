@@ -55,7 +55,18 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRecordsInSection()
+        if viewModel.numberOfRecordsInSection() > 0 {
+            deleteEmptyTableMessage()
+            return viewModel.numberOfRecordsInSection()
+        } else {
+            if tableView.tableHeaderView == nil {
+                displayEmptyTableMessage(message: NSLocalizedString("Empty records table", comment: ""),
+                                         subMessage: NSLocalizedString("Add new record info", comment: ""))
+            } else {
+                displayEmptyTableMessage(message: NSLocalizedString("No records after filtering", comment: ""), subMessage: "")
+            }
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

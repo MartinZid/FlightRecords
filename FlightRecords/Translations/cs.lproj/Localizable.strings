@@ -59,8 +59,17 @@
 
 "Cant send email" = "Nelze odeslat email";
 "Unset email client" = "Váš emailový client není nastavený.";
-"Empty planes table" = "Nemáte žádné vložená letadla.";
-"Add new plane info" = "Klepnutím na \"+\" vložte letadlo";
+"Empty planes table" = "Nemáte žádná vložená letadla.";
+"Add new plane info" = "Klepnutím na \"+\" vložte letadlo.";
+
+"Empty records table" = "Nemáte žádné vložené záznamy.";
+"Add new record info" = "Klepnutím na \"+\" vložte záznam.";
+"No records after filtering" = "Vašemu hledání neodpovídají žádné záznamy.";
+
+"Empty certificates table" = "Nemáte žádné vložené certifikáty.";
+"Add new certificate info" = "Klepnutím na \"+\" vložte certifikát.";
+
+"Without name" = "Nepojmenovaný";
 
 
 

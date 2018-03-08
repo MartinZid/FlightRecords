@@ -36,7 +36,14 @@ class MedicalCertificatesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCertificatesInSection()
+        if viewModel.numberOfCertificatesInSection() > 0 {
+            deleteEmptyTableMessage()
+            return viewModel.numberOfCertificatesInSection()
+        } else {
+            displayEmptyTableMessage(message: NSLocalizedString("Empty certificates table", comment: ""),
+                                     subMessage: NSLocalizedString("Add new certificate info", comment: ""))
+            return 0
+        }
     }
 
 

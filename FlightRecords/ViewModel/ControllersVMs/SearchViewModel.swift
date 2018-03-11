@@ -105,6 +105,10 @@ class SearchViewModel {
         fromDate.value = nil
         toDate.value = nil
     }
+    
+    func clearPlane() {
+        plane.value = nil
+    }
 }
 
 

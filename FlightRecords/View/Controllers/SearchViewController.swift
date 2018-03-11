@@ -109,6 +109,18 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         viewModel.setPlane(from: planeViewModel)
     }
     
+    // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row == 4
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.clearPlane()
+        }
+    }
+    
     // MARK: - Navigation
     
     @IBAction func done(_ sender: Any) {

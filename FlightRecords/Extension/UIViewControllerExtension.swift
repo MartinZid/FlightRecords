@@ -15,4 +15,16 @@ extension UIViewController {
             return self
         }
     }
+    
+    func confirmDeleteAction(_ action: @escaping ((UIAlertAction) -> Void)) {
+        let alert = UIAlertController(
+            title: NSLocalizedString("Delete confirm", comment: ""),
+            message: NSLocalizedString("Delete record confirm message", comment: ""),
+            preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.default, handler: action))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

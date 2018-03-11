@@ -71,6 +71,16 @@
 
 "Without name" = "Nepojmenovaný";
 
+"Cancel" = "Zrušit";
+"Delete confirm" = "Potvrzení smazání";
+"Delete record confirm message" = "Opravdu chcete smazat tento záznam?";
+"Delete" = "Smazat";
+
+"No" = "Ne";
+"Clear confirm" = "Potvrzení zrušení filtrování";
+"Clear search confirm message" = "Opravdu chcete zrušit filtrování?";
+"Clear" = "Ano";
+
 
 
 

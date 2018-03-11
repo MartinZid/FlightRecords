@@ -83,10 +83,24 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         toDateTextField.inputView = nil
     }
     
+    private func confirmClearAction(_ action: @escaping ((UIAlertAction) -> Void)) {
+        let alert = UIAlertController(
+            title: NSLocalizedString("Clear confirm", comment: ""),
+            message: NSLocalizedString("Clear search confirm message", comment: ""),
+            preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Clear", comment: ""), style: UIAlertActionStyle.default, handler: action))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func clearSearchParameters(_ sender: Any) {
-        viewModel.clearSearchParameters()
-        setDefaultValues()
-        resetDateInputTextFields()
+        confirmClearAction { [weak self] _ in
+            self?.viewModel.clearSearchParameters()
+            self?.setDefaultValues()
+            self?.resetDateInputTextFields()
+        }
     }
     
     // MARK: - PlanesTableViewControllerDelegate

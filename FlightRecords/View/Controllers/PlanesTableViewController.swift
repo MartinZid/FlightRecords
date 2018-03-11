@@ -54,7 +54,9 @@ class PlanesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            viewModel.deletePlane(at: indexPath)
+            confirmDeleteAction { [weak self] _ in
+                self?.viewModel.deletePlane(at: indexPath)
+            }
         }
     }
     

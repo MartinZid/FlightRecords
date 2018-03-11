@@ -87,7 +87,9 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            viewModel.deleteRecord(at: indexPath)
+            confirmDeleteAction { [weak self] _ in
+                self?.viewModel.deleteRecord(at: indexPath)
+            }
         }
     }
     

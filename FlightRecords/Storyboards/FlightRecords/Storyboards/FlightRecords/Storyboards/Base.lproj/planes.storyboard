@@ -64,9 +64,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="KRU-i1-YPL" kind="showDetail" identifier="detailPlane" id="fxp-N4-GSH"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACv-Cx-tG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +78,4 @@
             <point key="canvasLocation" x="4382.3999999999996" y="-1304.3478260869567"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fxp-N4-GSH"/>
-    </inferredMetricsTieBreakers>
 </document>

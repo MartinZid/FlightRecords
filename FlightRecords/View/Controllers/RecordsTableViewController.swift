@@ -30,6 +30,12 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         tableView.tableHeaderView = nil
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    }
+    
     private func bindViewModel() {
         viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
             self?.tableView.tableHeaderView = (value) ? nil : self?.headerView

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Přidat záznam ze simulátoru-->
+        <!--Upravit záznam ze simulátoru-->
         <scene sceneID="00U-Zr-WnY">
             <objects>
                 <tableViewController id="hJY-4L-i1U" customClass="AddSimulatorRecordTableViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,7 +166,7 @@
                             <outlet property="delegate" destination="hJY-4L-i1U" id="62l-9v-xga"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Přidat záznam ze simulátoru" id="kRU-Gm-GfA">
+                    <navigationItem key="navigationItem" title="Upravit záznam ze simulátoru" id="kRU-Gm-GfA">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="LKs-W0-gGV">
                             <connections>
                                 <action selector="saveRecordToRealm:" destination="hJY-4L-i1U" id="2Md-JT-ShD"/>

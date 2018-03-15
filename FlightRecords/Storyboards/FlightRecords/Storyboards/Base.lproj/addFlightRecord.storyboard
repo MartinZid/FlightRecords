@@ -707,7 +707,7 @@
                             <outlet property="delegate" destination="Pbt-cA-dG7" id="4nv-I4-l0a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Přidat záznam letu" id="1af-fU-FpS">
+                    <navigationItem key="navigationItem" title="Upravit záznam letu" id="1af-fU-FpS">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="kyw-qw-qRI">
                             <connections>
                                 <action selector="saveRecordToRealm:" destination="Pbt-cA-dG7" id="X9g-yM-e2m"/>

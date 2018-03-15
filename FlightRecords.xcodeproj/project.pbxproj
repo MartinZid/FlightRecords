@@ -159,6 +159,7 @@
 		5B44B3F71F98A966004B1E65 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
 		5B45C438205A747E0020F0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/records.storyboard; sourceTree = "<group>"; };
 		5B45C43B205A81150020F0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/addPlane.storyboard; sourceTree = "<group>"; };
+		5B45C440205AACFE0020F0AD /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 		5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewController.swift; sourceTree = "<group>"; };
 		5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModel.swift; sourceTree = "<group>"; };
 		5B6E50932048115300A55289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		5BC363BA201A106100CC91A2 /* prevPagesRow02.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = prevPagesRow02.html; sourceTree = "<group>"; };
 		5BC363BC201A107200CC91A2 /* totalRow02.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = totalRow02.html; sourceTree = "<group>"; };
 		5BC76B9A1FCEAE3B00852021 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
-		5BCC209620239C3C004D17A5 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = FlightRecords/Storyboards/cs.lproj/addFlightRecord.strings; sourceTree = "<group>"; };
 		5BCDC1F92015D6E0006D7966 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/statistics.storyboard; sourceTree = "<group>"; };
 		5BCDC1FB2015D957006D7966 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		5BCDC1FD2015D982006D7966 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
@@ -914,7 +914,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5BECAE031F98BEE600A3EA49 /* Base */,
-				5BCC209620239C3C004D17A5 /* cs */,
+				5B45C440205AACFE0020F0AD /* cs */,
 			);
 			name = addFlightRecord.storyboard;
 			sourceTree = "<group>";

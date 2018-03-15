@@ -1,6 +1,6 @@
 
-/* Class = "UINavigationItem"; title = "Přidat záznam letu"; ObjectID = "1af-fU-FpS"; */
-"1af-fU-FpS.title" = "Přidat záznam letu";
+/* Class = "UINavigationItem"; title = "Upravit záznam letu"; ObjectID = "1af-fU-FpS"; */
+"1af-fU-FpS.title" = "Upravit záznam letu";
 
 /* Class = "UITableViewSection"; headerTitle = "Poznámka"; ObjectID = "43i-Al-UYv"; */
 "43i-Al-UYv.headerTitle" = "Poznámka";

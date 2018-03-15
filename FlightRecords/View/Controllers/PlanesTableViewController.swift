@@ -20,6 +20,7 @@ class PlanesTableViewController: UITableViewController {
         static let planeCellIdentifier = "PlaneCell"
         static let planesSB = "planes"
         static let addPlaneVC = "addPlaneVC"
+        static let detailPlaneSequeIdentifier = "detailPlane"
     }
     
     override func viewDidLoad() {
@@ -85,10 +86,11 @@ class PlanesTableViewController: UITableViewController {
             delegate?.userDidSelect(planeViewModel: selectedPlaneViewModel)
             self.navigationController?.popViewController(animated: true)
         } else { // user is managing planes (show him detail)
-            let nextViewController = UIStoryboard(name: Identifiers.planesSB, bundle: nil).instantiateViewController(withIdentifier: Identifiers.addPlaneVC) as! AddPlaneViewController
-            nextViewController.viewModel = viewModel.addPlaneViewModelForPlane(at: indexPath)
-            let navigationController = UINavigationController(rootViewController: nextViewController)
-            self.navigationController?.present(navigationController, animated: true, completion: nil)
+//            let nextViewController = UIStoryboard(name: Identifiers.planesSB, bundle: nil).instantiateViewController(withIdentifier: Identifiers.addPlaneVC) as! AddPlaneViewController
+//            nextViewController.viewModel = viewModel.addPlaneViewModelForPlane(at: indexPath)
+//            let navigationController = UINavigationController(rootViewController: nextViewController)
+//            self.navigationController?.present(navigationController, animated: true, completion: nil)
+            performSegue(withIdentifier: Identifiers.detailPlaneSequeIdentifier, sender: indexPath)
         }
     }
 
@@ -96,6 +98,13 @@ class PlanesTableViewController: UITableViewController {
         if segue.identifier == Identifiers.addPlane {
             if let addPlaneVC = segue.destination.contentViewController as? AddPlaneViewController {
                 addPlaneVC.viewModel = viewModel.addPlaneViewModelForNewPlane()
+            }
+        }
+        if segue.identifier == Identifiers.detailPlaneSequeIdentifier {
+            if let planeDetailVC = segue.destination.contentViewController as? AddPlaneViewController {
+                if let indexPath = sender as? IndexPath {
+                    planeDetailVC.viewModel = viewModel.addPlaneViewModelForPlane(at: indexPath)
+                }
             }
         }
     }

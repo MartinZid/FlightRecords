@@ -39,6 +39,8 @@
 		5B279BBB1FAB513400090D7B /* PlaneViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */; };
 		5B44B3F41F989D07004B1E65 /* AddFlightRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */; };
 		5B44B3F81F98A966004B1E65 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44B3F71F98A966004B1E65 /* UITableViewControllerExtension.swift */; };
+		5B45C439205A747E0020F0AD /* records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B45C437205A747E0020F0AD /* records.storyboard */; };
+		5B45C43C205A81150020F0AD /* addPlane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B45C43A205A81150020F0AD /* addPlane.storyboard */; };
 		5B678F1E1FB44D15000C09E4 /* AddPlaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */; };
 		5B678F201FB44EA0000C09E4 /* AddPlaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */; };
 		5B7309561F8015F70026152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7309551F8015F70026152E /* AppDelegate.swift */; };
@@ -155,6 +157,8 @@
 		5B279BBA1FAB513400090D7B /* PlaneViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F31F989D07004B1E65 /* AddFlightRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFlightRecordViewModelTests.swift; sourceTree = "<group>"; };
 		5B44B3F71F98A966004B1E65 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
+		5B45C438205A747E0020F0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/records.storyboard; sourceTree = "<group>"; };
+		5B45C43B205A81150020F0AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/FlightRecords/Storyboards/FlightRecords/Storyboards/Base.lproj/addPlane.storyboard; sourceTree = "<group>"; };
 		5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewController.swift; sourceTree = "<group>"; };
 		5B678F1F1FB44EA0000C09E4 /* AddPlaneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaneViewModel.swift; sourceTree = "<group>"; };
 		5B6E50932048115300A55289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -545,8 +549,10 @@
 				5BD6DC4A1FC81BB200140F34 /* search.storyboard */,
 				5B1694801FBD843A000A2B9D /* addSimulatorRecord.storyboard */,
 				5B279BAF1FAB441500090D7B /* planes.storyboard */,
+				5B45C43A205A81150020F0AD /* addPlane.storyboard */,
 				5B1694891FBD928C000A2B9D /* note.storyboard */,
 				5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */,
+				5B45C437205A747E0020F0AD /* records.storyboard */,
 				5B7309591F8015F70026152E /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -657,6 +663,7 @@
 				5BF695421FCFF81900D6B9CA /* profile.storyboard in Resources */,
 				5BC363B1201A0F0600CC91A2 /* thisPageRow01.html in Resources */,
 				5BD6DC4C1FC81BB200140F34 /* search.storyboard in Resources */,
+				5B45C43C205A81150020F0AD /* addPlane.storyboard in Resources */,
 				5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */,
 				5BC363BD201A107200CC91A2 /* totalRow02.html in Resources */,
 				5BC363B3201A0F1200CC91A2 /* prevPagesRow01.html in Resources */,
@@ -675,6 +682,7 @@
 				5BC363BB201A106100CC91A2 /* prevPagesRow02.html in Resources */,
 				5B92555E20175E5200A47E4E /* icons8-bulleted-list-50.png in Resources */,
 				5B1694821FBD843A000A2B9D /* addSimulatorRecord.storyboard in Resources */,
+				5B45C439205A747E0020F0AD /* records.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +841,22 @@
 				5B279BB01FAB441500090D7B /* Base */,
 			);
 			name = planes.storyboard;
+			sourceTree = "<group>";
+		};
+		5B45C437205A747E0020F0AD /* records.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B45C438205A747E0020F0AD /* Base */,
+			);
+			name = records.storyboard;
+			sourceTree = "<group>";
+		};
+		5B45C43A205A81150020F0AD /* addPlane.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B45C43B205A81150020F0AD /* Base */,
+			);
+			name = addPlane.storyboard;
 			sourceTree = "<group>";
 		};
 		5B7309591F8015F70026152E /* Main.storyboard */ = {

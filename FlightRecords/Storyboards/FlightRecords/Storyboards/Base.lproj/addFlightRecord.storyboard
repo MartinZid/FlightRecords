@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pbt-cA-dG7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="52T-nV-wTF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -696,7 +696,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NQr-CX-b7f" kind="presentation" identifier="note" id="8Yx-3c-G60"/>
+                                            <segue destination="NQr-CX-b7f" kind="presentation" identifier="note" modalPresentationStyle="formSheet" id="8Yx-3c-G60"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -750,7 +750,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31G-gr-AU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2061.5999999999999" y="-1030.4347826086957"/>
+            <point key="canvasLocation" x="2400.8000000000002" y="-1030.4347826086957"/>
         </scene>
         <!--planes-->
         <scene sceneID="veZ-Y8-meG">
@@ -758,7 +758,7 @@
                 <viewControllerPlaceholder storyboardName="planes" id="e6B-ca-Tp2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAf-97-u6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2873" y="-1303"/>
+            <point key="canvasLocation" x="3211.1999999999998" y="-1303.4482758620691"/>
         </scene>
         <!--note-->
         <scene sceneID="uxo-O1-dNH">
@@ -766,7 +766,25 @@
                 <viewControllerPlaceholder storyboardName="note" id="NQr-CX-b7f" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooK-dI-vXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="-904"/>
+            <point key="canvasLocation" x="3200" y="-904.04797601199402"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B88-BP-nPC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="52T-nV-wTF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4HZ-Wx-1bq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pbt-cA-dG7" kind="relationship" relationship="rootViewController" id="N23-xL-kDp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZk-at-hfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="-1030"/>
         </scene>
     </scenes>
 </document>

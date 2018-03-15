@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Zdravotní certifikáty" id="yvf-Zr-rPa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hbB-oK-aYH">
                             <connections>
-                                <segue destination="HKu-rx-Evo" kind="presentation" identifier="" id="vtL-bh-TvI"/>
+                                <segue destination="HKu-rx-Evo" kind="presentation" identifier="" modalPresentationStyle="formSheet" id="vtL-bh-TvI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

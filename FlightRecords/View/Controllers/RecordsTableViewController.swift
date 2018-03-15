@@ -17,6 +17,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     private struct Identifiers {
         static let searchSegueIdentifier = "search"
         static let recordCellIdentifier = "RecordCell"
+        static let flightDetailSequeIdentifier = "detailFlight"
+        static let ftsdDetailSequeIdentifier = "detailFSTD"
         static let addFlightRecordSB = "addFlightRecord"
         static let addSimulatorRecordSB = "addSimulatorRecord"
         static let pdfSegueIdentifier = "PDF"
@@ -96,13 +98,15 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = viewModel.getTypeOfRecord(at: indexPath)
         if  type == .flight {
-            let nextViewController = UIStoryboard(name: Identifiers.addFlightRecordSB, bundle: nil).instantiateInitialViewController() as! AddFlightRecordTableViewController
-            nextViewController.viewModel = viewModel.getAddFlightViewModel(for: indexPath)
-            self.navigationController?.pushViewController(nextViewController, animated: true)
+//            let nextViewController = UIStoryboard(name: Identifiers.addFlightRecordSB, bundle: nil).instantiateInitialViewController() as! AddFlightRecordTableViewController
+//            nextViewController.viewModel = viewModel.getAddFlightViewModel(for: indexPath)
+//            self.navigationController?.pushViewController(nextViewController, animated: true)
+            performSegue(withIdentifier: Identifiers.flightDetailSequeIdentifier, sender: indexPath)
         } else if type == .simulator {
-            let nextViewController = UIStoryboard(name: Identifiers.addSimulatorRecordSB, bundle: nil).instantiateInitialViewController() as! AddSimulatorRecordTableViewController
-            nextViewController.viewModel = viewModel.getAddSimulatorViewModel(for: indexPath)
-            self.navigationController?.pushViewController(nextViewController, animated: true)
+//            let nextViewController = UIStoryboard(name: Identifiers.addSimulatorRecordSB, bundle: nil).instantiateInitialViewController() as! AddSimulatorRecordTableViewController
+//            nextViewController.viewModel = viewModel.getAddSimulatorViewModel(for: indexPath)
+//            self.navigationController?.pushViewController(nextViewController, animated: true)
+            performSegue(withIdentifier: Identifiers.ftsdDetailSequeIdentifier, sender: indexPath)
         }
     }
 
@@ -120,6 +124,21 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
                 pdfVC.viewModel = viewModel.getPDFGeneratorViewModel()
             }
         }
+        if segue.identifier == Identifiers.flightDetailSequeIdentifier {
+            if let flightDetailVC = segue.destination.contentViewController as? AddFlightRecordTableViewController {
+                if let indexPath = sender as? IndexPath {
+                    flightDetailVC.viewModel = viewModel.getAddFlightViewModel(for: indexPath)
+                }
+            }
+        }
+        if segue.identifier == Identifiers.ftsdDetailSequeIdentifier {
+            if let simulatorDetailVC = segue.destination.contentViewController as? AddSimulatorRecordTableViewController {
+                if let indexPath = sender as? IndexPath {
+                    simulatorDetailVC.viewModel = viewModel.getAddSimulatorViewModel(for: indexPath)
+                }
+            }
+        }
+        
     }
 
 }

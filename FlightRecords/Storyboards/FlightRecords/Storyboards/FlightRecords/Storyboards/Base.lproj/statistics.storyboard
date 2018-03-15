@@ -240,7 +240,9 @@
                     <navigationItem key="navigationItem" title="Statistiky" id="5tG-FG-2pn">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="E2X-0Y-VGY">
                             <connections>
-                                <segue destination="3Ja-VB-DKQ" kind="presentation" identifier="search" id="hYV-QZ-Dwy"/>
+                                <segue destination="3Ja-VB-DKQ" kind="popoverPresentation" identifier="search" popoverAnchorBarButtonItem="E2X-0Y-VGY" id="hYV-QZ-Dwy">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -264,7 +266,7 @@
                 <viewControllerPlaceholder storyboardName="search" id="3Ja-VB-DKQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxD-kY-VIw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="51"/>
+            <point key="canvasLocation" x="1623" y="67"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="apT-Gn-HNk">

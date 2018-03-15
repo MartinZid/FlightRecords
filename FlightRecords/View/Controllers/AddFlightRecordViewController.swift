@@ -184,7 +184,9 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     
     @IBAction func saveRecordToRealm(_ sender: Any) {
         viewModel.saveRecordToRealm()
-        self.navigationController?.popToRootViewController(animated: true)
+        if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
+            navController.popToRootViewController(animated: true)
+        }
     }
     
     // MARK: - NoteViewControllerDelegate

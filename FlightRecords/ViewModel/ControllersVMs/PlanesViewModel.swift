@@ -30,6 +30,7 @@ class PlanesViewModel: RealmTableViewModel<Plane> {
     }
     
     func deletePlane(at indexPath: IndexPath) {
+        deletedObject = Plane(value: collection![indexPath.row])
         deleteObject(at: indexPath)
     }
 }

@@ -15,6 +15,7 @@ import Result
 class RealmTableViewModel<T: Object>: RealmViewModel {
     
     internal var collection: Results<T>?
+    internal var deletedObject: T?
     
     var collectionNotificationsToken: NotificationToken? = nil
     let collectionChangedSignal: Signal<RealmCollectionChange<Results<T>>, NoError>
@@ -59,6 +60,15 @@ class RealmTableViewModel<T: Object>: RealmViewModel {
         try! realm.write {
             realm.delete(collection![indexPath.row])
         }
+    }
+    
+    func undoDelete() {
+        if let deletedObject = deletedObject {
+            try! realm.write {
+                realm.add(deletedObject)
+            }
+        }
+        deletedObject = nil
     }
     
 }

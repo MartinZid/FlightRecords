@@ -23,6 +23,14 @@ class MedicalCertificatesViewController: UITableViewController {
         super.viewDidLoad()
         viewModel = MedicalCertificatesViewModel()
         bindViewModel()
+        becomeFirstResponder()
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if(event?.subtype == UIEventSubtype.motionShake) {
+            print("did shake")
+            viewModel.undoDelete()
+        }
     }
     
     private func bindViewModel() {

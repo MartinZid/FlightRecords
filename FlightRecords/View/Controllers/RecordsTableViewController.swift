@@ -28,6 +28,14 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         super.viewDidLoad()
         bindViewModel()
         tableView.tableHeaderView = nil
+        self.becomeFirstResponder()
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if(event?.subtype == UIEventSubtype.motionShake) {
+            print("did shake")
+            viewModel.undoDelete()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,14 +112,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = viewModel.getTypeOfRecord(at: indexPath)
         if  type == .flight {
-//            let nextViewController = UIStoryboard(name: Identifiers.addFlightRecordSB, bundle: nil).instantiateInitialViewController() as! AddFlightRecordTableViewController
-//            nextViewController.viewModel = viewModel.getAddFlightViewModel(for: indexPath)
-//            self.navigationController?.pushViewController(nextViewController, animated: true)
             performSegue(withIdentifier: Identifiers.flightDetailSequeIdentifier, sender: indexPath)
         } else if type == .simulator {
-//            let nextViewController = UIStoryboard(name: Identifiers.addSimulatorRecordSB, bundle: nil).instantiateInitialViewController() as! AddSimulatorRecordTableViewController
-//            nextViewController.viewModel = viewModel.getAddSimulatorViewModel(for: indexPath)
-//            self.navigationController?.pushViewController(nextViewController, animated: true)
             performSegue(withIdentifier: Identifiers.ftsdDetailSequeIdentifier, sender: indexPath)
         }
     }

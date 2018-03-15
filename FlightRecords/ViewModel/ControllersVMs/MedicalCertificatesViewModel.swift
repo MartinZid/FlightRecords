@@ -23,6 +23,7 @@ class MedicalCertificatesViewModel: RealmTableViewModel<MedicalCertificate> {
     }
     
     func deleteCertificate(at indexPath: IndexPath) {
+        deletedObject = MedicalCertificate(value: collection![indexPath.row])
         deleteObject(at: indexPath)
     }
     

@@ -40,6 +40,7 @@ class RecordsViewModel: RealmTableViewModel<Record> {
     }
     
     func deleteRecord(at indexPath: IndexPath) {
+        deletedObject = Record(value: collection![indexPath.row])
         deleteObject(at: indexPath)
     }
     

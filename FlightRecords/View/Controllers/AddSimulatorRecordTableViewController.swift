@@ -55,6 +55,7 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
     @IBAction func saveRecordToRealm(_ sender: Any) {
         viewModel.saveRecordToRealm()
         self.navigationController?.popToRootViewController(animated: true)
+
     }
     
     func save(note: String) {

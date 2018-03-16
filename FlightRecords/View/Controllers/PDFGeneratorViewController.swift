@@ -10,21 +10,34 @@ import UIKit
 import WebKit
 import MessageUI
 
-class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerDelegate, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var pdfFilename = ""
     var viewModel: PDFGeneratorViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.loadHTMLString(viewModel.generateHTMLString()!, baseURL: nil)
+        webView.navigationDelegate = self
+        activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+            self?.webView.loadHTMLString(self?.viewModel.generateHTMLString()! ?? "", baseURL: nil)
+        })
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
     }
     
     @IBAction func generate(_ sender: Any) {
-        exportHTMLContentToPDF(HTMLContent: viewModel.generateHTMLString()!)
-        sendEmail()
+        activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+            self?.exportHTMLContentToPDF(HTMLContent: self?.viewModel.generateHTMLString()! ?? "")
+            self?.activityIndicator.stopAnimating()
+            self?.sendEmail()
+        })
     }
     
     private func exportHTMLContentToPDF(HTMLContent: String) {

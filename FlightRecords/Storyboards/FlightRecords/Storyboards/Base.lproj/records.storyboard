@@ -284,11 +284,16 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="amq-35-k58">
+                                <rect key="frame" x="178" y="356" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GLH-CD-4EO" firstAttribute="bottom" secondItem="7LU-XN-exT" secondAttribute="bottom" id="0yA-ZT-BgV"/>
+                            <constraint firstItem="amq-35-k58" firstAttribute="centerY" secondItem="GLH-CD-4EO" secondAttribute="centerY" id="8xU-3X-KD4"/>
                             <constraint firstItem="GLH-CD-4EO" firstAttribute="leading" secondItem="7LU-XN-exT" secondAttribute="leading" id="GLh-zY-6OV"/>
+                            <constraint firstItem="amq-35-k58" firstAttribute="centerX" secondItem="GLH-CD-4EO" secondAttribute="centerX" id="HeW-4c-e7f"/>
                             <constraint firstItem="GLH-CD-4EO" firstAttribute="trailing" secondItem="7LU-XN-exT" secondAttribute="trailing" id="UMZ-S3-VTt"/>
                             <constraint firstItem="GLH-CD-4EO" firstAttribute="top" secondItem="7LU-XN-exT" secondAttribute="top" id="wZu-K1-u0d"/>
                         </constraints>
@@ -302,6 +307,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="amq-35-k58" id="1I0-ft-aex"/>
                         <outlet property="webView" destination="GLH-CD-4EO" id="4Rm-PO-pgm"/>
                     </connections>
                 </viewController>

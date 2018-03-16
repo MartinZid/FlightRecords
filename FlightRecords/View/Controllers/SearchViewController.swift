@@ -47,6 +47,19 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         fromDateTextField.reactive.text <~ viewModel.fromDateString
         toDateTextField.reactive.text <~ viewModel.toDateString
         
+        viewModel.flightsSwitch.signal.observeValues { [weak self] value in
+            self?.tableView.beginUpdates()
+            self?.tableView.endUpdates()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if !viewModel.flightsSwitch.value {
+            if indexPath.row == 3 || indexPath.row == 4 {
+                return 0.0
+            }
+        }
+        return 44.0
     }
     
     private func setDefaultValues() {

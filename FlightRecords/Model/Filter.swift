@@ -16,7 +16,14 @@ class Filter {
         var collection = records
         if let text = searchConfiguration?.searchText {
             if text.count > 0 {
-                collection = collection?.filter("(from contains[c] %@) or (to contains[c] %@)", text, text)
+                collection = collection?.filter("(from contains[c] %@) or" +
+                                                "(to contains[c] %@) or" +
+                                                "(pilot contains[c] %@) or" +
+                                                "(note contains[c] %@) or" +
+                                                "(plane.type contains[c] %@) or" +
+                                                "(plane.registrationNumber contains[c] %@) or" +
+                                                "(simulator contains[c] %@)",
+                                                text, text, text, text, text, text, text)
             }
         }
         if searchConfiguration?.flightsSwitch == false {
@@ -28,7 +35,7 @@ class Filter {
         if let type = searchConfiguration?.planeType {
             if type.count > 0 {
                 print(type)
-                collection = collection?.filter("plane.type contains[c] %@", type)
+                collection = collection?.filter("(plane.type contains[c] %@)", type)
             }
         }
         if let plane = searchConfiguration?.plane {

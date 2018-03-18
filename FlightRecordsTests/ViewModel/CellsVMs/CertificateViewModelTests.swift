@@ -46,6 +46,6 @@ class CertificateViewModelTests: XCTestCase {
     }
     
     func testgetCertificateName2() {
-        XCTAssertEqual(viewModelUnderTest.getCertificateName(), "", "Returned certificate name for nil is not correct.")
+        XCTAssertEqual(viewModelUnderTest.getCertificateName(), NSLocalizedString("Without name", comment: ""), "Returned certificate name for nil is not correct.")
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import ReactiveSwift
 import Result
 import RealmSwift
+import ToastSwiftFramework
 
 extension UITableViewController {
     internal func setEndEditingOnTap() {

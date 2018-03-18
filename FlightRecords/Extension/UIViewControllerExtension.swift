@@ -27,4 +27,8 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func displaySavedToaster() {
+        view.makeToast(NSLocalizedString("Saved", comment: ""), duration: 1.0, position: .center)
+    }
 }

@@ -25,6 +25,9 @@ extension UITableViewController {
             case .initial:
                 tableView.reloadData()
             case .update(_, let deletions, let insertions, let modifications):
+                if insertions.count > 0 || modifications.count > 0 {
+                    self?.displaySavedToaster()
+                }
                 tableView.beginUpdates()
                 tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
                                      with: .automatic)

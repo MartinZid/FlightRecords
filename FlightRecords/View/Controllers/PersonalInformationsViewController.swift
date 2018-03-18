@@ -18,6 +18,7 @@ class PersonalInformationsViewController: RecordTableViewController {
     @IBOutlet weak var addressTextField: UITextField!
     
     private let viewModel = PersonalInformationsViewModel()
+    var delegate: PersonalInformationsControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,9 @@ class PersonalInformationsViewController: RecordTableViewController {
         viewModel.saveInfo()
         if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
             navController.popViewController(animated: true)
+        }
+        if let delegate = delegate {
+            delegate.personalInformationSaved()
         }
     }
     

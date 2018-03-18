@@ -19,3 +19,7 @@ protocol PlanesTableViewControllerDelegate {
 protocol SearchViewControllerDelegate {
     func apply(searchViewModel: SearchViewModel)
 }
+
+protocol PersonalInformationsControllerDelegate {
+    func personalInformationSaved()
+}

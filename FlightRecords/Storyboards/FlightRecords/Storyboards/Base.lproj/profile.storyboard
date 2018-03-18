@@ -41,7 +41,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Mx6-8V-o3l" kind="showDetail" id="0VW-eA-6vz"/>
+                                            <segue destination="Mx6-8V-o3l" kind="showDetail" identifier="personalInformations" id="0VW-eA-6vz"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ZoN-oT-LJ9">

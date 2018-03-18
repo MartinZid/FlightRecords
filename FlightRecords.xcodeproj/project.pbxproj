@@ -112,6 +112,7 @@
 		5BF6954C1FD00E7A00D6B9CA /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6954B1FD00E7A00D6B9CA /* DateFormatterExtension.swift */; };
 		5BF6954E1FD00EB700D6B9CA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6954D1FD00EB700D6B9CA /* UIViewControllerExtension.swift */; };
 		5BFA4C9C205EAB6900ECA503 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFA4C9B205EAB6900ECA503 /* ToastSwiftFramework.framework */; };
+		5BFA4CA2205EAFD100ECA503 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA4CA1205EAFD100ECA503 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,7 @@
 		5BF6954B1FD00E7A00D6B9CA /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		5BF6954D1FD00EB700D6B9CA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		5BFA4C9B205EAB6900ECA503 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		5BFA4CA1205EAFD100ECA503 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 				5B678F1D1FB44D15000C09E4 /* AddPlaneViewController.swift */,
 				5B1694831FBD8545000A2B9D /* AddSimulatorRecordTableViewController.swift */,
 				5BD6DC4D1FC81FEB00140F34 /* SearchViewController.swift */,
+				5BFA4CA1205EAFD100ECA503 /* ProfileViewController.swift */,
 				5BF695451FD00A0D00D6B9CA /* PersonalInformationsViewController.swift */,
 				5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */,
 				5B7F4B221FDA921900A435AE /* MedicalCertificatesViewController.swift */,
@@ -763,6 +766,7 @@
 				5B189CC61F8F54E0000B25FB /* RecordCell.swift in Sources */,
 				5B279BB51FAB46D700090D7B /* PlaneCell.swift in Sources */,
 				5BCDC1FE2015D982006D7966 /* StatisticsViewModel.swift in Sources */,
+				5BFA4CA2205EAFD100ECA503 /* ProfileViewController.swift in Sources */,
 				5BCDC1FC2015D957006D7966 /* StatisticsViewController.swift in Sources */,
 				5BF6954E1FD00EB700D6B9CA /* UIViewControllerExtension.swift in Sources */,
 				5BF6954A1FD00A6D00D6B9CA /* PersonalInformations.swift in Sources */,

@@ -64,6 +64,15 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
         viewModel.note.value = note
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: dateTextField.becomeFirstResponder()
+        case 1: timeTextField.becomeFirstResponder()
+        case 2: typeTextField.becomeFirstResponder()
+        default: break
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

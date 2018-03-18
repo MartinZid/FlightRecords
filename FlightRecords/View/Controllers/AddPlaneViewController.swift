@@ -58,6 +58,17 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: typeTextField.becomeFirstResponder()
+        case 1: modelTextField.becomeFirstResponder()
+        case 2: variantTextField.becomeFirstResponder()
+        case 3: registrationNumberTextField.becomeFirstResponder()
+        case 4: engineTextField.becomeFirstResponder()
+        default: break
+        }
+    }
+    
     // MARK: - UIPickerViewDataSource
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

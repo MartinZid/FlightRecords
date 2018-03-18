@@ -201,6 +201,30 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         viewModel.setPlane(from: planeViewModel)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0: dateTextField.becomeFirstResponder()
+            case 1: fromTextField.becomeFirstResponder()
+            case 2: timeTKOField.becomeFirstResponder()
+            case 3: toTextField.becomeFirstResponder()
+            case 4: timeLDGField.becomeFirstResponder()
+            case 7: picTextField.becomeFirstResponder()
+            default: break
+            }
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0: timeNightField.becomeFirstResponder()
+            case 1: timeIFRField.becomeFirstResponder()
+            case 2: timePICField.becomeFirstResponder()
+            case 3: timeCOField.becomeFirstResponder()
+            case 4: timeDualField.becomeFirstResponder()
+            case 5: timeInstructorField.becomeFirstResponder()
+            default: break
+            }
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

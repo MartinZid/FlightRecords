@@ -70,6 +70,17 @@ class AddMedicalCertificateViewController: RecordTableViewController, UIPickerVi
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0: typeTextField.becomeFirstResponder()
+        case 1: nameTextField.becomeFirstResponder()
+        case 2: publicationDateTextField.becomeFirstResponder()
+        case 3: expirationDateTextField.becomeFirstResponder()
+        case 4: descriptionTextField.becomeFirstResponder()
+        default: break
+        }
+    }
+    
     // MARK: - UIPickerViewDataSource
         
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

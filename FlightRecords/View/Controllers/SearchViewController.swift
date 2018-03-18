@@ -134,6 +134,22 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0: searchTextField.becomeFirstResponder()
+            case 3: planeTypeTextField.becomeFirstResponder()
+            default: break
+            }
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0: fromDateTextField.becomeFirstResponder()
+            case 1: toDateTextField.becomeFirstResponder()
+            default: break
+            }
+        }
+    }
+    
     // MARK: - Navigation
     
     @IBAction func done(_ sender: Any) {

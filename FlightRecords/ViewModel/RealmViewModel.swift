@@ -83,6 +83,7 @@ class RealmViewModel {
         print("Realm instance set up")
         
         userLoginObserver.send(value: ())
+        
         self.notificationToken = self.realm.observe(self.notificationHandler)
         self.realmInitCompleted()
     }

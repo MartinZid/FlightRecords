@@ -12,12 +12,26 @@ import ReactiveSwift
 import Result
 import CloudKit
 
+public enum LoginErrorType {
+    case iCloudError
+    case serverError
+}
+
+public struct LoginError: Error {
+    var type: LoginErrorType
+}
+
 class RealmViewModel {
     
     internal var notificationToken: NotificationToken!
     internal var realm: Realm!
+    
     let contentChangedSignal: Signal<Void, NoError>
     internal let contentChangedObserver: Signal<Void, NoError>.Observer
+    
+    let userLoginSignal: Signal<Void, LoginError>
+    internal let userLoginObserver: Signal<Void, LoginError>.Observer
+    
     private let url = "127.0.0.1:9080"
 //    private let url = "192.168.1.39:9080"
     
@@ -25,7 +39,11 @@ class RealmViewModel {
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
         self.contentChangedSignal = contentChangedSignal
         self.contentChangedObserver = contentChangedObserver
-
+        
+        let (userLoginSignal, userLoginObserver) = Signal<Void, LoginError>.pipe()
+        self.userLoginSignal = userLoginSignal
+        self.userLoginObserver = userLoginObserver
+        
         if let user = SyncUser.current {
             setUpRealmInstance(with: user)
         } else {
@@ -35,6 +53,7 @@ class RealmViewModel {
                     print("received iCloudID \(userID)")
                     self?.logInUser(with: userID)
                 } else {
+                    userLoginObserver.send(error: LoginError.init(type: .iCloudError))
                     print("Fetched iCloudID was nil")
                 }
             }
@@ -45,7 +64,8 @@ class RealmViewModel {
         let cloudKitCredentials = SyncCredentials.cloudKit(token: token)
         SyncUser.logIn(with: cloudKitCredentials, server: URL(string: "http://" + url)!) { [weak self] user, error in
             guard let user = user else {
-                fatalError(String(describing: error))
+                self?.userLoginObserver.send(error: LoginError.init(type: .serverError))
+                return
             }
             DispatchQueue.main.async {
                 self?.setUpRealmInstance(with: user)
@@ -62,6 +82,7 @@ class RealmViewModel {
         
         print("Realm instance set up")
         
+        userLoginObserver.send(value: ())
         self.notificationToken = self.realm.observe(self.notificationHandler)
         self.realmInitCompleted()
     }
@@ -93,6 +114,8 @@ class RealmViewModel {
     internal func notificationHandler(notification: Realm.Notification, realm: Realm) {}
     
     deinit {
-        notificationToken.invalidate()
+        if let notificationToken = notificationToken {
+            notificationToken.invalidate()
+        }
     }
 }

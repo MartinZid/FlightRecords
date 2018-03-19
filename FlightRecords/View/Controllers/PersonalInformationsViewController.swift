@@ -17,11 +17,12 @@ class PersonalInformationsViewController: RecordTableViewController {
     @IBOutlet weak var birthDayTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
-    private let viewModel = PersonalInformationsViewModel()
+    private var viewModel: PersonalInformationsViewModel!
     var delegate: PersonalInformationsControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = PersonalInformationsViewModel()
         bindViewModel()
         setEndEditingOnTap()
     }

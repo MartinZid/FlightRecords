@@ -82,6 +82,13 @@
 "Clear" = "Ano";
 "Saved" = "Uloženo";
 
+"Login error" = "Chyba při přihlašování";
+"Login error info message" = "Při přihlašování, pomocí Vašeho iCloud účtu, došlo k chybě. Zkontrolujte, prosím, že jste k iCloud účtu přihlášeni (v Nastavení).";
+"Try again" = "Zkusit znovu";
+"Server error" = "Chyba při komunikaci se serverem";
+"Server error info message" = "Nastala chyba při komunikaci se serverem. Prosím, zkuste to později.";
+"Login successful" = "Přihlášení, pomocí Vašeho iCloud účtu, bylo úspěšné!";
+
 
 
 

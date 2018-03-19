@@ -11,8 +11,9 @@ import UIKit
 class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
     
     @IBOutlet var headerView: UIView!
+    var activityIndicator = UIActivityIndicatorView()
     
-    private let viewModel = RecordsViewModel()
+    private var viewModel: RecordsViewModel!
     
     private struct Identifiers {
         static let searchSegueIdentifier = "search"
@@ -26,6 +27,10 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutActivityIndicator()
+        activityIndicator.startAnimating()
+        activityIndicator.backgroundColor = UIColor.white
+        viewModel = RecordsViewModel()
         bindViewModel()
         tableView.tableHeaderView = nil
         self.becomeFirstResponder()
@@ -44,11 +49,59 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
     }
     
+    func layoutActivityIndicator() {
+        let rect = CGRect(origin: CGPoint(x: 0,y :0), size:
+            CGSize(width: 40, height: 40))
+        activityIndicator = UIActivityIndicatorView(frame: rect)
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+    }
+    
     private func bindViewModel() {
+        viewModel.userLoginSignal.observeResult { [weak self] result in
+            if let error = result.error {
+                switch error.type {
+                case .iCloudError: self?.displayLoginErrorAlert()
+                case .serverError: self?.displayServerErrorAlert()
+                }
+            }
+            if let _ = result.value {
+                self?.view.makeToast(NSLocalizedString("Login successful", comment: ""), duration: 1.0, position: .center)
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.hidesWhenStopped = true
+            }
+        }
         viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
             self?.tableView.tableHeaderView = (value) ? nil : self?.headerView
         }
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
+    }
+    
+    private func tryLoginAgain(action: UIAlertAction) {
+        viewModel = nil
+        viewModel = RecordsViewModel()
+        bindViewModel()
+    }
+    
+    private func displayErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""), style: UIAlertActionStyle.default, handler: tryLoginAgain))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func displayLoginErrorAlert() {
+        displayErrorAlert(title: NSLocalizedString("Login error", comment: ""),
+                          message: NSLocalizedString("Login error info message", comment: ""))
+    }
+    
+    private func displayServerErrorAlert() {
+        displayErrorAlert(title: NSLocalizedString("Server error", comment: ""),
+                          message: NSLocalizedString("Server error info message", comment: ""))
     }
     
     // MARK: - Actions

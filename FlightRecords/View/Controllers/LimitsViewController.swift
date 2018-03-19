@@ -24,10 +24,11 @@ class LimitsViewController: UITableViewController {
     @IBOutlet weak var hoursInMonthsLabel: UILabel!
     @IBOutlet weak var hoursInMonthsProgress: UIProgressView!
     
-    private let viewModel = LimitsViewModel()
+    private var viewModel: LimitsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LimitsViewModel()
         bindViewModel()
     }
     

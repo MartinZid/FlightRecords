@@ -10,7 +10,7 @@ import UIKit
 
 class PlanesTableViewController: UITableViewController {
     
-    private let viewModel = PlanesViewModel()
+    private var viewModel: PlanesViewModel!
     
     var delegate: PlanesTableViewControllerDelegate? = nil
     
@@ -24,6 +24,7 @@ class PlanesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = PlanesViewModel()
         bindViewModel()
         becomeFirstResponder()
     }

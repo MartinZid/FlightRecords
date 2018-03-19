@@ -12,6 +12,7 @@ import RealmSwift
 import ToastSwiftFramework
 
 extension UITableViewController {
+    
     internal func setEndEditingOnTap() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false

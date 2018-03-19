@@ -11,7 +11,7 @@ import UIKit
 class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
     
     @IBOutlet var headerView: UIView!
-    var activityIndicator = UIActivityIndicatorView()
+    private var activityIndicator = UIActivityIndicatorView()
     
     private var viewModel: RecordsViewModel!
     
@@ -28,8 +28,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutActivityIndicator()
-        activityIndicator.startAnimating()
-        activityIndicator.backgroundColor = UIColor.white
+        startActivityIndicator()
         viewModel = RecordsViewModel()
         bindViewModel()
         tableView.tableHeaderView = nil
@@ -49,7 +48,17 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
     }
     
-    func layoutActivityIndicator() {
+    private func startActivityIndicator() {
+        activityIndicator.startAnimating()
+        activityIndicator.backgroundColor = UIColor.white
+    }
+    
+    private func stopActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.hidesWhenStopped = true
+    }
+    
+    private func layoutActivityIndicator() {
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size:
             CGSize(width: 40, height: 40))
         activityIndicator = UIActivityIndicatorView(frame: rect)
@@ -68,14 +77,14 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
             }
             if let _ = result.value {
                 self?.view.makeToast(NSLocalizedString("Login successful", comment: ""), duration: 1.0, position: .center)
-                self?.activityIndicator.stopAnimating()
-                self?.activityIndicator.hidesWhenStopped = true
+                self?.stopActivityIndicator()
             }
         }
         viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
             self?.tableView.tableHeaderView = (value) ? nil : self?.headerView
         }
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
+        viewModel.collectionChangedSignal.observeValues { [weak self ] _ in self?.stopActivityIndicator()}
     }
     
     private func tryLoginAgain(action: UIAlertAction) {

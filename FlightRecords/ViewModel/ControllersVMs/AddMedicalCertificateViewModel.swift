@@ -9,7 +9,9 @@
 import Foundation
 import ReactiveSwift
 
-
+/**
+ Add/update medical certificate ViewModel.
+ */
 class AddMedicalCertificateViewModel: RealmViewModel {
     
     private let dateFormatter = DateFormatter()
@@ -29,6 +31,8 @@ class AddMedicalCertificateViewModel: RealmViewModel {
     var informations: PersonalInformations?
     let title: String
     
+    // MARK: - Initialization
+    
     init(with certificate: MedicalCertificate?) {
         self.certificate = certificate
         title = (certificate == nil ? NSLocalizedString("Add new certificate", comment: "") : NSLocalizedString("Edit certificate", comment: ""))
@@ -47,6 +51,8 @@ class AddMedicalCertificateViewModel: RealmViewModel {
         expirationString <~ expiration.producer.map(dateFormatter.optinalDateToString)
     }
     
+    // MARK: - Helpers
+    
     override func realmInitCompleted() {
         informations = realm.objects(PersonalInformations.self).first
     }
@@ -57,6 +63,13 @@ class AddMedicalCertificateViewModel: RealmViewModel {
         return type
     }
     
+    /**
+     This function counts expiration date of given certificate type according to Part.MED.
+     - parameters:
+        - publicationDate: certificate publication date
+        - type: certificate type
+     - returns: certificate expiration date
+     */
     private func countExpirationDate(from publicationDate: Date?, with type: MedicalCertificate.CertificateType) -> Date? {
         if let publication = publicationDate {
             if let informations = informations {
@@ -86,6 +99,8 @@ class AddMedicalCertificateViewModel: RealmViewModel {
         }
         return nil
     }
+    
+    // MARK: - API
     
     func getTypesCount() -> Int {
         return types.count

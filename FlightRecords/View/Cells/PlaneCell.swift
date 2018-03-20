@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Plane UITableViewCell.
+ */
 class PlaneCell: UITableViewCell {
 
     @IBOutlet weak var registrationLabel: UILabel!

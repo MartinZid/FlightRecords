@@ -8,18 +8,29 @@
 
 import Foundation
 
+/**
+ CertificateViewModel prepares data for CertificateCell.
+ */
 class CertificateViewModel {
     
     private let certificate: MedicalCertificate
+    
+    // MARK: - Initialization
     
     init(with certificate: MedicalCertificate) {
         self.certificate = certificate
     }
     
+    // MARK: - API
+    
     func getCertificateName() -> String {
         return certificate.name ?? NSLocalizedString("Without name", comment: "")
     }
     
+    /**
+     This function returns certificate expiration date in string format if one is set. If not it
+     returns localized N/A.
+    */
     func getCertificateExpiration() -> String {
         let dateformatter = DateFormatter()
         
@@ -29,5 +40,4 @@ class CertificateViewModel {
         }
         return NSLocalizedString("N/A", comment: "")
     }
-    
 }

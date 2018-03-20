@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Flight or simulator record UITableViewCell.
+ */
 class RecordCell: UITableViewCell {
     
     @IBOutlet weak var date: UILabel!

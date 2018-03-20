@@ -49,7 +49,7 @@ class PersonalInformationsViewController: RecordTableViewController {
     // MARK: - Actions
     
     @IBAction func save(_ sender: Any) {
-        viewModel.saveInfo()
+        viewModel.saveInfoToRealm()
         if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
             navController.popViewController(animated: true)
         }

@@ -12,7 +12,12 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
+/**
+ ViewModel associated with displaying all medical certificates.
+ */
 class MedicalCertificatesViewModel: RealmTableViewModel<MedicalCertificate> {
+    
+    // MARK: - API
     
     func getCellViewModel(for indexPath: IndexPath) -> CertificateViewModel {
         return CertificateViewModel(with: collection![indexPath.row])

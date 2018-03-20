@@ -11,7 +11,12 @@ import RealmSwift
 import ReactiveSwift
 import Result
 
+/**
+ ViewModel associated with displaying all planes.
+ */
 class PlanesViewModel: RealmTableViewModel<Plane> {
+    
+    // MARK: - API
     
     func numberOfPlanesInSection() -> Int {
         return numberOfObjectsInSection()

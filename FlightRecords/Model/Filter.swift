@@ -9,9 +9,18 @@
 import Foundation
 import RealmSwift
 
+/**
+ This class filters records according to the SearchConfiguration.
+ */
 class Filter {
     var searchConfiguration: SearchConfiguration?
     
+    /**
+     Filters records according to SearchConfiguration.
+     - parameters:
+        - records: records to be filtered
+     - returns: filtered records
+    */
     func filterRecords(from records: Results<Record>?) -> Results<Record>? {
         var collection = records
         if let text = searchConfiguration?.searchText {

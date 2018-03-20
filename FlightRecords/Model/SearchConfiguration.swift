@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Search configuration is model for filtering records.
+ */
 class SearchConfiguration {
     
     var searchText: String? = nil
@@ -19,6 +22,9 @@ class SearchConfiguration {
     var fromDate: Date? = nil
     var toDate: Date? = nil
     
+    /**
+     Return true if all properties have default value.
+    */
     func isDefaul() -> Bool {
         if searchText == nil, flightsSwitch == true, fstdSwitch == true,
             planeType == nil, plane == nil, fromDate == nil, toDate == nil {

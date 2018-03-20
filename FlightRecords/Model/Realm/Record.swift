@@ -10,6 +10,9 @@ import Foundation
 import RealmSwift
 
 
+/**
+ Realm object class representing record model.
+ */
 final class Record: Object {
     @objc dynamic var type: RecordType = .flight
     

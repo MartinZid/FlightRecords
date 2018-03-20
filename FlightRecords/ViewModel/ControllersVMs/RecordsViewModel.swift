@@ -12,11 +12,18 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
+/**
+ Flight and simulator records ViewModel.
+ */
 class RecordsViewModel: RealmTableViewModel<Record> {
     
+    /// Signal informing about every change in the search configuration
     let searchConfigurationChangedSignal: Signal<Bool, NoError>
     private let searchConfigurationChangedObserver: Signal<Bool, NoError>.Observer
+    
     private let filter = Filter()
+    
+    // MARK: - Initialization
     
     override init() {
         let (searchConfigurationChangedSignal, searchConfigurationChangedObserver) = Signal<Bool, NoError>.pipe()
@@ -25,11 +32,31 @@ class RecordsViewModel: RealmTableViewModel<Record> {
         super.init()
     }
     
+    // MARK: - Helpers
+    
+    private func hasDefaulFilter() -> Bool {
+        if let searchConfiguration = filter.searchConfiguration {
+            return searchConfiguration.isDefaul()
+        }
+        return true
+    }
+    
+    private func filterRecords() {
+        searchConfigurationChangedObserver.send(value: hasDefaulFilter())
+        
+        collection = filter.filterRecords(from: realm.objects(Record.self))
+        collectionNotificationsToken?.invalidate()
+        collection = collection?.sorted(byKeyPath: "date", ascending: false)
+        collectionNotificationsToken = collection?.observe(collectionChangedNotificationBlock)
+    }
+    
     override func updateList() {
         collection = realm.objects(Record.self)
         collection = collection?.sorted(byKeyPath: "date", ascending: false)
         collectionNotificationsToken = collection?.observe(collectionChangedNotificationBlock)
     }
+    
+    // MARK: - API
     
     func getCellViewModel(for indexPath: IndexPath) -> RecordViewModel {
         return RecordViewModel(with: collection![indexPath.row])
@@ -75,23 +102,6 @@ class RecordsViewModel: RealmTableViewModel<Record> {
         filter.searchConfiguration = SearchConfiguration()
         filterRecords()
     }
-    
-    private func hasDefaulFilter() -> Bool {
-        if let searchConfiguration = filter.searchConfiguration {
-            return searchConfiguration.isDefaul()
-        }
-        return true
-    }
-    
-    private func filterRecords() {
-        searchConfigurationChangedObserver.send(value: hasDefaulFilter())
-        
-        collection = filter.filterRecords(from: realm.objects(Record.self))
-        collectionNotificationsToken?.invalidate()
-        collection = collection?.sorted(byKeyPath: "date", ascending: false)
-        collectionNotificationsToken = collection?.observe(collectionChangedNotificationBlock)
-    }
-    
 }
 
 

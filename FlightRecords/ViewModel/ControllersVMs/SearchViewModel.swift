@@ -9,6 +9,9 @@
 import Foundation
 import ReactiveSwift
 
+/**
+ ViewModel associated with the search configuration form.
+ */
 class SearchViewModel {
     
     private let dateFormatter = DateFormatter()
@@ -26,6 +29,8 @@ class SearchViewModel {
     var toDateString = MutableProperty<String?>(nil)
     
     var searchConfiguration: SearchConfiguration?
+    
+    // MARK: - Initialization
     
     init(with configuration: SearchConfiguration?) {
         searchConfiguration = configuration
@@ -58,6 +63,8 @@ class SearchViewModel {
         }
     }
     
+    // MARK: - Helpers
+    
     private func setPlaneLabel(plane: Plane?) -> String {
         var label = plane?.registrationNumber ?? NSLocalizedString("N/A", comment: "")
         if plane == nil {
@@ -66,10 +73,17 @@ class SearchViewModel {
         return label
     }
     
+    // MARK: - API
+    
     func setPlane(from planeViewModel: PlaneViewModel) {
         plane.value = planeViewModel.getPlane()
     }
     
+    /**
+     This functions returns Date value of toDate property.
+     It also sets the value if there was no value before. It's value
+     is set according to fromDate value property (toDate must always be less than or equal fromDate).
+     */
     func getDefaultToDateValue() -> Date {
         if toDate.value == nil {
             if let fromDate = fromDate.value {

@@ -9,6 +9,9 @@
 import Foundation
 import ReactiveSwift
 
+/**
+ Add/update simulator record ViewModel.
+ */
 class AddSimulatorRecordViewModel: RealmViewModel {
     
     private let dateFormatter = DateFormatter()
@@ -23,6 +26,8 @@ class AddSimulatorRecordViewModel: RealmViewModel {
     
     let record: Record?
     let title: String
+    
+    // MARK: - Initialization
     
     init(with record: Record?) {
         self.record = record
@@ -43,6 +48,8 @@ class AddSimulatorRecordViewModel: RealmViewModel {
         dateString <~ date.producer.map(dateFormatter.dateToString)
         timeString <~ time.producer.map(dateFormatter.timeToString)
     }
+    
+    // MARK: - API
     
     func saveRecordToRealm() {
         let record = self.record ?? Record()

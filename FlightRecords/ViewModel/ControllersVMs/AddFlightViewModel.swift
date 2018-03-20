@@ -10,6 +10,9 @@ import Foundation
 import ReactiveSwift
 import Result
 
+/**
+ Add/update flight record ViewModel.
+ */
 class AddFlightRecordViewModel: RealmViewModel {
     
     private let dateFormatter = DateFormatter()
@@ -57,6 +60,8 @@ class AddFlightRecordViewModel: RealmViewModel {
     
     let title: String
     
+    // MARK: - Initialization
+    
     init(with record: Record?) {
         self.record = record
         title = (record == nil ? NSLocalizedString("Add new flight record", comment: "") : NSLocalizedString("Edit flight record", comment: ""))
@@ -89,6 +94,8 @@ class AddFlightRecordViewModel: RealmViewModel {
         bindProperties(record: record)
     }
     
+    // MARK: - Bindings
+    
     private func bindProperties(record: Record?) {
         dateString <~ date.producer.map(dateFormatter.dateToString)
         timeTKOString <~ timeTKO.producer.map(dateFormatter.timeToString)
@@ -115,6 +122,8 @@ class AddFlightRecordViewModel: RealmViewModel {
         planeString <~ plane.producer.filterMap(setPlaneLabel)
         totalTime.signal.observeValues(checkAllTimeProperties)
     }
+    
+    // MARK: - Helpers
 
     private func countTotalTime(timeTKO: Date, timeLDG: Date) -> Date {
         var interval: Int
@@ -153,6 +162,11 @@ class AddFlightRecordViewModel: RealmViewModel {
         return label
     }
     
+    /**
+     Check if any time property is bigger than given time. If so change its value to given time.
+     - parameters:
+        - string: time as string
+    */
     private func checkAllTimeProperties(for string: String) {
         let date = dateFormatter.createTime(from: string)
         if let value = timeNight.value, value.timeIntervalSince(date) > 0 {
@@ -174,6 +188,8 @@ class AddFlightRecordViewModel: RealmViewModel {
             timeInstructor.value = date
         }
     }
+    
+    // MARK: - API
     
     func setPlane(from planeViewModel: PlaneViewModel) {
         plane.value = planeViewModel.getPlane()

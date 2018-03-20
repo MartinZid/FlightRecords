@@ -12,14 +12,21 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
+/**
+ Base ViewModel for all ViewModels associated with dynamic UITableViewControllers, which display data from the Realm (records, planes, etc.)
+ */
 class RealmTableViewModel<T: Object>: RealmViewModel {
     
     internal var collection: Results<T>?
     internal var deletedObject: T?
     
     var collectionNotificationsToken: NotificationToken? = nil
+    
+    /// Signal informing about all types of changes (add, delete, update, etc.) in given collection
     let collectionChangedSignal: Signal<RealmCollectionChange<Results<T>>, NoError>
     private let collectionChangedObserver: Signal<RealmCollectionChange<Results<T>>, NoError>.Observer
+    
+    // MARK: - Initialization
     
     override init() {
         let (arrayChangedSignal, arrayChangedObserver) = Signal<RealmCollectionChange<Results<T>>, NoError>.pipe()
@@ -28,6 +35,12 @@ class RealmTableViewModel<T: Object>: RealmViewModel {
         super.init()
     }
     
+    deinit {
+        collectionNotificationsToken?.invalidate()
+    }
+    
+    // MARK: - API
+    
     internal func updateList() {
         collection = realm.objects(T.self)
         collectionNotificationsToken = collection?.observe(collectionChangedNotificationBlock)
@@ -35,10 +48,6 @@ class RealmTableViewModel<T: Object>: RealmViewModel {
     
     internal func collectionChangedNotificationBlock(changes: RealmCollectionChange<Results<T>>) {
         collectionChangedObserver.send(value: changes)
-    }
-    
-    deinit {
-        collectionNotificationsToken?.invalidate()
     }
     
     override func realmInitCompleted() {

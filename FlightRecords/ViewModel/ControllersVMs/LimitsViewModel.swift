@@ -11,6 +11,9 @@ import ReactiveCocoa
 import ReactiveSwift
 import RealmSwift
 
+/**
+ LimitsViewModel prepares properties for LimitsViewController. It counts the total time in given eras and prepares it for different UI elements.
+ */
 class LimitsViewModel: RealmViewModel {
     
     private var records: Results<Record>?
@@ -30,6 +33,8 @@ class LimitsViewModel: RealmViewModel {
     private let day: Double = 60 * 60 * 24
     private let dateFormatter = DateFormatter()
     
+    // MARK: - Initialization
+    
     override init() {
         super.init()
         inDays <~ inDaysString.producer.map(stringTimeToFloat)
@@ -41,6 +46,8 @@ class LimitsViewModel: RealmViewModel {
         inMonths <~ inMonthsString.producer.map(stringTimeToFloat)
         inMonthsLabel <~ inMonthsString.producer.map{ $0 + "/1000"}
     }
+    
+    // MARK: - Helpers
     
     private func stringTimeToFloat(time: String) -> Float {
         let timeArray = time.components(separatedBy: ":")

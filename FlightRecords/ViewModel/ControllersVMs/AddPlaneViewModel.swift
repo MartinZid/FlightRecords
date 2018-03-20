@@ -10,6 +10,9 @@ import Foundation
 import ReactiveSwift
 import Result
 
+/**
+ Add/update plane ViewModel.
+ */
 class AddPlaneViewModel: RealmViewModel {
     
     var type: MutableProperty<String?>
@@ -23,6 +26,8 @@ class AddPlaneViewModel: RealmViewModel {
     
     private let plane: Plane?
     let title: String
+    
+    // MARK: - Initialization
     
     init(with plane: Plane?) {
         self.plane = plane
@@ -40,12 +45,16 @@ class AddPlaneViewModel: RealmViewModel {
         engine <~ engineString.producer.filterMap(engine)
     }
     
+    // MARK: - Helper
+    
     private func engine(for value: String) -> Plane.Engine {
         let index = engines.index(where: {$0 == value})!
         let engine = Plane.Engine(rawValue: index)!
         print(engine.rawValue)
         return engine
     }
+    
+    // MARK: - API
     
     func getEngine(for row: Int) -> String {
         return engines[row]

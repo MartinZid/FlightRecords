@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ Realm object class representing personal information model.
+ */
 final class PersonalInformations: Object {
     @objc dynamic var name: String? = nil
     @objc dynamic var surname: String? = nil

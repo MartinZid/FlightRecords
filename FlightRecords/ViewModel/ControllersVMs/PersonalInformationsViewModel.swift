@@ -11,6 +11,9 @@ import ReactiveSwift
 import ReactiveCocoa
 import Result
 
+/**
+ PersonalInformationsViewModel saves and load PersonalInformations to/from the Realm.
+ */
 class PersonalInformationsViewModel: RealmViewModel {
     
     private let dateFormatter = DateFormatter()
@@ -21,26 +24,23 @@ class PersonalInformationsViewModel: RealmViewModel {
     let birthDayString = MutableProperty<String?>(nil)
     let address = MutableProperty<String?>(nil)
     
-//    var dataSetSignal: Signal<Void, NoError>
-//    private var dataSetObserver: Signal<Void, NoError>.Observer
-    
     var informations: PersonalInformations?
     
+    // MARK: - Initialization
+    
     override init() {
-//        let (dataSetSignal, dataSetObserver) = Signal<Void, NoError>.pipe()
-//        self.dataSetSignal = dataSetSignal
-//        self.dataSetObserver = dataSetObserver
         super.init()
         
         birthDayString <~ birthDay.producer.map(dateFormatter.optinalDateToString)
     }
+    
+    // MARK: - Helpers
     
     private func setPropertiesFromModel() {
         name.value = informations?.name
         surname.value = informations?.surname
         birthDay.value = informations?.birthDay
         address.value = informations?.address
-//        dataSetObserver.send(value: ())
     }
     
     override func realmInitCompleted() {
@@ -48,7 +48,9 @@ class PersonalInformationsViewModel: RealmViewModel {
         setPropertiesFromModel()
     }
     
-    func saveInfo() {
+    // MARK: - API
+    
+    func saveInfoToRealm() {
         let informations = self.informations ?? PersonalInformations()
         try! realm.write {
             informations.name = name.value

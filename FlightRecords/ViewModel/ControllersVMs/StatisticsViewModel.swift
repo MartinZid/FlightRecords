@@ -10,6 +10,9 @@ import Foundation
 import RealmSwift
 import ReactiveSwift
 
+/**
+ StatisticsViewModel count statistics for all time fields.
+ */
 class StatisticsViewModel: RealmViewModel {
     
     let totalTimeString = MutableProperty<String>("0:00")
@@ -26,9 +29,11 @@ class StatisticsViewModel: RealmViewModel {
     private var records: Results<Record>?
     var recordsNotificationsToken: NotificationToken? = nil
     
-    override init() {
-        
+    deinit {
+        recordsNotificationsToken?.invalidate()
     }
+    
+    // MARK: - Helpers
     
     private func updateList() {
         records = realm.objects(Record.self)
@@ -58,9 +63,15 @@ class StatisticsViewModel: RealmViewModel {
         }
     }
     
-    deinit {
+    private func filterRecords() {
+        records = filter.filterRecords(from: realm.objects(Record.self))
         recordsNotificationsToken?.invalidate()
+        recordsNotificationsToken = records?.observe{ [weak self] _ in
+            self?.countStatistics()
+        }
     }
+    
+    // MARK: - API
     
     func getSearchViewModel() -> SearchViewModel {
         return SearchViewModel(with: filter.searchConfiguration)
@@ -69,13 +80,5 @@ class StatisticsViewModel: RealmViewModel {
     func apply(searchViewModel: SearchViewModel) {
         filter.searchConfiguration = searchViewModel.getConfiguration()
         filterRecords()
-    }
-    
-    private func filterRecords() {
-        records = filter.filterRecords(from: realm.objects(Record.self))
-        recordsNotificationsToken?.invalidate()
-        recordsNotificationsToken = records?.observe{ [weak self] _ in
-            self?.countStatistics()
-        }
     }
 }

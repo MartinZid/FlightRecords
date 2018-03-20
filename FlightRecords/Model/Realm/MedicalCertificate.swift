@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ Realm object class medical certificate model.
+ */
 final class MedicalCertificate: Object {
     @objc dynamic var type: CertificateType = .LALP
     @objc dynamic var name: String? = nil

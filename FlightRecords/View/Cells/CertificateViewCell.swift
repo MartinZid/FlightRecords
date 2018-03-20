@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Medical certificate UITableViewCell.
+ */
 class CertificateViewCell: UITableViewCell {
 
     @IBOutlet weak var certificateNameLabel: UILabel!

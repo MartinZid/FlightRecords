@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ PDFGeneratorViewModel generates HTML tables filled with records data.
+ */
 class PDFGeneratorViewModel {
     
     private let records: Results<Record>?
@@ -75,11 +78,19 @@ class PDFGeneratorViewModel {
     private let recordsOnPage = 12
     private let html = "html"
     
+    // MARK: - Initialization
+    
     init(with records: Results<Record>?) {
         self.records = records
         dateFormatter = DateFormatter()
     }
     
+    // MARK: - API
+    
+    /**
+     This function generates HTML tables filled with records (passed to constructor) data.
+     - returns: optional HTML string
+     */
     func generateHTMLString() -> String? {
         let pathToLayout = Bundle.main.path(forResource: HTMLFiles.layout, ofType: html)
         do {
@@ -101,6 +112,8 @@ class PDFGeneratorViewModel {
         }
         return pages + 1
     }
+    
+    // MARK: - Helpers
     
     private func generateTables() throws -> String {
         var tables = ""

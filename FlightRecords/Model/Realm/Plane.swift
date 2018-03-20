@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ Realm object class representing plane model.
+ */
 final class Plane: Object {
     @objc dynamic var type: String? = nil
     @objc dynamic var model: String? = nil

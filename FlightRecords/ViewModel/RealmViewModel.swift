@@ -21,19 +21,26 @@ public struct LoginError: Error {
     var type: LoginErrorType
 }
 
+/**
+ RealmViewModel is base class for all Realm associated ViewModels. It logins user and setups Realm instance.
+ */
 class RealmViewModel {
     
     internal var notificationToken: NotificationToken!
     internal var realm: Realm!
     
+    /// Signal which informs about every change in Realm.
     let contentChangedSignal: Signal<Void, NoError>
     internal let contentChangedObserver: Signal<Void, NoError>.Observer
     
+    /// Signal which informs about user's login (success and fail)
     let userLoginSignal: Signal<Void, LoginError>
     internal let userLoginObserver: Signal<Void, LoginError>.Observer
     
     private let url = "127.0.0.1:9080"
 //    private let url = "192.168.1.101:9080"
+    
+    // MARK: - Initialization
     
     init() {
         let (contentChangedSignal, contentChangedObserver) = Signal<Void, NoError>.pipe()
@@ -59,6 +66,8 @@ class RealmViewModel {
             }
         }
     }
+    
+    // MARK: - Helpers
     
     private func logInUser(with token: String) {
         let cloudKitCredentials = SyncCredentials.cloudKit(token: token)
@@ -88,6 +97,11 @@ class RealmViewModel {
         self.realmInitCompleted()
     }
     
+    /**
+     This function gets user's iCloud token and passes it to given complete closure.
+     - parameters:
+     - complete: action which is called with user's token or an error
+     */
     private func getUserICloudID(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
         let container = CKContainer.default()
         container.fetchUserRecordID() {

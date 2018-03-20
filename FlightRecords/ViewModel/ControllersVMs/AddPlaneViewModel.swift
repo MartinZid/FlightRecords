@@ -25,6 +25,8 @@ class AddPlaneViewModel: RealmViewModel {
     private let engines = [NSLocalizedString("SE", comment: ""), NSLocalizedString("ME", comment: "")]
     
     private let plane: Plane?
+    
+    /// String containing view's title
     let title: String
     
     // MARK: - Initialization

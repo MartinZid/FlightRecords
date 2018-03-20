@@ -58,6 +58,7 @@ class AddFlightRecordViewModel: RealmViewModel {
     
     let record: Record?
     
+    /// String containing view's title
     let title: String
     
     // MARK: - Initialization

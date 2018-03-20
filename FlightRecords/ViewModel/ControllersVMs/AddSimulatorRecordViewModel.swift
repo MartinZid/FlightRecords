@@ -25,6 +25,8 @@ class AddSimulatorRecordViewModel: RealmViewModel {
     let timeString = MutableProperty<String>("")
     
     let record: Record?
+    
+    /// String containing view's title
     let title: String
     
     // MARK: - Initialization

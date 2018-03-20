@@ -1,0 +1,129 @@
+
+/* Class = "UINavigationItem"; title = "Upravit záznam letu"; ObjectID = "1af-fU-FpS"; */
+"1af-fU-FpS.title" = "Upravit záznam letu";
+
+/* Class = "UITableViewSection"; headerTitle = "Poznámka"; ObjectID = "43i-Al-UYv"; */
+"43i-Al-UYv.headerTitle" = "Poznámka";
+
+/* Class = "UILabel"; text = "note"; ObjectID = "6mp-NI-LiF"; */
+"6mp-NI-LiF.text" = "note";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "AUV-Wq-I32"; */
+"AUV-Wq-I32.placeholder" = "2:00";
+
+/* Class = "UILabel"; text = "Čas letu podle přístrojů (IFR)"; ObjectID = "Awo-FA-40d"; */
+"Awo-FA-40d.text" = "Čas letu podle přístrojů (IFR)";
+
+/* Class = "UILabel"; text = "Vzlety noc"; ObjectID = "EN3-2w-T5I"; */
+"EN3-2w-T5I.text" = "Vzlety noc";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EdC-cv-eh5"; */
+"EdC-cv-eh5.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "EiE-b5-ZJh"; */
+"EiE-b5-ZJh.placeholder" = "2:00";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "F6Q-By-Qpx"; */
+"F6Q-By-Qpx.placeholder" = "2:00";
+
+/* Class = "UILabel"; text = "Čas DUAL"; ObjectID = "Ff1-jI-Ocf"; */
+"Ff1-jI-Ocf.text" = "Čas DUAL";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "KTs-Yb-Dti"; */
+"KTs-Yb-Dti.placeholder" = "2:00";
+
+/* Class = "UITextField"; placeholder = "PRG"; ObjectID = "KzX-e7-lFG"; */
+"KzX-e7-lFG.placeholder" = "PRG";
+
+/* Class = "UILabel"; text = "Čas letu"; ObjectID = "NSW-OD-nga"; */
+"NSW-OD-nga.text" = "Čas letu";
+
+/* Class = "UILabel"; text = "Poznámka"; ObjectID = "POM-yY-QQ3"; */
+"POM-yY-QQ3.text" = "Poznámka";
+
+/* Class = "UITableViewController"; title = "Přidat záznam letu"; ObjectID = "Pbt-cA-dG7"; */
+"Pbt-cA-dG7.title" = "Přidat záznam letu";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "PuZ-IQ-W0E"; */
+"PuZ-IQ-W0E.placeholder" = "2:00";
+
+/* Class = "UILabel"; text = "Čas příletu"; ObjectID = "UQu-CK-Pya"; */
+"UQu-CK-Pya.text" = "Čas příletu";
+
+/* Class = "UILabel"; text = "Čas PIC"; ObjectID = "X8p-ic-Xqo"; */
+"X8p-ic-Xqo.text" = "Čas PIC";
+
+/* Class = "UILabel"; text = "Čas odletu"; ObjectID = "XyU-sK-BD2"; */
+"XyU-sK-BD2.text" = "Čas odletu";
+
+/* Class = "UILabel"; text = "Čas CO-PILOT"; ObjectID = "Yd7-9B-dD9"; */
+"Yd7-9B-dD9.text" = "Čas CO-PILOT";
+
+/* Class = "UILabel"; text = "Místo příletu"; ObjectID = "adL-bz-yoB"; */
+"adL-bz-yoB.text" = "Místo příletu";
+
+/* Class = "UILabel"; text = "Datum"; ObjectID = "bPZ-q2-xLN"; */
+"bPZ-q2-xLN.text" = "Datum";
+
+/* Class = "UITextField"; placeholder = "12.10.2017"; ObjectID = "bVJ-to-ey5"; */
+"bVJ-to-ey5.placeholder" = "12.10.2017";
+
+/* Class = "UITableViewSection"; headerTitle = "Základní informace"; ObjectID = "cTJ-mF-P8a"; */
+"cTJ-mF-P8a.headerTitle" = "Základní informace";
+
+/* Class = "UILabel"; text = "Čas Instruktor"; ObjectID = "cy4-Ef-5Eg"; */
+"cy4-Ef-5Eg.text" = "Čas Instruktor";
+
+/* Class = "UITableViewSection"; headerTitle = "Časy"; ObjectID = "dZh-ia-xFT"; */
+"dZh-ia-xFT.headerTitle" = "Časy";
+
+/* Class = "UITextField"; placeholder = "11:00"; ObjectID = "fHm-cS-Q5a"; */
+"fHm-cS-Q5a.placeholder" = "11:00";
+
+/* Class = "UILabel"; text = "Čas letu v noci"; ObjectID = "g3l-RH-7lH"; */
+"g3l-RH-7lH.text" = "Čas letu v noci";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "gHL-5m-yEl"; */
+"gHL-5m-yEl.text" = "12";
+
+/* Class = "UITextField"; placeholder = "17:30"; ObjectID = "gMU-Rb-Tpz"; */
+"gMU-Rb-Tpz.placeholder" = "17:30";
+
+/* Class = "UILabel"; text = "Přistání den"; ObjectID = "ggk-Pb-y9x"; */
+"ggk-Pb-y9x.text" = "Přistání den";
+
+/* Class = "UILabel"; text = "Místo odletu"; ObjectID = "idq-lD-UOQ"; */
+"idq-lD-UOQ.text" = "Místo odletu";
+
+/* Class = "UITextField"; placeholder = "PRG"; ObjectID = "jar-VI-QZD"; */
+"jar-VI-QZD.placeholder" = "PRG";
+
+/* Class = "UILabel"; text = "Jméno PIC"; ObjectID = "jwK-Wa-gXK"; */
+"jwK-Wa-gXK.text" = "Jméno PIC";
+
+/* Class = "UILabel"; text = "Letadlo"; ObjectID = "my0-xg-BSE"; */
+"my0-xg-BSE.text" = "Letadlo";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "pAi-0o-pg0"; */
+"pAi-0o-pg0.text" = "12";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qXi-Xk-Lb4"; */
+"qXi-Xk-Lb4.text" = "Label";
+
+/* Class = "UILabel"; text = "Přistání noc"; ObjectID = "sDd-vm-L55"; */
+"sDd-vm-L55.text" = "Přistání noc";
+
+/* Class = "UITextField"; placeholder = "P. Večeřa"; ObjectID = "tP9-sZ-Kwy"; */
+"tP9-sZ-Kwy.placeholder" = "P. Večeřa";
+
+/* Class = "UILabel"; text = "Vzlety den"; ObjectID = "tpB-WP-Xc1"; */
+"tpB-WP-Xc1.text" = "Vzlety den";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "unD-ks-hnK"; */
+"unD-ks-hnK.text" = "12";
+
+/* Class = "UITextField"; placeholder = "2:00"; ObjectID = "una-Og-f5x"; */
+"una-Og-f5x.placeholder" = "2:00";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "z8s-al-12W"; */
+"z8s-al-12W.text" = "12";

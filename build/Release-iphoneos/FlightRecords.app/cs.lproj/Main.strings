@@ -1,0 +1,39 @@
+
+/* Class = "UITableViewController"; title = "Typ záznamu"; ObjectID = "CjA-yR-1r8"; */
+"CjA-yR-1r8.title" = "Typ záznamu";
+
+/* Class = "UITabBarItem"; title = "Limity"; ObjectID = "EI1-Sd-0Ee"; */
+"EI1-Sd-0Ee.title" = "Limity";
+
+/* Class = "UITabBarItem"; title = "Profil"; ObjectID = "JpQ-9M-guS"; */
+"JpQ-9M-guS.title" = "Profil";
+
+/* Class = "UINavigationItem"; title = "Záznamy"; ObjectID = "KQs-tF-GQT"; */
+"KQs-tF-GQT.title" = "Záznamy";
+
+/* Class = "UILabel"; text = "Záznam ze simulátoru"; ObjectID = "L2i-Pl-PxL"; */
+"L2i-Pl-PxL.text" = "Záznam ze simulátoru";
+
+/* Class = "UITabBarItem"; title = "Záznamy"; ObjectID = "OLK-Vv-euN"; */
+"OLK-Vv-euN.title" = "Záznamy";
+
+/* Class = "UILabel"; text = "Záznam letu"; ObjectID = "YKJ-sT-3sB"; */
+"YKJ-sT-3sB.text" = "Záznam letu";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "d7X-gQ-SjI"; */
+"d7X-gQ-SjI.text" = "Time";
+
+/* Class = "UILabel"; text = "Reg. No"; ObjectID = "hcH-R7-jg3"; */
+"hcH-R7-jg3.text" = "Reg. No";
+
+/* Class = "UITabBarItem"; title = "Letadla"; ObjectID = "iWh-Q7-Pgb"; */
+"iWh-Q7-Pgb.title" = "Letadla";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "t2x-aO-Eyq"; */
+"t2x-aO-Eyq.title" = "Item";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "uzo-fB-afS"; */
+"uzo-fB-afS.text" = "Date";
+
+/* Class = "UILabel"; text = "From - To"; ObjectID = "y8k-at-i5M"; */
+"y8k-at-i5M.text" = "From - To";

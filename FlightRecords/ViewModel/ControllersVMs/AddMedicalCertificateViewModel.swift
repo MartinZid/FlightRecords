@@ -29,6 +29,8 @@ class AddMedicalCertificateViewModel: RealmViewModel {
     
     private let certificate: MedicalCertificate?
     var informations: PersonalInformations?
+    
+    /// String containing view's title
     let title: String
     
     // MARK: - Initialization

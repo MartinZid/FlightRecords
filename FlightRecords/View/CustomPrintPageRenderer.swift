@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ This class is subclass of UIPrintPageRenderer. It sets pageFrames for printing.
+ */
 class CustomPrintPageRenderer: UIPrintPageRenderer {
     
     let A4PageWidth: CGFloat = 595.2
@@ -19,6 +22,5 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         let pageFrame = CGRect(x: 0.0, y: 0.0, width: A4PageWidth, height: A4PageHeight)
         self.setValue(NSValue(cgRect: pageFrame), forKey: "paperRect")
         self.setValue(NSValue(cgRect: pageFrame), forKey: "printableRect")
-        //self.setValue(NSValue(cgRect: CGRect.insetBy(CGRect(x: 10, y: 10, width: 0, height: 0))), forKey: "printableRect")
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
+/**
+ A form like UITableViewController for the search configuration specification.
+ */
 class SearchViewController: RecordTableViewController, PlanesTableViewControllerDelegate {
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -29,11 +32,15 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         static let planesSegueIdentifier = "plane"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         setEndEditingOnTap()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         setDefaultValues()
@@ -47,31 +54,47 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         fromDateTextField.reactive.text <~ viewModel.fromDateString
         toDateTextField.reactive.text <~ viewModel.toDateString
         
+        // animate correctly hiding and appearing of text fields
         viewModel.flightsSwitch.signal.observeValues { [weak self] value in
             self?.tableView.beginUpdates()
             self?.tableView.endUpdates()
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !viewModel.flightsSwitch.value {
-            if indexPath.row == 3 || indexPath.row == 4 {
-                return 0.0
-            }
-        }
-        return 44.0
-    }
-    
-    private func setDefaultValues() {
-        searchTextField.text = viewModel.searchText.value
-        flightsSwitch.isOn = viewModel.flightsSwitch.value
-        fstdSwitch.isOn = viewModel.fstdSwitch.value
-        planeTypeTextField.text = viewModel.planeType.value
-    }
+    // MARK: - Actions
     
     @IBAction func fromTextFieldEditing(_ sender: UITextField) {
         _ = handleDatePicker(for: sender, with: .date, and: viewModel.fromDate, default: Date())
     }
+    
+    @IBAction func toTextFieldEditing(_ sender: UITextField) {
+        let datePicker = handleDatePicker(for: sender, with: .date, and: viewModel.toDate, default: viewModel.getDefaultToDateValue())
+        setMinDateOnSignal(to: datePicker)
+    }
+    
+    /**
+     This action displays an alert and if user confirms his action, it sets all input fields to their default values.
+     */
+    @IBAction func clearSearchParameters(_ sender: Any) {
+        confirmClearAction { [weak self] _ in
+            self?.viewModel.clearSearchParameters()
+            self?.setDefaultValues()
+            self?.resetDateInputTextFields()
+        }
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        if delegate != nil {
+            delegate?.apply(searchViewModel: viewModel)
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Helpers
     
     private func setMinimum(date value: Date?, to datePicker: UIDatePicker) {
         if let date = value {
@@ -86,9 +109,11 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         }
     }
     
-    @IBAction func toTextFieldEditing(_ sender: UITextField) {
-        let datePicker = handleDatePicker(for: sender, with: .date, and: viewModel.toDate, default: viewModel.getDefaultToDateValue())
-        setMinDateOnSignal(to: datePicker)
+    private func setDefaultValues() {
+        searchTextField.text = viewModel.searchText.value
+        flightsSwitch.isOn = viewModel.flightsSwitch.value
+        fstdSwitch.isOn = viewModel.fstdSwitch.value
+        planeTypeTextField.text = viewModel.planeType.value
     }
     
     private func resetDateInputTextFields() {
@@ -96,24 +121,23 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         toDateTextField.inputView = nil
     }
     
+    /**
+     Displays alert confirming clear action.
+     - parameters:
+     - action: action which will be called if user confirms
+     */
     private func confirmClearAction(_ action: @escaping ((UIAlertAction) -> Void)) {
         let alert = UIAlertController(
             title: NSLocalizedString("Clear confirm", comment: ""),
             message: NSLocalizedString("Clear search confirm message", comment: ""),
             preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Clear", comment: ""), style: UIAlertActionStyle.default, handler: action))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Clear", comment: ""),
+                                      style: UIAlertActionStyle.default, handler: action))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""),
+                                      style: UIAlertActionStyle.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func clearSearchParameters(_ sender: Any) {
-        confirmClearAction { [weak self] _ in
-            self?.viewModel.clearSearchParameters()
-            self?.setDefaultValues()
-            self?.resetDateInputTextFields()
-        }
     }
     
     // MARK: - PlanesTableViewControllerDelegate
@@ -122,7 +146,7 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         viewModel.setPlane(from: planeViewModel)
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.row == 4
@@ -132,6 +156,15 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         if editingStyle == .delete {
             viewModel.clearPlane()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if !viewModel.flightsSwitch.value { // hide unnecessary input fields
+            if indexPath.row == 3 || indexPath.row == 4 {
+                return 0.0
+            }
+        }
+        return 44.0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -151,17 +184,6 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
     }
     
     // MARK: - Navigation
-    
-    @IBAction func done(_ sender: Any) {
-        if delegate != nil {
-            delegate?.apply(searchViewModel: viewModel)
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.planesSegueIdentifier {

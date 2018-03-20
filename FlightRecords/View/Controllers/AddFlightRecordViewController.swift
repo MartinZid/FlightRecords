@@ -10,6 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
+/**
+ A form like UITableViewController for creating/editing a flight record.
+ */
 class AddFlightRecordTableViewController: RecordTableViewController,
     NoteViewControllerDelegate,
     PlanesTableViewControllerDelegate {
@@ -42,7 +45,7 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     
     @IBOutlet weak var noteLabel: UILabel!
     
-    //cells
+    // disappearing cells
     private var brokenConstraintsCells: [UITableViewCell]! = []
     @IBOutlet weak var timeNightCell: UITableViewCell!
     @IBOutlet weak var timeIFRCell: UITableViewCell!
@@ -60,6 +63,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         static let planesSegueIdentifier = "plane"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if viewModel == nil {
@@ -69,6 +74,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         setEndEditingOnTap()
         addBrokenConstraintsCells()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         self.title = viewModel.title
@@ -110,6 +117,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
         noteLabel.reactive.text <~ viewModel.note
     }
     
+    // MARK: - Helpers
+    
     private func addBrokenConstraintsCells() {
         brokenConstraintsCells.append(timeNightCell)
         brokenConstraintsCells.append(timeIFRCell)
@@ -126,6 +135,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
             self.setMax(time: time, to: datePicker)
         }
     }
+    
+    // MARK: - Actions
     
     @IBAction func dateFieldEditing(_ sender: UITextField) {
         _ = handleDatePicker(for: sender, with: .date, and: viewModel.date)
@@ -144,7 +155,6 @@ class AddFlightRecordTableViewController: RecordTableViewController,
             cell.setNeedsUpdateConstraints()
         }
     }
-    
 
     @IBAction func timeNightFieldEditing(_ sender: UITextField) {
         let value = dateFormatter.createDate(hours: 0, minutes: 0)
@@ -200,6 +210,8 @@ class AddFlightRecordTableViewController: RecordTableViewController,
     func userDidSelect(planeViewModel: PlaneViewModel) {
         viewModel.setPlane(from: planeViewModel)
     }
+    
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {

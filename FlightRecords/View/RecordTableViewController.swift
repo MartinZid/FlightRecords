@@ -9,6 +9,9 @@
 import UIKit
 import ReactiveSwift
 
+/**
+ Class with helper methods for form TableViewControllers.
+ */
 class RecordTableViewController: UITableViewController {
     
     private let dateFormatter = DateFormatter()
@@ -40,6 +43,16 @@ class RecordTableViewController: UITableViewController {
         datePicker.maximumDate = dateFormatter.createTime(from: string)
     }
     
+    /**
+     It sets UIDatePicker as inputView to sender with UIDatePickerMode. It also binds this datePicker's value to MutableProperty.
+     MutableProperty's value is also set to datePicker.
+     
+     If sender has already set inputView, this function doesn't change it. It just returns it.
+     
+     - Parameter sender: UITextField
+     - Parameter mode: UIDatePickerMode
+     - Parameter property: MutableProperty<Date>
+     */
     internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
                                    and property: MutableProperty<Date>) -> UIDatePicker {
         if sender.inputView == nil {
@@ -54,7 +67,10 @@ class RecordTableViewController: UITableViewController {
     /**
      It sets UIDatePicker as inputView to sender with UIDatePickerMode. It also binds this datePicker's value to MutableProperty.
      
-     When MutableProperty has not nil value, it's value is set to datePicker, otherwise if default value is not nil, then defaul value is set to datePicker.
+     When MutableProperty has not nil value, it's value is set to datePicker, otherwise if default value is not nil, then default value is set to datePicker.
+     
+     If sender has already set inputView, this function doesn't change it. It just returns it.
+     
      - Parameter sender: UITextField
      - Parameter mode: UIDatePickerMode
      - Parameter property: MutableProperty<Date?>

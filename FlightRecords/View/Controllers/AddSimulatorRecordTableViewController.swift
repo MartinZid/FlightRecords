@@ -10,6 +10,9 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
+/**
+ A form like UITableViewController for creating/editing a simulator record.
+ */
 class AddSimulatorRecordTableViewController: RecordTableViewController, NoteViewControllerDelegate {
     
     @IBOutlet weak var dateTextField: UITextField!
@@ -23,6 +26,8 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
         static let noteSegueIdentifier = "note"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if viewModel == nil {
@@ -32,7 +37,9 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
         setEndEditingOnTap()
     }
     
-    func bindViewModel() {
+    // MARK: - Bindings
+    
+    private func bindViewModel() {
         self.title = viewModel.title
         
         typeTextField.text = viewModel.type.value
@@ -42,6 +49,8 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
         viewModel.type <~ typeTextField.reactive.continuousTextValues.filterMap{ $0 }
         noteLabel.reactive.text <~ viewModel.note
     }
+    
+    // MARK: - Actions
     
     @IBAction func dateFieldEditing(_ sender: UITextField) {
         _ = handleDatePicker(for: sender, with: .date, and: viewModel.date)
@@ -59,10 +68,13 @@ class AddSimulatorRecordTableViewController: RecordTableViewController, NoteView
         }
     }
     
+    // MARK: - NoteViewControllerDelegate
+    
     func save(note: String) {
-        print(note)
         viewModel.note.value = note
     }
+    
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {

@@ -11,6 +11,9 @@ import ReactiveSwift
 import ReactiveCocoa
 import Result
 
+/**
+ A controller for note creation.
+ */
 class NoteViewController: UIViewController {
 
     @IBOutlet weak var saveBtn: UIBarButtonItem!
@@ -21,12 +24,16 @@ class NoteViewController: UIViewController {
 
     private var viewModel: NoteViewModel!
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = NoteViewModel(note: note)
         bindViewModel()
         noteField.becomeFirstResponder()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         noteField.text = viewModel.note.value
@@ -35,10 +42,8 @@ class NoteViewController: UIViewController {
         viewModel.saveAction.values.observeValues(save)
     }
     
-    /**
-     observeValues action function. Delegates the save to delegate (if one is set) and closes the modal.
-     - Parameter note: note String.
-     */
+    // MARK: - Actions
+    
     private func save(note: String) {
         if delegate != nil {
             delegate?.save(note: note)

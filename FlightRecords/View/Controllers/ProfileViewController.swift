@@ -9,15 +9,22 @@
 import UIKit
 import ToastSwiftFramework
 
+/**
+ Profile tab root ViewController.
+ */
 class ProfileViewController: UITableViewController, PersonalInformationsControllerDelegate {
     
     private struct Identifiers {
         static let personalInformationsSegueIdentifier = "personalInformations"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: - PersonalInformationsControllerDelegate
     
     func personalInformationSaved() {
         displaySavedToaster()

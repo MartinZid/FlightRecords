@@ -10,6 +10,9 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
+/**
+ A form like UITableViewController for creating/editing a plane.
+ */
 class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var typeTextField: UITextField!
@@ -22,12 +25,16 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
     
     var viewModel: AddPlaneViewModel!
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         bindViewModel()
         setEndEditingOnTap()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         self.title = viewModel.title
@@ -44,6 +51,8 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
         viewModel.registrationNumber <~ registrationNumberTextField.reactive.continuousTextValues.filterMap{ $0 }
         viewModel.engineString <~ engineTextField.reactive.continuousTextValues.filterMap{ $0 }
     }
+    
+    // MARK: - Actions
 
     @IBAction func engineFieldEditing(_ sender: UITextField) {
         sender.inputView = picker
@@ -57,6 +66,8 @@ class AddPlaneViewController: UITableViewController, UIPickerViewDelegate, UIPic
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {

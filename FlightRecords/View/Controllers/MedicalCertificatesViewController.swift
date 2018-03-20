@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ UITableViewController displaying medical certificates.
+ */
 class MedicalCertificatesViewController: UITableViewController {
 
     private var viewModel: MedicalCertificatesViewModel!
@@ -19,12 +22,16 @@ class MedicalCertificatesViewController: UITableViewController {
         static let addMedicalCertificateVC = "AddMedicalCertificateViewController"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MedicalCertificatesViewModel()
         bindViewModel()
         becomeFirstResponder()
     }
+    
+    // MARK: - Gestures setup
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake) {
@@ -33,11 +40,13 @@ class MedicalCertificatesViewController: UITableViewController {
         }
     }
     
+    // MARK: - Bindings
+    
     private func bindViewModel() {
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableView data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
@@ -74,8 +83,6 @@ class MedicalCertificatesViewController: UITableViewController {
             }
         }
     }
-    
-    // MARK: - Navigation
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nextViewController = UIStoryboard(name: Identifiers.medicalCertificatesSB, bundle: nil).instantiateViewController(withIdentifier: Identifiers.addMedicalCertificateVC) as! AddMedicalCertificateViewController

@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ UITableViewController displaying all records (flight and simulator).
+ */
 class RecordsTableViewController: UITableViewController, SearchViewControllerDelegate {
     
     @IBOutlet var headerView: UIView!
@@ -25,6 +28,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         static let pdfSegueIdentifier = "PDF"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutActivityIndicator()
@@ -35,6 +40,15 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         self.becomeFirstResponder()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // fix disabled appearence of PDF button
+        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    }
+    
+    // MARK: - Gestures setup
+    
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake) {
             print("did shake")
@@ -42,11 +56,30 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
-        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    // MARK: - Bindings
+    
+    private func bindViewModel() {
+        viewModel.userLoginSignal.observeResult { [weak self] result in
+            if let error = result.error {
+                switch error.type {
+                case .iCloudError: self?.displayLoginErrorAlert()
+                case .serverError: self?.displayServerErrorAlert()
+                }
+            }
+            if let _ = result.value {
+                self?.view.makeToast(NSLocalizedString("Login successful", comment: ""),
+                                     duration: 1.0, position: .center)
+                self?.stopActivityIndicator()
+            }
+        }
+        viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
+            self?.tableView.tableHeaderView = (value) ? nil : self?.headerView
+        }
+        observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
+        viewModel.collectionChangedSignal.observeValues { [weak self ] _ in self?.stopActivityIndicator()}
     }
+    
+    // MARK: - Helpers
     
     private func startActivityIndicator() {
         activityIndicator.startAnimating()
@@ -67,39 +100,26 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         self.view.addSubview(activityIndicator)
     }
     
-    private func bindViewModel() {
-        viewModel.userLoginSignal.observeResult { [weak self] result in
-            if let error = result.error {
-                switch error.type {
-                case .iCloudError: self?.displayLoginErrorAlert()
-                case .serverError: self?.displayServerErrorAlert()
-                }
-            }
-            if let _ = result.value {
-                self?.view.makeToast(NSLocalizedString("Login successful", comment: ""), duration: 1.0, position: .center)
-                self?.stopActivityIndicator()
-            }
-        }
-        viewModel.searchConfigurationChangedSignal.observeValues { [weak self] value in
-            self?.tableView.tableHeaderView = (value) ? nil : self?.headerView
-        }
-        observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
-        viewModel.collectionChangedSignal.observeValues { [weak self ] _ in self?.stopActivityIndicator()}
-    }
-    
     private func tryLoginAgain(action: UIAlertAction) {
         viewModel = nil
         viewModel = RecordsViewModel()
         bindViewModel()
     }
     
+    /**
+     Displays an alert with given title and message. With predefined buttons and a confirm action (try again).
+     - parameters:
+        - title: alert's title
+        - message: alert's message
+    */
     private func displayErrorAlert(title: String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""), style: UIAlertActionStyle.default, handler: tryLoginAgain))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""),
+                                      style: UIAlertActionStyle.default, handler: tryLoginAgain))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -126,7 +146,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         self.viewModel.apply(searchViewModel: viewModel)
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableView data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()

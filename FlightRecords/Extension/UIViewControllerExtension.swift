@@ -16,7 +16,12 @@ extension UIViewController {
         }
     }
     
-    func confirmDeleteAction(_ action: @escaping ((UIAlertAction) -> Void)) {
+    /**
+    Displays alert confirming delete action.
+     - parameters:
+        - action: action which will be called if user confirms
+    */
+    internal func confirmDeleteAction(_ action: @escaping ((UIAlertAction) -> Void)) {
         let alert = UIAlertController(
             title: NSLocalizedString("Delete confirm", comment: ""),
             message: NSLocalizedString("Delete record confirm message", comment: ""),
@@ -28,7 +33,7 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func displaySavedToaster() {
+    internal func displaySavedToaster() {
         view.makeToast(NSLocalizedString("Saved", comment: ""), duration: 1.0, position: .center)
     }
 }

@@ -10,6 +10,9 @@ import UIKit
 import WebKit
 import MessageUI
 
+/**
+ A UIViewController generating and displaying report as HTML table. It also can convert this table to PDF file and pass it to mail controller.
+ */
 class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerDelegate, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
@@ -17,6 +20,8 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
     
     private var pdfFilename = ""
     var viewModel: PDFGeneratorViewModel!
+    
+    // MARK: - Controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +32,13 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
         })
     }
     
+    // MARK: - WKNavigationDelegate
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
     }
+    
+    // MARK: - Actions
     
     @IBAction func generate(_ sender: Any) {
         activityIndicator.startAnimating()
@@ -40,24 +49,33 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
         })
     }
     
+    // MARK: - Helpers
+    
+    /**
+     This function generates PDF file from given HTML and saves it to file.
+     - parameters:
+        - HTMLContent: String containing the HTML
+    */
     private func exportHTMLContentToPDF(HTMLContent: String) {
         let printPageRenderer = CustomPrintPageRenderer()
         
         let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
 
-        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
+        let pdfData = drawPDFUsing(printPageRenderer: printPageRenderer)
         
-        //let delegate = UIApplication.shared.delegate as! AppDelegate
         let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         pdfFilename = "\(docDir)/PDF.pdf"
         print(pdfFilename)
         pdfData?.write(toFile: pdfFilename, atomically: true)
-        
-        print(pdfFilename)
     }
     
-    private func drawPDFUsingPrintPageRenderer(printPageRenderer: UIPrintPageRenderer) -> NSData! {
+    /**
+     This function draw all pages of the PDF.
+     - parameters:
+        - printPageRenderer: UIPrintPageRenderer
+    */
+    private func drawPDFUsing(printPageRenderer: UIPrintPageRenderer) -> NSData! {
         let data = NSMutableData()
         
         UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
@@ -83,6 +101,8 @@ class PDFGeneratorViewController: UIViewController, MFMailComposeViewControllerD
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - MFMailComposeViewControllerDelegate
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)

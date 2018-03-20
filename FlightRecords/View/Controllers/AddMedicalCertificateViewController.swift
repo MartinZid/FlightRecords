@@ -10,6 +10,9 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
+/**
+ A form like UITableViewController for creating/editing a medical certificate.
+ */
 class AddMedicalCertificateViewController: RecordTableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var typeTextField: UITextField!
@@ -22,6 +25,8 @@ class AddMedicalCertificateViewController: RecordTableViewController, UIPickerVi
     
     private let picker = UIPickerView()
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -31,6 +36,8 @@ class AddMedicalCertificateViewController: RecordTableViewController, UIPickerVi
         setEndEditingOnTap()
         bindViewModel()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         self.title = viewModel.title
@@ -48,6 +55,8 @@ class AddMedicalCertificateViewController: RecordTableViewController, UIPickerVi
         expirationDateTextField.reactive.text <~ viewModel.expirationString
         publicationDateTextField.reactive.text <~ viewModel.publicationString
     }
+    
+    // MARK: - Actions
     
     @IBAction func typeFieldEditing(_ sender: UITextField) {
         sender.inputView = picker
@@ -69,6 +78,8 @@ class AddMedicalCertificateViewController: RecordTableViewController, UIPickerVi
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {

@@ -10,6 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
+/**
+ UITableViewController displaying records' time statistics.
+ */
 class StatisticsViewController: UITableViewController, SearchViewControllerDelegate {
     
     @IBOutlet weak var totalTimeLabel: UILabel!
@@ -26,10 +29,14 @@ class StatisticsViewController: UITableViewController, SearchViewControllerDeleg
         static let searchSegueIdentifier = "search"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         totalTimeLabel.reactive.text <~ viewModel.totalTimeString

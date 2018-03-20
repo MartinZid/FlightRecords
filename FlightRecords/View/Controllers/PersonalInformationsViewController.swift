@@ -10,6 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
+/**
+ A form like UITableViewController for editing of the user's personal informations.
+ */
 class PersonalInformationsViewController: RecordTableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -20,12 +23,16 @@ class PersonalInformationsViewController: RecordTableViewController {
     private var viewModel: PersonalInformationsViewModel!
     var delegate: PersonalInformationsControllerDelegate?
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = PersonalInformationsViewModel()
         bindViewModel()
         setEndEditingOnTap()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         nameTextField.text = viewModel.name.value
@@ -38,6 +45,8 @@ class PersonalInformationsViewController: RecordTableViewController {
         birthDayTextField.reactive.text <~ viewModel.birthDayString
         viewModel.address <~ addressTextField.reactive.continuousTextValues.filterMap{ $0 }
     }
+    
+    // MARK: - Actions
     
     @IBAction func save(_ sender: Any) {
         viewModel.saveInfo()
@@ -52,6 +61,8 @@ class PersonalInformationsViewController: RecordTableViewController {
     @IBAction func birthDayTextFieldEditing(_ sender: UITextField) {
         _ = handleDatePicker(for: sender, with: .date, and: viewModel.birthDay, default: nil)
     }
+    
+    // MARK: - UITableView data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {

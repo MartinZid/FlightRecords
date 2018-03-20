@@ -10,6 +10,9 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
+/**
+ UITableViewController displaying flight time limits.
+ */
 class LimitsViewController: UITableViewController {
 
     @IBOutlet weak var hoursInDaysTitleLabel: UILabel!
@@ -26,11 +29,15 @@ class LimitsViewController: UITableViewController {
     
     private var viewModel: LimitsViewModel!
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LimitsViewModel()
         bindViewModel()
     }
+    
+    // MARK: - Bindings
     
     private func bindViewModel() {
         hoursInDaysLabel.reactive.text <~ viewModel.inDaysLabel

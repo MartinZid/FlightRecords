@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ UITableViewController displaying all planes. It also handles either delegation of a selected plane or showing a detail of the selected plane.
+ */
 class PlanesTableViewController: UITableViewController {
     
     private var viewModel: PlanesViewModel!
@@ -22,12 +25,16 @@ class PlanesTableViewController: UITableViewController {
         static let addPlaneVC = "addPlaneVC"
     }
     
+    // MARK: - Controller lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = PlanesViewModel()
         bindViewModel()
         becomeFirstResponder()
     }
+    
+    // MARK: - Gestures setup
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(event?.subtype == UIEventSubtype.motionShake) {
@@ -36,11 +43,13 @@ class PlanesTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Bindings
+    
     private func bindViewModel() {
         observeSignalForTableDataChanges(with: viewModel.collectionChangedSignal)
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableView data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
@@ -86,8 +95,6 @@ class PlanesTableViewController: UITableViewController {
         return 72
     }
     
-    // MARK: - Navigation
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if delegate != nil { // user is selecting plane (pass it to delegate)
             let selectedPlaneViewModel = viewModel.getCellViewModel(for: indexPath)
@@ -100,6 +107,8 @@ class PlanesTableViewController: UITableViewController {
             self.navigationController?.present(navigationController, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Identifiers.addPlane {

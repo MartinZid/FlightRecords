@@ -8,23 +8,30 @@
 
 import UIKit
 
+/**
+ UITabBarController which extends tab bar actions to behave as expected with UISplitViewController.
+ */
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
-    private var shoudSelectIndex = -1
+    private var shouldSelectIndex = -1
+    
+    // MARK: - Controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
     }
     
+    // MARK: - UITabBarControllerDelegate
+    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        shoudSelectIndex = tabBarController.selectedIndex
+        shouldSelectIndex = tabBarController.selectedIndex
         return true
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         // if user tapped the same index as before, pop to root view controller as expected
-        if shoudSelectIndex == tabBarController.selectedIndex {
+        if shouldSelectIndex == tabBarController.selectedIndex {
             if let splitViewController = viewController as? UISplitViewController {
                 if let navController = splitViewController.viewControllers[0] as? UINavigationController {
                     navController.popToRootViewController(animated: true)
@@ -32,5 +39,4 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             }
         }
     }
-
 }

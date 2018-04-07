@@ -28,8 +28,6 @@
 		5B189CCA1F8F5BB4000B25FB /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CC91F8F5BB4000B25FB /* Plane.swift */; };
 		5B189CCD1F8F678E000B25FB /* RealmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCC1F8F678E000B25FB /* RealmViewModel.swift */; };
 		5B189CCF1F909FBB000B25FB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B189CCE1F909FBB000B25FB /* RecordViewModelTests.swift */; };
-		5B279BAB1FAB17A700090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
-		5B279BAC1FAB17A700090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
 		5B279BAD1FAB1BBF00090D7B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BA91FAB17A700090D7B /* Realm.framework */; };
 		5B279BAE1FAB1BBF00090D7B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B279BAA1FAB17A700090D7B /* RealmSwift.framework */; };
 		5B279BB11FAB441500090D7B /* planes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B279BAF1FAB441500090D7B /* planes.storyboard */; };
@@ -48,9 +46,6 @@
 		5B73095B1F8015F70026152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7309591F8015F70026152E /* Main.storyboard */; };
 		5B73095D1F8015F70026152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095C1F8015F70026152E /* Assets.xcassets */; };
 		5B7309601F8015F70026152E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B73095E1F8015F70026152E /* LaunchScreen.storyboard */; };
-		5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309771F80219A0026152E /* ReactiveCocoa.framework */; };
-		5B73097B1F80219A0026152E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309781F80219A0026152E /* Result.framework */; };
-		5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B7309791F80219A0026152E /* ReactiveSwift.framework */; };
 		5B7ACA061FD930DB001AAEC4 /* limits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B7ACA041FD930DB001AAEC4 /* limits.storyboard */; };
 		5B7ACA081FD93599001AAEC4 /* LimitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA071FD93599001AAEC4 /* LimitsViewController.swift */; };
 		5B7ACA0A1FD935B3001AAEC4 /* LimitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ACA091FD935B3001AAEC4 /* LimitsViewModel.swift */; };
@@ -82,7 +77,6 @@
 		5BB958421FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958411FAC6FAF0073AF55 /* PlanesTableViewControllerTests.swift */; };
 		5BB958461FAC87C20073AF55 /* PlanesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB958451FAC87C20073AF55 /* PlanesViewModelTests.swift */; };
 		5BC0D2BC202214050069A2D9 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC0D2BB202214050069A2D9 /* SplitViewController.swift */; };
-		5BC363AD201A031400CC91A2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC363AC201A031400CC91A2 /* CloudKit.framework */; };
 		5BC363AF201A0DCF00CC91A2 /* row02.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BC363AE201A0DCF00CC91A2 /* row02.html */; };
 		5BC363B1201A0F0600CC91A2 /* thisPageRow01.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BC363B0201A0F0600CC91A2 /* thisPageRow01.html */; };
 		5BC363B3201A0F1200CC91A2 /* prevPagesRow01.html in Resources */ = {isa = PBXBuildFile; fileRef = 5BC363B2201A0F1200CC91A2 /* prevPagesRow01.html */; };
@@ -112,7 +106,6 @@
 		5BF6954A1FD00A6D00D6B9CA /* PersonalInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF695491FD00A6D00D6B9CA /* PersonalInformations.swift */; };
 		5BF6954C1FD00E7A00D6B9CA /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6954B1FD00E7A00D6B9CA /* DateFormatterExtension.swift */; };
 		5BF6954E1FD00EB700D6B9CA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6954D1FD00EB700D6B9CA /* UIViewControllerExtension.swift */; };
-		5BFA4C9C205EAB6900ECA503 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFA4C9B205EAB6900ECA503 /* ToastSwiftFramework.framework */; };
 		5BFA4CA2205EAFD100ECA503 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA4CA1205EAFD100ECA503 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -246,13 +239,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B73097A1F80219A0026152E /* ReactiveCocoa.framework in Frameworks */,
-				5B73097B1F80219A0026152E /* Result.framework in Frameworks */,
-				5B73097C1F80219B0026152E /* ReactiveSwift.framework in Frameworks */,
-				5BC363AD201A031400CC91A2 /* CloudKit.framework in Frameworks */,
-				5B279BAB1FAB17A700090D7B /* Realm.framework in Frameworks */,
-				5B279BAC1FAB17A700090D7B /* RealmSwift.framework in Frameworks */,
-				5BFA4C9C205EAB6900ECA503 /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

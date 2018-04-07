@@ -69,7 +69,7 @@ class PersonalInformationsViewModelTests: TestCaseBase {
         viewModelUnderTest.realmInitCompleted()
         viewModelUnderTest.birthDay.value = dateFormatter.createDate(hours: 1, minutes: 0)
         viewModelUnderTest.surname.value = "Snow"
-        viewModelUnderTest.saveInfo()
+        viewModelUnderTest.saveInfoToRealm()
         
         let savedInfo = viewModelUnderTest.realm.objects(PersonalInformations.self).first
         XCTAssertEqual(savedInfo?.birthDay, dateFormatter.createDate(hours: 1, minutes: 0), "Saved info has wrong properties.")

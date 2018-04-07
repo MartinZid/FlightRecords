@@ -37,8 +37,8 @@ class RealmViewModel {
     let userLoginSignal: Signal<Void, LoginError>
     internal let userLoginObserver: Signal<Void, LoginError>.Observer
     
-    private let url = "127.0.0.1:9080"
-//    private let url = "192.168.1.101:9080"
+//    private let url = "127.0.0.1:9080"
+    private let url = "192.168.1.101:9080"
     
     // MARK: - Initialization
     

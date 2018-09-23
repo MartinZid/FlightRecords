@@ -15,7 +15,7 @@ class RecordsTableViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        controllerUnderTest = UIStoryboard(name: "records", bundle: nil).instantiateViewController(withIdentifier: "Records") as! RecordsTableViewController
+        controllerUnderTest = UIStoryboard(name: "records", bundle: nil).instantiateViewController(withIdentifier: "Records") as? RecordsTableViewController
     }
     
     override func tearDown() {

@@ -49,8 +49,8 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     
     // MARK: - Gestures setup
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if(event?.subtype == UIEventSubtype.motionShake) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if(event?.subtype == UIEvent.EventSubtype.motionShake) {
             print("did shake")
             viewModel.undoDelete()
         }
@@ -95,7 +95,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         let rect = CGRect(origin: CGPoint(x: 0,y :0), size:
             CGSize(width: 40, height: 40))
         activityIndicator = UIActivityIndicatorView(frame: rect)
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
     }
@@ -116,10 +116,10 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.alert)
+            preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: ""),
-                                      style: UIAlertActionStyle.default, handler: tryLoginAgain))
+                                      style: UIAlertAction.Style.default, handler: tryLoginAgain))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -183,7 +183,7 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             confirmDeleteAction { [weak self] _ in
                 self?.viewModel.deleteRecord(at: indexPath)

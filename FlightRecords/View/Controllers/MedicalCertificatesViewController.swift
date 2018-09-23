@@ -33,8 +33,8 @@ class MedicalCertificatesViewController: UITableViewController {
     
     // MARK: - Gestures setup
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if(event?.subtype == UIEventSubtype.motionShake) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if(event?.subtype == UIEvent.EventSubtype.motionShake) {
             print("did shake")
             viewModel.undoDelete()
         }
@@ -76,7 +76,7 @@ class MedicalCertificatesViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             confirmDeleteAction { [weak self] _ in
                 self?.viewModel.deleteCertificate(at: indexPath)

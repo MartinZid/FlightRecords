@@ -20,7 +20,7 @@ class RecordTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    internal func assingUIDatePicker(to textField: UITextField, with mode: UIDatePickerMode) -> UIDatePicker {
+    internal func assingUIDatePicker(to textField: UITextField, with mode: UIDatePicker.Mode) -> UIDatePicker {
         let datePickerView: UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = mode
         textField.inputView = datePickerView
@@ -28,11 +28,11 @@ class RecordTableViewController: UITableViewController {
     }
     
     internal func bind(datepicker: UIDatePicker, to property: MutableProperty<Date>) {
-        property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
+        property <~ datepicker.reactive.mapControlEvents(UIControl.Event.valueChanged) { datePicker in datePicker.date }
     }
     
     internal func bind(datepicker: UIDatePicker, to property: MutableProperty<Date?>) {
-        property <~ datepicker.reactive.mapControlEvents(UIControlEvents.valueChanged) { datePicker in datePicker.date }
+        property <~ datepicker.reactive.mapControlEvents(UIControl.Event.valueChanged) { datePicker in datePicker.date }
     }
     
     internal func setZeroTime(to datePicker: UIDatePicker) {
@@ -53,7 +53,7 @@ class RecordTableViewController: UITableViewController {
      - Parameter mode: UIDatePickerMode
      - Parameter property: MutableProperty<Date>
      */
-    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
+    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePicker.Mode,
                                    and property: MutableProperty<Date>) -> UIDatePicker {
         if sender.inputView == nil {
             let datePicker = assingUIDatePicker(to: sender, with: mode)
@@ -76,7 +76,7 @@ class RecordTableViewController: UITableViewController {
      - Parameter property: MutableProperty<Date?>
      - Parameter defaultValue: Date?
     */
-    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePickerMode,
+    internal func handleDatePicker(for sender: UITextField, with mode: UIDatePicker.Mode,
                                    and property: MutableProperty<Date?>, default defaultValue: Date? ) -> UIDatePicker {
         if sender.inputView == nil {
             let datePicker = assingUIDatePicker(to: sender, with: mode)

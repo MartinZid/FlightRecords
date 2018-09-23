@@ -130,12 +130,12 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         let alert = UIAlertController(
             title: NSLocalizedString("Clear confirm", comment: ""),
             message: NSLocalizedString("Clear search confirm message", comment: ""),
-            preferredStyle: UIAlertControllerStyle.alert)
+            preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Clear", comment: ""),
-                                      style: UIAlertActionStyle.default, handler: action))
+                                      style: UIAlertAction.Style.default, handler: action))
         alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""),
-                                      style: UIAlertActionStyle.cancel, handler: nil))
+                                      style: UIAlertAction.Style.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -152,7 +152,7 @@ class SearchViewController: RecordTableViewController, PlanesTableViewController
         return indexPath.row == 4
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.clearPlane()
         }

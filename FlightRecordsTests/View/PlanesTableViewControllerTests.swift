@@ -15,7 +15,7 @@ class PlanesTableViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        controllerUnderTest = UIStoryboard(name: "planes", bundle: nil).instantiateViewController(withIdentifier: "Planes") as! PlanesTableViewController
+        controllerUnderTest = UIStoryboard(name: "planes", bundle: nil).instantiateViewController(withIdentifier: "Planes") as? PlanesTableViewController
     }
     
     override func tearDown() {

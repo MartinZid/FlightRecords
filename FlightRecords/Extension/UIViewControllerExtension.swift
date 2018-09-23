@@ -25,10 +25,10 @@ extension UIViewController {
         let alert = UIAlertController(
             title: NSLocalizedString("Delete confirm", comment: ""),
             message: NSLocalizedString("Delete record confirm message", comment: ""),
-            preferredStyle: UIAlertControllerStyle.alert)
+            preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.default, handler: action))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertAction.Style.default, handler: action))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertAction.Style.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }

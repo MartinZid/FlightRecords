@@ -100,6 +100,8 @@
 		5BD6DC501FC8201C00140F34 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6DC4F1FC8201C00140F34 /* SearchViewModel.swift */; };
 		5BD6DC521FC8205200140F34 /* SearchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD6DC511FC8205200140F34 /* SearchConfiguration.swift */; };
 		5BECAE041F98BEE600A3EA49 /* addFlightRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BECAE021F98BEE600A3EA49 /* addFlightRecord.storyboard */; };
+		5BEE796321033FBE0069E571 /* icons8-airplane-take-off-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEE796221033FBD0069E571 /* icons8-airplane-take-off-64.png */; };
+		5BEE79692103720E0069E571 /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEE79682103720E0069E571 /* launchScreen.png */; };
 		5BF695421FCFF81900D6B9CA /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF695401FCFF81900D6B9CA /* profile.storyboard */; };
 		5BF695461FD00A0D00D6B9CA /* PersonalInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF695451FD00A0D00D6B9CA /* PersonalInformationsViewController.swift */; };
 		5BF695481FD00A3400D6B9CA /* PersonalInformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF695471FD00A3400D6B9CA /* PersonalInformationsViewModel.swift */; };
@@ -224,6 +226,8 @@
 		5BD6DC4F1FC8201C00140F34 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5BD6DC511FC8205200140F34 /* SearchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfiguration.swift; sourceTree = "<group>"; };
 		5BECAE031F98BEE600A3EA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/addFlightRecord.storyboard; sourceTree = "<group>"; };
+		5BEE796221033FBD0069E571 /* icons8-airplane-take-off-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-airplane-take-off-64.png"; sourceTree = "<group>"; };
+		5BEE79682103720E0069E571 /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		5BF695411FCFF81900D6B9CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = FlightRecords/Storyboards/Base.lproj/profile.storyboard; sourceTree = "<group>"; };
 		5BF695451FD00A0D00D6B9CA /* PersonalInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationsViewController.swift; sourceTree = "<group>"; };
 		5BF695471FD00A3400D6B9CA /* PersonalInformationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationsViewModel.swift; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 		5B925553201759C700A47E4E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5BEE79682103720E0069E571 /* launchScreen.png */,
 				5B925554201759D300A47E4E /* Icons */,
 			);
 			path = Images;
@@ -485,6 +490,7 @@
 				5B92555920175ADF00A47E4E /* icons8-air-pilot-hat-50.png */,
 				5B92555B20175B4600A47E4E /* icons8-futures-filled-50.png */,
 				5B92555D20175E5200A47E4E /* icons8-bulleted-list-50.png */,
+				5BEE796221033FBD0069E571 /* icons8-airplane-take-off-64.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -600,11 +606,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Martin Zid";
 				TargetAttributes = {
 					5B7309511F8015F70026152E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -620,6 +627,7 @@
 					};
 					5B7309651F8015F70026152E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5B7309511F8015F70026152E;
 					};
@@ -674,9 +682,11 @@
 				5BD49A8F2019CC7F00711D47 /* table.html in Resources */,
 				5B92555C20175B4600A47E4E /* icons8-futures-filled-50.png in Resources */,
 				5BC363B9201A105000CC91A2 /* thisPageRow02.html in Resources */,
+				5BEE796321033FBE0069E571 /* icons8-airplane-take-off-64.png in Resources */,
 				5B73095B1F8015F70026152E /* Main.storyboard in Resources */,
 				5BC363BB201A106100CC91A2 /* prevPagesRow02.html in Resources */,
 				5B92555E20175E5200A47E4E /* icons8-bulleted-list-50.png in Resources */,
+				5BEE79692103720E0069E571 /* launchScreen.png in Resources */,
 				5B1694821FBD843A000A2B9D /* addSimulatorRecord.storyboard in Resources */,
 				5B45C439205A747E0020F0AD /* records.storyboard in Resources */,
 			);
@@ -945,6 +955,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -952,6 +963,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1003,6 +1015,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1010,6 +1023,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1042,7 +1056,7 @@
 		5B7309701F8015F70026152E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = FlightRecords/FlightRecords.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UDZD4GYB9;
@@ -1056,7 +1070,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = development.FlightRecords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1064,7 +1078,7 @@
 		5B7309711F8015F70026152E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_ENTITLEMENTS = FlightRecords/FlightRecords.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UDZD4GYB9;
@@ -1078,7 +1092,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = development.FlightRecords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1099,7 +1113,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = personal.FlightRecordsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightRecords.app/FlightRecords";
 			};
@@ -1121,7 +1135,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = personal.FlightRecordsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlightRecords.app/FlightRecords";
 			};

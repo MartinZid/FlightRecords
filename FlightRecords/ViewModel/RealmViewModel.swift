@@ -37,8 +37,8 @@ class RealmViewModel {
     let userLoginSignal: Signal<Void, LoginError>
     internal let userLoginObserver: Signal<Void, LoginError>.Observer
     
-//    private let url = "127.0.0.1:9080"
-    private let url = "192.168.1.101:9080"
+    private let url = "127.0.0.1:9080"
+//    private let url = "192.168.1.101:9080"
     
     // MARK: - Initialization
     
@@ -102,7 +102,7 @@ class RealmViewModel {
      - parameters:
      - complete: action which is called with user's token or an error
      */
-    private func getUserICloudID(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
+    private func getUserICloudID(complete: @escaping (_ instance: CKRecord.ID?, _ error: Error?) -> ()) {
         let container = CKContainer.default()
         container.fetchUserRecordID() {
             recordID, error in

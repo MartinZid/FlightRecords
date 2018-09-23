@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KKk-vP-mbB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FSF-br-QzF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -116,13 +116,13 @@
                     <navigationItem key="navigationItem" title="Záznamy" id="KQs-tF-GQT">
                         <barButtonItem key="leftBarButtonItem" title="PDF" id="G3k-iZ-0tf">
                             <connections>
-                                <segue destination="XfN-OZ-ocG" kind="showDetail" identifier="PDF" id="lzs-m7-jnW"/>
+                                <segue destination="0IV-ax-pi0" kind="show" identifier="PDF" id="S2J-Ec-IE6"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="t2x-aO-Eyq">
                                 <connections>
-                                    <segue destination="cFe-Bd-pza" kind="showDetail" id="cWd-M9-DUz"/>
+                                    <segue destination="CjA-yR-1r8" kind="show" id="tB0-yp-0UT"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="search" id="pKT-kt-AHw">
@@ -136,8 +136,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="headerView" destination="CYf-hV-3GU" id="jQI-9U-1ho"/>
-                        <segue destination="Vcn-Cg-E1Q" kind="showDetail" identifier="detailFlight" id="SGi-Ge-Dwj"/>
-                        <segue destination="0SD-La-MJQ" kind="showDetail" identifier="detailFSTD" id="Omd-9A-GEN"/>
+                        <segue destination="Vcn-Cg-E1Q" kind="show" identifier="detailFlight" id="SGi-Ge-Dwj"/>
+                        <segue destination="0SD-La-MJQ" kind="show" identifier="detailFSTD" id="Omd-9A-GEN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE0-ry-MTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,20 +218,6 @@
             <point key="canvasLocation" x="599.20000000000005" y="-170.46476761619192"/>
         </scene>
         <!--Záznamy-->
-        <scene sceneID="gQx-dU-DIG">
-            <objects>
-                <splitViewController id="KKk-vP-mbB" customClass="SplitViewController" customModule="FlightRecords" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Záznamy" image="icons8-bulleted-list-50.png" id="izg-XF-3mU"/>
-                    <connections>
-                        <segue destination="FSF-br-QzF" kind="relationship" relationship="masterViewController" id="PQM-bd-WFt"/>
-                        <segue destination="cFe-Bd-pza" kind="relationship" relationship="detailViewController" id="fpO-2D-rNq"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="luG-gE-yT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2310" y="-933"/>
-        </scene>
-        <!--Záznamy-->
         <scene sceneID="ssD-Tr-Ytc">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-FSF-br-QzF" automaticallyAdjustsScrollViewInsets="NO" id="FSF-br-QzF" sceneMemberID="viewController">
@@ -244,7 +230,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HxC-QL-mR1" kind="relationship" relationship="rootViewController" id="UiO-1V-b2Z"/>
+                        <segue destination="HxC-QL-mR1" kind="relationship" relationship="rootViewController" id="G3A-8k-YOo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEv-ko-Qrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,49 +308,12 @@
             </objects>
             <point key="canvasLocation" x="1295.2" y="-1563.4182908545729"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CCD-x6-oWw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XfN-OZ-ocG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Olz-cT-WHI">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0IV-ax-pi0" kind="relationship" relationship="rootViewController" id="c22-zA-u31"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fE8-la-gUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="259.19999999999999" y="-1926.8365817091455"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GM1-N0-2Q9">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cFe-Bd-pza" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GCJ-yn-20O">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="CjA-yR-1r8" kind="relationship" relationship="rootViewController" id="l6f-kz-tLQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8OK-v1-4D4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-209" y="-170"/>
-        </scene>
     </scenes>
     <resources>
         <image name="icons8-bulleted-list-50.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cWd-M9-DUz"/>
         <segue reference="Omd-9A-GEN"/>
-        <segue reference="WPr-gP-mv9"/>
+        <segue reference="SGi-Ge-Dwj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -89,6 +89,10 @@
 "Server error info message" = "Nastala chyba při komunikaci se serverem. Prosím, zkuste to později.";
 "Login successful" = "Přihlášení, pomocí Vašeho iCloud účtu, bylo úspěšné!";
 
+"New record type" = "Typ nového záznamu";
+"Flight record" = "Záznam letu";
+"FSTD record" = "Záznam ze simulátoru";
+
 
 
 

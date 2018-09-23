@@ -122,7 +122,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="t2x-aO-Eyq">
                                 <connections>
-                                    <segue destination="CjA-yR-1r8" kind="show" id="tB0-yp-0UT"/>
+                                    <action selector="showNewRecordTypeOptions:" destination="HxC-QL-mR1" id="hPp-3N-kFI"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="search" id="pKT-kt-AHw">
@@ -143,79 +143,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE0-ry-MTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="-1030"/>
-        </scene>
-        <!--Typ záznamu-->
-        <scene sceneID="beC-Wk-Rdj">
-            <objects>
-                <tableViewController title="Typ záznamu" id="CjA-yR-1r8" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WN2-bz-cfL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="eMF-Ko-n2j">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="zJ7-8b-4x3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zJ7-8b-4x3" id="5ny-4s-8ye">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Záznam letu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKJ-sT-3sB">
-                                                    <rect key="frame" x="20" y="11.5" width="95" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YKJ-sT-3sB" secondAttribute="trailing" constant="20" symbolic="YES" id="42D-6Q-M8K"/>
-                                                <constraint firstItem="YKJ-sT-3sB" firstAttribute="leading" secondItem="5ny-4s-8ye" secondAttribute="leading" constant="20" symbolic="YES" id="9U1-pN-J3F"/>
-                                                <constraint firstItem="YKJ-sT-3sB" firstAttribute="centerY" secondItem="5ny-4s-8ye" secondAttribute="centerY" id="OdF-5F-59a"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Vcn-Cg-E1Q" kind="show" id="WPr-gP-mv9"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="QAz-bR-s3r">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAz-bR-s3r" id="M9a-hJ-YOy">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Záznam ze simulátoru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2i-Pl-PxL">
-                                                    <rect key="frame" x="20" y="11.5" width="169" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L2i-Pl-PxL" secondAttribute="trailing" constant="20" symbolic="YES" id="JnL-ls-xeb"/>
-                                                <constraint firstItem="L2i-Pl-PxL" firstAttribute="leading" secondItem="M9a-hJ-YOy" secondAttribute="leading" constant="20" symbolic="YES" id="vY2-bt-mw3"/>
-                                                <constraint firstItem="L2i-Pl-PxL" firstAttribute="centerY" secondItem="M9a-hJ-YOy" secondAttribute="centerY" id="xYb-m7-25f"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="0SD-La-MJQ" kind="show" id="Nja-rL-GUa"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="CjA-yR-1r8" id="otq-si-hur"/>
-                            <outlet property="delegate" destination="CjA-yR-1r8" id="fHf-j3-hN9"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Typ nového záznamu" id="mP8-a6-Nl4"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DeV-mC-xq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="599.20000000000005" y="-170.46476761619192"/>
         </scene>
         <!--Záznamy-->
         <scene sceneID="ssD-Tr-Ytc">
@@ -312,8 +239,4 @@
     <resources>
         <image name="icons8-bulleted-list-50.png" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Omd-9A-GEN"/>
-        <segue reference="SGi-Ge-Dwj"/>
-    </inferredMetricsTieBreakers>
 </document>

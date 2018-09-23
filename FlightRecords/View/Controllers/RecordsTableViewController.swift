@@ -56,6 +56,29 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
         }
     }
     
+    // MARK: - UIActions
+    
+    @IBAction func showNewRecordTypeOptions(_ sender: Any) {
+        let actionSheet = UIAlertController(title: NSLocalizedString("New record type", comment: ""), message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Flight record", comment: ""), style: .default, handler: { [weak self] _ in
+            if let viewController = UIStoryboard(name: Identifiers.addFlightRecordSB, bundle: nil).instantiateInitialViewController() as? AddFlightRecordTableViewController {
+                self?.push(viewController)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("FSTD record", comment: ""), style: .default, handler: { [weak self] _ in
+            if let viewController = UIStoryboard(name: Identifiers.addSimulatorRecordSB, bundle: nil).instantiateInitialViewController() as? AddSimulatorRecordTableViewController {
+                self?.push(viewController)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Bindings
     
     private func bindViewModel() {
@@ -131,6 +154,12 @@ class RecordsTableViewController: UITableViewController, SearchViewControllerDel
     private func displayServerErrorAlert() {
         displayErrorAlert(title: NSLocalizedString("Server error", comment: ""),
                           message: NSLocalizedString("Server error info message", comment: ""))
+    }
+    
+    private func push(_ viewController: UIViewController) {
+        if let navigator = navigationController {
+            navigator.pushViewController(viewController, animated: true)
+        }
     }
     
     // MARK: - Actions
